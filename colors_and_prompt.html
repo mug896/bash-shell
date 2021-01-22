@@ -1654,8 +1654,6 @@ tput cnorm
 <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;start download? [y/n]&quot;</span>
 <span class="hljs-built_in">read</span> x
 
-<span class="hljs-comment"># sleep &#xC744; builtin &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. (Builtin Commands &#xBA54;&#xB274;&#xC758; enable &#xBA85;&#xB839; &#xCC38;&#xC870;)</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-operator">-f</span> /usr/lib/bash/sleep sleep
 <span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;printf &quot;$cursor_visible&quot;&apos;</span> EXIT
 
 mkfifo `mktemp -u` &amp;&amp; <span class="hljs-built_in">exec</span> {fd1}&lt;&gt; <span class="hljs-variable">$_</span> || <span class="hljs-built_in">exit</span>
@@ -1740,7 +1738,6 @@ export &#xD55C; &#xD658;&#xACBD; &#xBCC0;&#xC218;&#xB294; child &#xD504;&#xB85C;
 <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;start download? [y/n]&quot;</span>
 <span class="hljs-built_in">read</span> x
 
-<span class="hljs-built_in">enable</span> <span class="hljs-operator">-f</span> /usr/lib/bash/sleep sleep
 <span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;adjust_start&apos;</span> WINCH      <span class="hljs-comment">#  &#xC0AC;&#xC6A9;&#xC790;&#xAC00; &#xC2E4;&#xD589; &#xC911;&#xC5D0; &#xD130;&#xBBF8;&#xB110; &#xCC3D; &#xD06C;&#xAE30;&#xB97C; &#xBCC0;&#xACBD;&#xD588;&#xC744; &#xACBD;&#xC6B0;</span>
 
 <span class="hljs-function"><span class="hljs-title">adjust_start</span></span>() {
@@ -1825,8 +1822,6 @@ adjust_start
 
 <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;start download? [y/n]&quot;</span>
 <span class="hljs-built_in">read</span> x
-
-<span class="hljs-built_in">enable</span> <span class="hljs-operator">-f</span> /usr/lib/bash/sleep sleep
 
 mkfifo `mktemp -u` &amp;&amp; <span class="hljs-built_in">exec</span> {fd1}&lt;&gt; <span class="hljs-variable">$_</span> || <span class="hljs-built_in">exit</span>
 rm <span class="hljs-operator">-f</span> `readlink <span class="hljs-operator">-f</span> /proc/$$/fd/<span class="hljs-variable">$fd1</span>`
