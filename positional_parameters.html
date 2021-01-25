@@ -1729,6 +1729,30 @@ $ ./test.sh
 <span class="hljs-variable">$2</span> : <span class="hljs-number">22</span>
 <span class="hljs-variable">$3</span> : <span class="hljs-number">33</span>
 </code></pre>
+<h1 id="2-">2 .</h1>
+<p><code>foo/bar/file.txt</code> &#xD30C;&#xC77C;&#xC744; <code>mydir</code> &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB85C; &#xBCF5;&#xC0AC;&#xD560; &#xB54C; &#xACB0;&#xACFC;&#xAC00; 
+<code>mydir/file.txt</code> &#xAC00; &#xC544;&#xB2C8;&#xB77C; &#xACBD;&#xB85C;&#xB97C; &#xD3EC;&#xD568;&#xD574;&#xC11C; <code>mydir/foo/bar/file.txt</code> &#xAC00; &#xB420; &#xC218; &#xC788;&#xAC8C; 
+&#xD568;&#xC218;&#xB97C; &#xC791;&#xC131;&#xD558;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;. 
+&#xC774;&#xB54C; &#xD30C;&#xC77C; &#xC774;&#xB984;&#xC5D0;&#xB294; glob  &#xBB38;&#xC790;&#xB97C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-sh"><span class="hljs-function"><span class="hljs-title">cpd</span></span> () {
+    <span class="hljs-keyword">if</span> <span class="hljs-built_in">test</span> <span class="hljs-variable">$#</span> <span class="hljs-operator">-lt</span> <span class="hljs-number">2</span> || <span class="hljs-built_in">test</span> <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span> == <span class="hljs-string">&quot;-h&quot;</span> || <span class="hljs-built_in">test</span> <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span> == <span class="hljs-string">&quot;--help&quot;</span>
+    <span class="hljs-keyword">then</span>
+        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Usage : cpd dir/file dir&quot;</span> &gt;&amp;<span class="hljs-number">2</span>
+        <span class="hljs-built_in">return</span> <span class="hljs-number">1</span>
+    <span class="hljs-keyword">fi</span>
+    <span class="hljs-built_in">local</span> dir=<span class="hljs-variable">${@:$#}</span>/<span class="hljs-variable">${1%/*}</span>                         <span class="hljs-comment"># ${@:$#} &#xB294; &#xB9C8;&#xC9C0;&#xB9C9; &#xC778;&#xC218;&#xAC00; &#xB418;&#xACE0;</span>
+    mkdir -p <span class="hljs-string">&quot;<span class="hljs-variable">$dir</span>&quot;</span> &amp;&amp; cp -r <span class="hljs-string">&quot;<span class="hljs-variable">${@:1:$#-1}</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$dir</span>&quot;</span>     <span class="hljs-comment"># ${@:1:$#-1} &#xB294; &#xB9C8;&#xC9C0;&#xB9C9; &#xC778;&#xC218;&#xB97C;</span>
+}                                                     <span class="hljs-comment"># &#xC81C;&#xC678;&#xD55C; &#xB098;&#xBA38;&#xC9C0; &#xC778;&#xC218;&#xB4E4;&#xC774; &#xB429;&#xB2C8;&#xB2E4;.</span>
+
+$ cpd foo/bar/file.txt mydir
+
+$ cpd foo/bar/*.txt mydir 
+
+<span class="hljs-comment"># &#xC704;&#xC5D0;&#xC11C;&#xCC98;&#xB7FC; &#xD30C;&#xC77C; &#xC774;&#xB984;&#xC5D0; glob &#xBB38;&#xC790;&#xAC00; &#xC0AC;&#xC6A9;&#xB418;&#xBA74; &#xBA85;&#xB839;&#xC774; &#xC2E4;&#xD589;&#xB420; &#xB54C;&#xB294;</span>
+<span class="hljs-comment"># cpd foo/bar/a.txt foo/bar/b.txt foo/bar/c.txt mydir &#xD615;&#xD0DC;&#xAC00; &#xB429;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-comment"># &#xC774;&#xB54C; ${@:$#} &#xAC12;&#xC740; &#xB9C8;&#xC9C0;&#xB9C9; &#xC778;&#xC218;&#xC778; mydir &#xAC00; &#xB418;&#xACE0; </span>
+<span class="hljs-comment"># ${@:1:$#-1} &#xC758; &#xAC12;&#xC740; mydir &#xB97C; &#xC81C;&#xC678;&#xD55C; &#xB098;&#xBA38;&#xC9C0; &#xC778;&#xC218;&#xB4E4;&#xC774; &#xB429;&#xB2C8;&#xB2E4;.</span>
+</code></pre>
 
                     
                     </section>
