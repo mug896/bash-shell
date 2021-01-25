@@ -1735,7 +1735,7 @@ $ ./test.sh
 &#xD568;&#xC218;&#xB97C; &#xC791;&#xC131;&#xD558;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;. 
 &#xC774;&#xB54C; &#xD30C;&#xC77C; &#xC774;&#xB984;&#xC5D0;&#xB294; glob  &#xBB38;&#xC790;&#xB97C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-sh"><span class="hljs-function"><span class="hljs-title">cpd</span></span> () {
-    <span class="hljs-keyword">if</span> <span class="hljs-built_in">test</span> <span class="hljs-variable">$#</span> <span class="hljs-operator">-lt</span> <span class="hljs-number">2</span> || <span class="hljs-built_in">test</span> <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span> == <span class="hljs-string">&quot;-h&quot;</span> || <span class="hljs-built_in">test</span> <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span> == <span class="hljs-string">&quot;--help&quot;</span>
+    <span class="hljs-keyword">if</span> <span class="hljs-built_in">test</span> <span class="hljs-variable">$#</span> <span class="hljs-operator">-lt</span> <span class="hljs-number">2</span> -o <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span> == <span class="hljs-string">&quot;-h&quot;</span> -o <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span> == <span class="hljs-string">&quot;--help&quot;</span>
     <span class="hljs-keyword">then</span>
         <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Usage : cpd dir/file dir&quot;</span> &gt;&amp;<span class="hljs-number">2</span>
         <span class="hljs-built_in">return</span> <span class="hljs-number">1</span>
