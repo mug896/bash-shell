@@ -1741,7 +1741,7 @@ $ ./test.sh
         <span class="hljs-built_in">return</span> <span class="hljs-number">1</span>
     <span class="hljs-keyword">fi</span>
     <span class="hljs-built_in">local</span> dir=<span class="hljs-variable">${@:$#}</span>/<span class="hljs-variable">${1%/*}</span>                          <span class="hljs-comment"># ${@:$#} &#xB294; &#xB9C8;&#xC9C0;&#xB9C9; &#xC778;&#xC218;&#xAC00; &#xB418;&#xACE0;</span>
-    mkdir -p <span class="hljs-string">&quot;<span class="hljs-variable">$dir</span>&quot;</span> &amp;&amp; cp -r <span class="hljs-string">&quot;<span class="hljs-variable">${@:1:$#-1}</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$dir</span>/&quot;</span>     <span class="hljs-comment"># ${@:1:$#-1} &#xB294; &#xB9C8;&#xC9C0;&#xB9C9; &#xC778;&#xC218;&#xB97C;</span>
+    mkdir -p <span class="hljs-string">&quot;<span class="hljs-variable">$dir</span>&quot;</span> &amp;&amp; cp -r <span class="hljs-string">&quot;<span class="hljs-variable">${@:1:$#-1}</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$dir</span>&quot;</span>      <span class="hljs-comment"># ${@:1:$#-1} &#xB294; &#xB9C8;&#xC9C0;&#xB9C9; &#xC778;&#xC218;&#xB97C;</span>
 }                                                      <span class="hljs-comment"># &#xC81C;&#xC678;&#xD55C; &#xB098;&#xBA38;&#xC9C0; &#xC778;&#xC218;&#xB4E4;&#xC774; &#xB41C;&#xB2E4;.</span>
 
 $ cpd foo/bar/file.txt mydir
