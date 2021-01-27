@@ -2060,7 +2060,7 @@ lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-nu
 <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;sys/un.h&gt;</span></span>
 <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;sys/epoll.h&gt;</span></span>
 
-<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> err_exit( msg ) do { perror (msg); exit (<span class="hljs-number">1</span>); } while (<span class="hljs-number">0</span>)</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> error_exit( msg ) do { perror (msg); exit (<span class="hljs-number">1</span>); } while (<span class="hljs-number">0</span>)</span>
 
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> 
 </span>{
@@ -2071,7 +2071,7 @@ lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-nu
         .sun_path    = <span class="hljs-string">&apos;\0&apos;</span>,           <span class="hljs-comment">// &#xB610;&#xB294; &quot;mysock&quot;</span>
     };
     <span class="hljs-keyword">int</span> ret = connect (sockfd, (<span class="hljs-keyword">struct</span> sockaddr *) &amp;addr_un, <span class="hljs-keyword">sizeof</span> (addr_un));
-    <span class="hljs-keyword">if</span> (ret == -<span class="hljs-number">1</span>) err_exit (<span class="hljs-string">&quot;connect()&quot;</span>);
+    <span class="hljs-keyword">if</span> (ret == -<span class="hljs-number">1</span>) error_exit (<span class="hljs-string">&quot;connect()&quot;</span>);
 
     <span class="hljs-keyword">int</span> epollfd = epoll_create(<span class="hljs-number">1</span>);     <span class="hljs-comment">// &#xC785;&#xB825;&#xC744; stdin &#xACFC; socket &#xB450; &#xAD70;&#xB370;&#xC11C; &#xBC1B;&#xC544;&#xC57C;</span>
     <span class="hljs-keyword">struct</span> epoll_event ev;             <span class="hljs-comment">// &#xD558;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; I/O multiplexer epoll &#xC744; &#xC0AC;&#xC6A9;</span>
