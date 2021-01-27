@@ -1641,8 +1641,8 @@ $ &gt; filename
 </code></pre>
 <p>&#xB2E4;&#xC74C;&#xC740; &#xC2E4;&#xC81C; &#xD30C;&#xC77C;&#xC774; &#xC5B4;&#xB5BB;&#xAC8C; &#xC0AD;&#xC81C;&#xB418;&#xB294;&#xC9C0; &#xC54C;&#xC544;&#xBCF4;&#xAE30; &#xC704;&#xD55C; C &#xCF54;&#xB4DC;&#xC778;&#xB370;&#xC694;.
 <code>mkstemp()</code> &#xD568;&#xC218;&#xB97C; &#xC774;&#xC6A9;&#xD574; &#xC0DD;&#xC131;&#xD55C; &#xC784;&#xC2DC;&#xD30C;&#xC77C;&#xC744; <code>unlink()</code> &#xB97C; &#xC774;&#xC6A9;&#xD574;
-&#xC0AD;&#xC81C;&#xB97C; &#xD574;&#xB3C4; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0;&#xC11C;&#xB294; &#xD30C;&#xC77C;&#xC774; &#xC81C;&#xAC70;&#xB418;&#xC9C0;&#xB9CC; &#xAE30;&#xC874;&#xC5D0; open &#xD55C; <code>fd</code> &#xAC00; &#xB0A8;&#xC544;&#xC788;&#xC73C;&#xBBC0;&#xB85C; &#xACC4;&#xC18D;&#xD574;&#xC11C; 
-&#xC4F0;&#xAE30;&#xC640; &#xC77D;&#xAE30;&#xAC00; &#xB418;&#xB294; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+&#xC0AD;&#xC81C;&#xB97C; &#xD574;&#xB3C4; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0;&#xC11C;&#xB294; &#xD30C;&#xC77C;&#xC774; &#xC81C;&#xAC70;&#xB418;&#xC9C0;&#xB9CC; &#xAE30;&#xC874;&#xC5D0; open &#xD55C; <code>fd</code> &#xAC00; &#xB0A8;&#xC544;&#xC788;&#xAE30; &#xB54C;&#xBB38;&#xC5D0;
+&#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C; &#xC4F0;&#xAE30;&#xC640; &#xC77D;&#xAE30;&#xAC00; &#xB418;&#xB294; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-c">$ gcc -g -xc - &lt;&lt;\@ &amp;&amp; ./a.out
 <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
 <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span></span>
@@ -1685,12 +1685,12 @@ total <span class="hljs-number">20</span>
 -rwxrwxr-x <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">19664</span> Jan <span class="hljs-number">27</span> <span class="hljs-number">14</span>:<span class="hljs-number">29</span> a.out          <span class="hljs-comment">// &#xC784;&#xC2DC;&#xD30C;&#xC77C; &#xC0AD;&#xC81C;&#xB428;</span>
 
 &gt;&gt;&gt; WRITE to tempfile FD          <span class="hljs-comment">// &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0;&#xC11C; &#xD30C;&#xC77C;&#xC740; &#xC0AD;&#xC81C;&#xB418;&#xC5C8;&#xC9C0;&#xB9CC;</span>
-                                  <span class="hljs-comment">// open &#xD55C; fd &#xAC00; &#xB0A8;&#xC544;&#xC788;&#xC73C;&#xBBC0;&#xB85C; &#xC4F0;&#xAE30;&#xAC00; &#xB418;&#xACE0;</span>
+                                  <span class="hljs-comment">// open &#xD55C; fd &#xAC00; &#xB0A8;&#xC544;&#xC788;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xC4F0;&#xAE30;&#xAC00; &#xB418;&#xACE0;</span>
 &gt;&gt;&gt; READ from tempfile FD         <span class="hljs-comment">// &#xC77D;&#xAE30;&#xB3C4; &#xB41C;&#xB2E4;.</span>
 hello world
 </code></pre>
 <p>&#xB530;&#xB77C;&#xC11C; &#xD574;&#xB2F9; &#xD30C;&#xC77C;&#xACFC; &#xC5F0;&#xACB0;&#xB41C; &#xBAA8;&#xB4E0; &#xB9C1;&#xD06C;&#xAC00; unlink &#xAC00; &#xB418;&#xACE0; open &#xD574;&#xC11C; &#xC0AC;&#xC6A9; &#xC911;&#xC778; <code>fd</code> &#xAC00;
-&#xBAA8;&#xB450; close &#xB3FC;&#xC57C; &#xC2E4;&#xC81C; &#xD30C;&#xC77C; &#xB0B4;&#xC6A9;&#xC774; &#xD30C;&#xC77C; &#xC2DC;&#xC2A4;&#xD15C;&#xC5D0;&#xC11C; &#xC81C;&#xAC70;&#xAC00; &#xB418;&#xAC8C;  &#xB429;&#xB2C8;&#xB2E4;.
+&#xBAA8;&#xB450; close &#xB3FC;&#xC57C; &#xC2E4;&#xC81C; &#xD30C;&#xC77C; &#xB0B4;&#xC6A9;&#xC774; &#xD30C;&#xC77C; &#xC2DC;&#xC2A4;&#xD15C;&#xC5D0;&#xC11C; &#xC81C;&#xAC70;&#xAC00; &#xB429;&#xB2C8;&#xB2E4;.
 shell &#xC5D0;&#xC11C; &#xB9C1;&#xD06C;&#xB97C; &#xC0DD;&#xC131;&#xD560; &#xB54C;&#xB294; <code>link</code> &#xBA85;&#xB839;&#xC744;, &#xC0AD;&#xC81C;&#xD560; &#xB54C;&#xB294; <code>unlink</code> &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-sh">$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;this is a test&quot;</span> &gt; foo
 
