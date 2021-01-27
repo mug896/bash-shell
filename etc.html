@@ -1689,22 +1689,18 @@ coreutils: /usr/bin/nproc
 $ dpkg -L coreutils
 </code></pre>
 <h1 id="3-">3 .</h1>
-<p><code>df</code> &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; &#xB9C8;&#xC6B4;&#xD2B8;&#xB41C; &#xD30C;&#xC77C; &#xC2DC;&#xC2A4;&#xD15C;&#xBCC4;&#xB85C; &#xB514;&#xC2A4;&#xD06C; &#xC0AC;&#xC6A9;&#xB7C9;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xB294;&#xB370;&#xC694;.<br>&#xD604;&#xC7AC; &#xC704;&#xCE58;&#xC5D0; &#xD574;&#xB2F9;&#xD558;&#xB294; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC758; &#xB9C8;&#xC6B4;&#xD2B8; &#xC815;&#xBCF4;&#xB294; &#xC5B4;&#xB5BB;&#xAC8C; &#xC54C; &#xC218; &#xC788;&#xC744;&#xAE4C;&#xC694;?</p>
-<pre><code class="lang-sh">$ <span class="hljs-built_in">cd</span> ~                <span class="hljs-comment"># $HOME &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB85C; &#xC774;&#xB3D9;</span>
+<p><code>df</code> &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; &#xB9C8;&#xC6B4;&#xD2B8;&#xB41C; &#xD30C;&#xC77C; &#xC2DC;&#xC2A4;&#xD15C;&#xBCC4;&#xB85C; &#xB514;&#xC2A4;&#xD06C; &#xC0AC;&#xC6A9;&#xB7C9;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xB294;&#xB370;&#xC694;.<br>&#xD2B9;&#xC815; &#xACBD;&#xB85C;&#xAC00; &#xC5B4;&#xB5A4; &#xD30C;&#xC77C; &#xC2DC;&#xC2A4;&#xD15C;&#xC5D0; &#xC18D;&#xD558;&#xB294;&#xC9C0; &#xB9C8;&#xC6B4;&#xD2B8; &#xC815;&#xBCF4;&#xB294; &#xC5B4;&#xB5BB;&#xAC8C; &#xC54C; &#xC218; &#xC788;&#xC744;&#xAE4C;&#xC694;?</p>
+<pre><code class="lang-sh">$ <span class="hljs-built_in">cd</span> ~                  <span class="hljs-comment"># $HOME &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB85C; &#xC774;&#xB3D9;</span>
 
-$ findmnt -T .        <span class="hljs-comment"># $HOME &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB294; &apos;/&apos; &#xC5D0; &#xB9C8;&#xC6B4;&#xD2B8;&#xB41C; /dev/sda5 &#xD30C;&#xC77C; &#xC2DC;&#xC2A4;&#xD15C;&#xC5D0; &#xC18D;&#xD55C;&#xB2E4;.</span>
+$ findmnt -T .          <span class="hljs-comment"># $HOME &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB294; &apos;/&apos; &#xC5D0; &#xB9C8;&#xC6B4;&#xD2B8;&#xB41C; /dev/sda5 &#xD30C;&#xC77C; &#xC2DC;&#xC2A4;&#xD15C;&#xC5D0; &#xC18D;&#xD55C;&#xB2E4;.</span>
 TARGET SOURCE    FSTYPE OPTIONS
 /      /dev/sda5 ext4   rw,relatime,errors=remount-ro
 
-$ <span class="hljs-built_in">cd</span> /dev/shm
-
-$ findmnt -T .        <span class="hljs-comment"># /dev/shm &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB294; /dev/shm &#xC5D0; &#xB9C8;&#xC6B4;&#xD2B8;&#xB41C; tmpfs &#xD30C;&#xC77C; &#xC2DC;&#xC2A4;&#xD15C;&#xC5D0; &#xC18D;&#xD55C;&#xB2E4;.</span>
+$ findmnt -T /dev/shm   <span class="hljs-comment"># /dev/shm &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB294; /dev/shm &#xC5D0; &#xB9C8;&#xC6B4;&#xD2B8;&#xB41C; tmpfs &#xD30C;&#xC77C; &#xC2DC;&#xC2A4;&#xD15C;&#xC5D0; &#xC18D;&#xD55C;&#xB2E4;.</span>
 TARGET   SOURCE FSTYPE OPTIONS
 /dev/shm tmpfs  tmpfs  rw,nosuid,nodev
 
-$ <span class="hljs-built_in">cd</span> ~
-
-$ findmnt -o SOURCE -nT .     <span class="hljs-comment"># -o &#xC635;&#xC158;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; &#xD2B9;&#xC815; &#xD56D;&#xBAA9;&#xB9CC; &#xAD6C;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
+$ findmnt -o SOURCE -nT /home    <span class="hljs-comment"># -o &#xC635;&#xC158;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; &#xD2B9;&#xC815; &#xD56D;&#xBAA9;&#xB9CC; &#xAD6C;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
 /dev/sda5
 </code></pre>
 
