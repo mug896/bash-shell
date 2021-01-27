@@ -1901,7 +1901,7 @@ C &#xC5B8;&#xC5B4;&#xB85C; &#xC791;&#xC131;&#xD55C; &#xBA85;&#xB839;&#xC774; 3 &
 <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;string.h&gt;</span></span>
 <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdint.h&gt;</span></span>
 
-<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> err_exit(dir, msg) do { \
+<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> error_exit(dir, msg) do { \
     fprintf (stderr, <span class="hljs-string">&quot;%s : &quot;</span>, dir);  perror (msg); \
     exit (EXIT_FAILURE); \
 } while (<span class="hljs-number">0</span>)</span>
@@ -1911,7 +1911,8 @@ C &#xC5B8;&#xC5B4;&#xB85C; &#xC791;&#xC131;&#xD55C; &#xBA85;&#xB839;&#xC774; 3 &
     <span class="hljs-keyword">uintmax_t</span> total_size = <span class="hljs-number">0</span>;
 
     DIR *dir = opendir (dirname);
-    <span class="hljs-keyword">if</span> (dir == <span class="hljs-literal">NULL</span>) err_exit (dirname, <span class="hljs-string">&quot;opendir()&quot;</span>);
+    <span class="hljs-keyword">if</span> (dir == <span class="hljs-literal">NULL</span>)
+        error_exit (dirname, <span class="hljs-string">&quot;opendir()&quot;</span>);
     <span class="hljs-keyword">struct</span> dirent *de;
     <span class="hljs-keyword">while</span> ((de = readdir (dir)) != <span class="hljs-literal">NULL</span>) 
     {
@@ -1922,7 +1923,7 @@ C &#xC5B8;&#xC5B4;&#xB85C; &#xC791;&#xC131;&#xD55C; &#xBA85;&#xB839;&#xC774; 3 &
             <span class="hljs-keyword">if</span> (de-&gt;d_type == DT_REG) {             <span class="hljs-comment">// regular file &#xB9CC; &#xACC4;&#xC0B0;</span>
                 <span class="hljs-keyword">struct</span> stat buf;
                 <span class="hljs-keyword">if</span> (stat (path, &amp;buf) == -<span class="hljs-number">1</span>) 
-                    err_exit (path, <span class="hljs-string">&quot;stat()&quot;</span>);
+                    error_exit (path, <span class="hljs-string">&quot;stat()&quot;</span>);
                 <span class="hljs-keyword">else</span> 
                     total_size += buf.st_size;
             } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (de-&gt;d_type == DT_DIR)        <span class="hljs-comment">// directory &#xC77C; &#xACBD;&#xC6B0;</span>
@@ -1939,7 +1940,8 @@ C &#xC5B8;&#xC5B4;&#xB85C; &#xC791;&#xC131;&#xD55C; &#xBA85;&#xB839;&#xC774; 3 &
 
     <span class="hljs-keyword">if</span> (argc &gt; <span class="hljs-number">1</span>) {
         dir = realpath (argv[<span class="hljs-number">1</span>], <span class="hljs-literal">NULL</span>);
-        <span class="hljs-keyword">if</span> (dir == <span class="hljs-literal">NULL</span>) err_exit (argv[<span class="hljs-number">1</span>], <span class="hljs-string">&quot;realpath()&quot;</span>);
+        <span class="hljs-keyword">if</span> (dir == <span class="hljs-literal">NULL</span>) 
+            error_exit (argv[<span class="hljs-number">1</span>], <span class="hljs-string">&quot;realpath()&quot;</span>);
     } <span class="hljs-keyword">else</span>
         dir = realpath (<span class="hljs-string">&quot;.&quot;</span>, <span class="hljs-literal">NULL</span>);
 
