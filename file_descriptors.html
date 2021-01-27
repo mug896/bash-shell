@@ -1663,7 +1663,7 @@ $ &gt; filename
     system (<span class="hljs-string">&quot;ls -l&quot;</span>);
 
     <span class="hljs-built_in">puts</span> (<span class="hljs-string">&quot;\n&gt;&gt;&gt; WRITE to tempfile FD&quot;</span>);
-    FILE *fh = fdopen (fd, <span class="hljs-string">&quot;r+&quot;</span>);            <span class="hljs-comment">// fd &#xB97C; FILE * &#xB85C; &#xBCC0;&#xD658; &#xD6C4; </span>
+    FILE *fh = fdopen (fd, <span class="hljs-string">&quot;r+&quot;</span>);            <span class="hljs-comment">// fd &#xB97C; FILE * &#xB85C; &#xBCC0;&#xACBD; &#xD6C4; </span>
     <span class="hljs-built_in">fputs</span> (msg, fh);                         <span class="hljs-comment">// FILE *fh &#xC5D0; msg &#xB97C; write.</span>
 
     <span class="hljs-built_in">puts</span> (<span class="hljs-string">&quot;\n&gt;&gt;&gt; READ from tempfile FD&quot;</span>);
