@@ -1676,7 +1676,7 @@ $ rm <span class="hljs-operator">-f</span> /dev/shm/hello
 $ grep Shmem: /proc/meminfo
 Shmem:            <span class="hljs-number">541804</span> kB
 </code></pre>
-<h1 id="2">2.</h1>
+<h1 id="2-">2 .</h1>
 <p>&#xD604;&#xC7AC; &#xC2E4;&#xD589;&#xB418;&#xB294; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9; &#xAC00;&#xB2A5;&#xD55C; cpu &#xAC1C;&#xC218;&#xB97C; &#xC54C;&#xB824;&#xBA74; &#xC5B4;&#xB5BB;&#xAC8C; &#xD560;&#xAE4C;&#xC694;?</p>
 <pre><code class="lang-bash">$ nproc
 <span class="hljs-number">8</span>
@@ -1687,6 +1687,25 @@ coreutils: /usr/bin/nproc
 
 <span class="hljs-comment"># coreutils &#xD328;&#xD0A4;&#xC9C0;&#xC5D0; &#xD3EC;&#xD568;&#xB41C; &#xBA85;&#xB839;&#xB4E4;&#xC744; &#xBCF4;&#xB824;&#xBA74;</span>
 $ dpkg -L coreutils
+</code></pre>
+<h1 id="3-">3 .</h1>
+<p><code>df</code> &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; &#xB9C8;&#xC6B4;&#xD2B8;&#xB41C; &#xD30C;&#xC77C; &#xC2DC;&#xC2A4;&#xD15C;&#xBCC4;&#xB85C; &#xB514;&#xC2A4;&#xD06C; &#xC0AC;&#xC6A9;&#xB7C9;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xB294;&#xB370;&#xC694;.<br>&#xD604;&#xC7AC; &#xC704;&#xCE58;&#xC5D0; &#xD574;&#xB2F9;&#xD558;&#xB294; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC758; &#xB9C8;&#xC6B4;&#xD2B8; &#xC815;&#xBCF4;&#xB294; &#xC5B4;&#xB5BB;&#xAC8C; &#xC54C; &#xC218; &#xC788;&#xC744;&#xAE4C;&#xC694;?</p>
+<pre><code class="lang-sh">$ <span class="hljs-built_in">cd</span> ~                <span class="hljs-comment"># $HOME &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB85C; &#xC774;&#xB3D9;</span>
+
+$ findmnt -T .        <span class="hljs-comment"># $HOME &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB294; /dev/sda5 &#xD30C;&#xC77C; &#xC2DC;&#xC2A4;&#xD15C;&#xC5D0; &#xC18D;&#xD558;&#xACE0; &apos;/&apos; &#xC5D0; &#xB9C8;&#xC6B4;&#xD2B8;&#xB428;.</span>
+TARGET SOURCE    FSTYPE OPTIONS
+/      /dev/sda5 ext4   rw,relatime,errors=remount-ro
+
+$ <span class="hljs-built_in">cd</span> /dev/shm
+
+$ findmnt -T .        <span class="hljs-comment"># /dev/shm &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB294; tmpfs &#xD30C;&#xC77C; &#xC2DC;&#xC2A4;&#xD15C;&#xC5D0; &#xC18D;&#xD558;&#xACE0; /dev/shm &#xC5D0; &#xB9C8;&#xC6B4;&#xB4DC;&#xB428;.</span>
+TARGET   SOURCE FSTYPE OPTIONS
+/dev/shm tmpfs  tmpfs  rw,nosuid,nodev
+
+$ <span class="hljs-built_in">cd</span> ~
+
+$ findmnt -o SOURCE -nT .     <span class="hljs-comment"># -o &#xC635;&#xC158;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; &#xD2B9;&#xC815; &#xD56D;&#xBAA9;&#xB9CC; &#xAD6C;&#xD560;&#xC218; &#xC788;&#xB2E4;.</span>
+/dev/sda5
 </code></pre>
 
                     
