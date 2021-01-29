@@ -1915,8 +1915,8 @@ C &#xC5B8;&#xC5B4;&#xB85C; &#xC791;&#xC131;&#xD55C; &#xBA85;&#xB839;&#xC774; 3 &
         error_exit (dirname, <span class="hljs-string">&quot;opendir()&quot;</span>);
     <span class="hljs-keyword">struct</span> dirent *de;
     <span class="hljs-keyword">while</span> ((de = readdir (dir)) != <span class="hljs-literal">NULL</span>) 
-    {
-        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">strcmp</span> (de-&gt;d_name, <span class="hljs-string">&quot;.&quot;</span>) &amp;&amp; <span class="hljs-built_in">strcmp</span> (de-&gt;d_name, <span class="hljs-string">&quot;..&quot;</span>))   <span class="hljs-comment">// &quot;.&quot; &quot;..&quot; &#xB294; &#xC81C;&#xC678;</span>
+    {       <span class="hljs-comment">// &quot;.&quot; &#xC640; &quot;..&quot; &#xB294; &#xC81C;&#xC678;</span>
+        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">strcmp</span> (de-&gt;d_name, <span class="hljs-string">&quot;.&quot;</span>) &amp;&amp; <span class="hljs-built_in">strcmp</span> (de-&gt;d_name, <span class="hljs-string">&quot;..&quot;</span>))
         {
             <span class="hljs-keyword">char</span> path [PATH_MAX];
             <span class="hljs-built_in">sprintf</span> (path, <span class="hljs-string">&quot;%s%s%s&quot;</span>, dirname, <span class="hljs-string">&quot;/&quot;</span>, de-&gt;d_name);
