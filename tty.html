@@ -1693,6 +1693,28 @@ wc &#xBA85;&#xB839;&#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xC911;&#xC778; read &#xD56
 &#xC774;&#xB54C;&#xB3C4; &#xC885;&#xB8CC;&#xB97C; &#xC704;&#xD574; <code>quit()</code> &#xC774;&#xB098; <code>exit()</code> &#xC744; &#xC2E4;&#xD589;&#xD558;&#xC9C0; &#xC54A;&#xC544;&#xB3C4; <code>ctrl-d</code> &#xB97C; &#xB204;&#xB974;&#xBA74;
 &#xBC14;&#xB85C; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC774; &#xC885;&#xB8CC;&#xB429;&#xB2C8;&#xB2E4;.</p>
 </blockquote>
+<p><code>fread()</code> , <code>fwrite()</code> &#xD568;&#xC218;&#xC640; &#xB2EC;&#xB9AC; &#xC800;&#xC218;&#xC900; &#xD568;&#xC218;&#xC778; <code>read()</code> , <code>write()</code> &#xD568;&#xC218;&#xB294;
+&#xB530;&#xB85C; <code>feof()</code> &#xD568;&#xC218;&#xAC00; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.
+<code>read()</code> &#xD588;&#xC744;&#xB54C; <code>0</code> bytes &#xC774; &#xBC18;&#xD658;&#xB418;&#xBA74; &#xADF8;&#xAC8C; &#xD30C;&#xC77C;&#xC758; &#xB05D;&#xC774; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-c">$ gcc -g -xc - &lt;&lt;\@ &amp;&amp; ./a.out
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;unistd.h&gt;</span></span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;fcntl.h&gt;</span></span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-keyword">char</span> buf[<span class="hljs-number">10</span>];
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span> <span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">int</span> fd = open (<span class="hljs-string">&quot;/etc/hosts&quot;</span>, O_RDONLY);
+    <span class="hljs-keyword">ssize_t</span> rbytes;
+    <span class="hljs-keyword">while</span> (<span class="hljs-number">0</span> != (rbytes = read (fd, buf, <span class="hljs-number">10</span>)))    <span class="hljs-comment">// &apos;0&apos; bytes &#xC774; &#xBC18;&#xD658;&#xB418;&#xBA74; &#xD30C;&#xC77C;&#xC758; &#xB05D;&#xC774;&#xB41C;&#xB2E4;.</span>
+        write (STDOUT_FILENO, buf, rbytes);
+}
+@
+
+<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>      localhost
+<span class="hljs-number">127.0</span><span class="hljs-number">.1</span><span class="hljs-number">.1</span>      EliteBook
+. . .
+</code></pre>
 <h2 id="race-condition">Race Condition</h2>
 <p>&#xB2E4;&#xC74C;&#xC740; &#xD558;&#xB098;&#xC758; &#xD130;&#xBBF8;&#xB110;&#xC5D0;&#xC11C; &#xB450;&#xAC1C;&#xC758; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xAC01;&#xAC01; stdout, stderr &#xB85C; &#xCD9C;&#xB825;&#xD558;&#xB294; &#xACBD;&#xC6B0;&#xC785;&#xB2C8;&#xB2E4;. 
 echo, date &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xAD6C;&#xC131;&#xB41C; &#xCCAB;&#xBC88;&#xC9F8; &#xBA85;&#xB839;&#xADF8;&#xB8F9;&#xC740; &#xC0C8;&#xB85C; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB97C; &#xC0DD;&#xC131;&#xD558;&#xC5EC; stdout &#xC73C;&#xB85C; &#xCD9C;&#xB825;&#xC744; &#xD558;&#xACE0; &#xC788;&#xACE0;
