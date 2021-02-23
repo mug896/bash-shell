@@ -1976,9 +1976,9 @@ CLONE_FS &#xC740; &#xD30C;&#xC77C;&#xC2DC;&#xC2A4;&#xD15C;&#xC744; &#xACF5;&#xC7
 
 <span class="hljs-function"><span class="hljs-keyword">void</span> *<span class="hljs-title">runfunc</span> <span class="hljs-params">(<span class="hljs-keyword">void</span> *arg)</span>
 </span>{
-    <span class="hljs-keyword">size_t</span> no = (<span class="hljs-keyword">size_t</span>) arg;
+    <span class="hljs-keyword">int</span> no = (<span class="hljs-keyword">intptr_t</span>) arg;
 
-    <span class="hljs-built_in">printf</span> (<span class="hljs-string">&quot;NO %lu, SELF : %lu, TID : %d, PID : %d\n&quot;</span>
+    <span class="hljs-built_in">printf</span> (<span class="hljs-string">&quot;NO %d, SELF : %lu, TID : %d, PID : %d\n&quot;</span>
             ,no , pthread_self(), gettid(), getpid());
 
     <span class="hljs-comment">// return &#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xB41C; &#xAC12;&#xC740; &#xC2A4;&#xB808;&#xB4DC;&#xC758; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC73C;&#xB85C; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.</span>
@@ -1992,7 +1992,7 @@ CLONE_FS &#xC740; &#xD30C;&#xC77C;&#xC2DC;&#xC2A4;&#xD15C;&#xC744; &#xACF5;&#xC7
     <span class="hljs-keyword">pthread_t</span> thread [num];
 
     <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= num; i++)
-        pthread_create (&amp;thread[i], <span class="hljs-literal">NULL</span>, runfunc, (<span class="hljs-keyword">void</span> *)(<span class="hljs-keyword">size_t</span>) i);
+        pthread_create (&amp;thread[i], <span class="hljs-literal">NULL</span>, runfunc, (<span class="hljs-keyword">void</span> *)(<span class="hljs-keyword">intptr_t</span>) i);
 
     <span class="hljs-comment">// main &#xC2A4;&#xB808;&#xB4DC;&#xAC00; pthread_exit() &#xC744; &#xD558;&#xBA74; &#xBAA8;&#xB4E0; child &#xC2A4;&#xB808;&#xB4DC;&#xAC00; &#xC885;&#xB8CC;&#xB41C; &#xD6C4;&#xC5D0; &#xC885;&#xB8CC;&#xB429;&#xB2C8;&#xB2E4;.</span>
     pthread_exit (<span class="hljs-literal">NULL</span>);
@@ -2094,6 +2094,7 @@ sys     <span class="hljs-number">0</span>m0<span class="hljs-number">.481</span
 <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;unistd.h&gt;</span></span>
 <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;signal.h&gt;</span></span>
 <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdint.h&gt;</span></span>
 
 <span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> COMMAND <span class="hljs-string">&quot;sed -En &apos;/MemAvail/{ s/.*\\b([0-9]+).*/\\1/p }&apos; /proc/meminfo&quot;</span></span>
 <span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> GET_MEM_SIZE( $var ) do { \
@@ -2117,7 +2118,7 @@ sys     <span class="hljs-number">0</span>m0<span class="hljs-number">.481</span
 
     <span class="hljs-keyword">pthread_t</span> thread;
     <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= num; i++)
-        pthread_create (&amp;thread, <span class="hljs-literal">NULL</span>, runfunc, (<span class="hljs-keyword">void</span> *)(<span class="hljs-keyword">size_t</span>) i);
+        pthread_create (&amp;thread, <span class="hljs-literal">NULL</span>, runfunc, (<span class="hljs-keyword">void</span> *)(<span class="hljs-keyword">intptr_t</span>) i);
 
     GET_MEM_SIZE (size2);
     <span class="hljs-built_in">printf</span> (<span class="hljs-string">&quot;%d KB\n&quot;</span>, size1 - size2);
