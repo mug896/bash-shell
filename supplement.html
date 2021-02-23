@@ -2059,7 +2059,7 @@ sys     <span class="hljs-number">0</span>m0<span class="hljs-number">.481</span
 <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;signal.h&gt;</span></span>
 <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
 
-<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> COMMAND <span class="hljs-string">&quot;sed -En &apos;/MemAvail/{ s/.*\\b([0-9]+).*/\\1/p }&apos; /proc/meminfo&quot;</span></span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> COMMAND <span class="hljs-string">&quot;sed -En &apos;/MemAvail/{ s/([0-9]+)|./\\1/gp }&apos; /proc/meminfo&quot;</span></span>
 <span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> GET_MEM_SIZE( $var ) do { \
     char buf [<span class="hljs-number">15</span>]; \
     FILE *fp = popen (COMMAND, <span class="hljs-string">&quot;r&quot;</span>); \
@@ -2096,7 +2096,7 @@ sys     <span class="hljs-number">0</span>m0<span class="hljs-number">.481</span
 <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
 <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdint.h&gt;</span></span>
 
-<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> COMMAND <span class="hljs-string">&quot;sed -En &apos;/MemAvail/{ s/.*\\b([0-9]+).*/\\1/p }&apos; /proc/meminfo&quot;</span></span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> COMMAND <span class="hljs-string">&quot;sed -En &apos;/MemAvail/{ s/([0-9]+)|./\\1/gp }&apos; /proc/meminfo&quot;</span></span>
 <span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> GET_MEM_SIZE( $var ) do { \
     char buf [<span class="hljs-number">15</span>]; \
     FILE *fp = popen (COMMAND, <span class="hljs-string">&quot;r&quot;</span>); \
