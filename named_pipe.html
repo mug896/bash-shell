@@ -2091,7 +2091,8 @@ lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-nu
         <span class="hljs-keyword">if</span> (events[<span class="hljs-number">0</span>].data.fd == STDIN_FILENO) {
             <span class="hljs-keyword">int</span> rc = read (STDIN_FILENO, buf, <span class="hljs-keyword">sizeof</span> (buf));
             write (sockfd, buf, rc);
-        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (events[<span class="hljs-number">0</span>].data.fd == sockfd) {
+        } 
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (events[<span class="hljs-number">0</span>].data.fd == sockfd) {
             <span class="hljs-keyword">int</span> rc = read (sockfd, buf, <span class="hljs-keyword">sizeof</span> (buf));
             <span class="hljs-keyword">if</span> (rc == <span class="hljs-number">0</span>) <span class="hljs-keyword">break</span>;
             write (STDOUT_FILENO, buf, rc);

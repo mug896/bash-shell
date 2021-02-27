@@ -1926,7 +1926,8 @@ C &#xC5B8;&#xC5B4;&#xB85C; &#xC791;&#xC131;&#xD55C; &#xBA85;&#xB839;&#xC774; 3 &
                     error_exit (path, <span class="hljs-string">&quot;stat()&quot;</span>);
                 <span class="hljs-keyword">else</span> 
                     total_size += buf.st_size;
-            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (de-&gt;d_type == DT_DIR)        <span class="hljs-comment">// directory &#xC77C; &#xACBD;&#xC6B0;</span>
+            } 
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (de-&gt;d_type == DT_DIR)         <span class="hljs-comment">// directory &#xC77C; &#xACBD;&#xC6B0;</span>
                       total_size += get_total_size (path);
         }
     }
