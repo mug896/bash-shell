@@ -1454,9 +1454,9 @@ standard streams &#xC774; &#xBAA8;&#xB450; redirect &#xB418;&#xC5B4;&#xC788;&#xB
 <p>&#xD55C;&#xAC00;&#xC9C0; &#xC8FC;&#xC758;&#xD560; &#xC810;&#xC740; /dev/tty &#xB85C;&#xC758; &#xCD9C;&#xB825;&#xC740; standard streams &#xC744; &#xAC70;&#xCE58;&#xC9C0; &#xC54A;&#xACE0;
 &#xC9C1;&#xC811; &#xD130;&#xBBF8;&#xB110; &#xC7A5;&#xCE58;&#xC5D0; &#xC4F0;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xC7A1;&#xC544;&#xC11C; redirect &#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># /dev/tty &#xB85C;&#xC758; &#xCD9C;&#xB825;&#xC740; redirect &#xD560;&#xC218;&#xC5C6;&#xB2E4;.</span>
-$ { <span class="hljs-built_in">echo</span>  hello &gt; /dev/tty ;} &gt; /dev/null
+$ { <span class="hljs-built_in">echo</span> hello &gt; /dev/tty ;} &gt; /dev/null
 hello
-$ { <span class="hljs-built_in">echo</span>  hello &gt; /dev/tty ;} <span class="hljs-number">2</span>&gt; /dev/null
+$ { <span class="hljs-built_in">echo</span> hello &gt; /dev/tty ;} <span class="hljs-number">2</span>&gt; /dev/null
 hello
 
 <span class="hljs-comment"># &#xB530;&#xB77C;&#xC11C; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xD30C;&#xC77C;&#xB85C; &#xC800;&#xC7A5;&#xD560; &#xC218;&#xB3C4; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
@@ -1465,7 +1465,7 @@ $ cat test.sh
 <span class="hljs-built_in">echo</span> hello &gt; /dev/tty
 
 ------------------------------
-$ ./test.sh &gt; out      <span class="hljs-comment"># stdin</span>
+$ ./test.sh &gt; out      <span class="hljs-comment"># stdout</span>
 hello
 $ ./test.sh <span class="hljs-number">2</span>&gt; out     <span class="hljs-comment"># stderr</span>
 hello
