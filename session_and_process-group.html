@@ -1450,7 +1450,7 @@ user space &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xB418;&#xC5B4; &#xC774;&#x
 <p>idle &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB3C4; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC774;&#xBBC0;&#xB85C; &#xC2DC;&#xC2A4;&#xD15C;&#xC5D0;&#xB294; &#xD56D;&#xC0C1; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xC874;&#xC7AC;&#xD558;&#xB294; &#xAC83;&#xACFC; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 </blockquote>
 <pre><code class="lang-bash"><span class="hljs-comment"># &#xC2DC;&#xC2A4;&#xD15C; &#xB0B4;&#xC758; &#xBAA8;&#xB4E0; kernel space &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB97C; &#xCD9C;&#xB825;&#xD558;&#xB824;&#xBA74; PPID &#xAC00; 2 &#xBC88;&#xC778; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB97C; &#xCD9C;&#xB825;&#xD558;&#xBA74; &#xB41C;&#xB2E4;.</span>
-$ ps f --ppid <span class="hljs-number">2</span> -p <span class="hljs-number">2</span> 
+$ ps f --ppid <span class="hljs-number">2</span> <span class="hljs-number">2</span> 
   PID TTY      STAT   TIME COMMAND
     <span class="hljs-number">2</span> ?        S      <span class="hljs-number">0</span>:<span class="hljs-number">00</span> [kthreadd]
     <span class="hljs-number">3</span> ?        I&lt;     <span class="hljs-number">0</span>:<span class="hljs-number">00</span>  \_ [rcu_gp]
@@ -1465,7 +1465,7 @@ $ ps f --ppid <span class="hljs-number">2</span> -p <span class="hljs-number">2<
    . . . .
    . . . .
 <span class="hljs-comment"># kernel space &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB97C; &#xC81C;&#xC678;&#xD558;&#xACE0; ( --deselect ) &#xCD9C;&#xB825;&#xD558;&#xBA74; &#xBAA8;&#xB4E0; user space &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xB41C;&#xB2E4;.   </span>
-$ ps f --ppid <span class="hljs-number">2</span> -p <span class="hljs-number">2</span> --deselect
+$ ps f --deselect --ppid <span class="hljs-number">2</span> <span class="hljs-number">2</span>
 </code></pre>
 <hr>
 <p>&#xCEE4;&#xB110;&#xC758; &#xACBD;&#xC6B0; &#xD558;&#xB4DC;&#xC6E8;&#xC5B4; &#xC778;&#xD130;&#xB7FD;&#xD2B8;&#xAC00; &#xBC1C;&#xC0DD;&#xD558;&#xAC70;&#xB098;, system call, exception &#xC774; &#xBC1C;&#xC0DD;&#xD588;&#xC744;&#xB54C;
