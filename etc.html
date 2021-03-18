@@ -1319,7 +1319,7 @@ openat(AT_FDCWD, <span class="hljs-string">&quot;/proc/net/sctp6/eps&quot;</span
 . . .
 
 <span class="hljs-comment"># /proc &#xB97C; &#xC0AC;&#xC6A9; &#xC911;&#xC778; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB4E4; </span>
-$ ps f $( fuser -m /proc )
+$ ps f $( fuser -m /proc <span class="hljs-number">2</span>&gt; /dev/null )
 . . .
 </code></pre>
 <p>/proc &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB97C; ls &#xD588;&#xC744;&#xB54C; &#xBCF4;&#xC774;&#xB294; &#xC22B;&#xC790;&#xB85C;&#xB41C; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xAC00; &#xD604;&#xC7AC; &#xC2DC;&#xC2A4;&#xD15C;&#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xACE0; &#xC788;&#xB294;
