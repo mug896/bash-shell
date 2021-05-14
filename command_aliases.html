@@ -1405,7 +1405,7 @@ $ find -type f -print0 | xargs -<span class="hljs-number">0</span> -i ls <span c
 <span class="hljs-built_in">let</span> s:line2 = getline(<span class="hljs-number">2</span>)
 <span class="hljs-built_in">let</span> s:line3 = getline(<span class="hljs-number">3</span>)
 
-<span class="hljs-keyword">if</span> s:line1 =~<span class="hljs-comment"># &apos;gccx\|gcco\|g++x\|g++o\|gcc \|g++ \|clang \|clang++ &apos;    &quot; C/C++</span>
+<span class="hljs-keyword">if</span> s:line1 =~<span class="hljs-comment"># &apos;gccx\|gcco\|g++x\|g++o\|gcc \|g++ \|clang \|clang++ &apos;</span>
     \ || s:line1 =~<span class="hljs-comment"># &apos;^\s*#include&apos;</span>
     \ || s:line2 =~<span class="hljs-comment"># &apos;^\s*#include&apos;</span>
     \ || s:line3 =~<span class="hljs-comment"># &apos;^\s*#include&apos;</span>
