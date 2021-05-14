@@ -2264,16 +2264,8 @@ GNU C Library (Ubuntu GLIBC <span class="hljs-number">2.31</span>-<span class="h
 
 $ strace date <span class="hljs-number">2</span>&gt;&amp;<span class="hljs-number">1</span> &gt; /dev/null | vi-strace -
 </code></pre>
-<p>&#xB610;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; /usr/share/vim/vim80/scripts.vim  &#xD30C;&#xC77C;&#xC744; &#xC218;&#xC815;&#xD574; &#xC0AC;&#xC6A9;&#xD560; &#xC218;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-vim">  <span class="hljs-string">&quot; Strace &#xBCC0;&#xACBD; &#xC804;
-</span>
-<span class="hljs-keyword">elseif</span> <span class="hljs-variable">s:line1</span> =~ <span class="hljs-string">&apos;^\(\[pid \d\+\] \)\=[0-9:.]* *execve(&apos;</span> || <span class="hljs-variable">s:line1</span> =~ <span class="hljs-string">&apos;^__libc_start_main&apos;</span>
-  <span class="hljs-keyword">set</span> ft=strace
-.............................................................
-
-  <span class="hljs-string">&quot; Strace &#xBCC0;&#xACBD; &#xD6C4;
-</span>
-    <span class="hljs-keyword">elseif</span> <span class="hljs-variable">s:line1</span> =~ <span class="hljs-string">&apos;^\([0-9]\+ \+\)\?\w\+(.\+\(= \(?\|-\?[x[:xdigit:]]\+\)\|\.\.\.&gt;$\)&apos;</span> 
+<p>&#xB610;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; ~/.vim/scripts.vim  &#xD30C;&#xC77C;&#xC5D0; &#xCD94;&#xAC00;&#xD560; &#xC218;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-vim">    <span class="hljs-keyword">elseif</span> <span class="hljs-variable">s:line1</span> =~ <span class="hljs-string">&apos;^\([0-9]\+ \+\)\?\w\+(.\+\(= \(?\|-\?[x[:xdigit:]]\+\)\|\.\.\.&gt;$\)&apos;</span> 
       \ || <span class="hljs-variable">s:line1</span> =~ <span class="hljs-string">&apos;^strace:.\+attached$&apos;</span>
       \ || <span class="hljs-variable">s:line1</span> =~ <span class="hljs-string">&apos;^\(\[pid \+[0-9]\+]\| \?\[[x[:xdigit:]]\+]\)\{,2\} *[[:alnum:]_@.]\+(&apos;</span>
     <span class="hljs-keyword">set</span> ft=strace
