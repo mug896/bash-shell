@@ -2071,7 +2071,7 @@ sys     <span class="hljs-number">0</span>m0<span class="hljs-number">.481</span
 </span>{
     <span class="hljs-keyword">int</span> num = argc &gt; <span class="hljs-number">1</span> ? atoi (argv[<span class="hljs-number">1</span>]) : <span class="hljs-number">1</span>;
 
-    <span class="hljs-keyword">int</span> size1, size2;
+    <span class="hljs-keyword">size_t</span> size1, size2;
     GET_MEM_SIZE (size1);
 
     <span class="hljs-keyword">pid_t</span> childpid;
@@ -2082,7 +2082,7 @@ sys     <span class="hljs-number">0</span>m0<span class="hljs-number">.481</span
 
     <span class="hljs-keyword">if</span> (childpid != <span class="hljs-number">0</span>) {
         GET_MEM_SIZE (size2);
-        <span class="hljs-built_in">printf</span> (<span class="hljs-string">&quot;%d KB\n&quot;</span>, size1 - size2);
+        <span class="hljs-built_in">printf</span> (<span class="hljs-string">&quot;%zd KB\n&quot;</span>, size1 - size2);
         kill (<span class="hljs-number">0</span>, SIGTERM);
     }
     pause();
@@ -2113,7 +2113,7 @@ sys     <span class="hljs-number">0</span>m0<span class="hljs-number">.481</span
 </span>{
     <span class="hljs-keyword">int</span> num = argc &gt; <span class="hljs-number">1</span> ? atoi (argv[<span class="hljs-number">1</span>]) : <span class="hljs-number">1</span>;
 
-    <span class="hljs-keyword">int</span> size1, size2;
+    <span class="hljs-keyword">size_t</span> size1, size2;
     GET_MEM_SIZE (size1);
 
     <span class="hljs-keyword">pthread_t</span> thread;
@@ -2121,7 +2121,7 @@ sys     <span class="hljs-number">0</span>m0<span class="hljs-number">.481</span
         pthread_create (&amp;thread, <span class="hljs-literal">NULL</span>, runfunc, (<span class="hljs-keyword">void</span> *)(<span class="hljs-keyword">intptr_t</span>) i);
 
     GET_MEM_SIZE (size2);
-    <span class="hljs-built_in">printf</span> (<span class="hljs-string">&quot;%d KB\n&quot;</span>, size1 - size2);
+    <span class="hljs-built_in">printf</span> (<span class="hljs-string">&quot;%zd KB\n&quot;</span>, size1 - size2);
     raise (SIGTERM);
 }
 ----------------------------------------------------------------
