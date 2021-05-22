@@ -2032,45 +2032,45 @@ $ hex2int <span class="hljs-number">0</span>x78
 <h1 id="2-">2 .</h1>
 <p>&#xBA85;&#xB839;&#xC758; &#xC778;&#xC218;&#xB85C; &#xD30C;&#xC77C;&#xC774; &#xC8FC;&#xC5B4;&#xC9C0;&#xBA74; &#xD30C;&#xC77C;&#xC5D0;&#xC11C; &#xB77C;&#xC778;&#xC744; &#xC77D;&#xC5B4;&#xB4E4;&#xC5EC; &#xCC98;&#xB9AC;&#xD558;&#xACE0;,
 &#xADF8;&#xB807;&#xC9C0; &#xC54A;&#xC73C;&#xBA74; stdin ( &#xD130;&#xBBF8;&#xB110;, &#xD30C;&#xC774;&#xD504;, redirection ) &#xC5D0;&#xC11C; &#xB77C;&#xC778;&#xC744; &#xC77D;&#xC5B4;&#xC11C; &#xCC98;&#xB9AC;&#xD558;&#xB294; &#xBA85;&#xB839;&#xC744; &#xB9CC;&#xB4DC;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-bash">$ <span class="hljs-function"><span class="hljs-title">func</span></span> () {                                       $ cat tmp.txt
-    <span class="hljs-built_in">local</span> sum                                     <span class="hljs-number">111</span>
+<pre><code class="lang-bash">$ <span class="hljs-function"><span class="hljs-title">func1</span></span> () {                                      $ cat tmp.txt
+    <span class="hljs-built_in">local</span> total_lines                             <span class="hljs-number">111</span>
     <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> -r line                            <span class="hljs-number">222</span>
     <span class="hljs-keyword">do</span>                                            <span class="hljs-number">333</span>
-        sum+=<span class="hljs-string">&quot;<span class="hljs-variable">$line</span>&quot;</span>$<span class="hljs-string">&apos;\n&apos;</span>
+        total_lines+=<span class="hljs-string">&quot;<span class="hljs-variable">$line</span>&quot;</span>$<span class="hljs-string">&apos;\n&apos;</span>
     <span class="hljs-keyword">done</span> &lt; <span class="hljs-string">&quot;<span class="hljs-variable">${1:-/dev/stdin}</span>&quot;</span> || <span class="hljs-built_in">return</span>
 
     <span class="hljs-built_in">echo</span> ----------------------
-    <span class="hljs-built_in">echo</span> -n <span class="hljs-string">&quot;<span class="hljs-variable">$sum</span>&quot;</span>
+    <span class="hljs-built_in">echo</span> -n <span class="hljs-string">&quot;<span class="hljs-variable">$total_lines</span>&quot;</span>
     <span class="hljs-built_in">echo</span> ----------------------
 }
 
 <span class="hljs-comment">##################################################################</span>
 
-$ func tmp.txt    <span class="hljs-comment"># &#xC778;&#xC218;&#xB85C; &#xD30C;&#xC77C;&#xC774; &#xC8FC;&#xC5B4;&#xC9C0;&#xBA74; &#xD30C;&#xC77C;&#xC5D0;&#xC11C; &#xB77C;&#xC778;&#xC744; &#xC77D;&#xC5B4; &#xB4E4;&#xC784;</span>
+$ func1 tmp.txt    <span class="hljs-comment"># &#xC778;&#xC218;&#xB85C; &#xD30C;&#xC77C;&#xC774; &#xC8FC;&#xC5B4;&#xC9C0;&#xBA74; &#xD30C;&#xC77C;&#xC5D0;&#xC11C; &#xB77C;&#xC778;&#xC744; &#xC77D;&#xC5B4; &#xB4E4;&#xC784;</span>
 ----------------------
 <span class="hljs-number">111</span>
 <span class="hljs-number">222</span>
 <span class="hljs-number">333</span>
 ----------------------
 
-$ func      <span class="hljs-comment"># enter &#xD6C4; &#xB77C;&#xC778; &#xC785;&#xB825;</span>
+$ func1      <span class="hljs-comment"># enter &#xD6C4; &#xB77C;&#xC778; &#xC785;&#xB825;</span>
 <span class="hljs-number">111</span>
 <span class="hljs-number">222</span>
 <span class="hljs-number">333</span>
-            <span class="hljs-comment"># ctrl-d &#xB85C; &#xC785;&#xB825; &#xC885;&#xB8CC;</span>
+             <span class="hljs-comment"># ctrl-d &#xB85C; &#xC785;&#xB825; &#xC885;&#xB8CC;</span>
 ----------------------
 <span class="hljs-number">111</span>
 <span class="hljs-number">222</span>
 <span class="hljs-number">333</span>
 ----------------------
 
-$ func &lt;&lt;\@                               $ <span class="hljs-built_in">echo</span> <span class="hljs-operator">-e</span> <span class="hljs-string">&quot;foo\nbar&quot;</span> | func
+$ func1 &lt;&lt;\@                              $ <span class="hljs-built_in">echo</span> <span class="hljs-operator">-e</span> <span class="hljs-string">&quot;foo\nbar&quot;</span> | func1
 &gt; <span class="hljs-number">111</span>                                     ----------------------
 &gt; <span class="hljs-number">222</span>                                     foo
 &gt; <span class="hljs-number">333</span>                                     bar
 &gt; @                                       ----------------------
 ----------------------                    
-<span class="hljs-number">111</span>                                       $ func &lt;&lt;&lt; hello
+<span class="hljs-number">111</span>                                       $ func1 &lt;&lt;&lt; hello
 <span class="hljs-number">222</span>                                       ----------------------
 <span class="hljs-number">333</span>                                       hello
 ----------------------                    ----------------------
