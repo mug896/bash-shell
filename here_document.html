@@ -1618,18 +1618,19 @@ single quotes\n<span class="hljs-variable">$AA</span>                         <s
 <span class="hljs-string">&apos;here&apos;</span>                                     <span class="hljs-string">&quot;document&quot;</span>
 <span class="hljs-string">&quot;document&quot;</span>
 </code></pre>
-<pre><code class="lang-sh">$ <span class="hljs-built_in">echo</span> <span class="hljs-operator">-e</span> <span class="hljs-string">&quot;first line\nsecond line&quot;</span> | python3 -c <span class="hljs-string">&quot;<span class="hljs-variable">$( cat &lt;&lt;\@
+<pre><code class="lang-sh">$ shuf -i <span class="hljs-number">1</span>-<span class="hljs-number">10</span> | python3 -c <span class="hljs-string">&quot;<span class="hljs-variable">$( cat &lt;&lt;\@
+nums = []    
 while 1:
     try:
         line = input()</span> 
-        print(line)
+        nums.append(int(line))
     except EOFError:
         break
+print(&quot;</span>max : %d, min : %d, sum : %d<span class="hljs-string">&quot; % (max(nums), min(nums), sum(nums)))
 @
 )&quot;</span>
 
-first line
-second line
+max : <span class="hljs-number">10</span>, min : <span class="hljs-number">1</span>, sum : <span class="hljs-number">55</span>
 </code></pre>
 <h4 id="while-&#xBB38;&#xC758;-&#xC785;&#xB825;&#xC73C;&#xB85C;-&#xC0AC;&#xC6A9;&#xD558;&#xAE30;">while &#xBB38;&#xC758; &#xC785;&#xB825;&#xC73C;&#xB85C; &#xC0AC;&#xC6A9;&#xD558;&#xAE30;</h4>
 <pre><code class="lang-bash">$ <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> -r line; <span class="hljs-keyword">do</span>
