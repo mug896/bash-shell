@@ -1798,7 +1798,7 @@ base64 &#xB97C; &#xC774;&#xC6A9;&#xD558;&#xB294; &#xBC29;&#xBC95;&#xC5D0;&#xC11C
 <span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;exit&apos;</span> HUP INT QUIT TERM
 <span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;rm -f &quot;$tmpFile&quot;&apos;</span> EXIT
 
-scriptFile=`readlink <span class="hljs-operator">-e</span> <span class="hljs-variable">$0</span>`
+scriptFile=<span class="hljs-variable">$0</span>
 
 tmpFile=`mktemp`
 
