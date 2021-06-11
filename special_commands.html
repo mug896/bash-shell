@@ -1431,8 +1431,8 @@ $ [[ <span class="hljs-variable">$AA</span> =~ delete[^\ ]*<span class="hljs-str
 <span class="hljs-number">0</span>
 
 <span class="hljs-comment"># regex &#xC744; &#xBCC0;&#xC218;&#xC5D0; &#xB300;&#xC785;&#xD574;&#xC11C; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xB354; &#xAC04;&#xB2E8;&#xD574;&#xC9C4;&#xB2E4;.</span>
-$ reg=<span class="hljs-string">&apos;delete[^ ]* &lt;uuid|vmname&gt;&apos;</span>
-$ [[ <span class="hljs-variable">$AA</span> =~ <span class="hljs-variable">$reg</span> ]]; <span class="hljs-built_in">echo</span> $?
+$ regex=<span class="hljs-string">&apos;delete[^ ]* &lt;uuid\|vmname&gt;&apos;</span>
+$ [[ <span class="hljs-variable">$AA</span> =~ <span class="hljs-variable">$regex</span> ]]; <span class="hljs-built_in">echo</span> $?
 <span class="hljs-number">0</span>
 
 <span class="hljs-comment"># escape &#xBB38;&#xC790;&#xAC00; &#xC0AC;&#xC6A9;&#xB420; &#xACBD;&#xC6B0;&#xB294; $&apos; &apos; &#xB97C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.</span>
