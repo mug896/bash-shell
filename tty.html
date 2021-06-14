@@ -1826,7 +1826,9 @@ $ toe <span class="hljs-operator">-a</span>
 &#xC774;&#xD6C4;&#xC5D0; enter, tab, backspace &#xC640; &#xAC19;&#xC774; &#xC790;&#xC8FC; &#xC0AC;&#xC6A9;&#xB418;&#xB294; &#xBB38;&#xC790;&#xB294; &#xD0A4;&#xBCF4;&#xB4DC;&#xC5D0; &#xC804;&#xC6A9; &#xD0A4;&#xAC00; &#xC0DD;&#xAE30;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</p>
 <p><img src="images/tty/ascii.png" alt=""></p>
 <h1 id="2">2.</h1>
-<p>&#xD2B9;&#xC815; &#xD130;&#xBBF8;&#xB110;&#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xACE0; &#xC788;&#xB294; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB4E4;&#xC744; &#xCD9C;&#xB825;&#xD558;&#xB824;&#xBA74; &#xC5B4;&#xB5BB;&#xAC8C; &#xD560;&#xAE4C;&#xC694;?</p>
+<ul>
+<li>&#xD2B9;&#xC815; &#xD130;&#xBBF8;&#xB110;&#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xACE0; &#xC788;&#xB294; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB4E4;&#xC744; &#xCD9C;&#xB825;&#xD558;&#xB824;&#xBA74; &#xC5B4;&#xB5BB;&#xAC8C; &#xD560;&#xAE4C;&#xC694;?</li>
+</ul>
 <p>&#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; <code>pgrep</code> &#xBA85;&#xB839;&#xC774;&#xB098; <code>lsof</code> &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># terminal 1</span>
 $ tty
@@ -1843,6 +1845,16 @@ $ ps jf `pgrep -t pts/<span class="hljs-number">14</span>`        <span class="h
  <span class="hljs-number">4655</span> <span class="hljs-number">20352</span>  <span class="hljs-number">4655</span>  <span class="hljs-number">4655</span> pts/<span class="hljs-number">14</span>   <span class="hljs-number">20354</span> S     <span class="hljs-number">1000</span>  \_ /bin/bash
 <span class="hljs-number">20352</span> <span class="hljs-number">20355</span>  <span class="hljs-number">4655</span>  <span class="hljs-number">4655</span> pts/<span class="hljs-number">14</span>   <span class="hljs-number">20354</span> S     <span class="hljs-number">1000</span>  |   \_ sleep <span class="hljs-number">10</span>
  <span class="hljs-number">4655</span> <span class="hljs-number">20354</span> <span class="hljs-number">20354</span>  <span class="hljs-number">4655</span> pts/<span class="hljs-number">14</span>   <span class="hljs-number">20354</span> S+    <span class="hljs-number">1000</span>  \_ join /dev/fd/<span class="hljs-number">63</span> /dev/fd/<span class="hljs-number">62</span>
+</code></pre>
+<ul>
+<li>&#xD604;&#xC7AC; Pseudo TTY &#xB97C; &#xC0AC;&#xC6A9;&#xC911;&#xC778; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB294; &#xC5B4;&#xB5BB;&#xAC8C; &#xBCFC; &#xC218; &#xC788;&#xC744;&#xAE4C;&#xC694;?</li>
+</ul>
+<pre><code class="lang-sh">$ fuser -v /dev/ptmx 
+                     USER        PID ACCESS COMMAND
+/dev/ptmx:           mug896     <span class="hljs-number">1832</span> F.... kded5
+                     mug896     <span class="hljs-number">1970</span> F.... yakuake
+                     mug896     <span class="hljs-number">2039</span> F.... konsole
+                     mug896     <span class="hljs-number">3825</span> f.... firefox-bin
 </code></pre>
 <h1 id="3">3.</h1>
 <p>&#xD604;&#xC7AC; &#xD130;&#xBBF8;&#xB110;&#xC758; columns, rows &#xD06C;&#xAE30; &#xAC12;&#xC740; &#xC5B4;&#xB5BB;&#xAC8C; &#xAD6C;&#xD560; &#xC218; &#xC788;&#xC744;&#xAE4C;&#xC694;?</p>
