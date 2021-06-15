@@ -1306,14 +1306,14 @@ $ <span class="hljs-built_in">echo</span> $(( B += $(date | awk <span class="hlj
 <span class="hljs-number">3020</span>
 </code></pre>
 <h3 id="&#xBCC0;&#xC218;-&#xC774;&#xB984;-&#xD65C;&#xC6A9;">&#xBCC0;&#xC218; &#xC774;&#xB984; &#xD65C;&#xC6A9;</h3>
-<p><code>$(( ... ))</code> &#xC548;&#xC5D0;&#xC11C;&#xB294; &#xBB38;&#xC790;&#xAC00; &#xB098;&#xC624;&#xBA74; &#xADF8;&#xAC83;&#xC740; &#xBCC0;&#xC218; &#xC774;&#xB984;&#xC774;&#xB77C;&#xB294; &#xAC83; &#xC678;&#xC5D0; &#xB2E4;&#xB978; &#xB73B;&#xC774; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.
+<p><code>$(( ... ))</code> &#xC548;&#xC5D0;&#xC11C;&#xB294; &#xC54C;&#xD30C;&#xBCB3; &#xBB38;&#xC790;&#xAC00; &#xB098;&#xC624;&#xBA74; &#xADF8;&#xAC83;&#xC740; &#xBCC0;&#xC218; &#xC774;&#xB984;&#xC774;&#xB77C;&#xB294; &#xAC83; &#xC678;&#xC5D0; &#xB2E4;&#xB978; &#xB73B;&#xC774; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.
 &#xB530;&#xB77C;&#xC11C; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; &#xBCC0;&#xC218; &#xC774;&#xB984; &#xC55E;&#xC5D0; <code>$</code> &#xBB38;&#xC790;&#xB97C; &#xBD99;&#xC774;&#xC9C0; &#xC54A;&#xC544;&#xB3C4; &#xB418;&#xB294;&#xB370;
 &#xC774;&#xAC83;&#xC744; &#xD65C;&#xC6A9;&#xD558;&#xBA74; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xBCC0;&#xC218; &#xC774;&#xB984;&#xC744; &#xB9CC;&#xB4E4;&#xC5B4; &#xC0AC;&#xC6A9;&#xD560; &#xC218;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. </p>
 <pre><code class="lang-sh">$ foo1=<span class="hljs-number">111</span> foo2=<span class="hljs-number">222</span>
 
 $ a=foo b=<span class="hljs-number">1</span> c=<span class="hljs-number">2</span>
 
-$ <span class="hljs-built_in">echo</span> $(( foo1 + foo2 ))
+$ <span class="hljs-built_in">echo</span> $(( foo1 + foo2 ))       <span class="hljs-comment"># &#xBCC0;&#xC218; &#xC774;&#xB984; &#xC55E;&#xC5D0; &apos;$&apos; &#xBB38;&#xC790;&#xB97C; &#xBD99;&#xC774;&#xC9C0; &#xC54A;&#xC544;&#xB3C4; &#xB41C;&#xB2E4;.</span>
 <span class="hljs-number">333</span>
 
 $ <span class="hljs-built_in">echo</span> $(( foo<span class="hljs-variable">$b</span> + foo<span class="hljs-variable">$c</span> ))     <span class="hljs-comment"># foo$b &#xB294; foo1 &#xC774; &#xB418;&#xACE0;, foo$c &#xB294; foo2 &#xAC00; &#xB41C;&#xB2E4;.</span>
