@@ -1331,7 +1331,7 @@ xyz_3=<span class="hljs-number">60</span>
 
 <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> {<span class="hljs-number">1</span>..<span class="hljs-number">3</span>}
 <span class="hljs-keyword">do</span>
-    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;xyz_<span class="hljs-variable">$i</span> + abc_<span class="hljs-variable">$i</span> == <span class="hljs-variable">$((xyz_$i + abc_$i)</span>)&quot;</span>
+    <span class="hljs-built_in">echo</span> xyz_<span class="hljs-variable">$i</span> + abc_<span class="hljs-variable">$i</span> == $(( xyz_<span class="hljs-variable">$i</span> + abc_<span class="hljs-variable">$i</span> ))
 <span class="hljs-keyword">done</span>
 -------------------------
 
