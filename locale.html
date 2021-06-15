@@ -1587,7 +1587,7 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-operator">-e</span> 
 &#xD55C;&#xAE00;
 ------------------------------------
 
-$ <span class="hljs-built_in">echo</span> -n &#xD55C;&#xAE00; | perl -lpe <span class="hljs-string">&apos;$_=unpack&quot;B*&quot;&apos;</span> | sed <span class="hljs-string">&apos;s/.\{8\}/&amp; /g&apos;</span> 
+$ <span class="hljs-built_in">echo</span> -n &#xD55C;&#xAE00; | python3 -c <span class="hljs-string">&apos;print(&quot; &quot;.join(format(x, &quot;b&quot;) for x in input().encode()))&apos;</span>
 <span class="hljs-number">11101101</span> <span class="hljs-number">10010101</span> <span class="hljs-number">10011100</span> <span class="hljs-number">11101010</span> <span class="hljs-number">10111000</span> <span class="hljs-number">10000000</span> 
     ^^^^   ^^^^^^   ^^^^^^     ^^^^   ^^^^^^   ^^^^^^
       \_____ &#xD55C; ______/          \_____ &#xAE00; ______/
