@@ -1412,16 +1412,16 @@ $ find -type f -print0 | xargs -<span class="hljs-number">0</span> -i ls <span c
     \ || s:line3 =~<span class="hljs-comment"># &apos;^\s*#include&apos;</span>
     <span class="hljs-built_in">set</span> ft=cpp
 
-elseif s:line1 =~<span class="hljs-comment"># &apos;g\?awk &apos;            &quot; awk</span>
+elseif s:line1 =~<span class="hljs-comment"># &apos;g\?awk &apos;              &quot; awk</span>
     <span class="hljs-built_in">set</span> ft=awk
 
-elseif s:line1 =~<span class="hljs-comment"># &apos;make .\+&lt;&lt;\\&apos;       &quot; Makefile</span>
+elseif s:line1 =~<span class="hljs-comment"># &apos;make .*&lt;&lt;\\&apos;          &quot; Makefile</span>
     <span class="hljs-built_in">set</span> ft=make
 
-elseif s:line1 =~<span class="hljs-comment"># &apos;m4 .\+&lt;&lt;\\&apos;         &quot; m4</span>
+elseif s:line1 =~<span class="hljs-comment"># &apos;m4 .*&lt;&lt;\\&apos;            &quot; m4</span>
     <span class="hljs-built_in">set</span> ft=m4
 
-elseif s:line1 =~<span class="hljs-comment"># &apos;python3\? .\+&lt;&lt;\\&apos;  &quot; python</span>
+elseif s:line1 =~<span class="hljs-comment"># &apos;python3\? .*&lt;&lt;\\&apos;     &quot; python</span>
     normal! ggI<span class="hljs-comment">#</span>
     <span class="hljs-built_in">set</span> ft=python
 
