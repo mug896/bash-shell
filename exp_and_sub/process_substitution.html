@@ -1718,6 +1718,35 @@ $ ./test.sh
 ./test.sh: line <span class="hljs-number">21</span>: sleepp: <span class="hljs-built_in">command</span> not found
 </code></pre>
 <h1 id="2-">2 .</h1>
+<p>heredoc &#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; &#xB530;&#xB85C; &#xD30C;&#xC77C;&#xB85C; &#xC791;&#xC131;&#xD558;&#xC9C0; &#xC54A;&#xACE0;&#xB3C4; python &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB97C; &#xC2E4;&#xD589;&#xC2DC;&#xD0AC; &#xC218;&#xAC00; &#xC788;&#xB294;&#xB370;&#xC694;.</p>
+<pre><code class="lang-python">$ python3 &lt;&lt;\@
+<span class="hljs-keyword">import</span> platform
+print(platform.python_version())
+<span class="hljs-decorator">@</span>
+<span class="hljs-number">3.9</span><span class="hljs-number">.5</span>
+</code></pre>
+<p>&#xD558;&#xC9C0;&#xB9CC; &#xC774; &#xBC29;&#xBC95;&#xC740; &#xC678;&#xBD80; &#xBA85;&#xB839;&#xC758; &#xC2E4;&#xD589; &#xACB0;&#xACFC;&#xB97C; &#xD30C;&#xC774;&#xD504;&#xB97C; &#xD1B5;&#xD574; &#xBC1B;&#xC544;&#xC11C; &#xCC98;&#xB9AC;&#xD558;&#xACE0;&#xC790; &#xD560;&#xB54C;&#xB294; &#xC0AC;&#xC6A9;&#xD560; &#xC218;&#xAC00; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xC65C;&#xB0D0;&#xD558;&#xBA74; heredoc &#xC740; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; python &#xBA85;&#xB839;&#xC758; stdin &#xC5D0; &#xC5F0;&#xACB0;&#xB418;&#xAE30; &#xB54C;&#xBB38;&#xC785;&#xB2C8;&#xB2E4;.
+( &#xD30C;&#xC774;&#xD504;&#xB3C4; stdin &#xC5D0; &#xC5F0;&#xACB0;&#xB418;&#xC8E0; )</p>
+<pre><code class="lang-python">$ echo <span class="hljs-string">&quot;foo bar zoo&quot;</span> | python3 &lt;&lt;\@         <span class="hljs-comment"># &lt;&lt;\@ &#xB294; 0&lt;&lt;\@ &#xC640; &#xAC19;&#xB2E4;</span>
+&gt; print(input())
+&gt; @
+
+&#xC624;&#xB958; ...
+</code></pre>
+<p>&#xC791;&#xC131;&#xD55C; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xAC00; &#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C; &#xC2E4;&#xD589;&#xB418;&#xAC8C; &#xD558;&#xB824;&#xBA74; &#xC5B4;&#xB5BB;&#xAC8C; &#xD560;&#xAE4C;&#xC694;?</p>
+<p>&#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xD504;&#xB85C;&#xC138;&#xC2A4; &#xCE58;&#xD658;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; &#xC791;&#xC131;&#xD55C; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xAC00; &#xD30C;&#xC77C;&#xB85C; &#xC778;&#xC2DD;&#xB418;&#xAE30; &#xB54C;&#xBB38;&#xC5D0;
+&#xC624;&#xB958; &#xC5C6;&#xC774; &#xC2E4;&#xD589;&#xC774; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-python">$ echo <span class="hljs-string">&quot;foo bar zoo&quot;</span> | python3 &lt;( cat &lt;&lt;\@
+line = input()
+words = line.split()
+bytes = <span class="hljs-string">&quot;&quot;</span>.join(words)
+print(f<span class="hljs-string">&quot;words: {len(words)}, bytes: {len(bytes)}&quot;</span>)
+<span class="hljs-decorator">@</span>
+)
+words: <span class="hljs-number">3</span>, bytes: <span class="hljs-number">9</span>
+</code></pre>
+<h1 id="3-">3 .</h1>
 <p><code>diff</code> &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; &#xAC04;&#xB2E8;&#xD788; &#xB450;&#xAC1C;&#xC758; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB97C; &#xC11C;&#xB85C; &#xBE44;&#xAD50;&#xD560; &#xC218; &#xC788;&#xB294;&#xB370;&#xC694;.<br>&#xBE44;&#xAD50;&#xD558;&#xB824;&#xB294; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xAC00; remote &#xC11C;&#xBC84;&#xC5D0; &#xC874;&#xC7AC;&#xD558;&#xB294; &#xACBD;&#xC6B0;&#xB294; &#xC5B4;&#xB5BB;&#xAC8C; &#xD560;&#xAE4C;&#xC694;?</p>
 <pre><code class="lang-bash">$ diff -rq BUILD.<span class="hljs-number">1</span> BUILD.<span class="hljs-number">2</span>
 Only <span class="hljs-keyword">in</span> BUILD.<span class="hljs-number">1</span>/lib: libtlpi.a    <span class="hljs-comment"># BUILD.1 &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0;&#xB9CC; &#xC874;&#xC7AC;&#xD558;&#xB294; &#xD30C;&#xC77C;</span>
