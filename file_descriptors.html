@@ -1967,18 +1967,17 @@ sys     <span class="hljs-number">0</span>m1.<span class="hljs-number">196</span
 
 $ time python3 &lt;&lt;\@       <span class="hljs-comment"># python</span>
 import os
-total_size = <span class="hljs-number">0</span>
 def get_total_size(path):
-    global total_size
+    total_size = <span class="hljs-number">0</span>
     <span class="hljs-keyword">for</span> dent <span class="hljs-keyword">in</span> os.scandir(path):
         <span class="hljs-built_in">stat</span>_result = dent.stat(follow_symlinks=False)
         <span class="hljs-keyword">if</span> dent.is_dir(follow_symlinks=False):
-            get_total_size(dent.path)
+            total_size += get_total_size(dent.path)
         <span class="hljs-keyword">if</span> dent.is_file(follow_symlinks=False):
             total_size += <span class="hljs-built_in">stat</span>_result.st_size
+    <span class="hljs-built_in">return</span> total_size
 
-get_total_size(<span class="hljs-string">&quot;/usr&quot;</span>)
-<span class="hljs-built_in">print</span>(total_size)            
+<span class="hljs-built_in">print</span>(get_total_size(<span class="hljs-string">&quot;/usr&quot;</span>))
 @
 <span class="hljs-number">13392927146</span>
 
