@@ -1913,21 +1913,21 @@ C &#xC5B8;&#xC5B4;&#xB85C; &#xC791;&#xC131;&#xD55C; &#xBA85;&#xB839;&#xC774; 2 &
     DIR *dir = opendir (dirname);
     <span class="hljs-keyword">if</span> (dir == <span class="hljs-literal">NULL</span>)
         error_exit (dirname, <span class="hljs-string">&quot;opendir()&quot;</span>);
-    <span class="hljs-keyword">struct</span> dirent *de;
-    <span class="hljs-keyword">while</span> ((de = readdir (dir)) != <span class="hljs-literal">NULL</span>) 
+    <span class="hljs-keyword">struct</span> dirent *dent;
+    <span class="hljs-keyword">while</span> ((dent = readdir (dir)) != <span class="hljs-literal">NULL</span>) 
     {       <span class="hljs-comment">// &quot;.&quot; &#xC640; &quot;..&quot; &#xB294; &#xC81C;&#xC678;</span>
-        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">strcmp</span> (de-&gt;d_name, <span class="hljs-string">&quot;.&quot;</span>) &amp;&amp; <span class="hljs-built_in">strcmp</span> (de-&gt;d_name, <span class="hljs-string">&quot;..&quot;</span>))
+        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">strcmp</span> (dent-&gt;d_name, <span class="hljs-string">&quot;.&quot;</span>) &amp;&amp; <span class="hljs-built_in">strcmp</span> (dent-&gt;d_name, <span class="hljs-string">&quot;..&quot;</span>))
         {
             <span class="hljs-keyword">char</span> path [PATH_MAX];
-            <span class="hljs-built_in">sprintf</span> (path, <span class="hljs-string">&quot;%s%s%s&quot;</span>, dirname, <span class="hljs-string">&quot;/&quot;</span>, de-&gt;d_name);
-            <span class="hljs-keyword">if</span> (de-&gt;d_type == DT_REG) {             <span class="hljs-comment">// regular file &#xB9CC; &#xACC4;&#xC0B0;</span>
+            <span class="hljs-built_in">sprintf</span> (path, <span class="hljs-string">&quot;%s%s%s&quot;</span>, dirname, <span class="hljs-string">&quot;/&quot;</span>, dent-&gt;d_name);
+            <span class="hljs-keyword">if</span> (dent-&gt;d_type == DT_REG) {             <span class="hljs-comment">// regular file &#xB9CC; &#xACC4;&#xC0B0;</span>
                 <span class="hljs-keyword">struct</span> stat buf;
                 <span class="hljs-keyword">if</span> (stat (path, &amp;buf) == -<span class="hljs-number">1</span>) 
                     error_exit (path, <span class="hljs-string">&quot;stat()&quot;</span>);
                 <span class="hljs-keyword">else</span> 
                     total_size += buf.st_size;
             } 
-            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (de-&gt;d_type == DT_DIR)         <span class="hljs-comment">// directory &#xC77C; &#xACBD;&#xC6B0;</span>
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (dent-&gt;d_type == DT_DIR)         <span class="hljs-comment">// directory &#xC77C; &#xACBD;&#xC6B0;</span>
                       total_size += get_total_size (path);
         }
     }
@@ -1970,11 +1970,11 @@ import os
 total_size = <span class="hljs-number">0</span>
 def get_total_size(path):
     global total_size
-    <span class="hljs-keyword">for</span> ent <span class="hljs-keyword">in</span> os.scandir(path):
-        <span class="hljs-built_in">stat</span>_result = ent.stat(follow_symlinks=False)
-        <span class="hljs-keyword">if</span> ent.is_dir(follow_symlinks=False):
-            get_total_size(ent.path)
-        <span class="hljs-keyword">if</span> ent.is_file(follow_symlinks=False):
+    <span class="hljs-keyword">for</span> dent <span class="hljs-keyword">in</span> os.scandir(path):
+        <span class="hljs-built_in">stat</span>_result = dent.stat(follow_symlinks=False)
+        <span class="hljs-keyword">if</span> dent.is_dir(follow_symlinks=False):
+            get_total_size(dent.path)
+        <span class="hljs-keyword">if</span> dent.is_file(follow_symlinks=False):
             total_size += <span class="hljs-built_in">stat</span>_result.st_size
 
 get_total_size(<span class="hljs-string">&quot;/usr&quot;</span>)
