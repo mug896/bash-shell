@@ -1970,20 +1970,19 @@ import os
 def get_total_size(path):
     total_size = <span class="hljs-number">0</span>
     <span class="hljs-keyword">for</span> dent <span class="hljs-keyword">in</span> os.scandir(path):
-        <span class="hljs-built_in">stat</span>_result = dent.stat(follow_symlinks=False)
         <span class="hljs-keyword">if</span> dent.is_dir(follow_symlinks=False):
             total_size += get_total_size(dent.path)
         <span class="hljs-keyword">if</span> dent.is_file(follow_symlinks=False):
-            total_size += <span class="hljs-built_in">stat</span>_result.st_size
+            total_size += dent.stat(follow_symlinks=False).st_size
     <span class="hljs-built_in">return</span> total_size
 
 <span class="hljs-built_in">print</span>(get_total_size(<span class="hljs-string">&quot;/usr&quot;</span>))
 @
 <span class="hljs-number">13392927146</span>
 
-real    <span class="hljs-number">0</span>m1.<span class="hljs-number">460</span>s
-user    <span class="hljs-number">0</span>m0.<span class="hljs-number">713</span>s
-sys     <span class="hljs-number">0</span>m0.<span class="hljs-number">742</span>s
+real    <span class="hljs-number">0</span>m1.<span class="hljs-number">281</span>s
+user    <span class="hljs-number">0</span>m0.<span class="hljs-number">645</span>s
+sys     <span class="hljs-number">0</span>m0.<span class="hljs-number">630</span>s
 </code></pre>
 <h1 id="5-">5 .</h1>
 <p>C &#xD504;&#xB85C;&#xADF8;&#xB798;&#xBC0D;&#xC5D0;&#xC11C;&#xB294; &#xC0AC;&#xC6A9; &#xC911;&#xC778; FD &#xB97C; &#xB2E4;&#xB978; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB85C; &#xC804;&#xB2EC;&#xD558;&#xB294; &#xAC83;&#xB3C4; &#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;.
