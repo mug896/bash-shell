@@ -1894,69 +1894,33 @@ drwxrwxr-x <span class="hljs-number">4</span> mug896 mug896 <span class="hljs-nu
 <p>&#xB2E4;&#xC74C;&#xC740; &#xD2B9;&#xC815; &#xB514;&#xB809;&#xD1A0;&#xB9AC; &#xC774;&#xD558; &#xBAA8;&#xB4E0; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB97C; &#xAC80;&#xC0C9;&#xD574;&#xC11C; regular file &#xC758; 
 &#xAC89;&#xBCF4;&#xAE30; &#xC0AC;&#xC774;&#xC988; &#xD569;&#xACC4;&#xB97C; &#xAD6C;&#xD558;&#xB294; &#xAC83;&#xC778;&#xB370;&#xC694;.
 C &#xC5B8;&#xC5B4;&#xB85C; &#xC791;&#xC131;&#xD55C; &#xBA85;&#xB839;&#xC774; 2 &#xBC30; &#xC815;&#xB3C4; &#xC18D;&#xB3C4;&#xAC00; &#xBE60;&#xB978; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-c"><span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
-<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span></span>
-<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;dirent.h&gt;</span></span>
-<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;sys/stat.h&gt;</span></span>
-<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;string.h&gt;</span></span>
-<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdint.h&gt;</span></span>
+<pre><code class="lang-bash">$ gcc -xc - &lt;&lt;\@ &amp;&amp; time ./a.out /usr 
+<span class="hljs-comment">#include &lt;stdio.h&gt;</span>
+<span class="hljs-comment">#include &lt;fts.h&gt;</span>
+<span class="hljs-comment">#include &lt;sys/stat.h&gt;</span>
+<span class="hljs-comment">#include &lt;stdint.h&gt;</span>
 
-<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> error_exit(dir, msg) do { \
-    fprintf (stderr, <span class="hljs-string">&quot;%s : &quot;</span>, dir);  perror (msg); \
-    exit (EXIT_FAILURE); \
-} while (<span class="hljs-number">0</span>)</span>
-
-<span class="hljs-keyword">uintmax_t</span> get_total_size (<span class="hljs-keyword">char</span> *dirname)
+int main(int argc, char *argv[])
 {
-    <span class="hljs-keyword">uintmax_t</span> total_size = <span class="hljs-number">0</span>;
+    uintmax_t total_size = <span class="hljs-number">0</span>;
+    FTS *fts = fts_open(argv + <span class="hljs-number">1</span>, FTS_PHYSICAL, NULL);
+    FTSENT *fent;
+    <span class="hljs-keyword">while</span> ((fent = fts_<span class="hljs-built_in">read</span>(fts)) != NULL)
+        <span class="hljs-keyword">if</span> (fent-&gt;fts_info == FTS_F)
+            total_size += fent-&gt;fts_statp-&gt;st_size;
 
-    DIR *dir = opendir (dirname);
-    <span class="hljs-keyword">if</span> (dir == <span class="hljs-literal">NULL</span>)
-        error_exit (dirname, <span class="hljs-string">&quot;opendir()&quot;</span>);
-    <span class="hljs-keyword">struct</span> dirent *dent;
-    <span class="hljs-keyword">while</span> ((dent = readdir (dir)) != <span class="hljs-literal">NULL</span>) 
-    {       <span class="hljs-comment">// &quot;.&quot; &#xC640; &quot;..&quot; &#xB294; &#xC81C;&#xC678;</span>
-        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">strcmp</span> (dent-&gt;d_name, <span class="hljs-string">&quot;.&quot;</span>) &amp;&amp; <span class="hljs-built_in">strcmp</span> (dent-&gt;d_name, <span class="hljs-string">&quot;..&quot;</span>))
-        {
-            <span class="hljs-keyword">char</span> path [PATH_MAX];
-            <span class="hljs-built_in">sprintf</span> (path, <span class="hljs-string">&quot;%s%s%s&quot;</span>, dirname, <span class="hljs-string">&quot;/&quot;</span>, dent-&gt;d_name);
-            <span class="hljs-keyword">if</span> (dent-&gt;d_type == DT_REG) {             <span class="hljs-comment">// regular file &#xB9CC; &#xACC4;&#xC0B0;</span>
-                <span class="hljs-keyword">struct</span> stat buf;
-                <span class="hljs-keyword">if</span> (stat (path, &amp;buf) == -<span class="hljs-number">1</span>) 
-                    error_exit (path, <span class="hljs-string">&quot;stat()&quot;</span>);
-                <span class="hljs-keyword">else</span> 
-                    total_size += buf.st_size;
-            } 
-            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (dent-&gt;d_type == DT_DIR)         <span class="hljs-comment">// directory &#xC77C; &#xACBD;&#xC6B0;</span>
-                      total_size += get_total_size (path);
-        }
-    }
-    closedir (dir);
-    <span class="hljs-keyword">return</span> total_size;
+    fts_close(fts);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;total size : %ju\n&quot;</span>, total_size);
+    <span class="hljs-built_in">return</span> <span class="hljs-number">0</span>;
 }
+@
+total size : <span class="hljs-number">13392927146</span>
 
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span> <span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span>
-</span>{
-    <span class="hljs-keyword">char</span> *dir;
+real    <span class="hljs-number">0</span>m0.<span class="hljs-number">682</span>s
+user    <span class="hljs-number">0</span>m0.<span class="hljs-number">084</span>s
+sys     <span class="hljs-number">0</span>m0.<span class="hljs-number">595</span>s
 
-    <span class="hljs-keyword">if</span> (argc &gt; <span class="hljs-number">1</span>) {
-        dir = realpath (argv[<span class="hljs-number">1</span>], <span class="hljs-literal">NULL</span>);
-        <span class="hljs-keyword">if</span> (dir == <span class="hljs-literal">NULL</span>) 
-            error_exit (argv[<span class="hljs-number">1</span>], <span class="hljs-string">&quot;realpath()&quot;</span>);
-    } <span class="hljs-keyword">else</span>
-        dir = realpath (<span class="hljs-string">&quot;.&quot;</span>, <span class="hljs-literal">NULL</span>);
-
-    <span class="hljs-built_in">printf</span> (<span class="hljs-string">&quot;%ju\n&quot;</span>, get_total_size (dir));
-}
-</code></pre>
-<pre><code class="lang-bash">$ gcc test.c
-
-$ time ./a.out /usr
-<span class="hljs-number">13392927146</span>
-
-real    <span class="hljs-number">0</span>m0.<span class="hljs-number">650</span>s
-user    <span class="hljs-number">0</span>m0.<span class="hljs-number">091</span>s
-sys     <span class="hljs-number">0</span>m0.<span class="hljs-number">554</span>s
+-----------------------------------
 
 $ time find /usr -type f -exec <span class="hljs-built_in">stat</span> -c <span class="hljs-string">&apos;%s&apos;</span> {} + | awk <span class="hljs-string">&apos;{sum += $1} END{ print sum}&apos;</span>
 <span class="hljs-number">13392927146</span>
@@ -1964,6 +1928,8 @@ $ time find /usr -type f -exec <span class="hljs-built_in">stat</span> -c <span 
 real    <span class="hljs-number">0</span>m1.<span class="hljs-number">515</span>s
 user    <span class="hljs-number">0</span>m0.<span class="hljs-number">402</span>s
 sys     <span class="hljs-number">0</span>m1.<span class="hljs-number">196</span>s
+
+-----------------------------------
 
 $ time python3 &lt;&lt;\@       <span class="hljs-comment"># python</span>
 import os
