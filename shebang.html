@@ -1292,10 +1292,20 @@
 ...
 <span class="hljs-comment">#! /usr/bin/make -f        # make &#xD30C;&#xC77C;&#xB3C4; &#xD558;&#xB098;&#xC758; &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xC2E4;&#xD589;&#xD560; &#xC218; &#xC788;&#xB2E4;.</span>
 ...
+
 <span class="hljs-comment"># guile scheme &#xC740; #! ... !# &#xAC00; &#xC8FC;&#xC11D;&#xC774;&#xBBC0;&#xB85C; &#xB2E4;&#xC74C; &#xB77C;&#xC778;&#xC5D0; !# &#xB97C; &#xCD94;&#xAC00;&#xD574;&#xC57C; &#xD55C;&#xB2E4;.</span>
 <span class="hljs-comment">#! /usr/bin/env -S guile --no-auto-compile -s</span>
 !<span class="hljs-comment">#</span>
-...
+(define (main)
+    (display <span class="hljs-string">&quot;1 &quot;</span>)
+    (display (call/cc (lambda (continuation)
+        (display <span class="hljs-string">&quot;2 &quot;</span>)
+        (continuation <span class="hljs-string">&quot;3 &quot;</span>)
+        (display <span class="hljs-string">&quot;foo &quot;</span>)
+    )))
+    (display <span class="hljs-string">&quot;4 &quot;</span>)
+) 
+(main)
 </code></pre>
 <p><code>#!</code> &#xBB38;&#xC790;&#xB294; &#xD14D;&#xC2A4;&#xD2B8; &#xD30C;&#xC77C;&#xC744; &#xBC14;&#xC774;&#xB108;&#xB9AC; &#xC2E4;&#xD589;&#xD30C;&#xC77C;&#xCC98;&#xB7FC; &#xC2E4;&#xD589;&#xD560; &#xC218; &#xC788;&#xAC8C; &#xD574;&#xC8FC;&#xB294; &#xC5ED;&#xD560;&#xC744; &#xD569;&#xB2C8;&#xB2E4;.
 OS &#xAC00; &#xC2E4;&#xD589; &#xD37C;&#xBBF8;&#xC158;&#xC774; &#xC124;&#xC815;&#xB41C; &#xD30C;&#xC77C;&#xC744; &#xC2E4;&#xD589;&#xD560; &#xB54C; &#xCC98;&#xC74C;&#xC5D0; <code>#!</code> &#xBB38;&#xC790;&#xB97C; &#xB9CC;&#xB098;&#xBA74; &#xB4A4;&#xC5D0; &#xC774;&#xC5B4;&#xC9C0;&#xB294; &#xB098;&#xBA38;&#xC9C0; &#xB77C;&#xC778;&#xC744; &#xD574;&#xB2F9; &#xD30C;&#xC77C;&#xC744; &#xC2E4;&#xD589;&#xD558;&#xAE30; &#xC704;&#xD55C; &#xC778;&#xD130;&#xD504;&#xB9AC;&#xD130;&#xB85C; &#xCDE8;&#xAE09;&#xD569;&#xB2C8;&#xB2E4;.
