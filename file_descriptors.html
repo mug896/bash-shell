@@ -1895,11 +1895,11 @@ drwxrwxr-x <span class="hljs-number">4</span> mug896 mug896 <span class="hljs-nu
 &#xAC89;&#xBCF4;&#xAE30; &#xC0AC;&#xC774;&#xC988; &#xD569;&#xACC4;&#xB97C; &#xAD6C;&#xD558;&#xB294; &#xAC83;&#xC778;&#xB370;&#xC694;.
 C &#xC5B8;&#xC5B4;&#xB85C; &#xC791;&#xC131;&#xD55C; &#xBA85;&#xB839;&#xC774; 2 &#xBC30; &#xC815;&#xB3C4; &#xC18D;&#xB3C4;&#xAC00; &#xBE60;&#xB978; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ time find /usr -type f -exec <span class="hljs-built_in">stat</span> -c <span class="hljs-string">&apos;%s&apos;</span> {} + | awk <span class="hljs-string">&apos;{sum += $1} END{ print sum}&apos;</span>
-<span class="hljs-number">13392927146</span>
+<span class="hljs-number">13377267846</span>
 
-real    <span class="hljs-number">0</span>m1.<span class="hljs-number">515</span>s
-user    <span class="hljs-number">0</span>m0.<span class="hljs-number">402</span>s
-sys     <span class="hljs-number">0</span>m1.<span class="hljs-number">196</span>s
+real    <span class="hljs-number">0</span>m1.<span class="hljs-number">596</span>s
+user    <span class="hljs-number">0</span>m0.<span class="hljs-number">375</span>s
+sys     <span class="hljs-number">0</span>m1.<span class="hljs-number">316</span>s
 
 --------------------------------------
 
@@ -1923,15 +1923,15 @@ int main(int argc, char *argv[])
     <span class="hljs-built_in">return</span> <span class="hljs-number">0</span>;
 }
 @
-total size : <span class="hljs-number">13392927146</span>
+total size : <span class="hljs-number">13377267846</span>
 
-real    <span class="hljs-number">0</span>m0.<span class="hljs-number">682</span>s
-user    <span class="hljs-number">0</span>m0.<span class="hljs-number">084</span>s
-sys     <span class="hljs-number">0</span>m0.<span class="hljs-number">595</span>s
+real    <span class="hljs-number">0</span>m0.<span class="hljs-number">658</span>s
+user    <span class="hljs-number">0</span>m0.<span class="hljs-number">100</span>s
+sys     <span class="hljs-number">0</span>m0.<span class="hljs-number">557</span>s
 
 -------------------------------------
 
-$ time python3 &lt;&lt;\@       <span class="hljs-comment"># python</span>
+$ time python3 &lt;&lt;\@          <span class="hljs-comment"># python</span>
 import os
 def get_total_size(path):
     total_size = <span class="hljs-number">0</span>
@@ -1944,11 +1944,35 @@ def get_total_size(path):
 
 <span class="hljs-built_in">print</span>(get_total_size(<span class="hljs-string">&quot;/usr&quot;</span>))
 @
-<span class="hljs-number">13392927146</span>
+<span class="hljs-number">13377267846</span>
 
-real    <span class="hljs-number">0</span>m1.<span class="hljs-number">297</span>s
-user    <span class="hljs-number">0</span>m0.<span class="hljs-number">610</span>s
-sys     <span class="hljs-number">0</span>m0.<span class="hljs-number">677</span>s
+real    <span class="hljs-number">0</span>m1.<span class="hljs-number">254</span>s
+user    <span class="hljs-number">0</span>m0.<span class="hljs-number">613</span>s
+sys     <span class="hljs-number">0</span>m0.<span class="hljs-number">637</span>s
+
+------------------------------------
+
+$ time node &lt;&lt;\@              <span class="hljs-comment"># node</span>
+const fs = require(<span class="hljs-string">&quot;fs&quot;</span>);
+<span class="hljs-keyword">function</span> get_total_size(path) {
+    <span class="hljs-built_in">let</span> totalSize = <span class="hljs-number">0</span>;
+    <span class="hljs-built_in">let</span> dents = fs.readdirSync(path, {withFileTypes: <span class="hljs-literal">true</span>});
+    dents.forEach( <span class="hljs-keyword">function</span>(dent) {
+        <span class="hljs-built_in">let</span> path_name = path + <span class="hljs-string">&quot;/&quot;</span> + dent.name;
+        <span class="hljs-keyword">if</span> (dent.isDirectory())
+            totalSize += get_total_size(path_name);
+        <span class="hljs-keyword">if</span> (dent.isFile())
+            totalSize += fs.statSync(path_name).size;
+    });
+    <span class="hljs-built_in">return</span> totalSize;
+}
+console.log(get_total_size(<span class="hljs-string">&apos;/usr&apos;</span>));
+@
+<span class="hljs-number">13377267846</span>
+
+real    <span class="hljs-number">0</span>m1.<span class="hljs-number">434</span>s
+user    <span class="hljs-number">0</span>m0.<span class="hljs-number">906</span>s
+sys     <span class="hljs-number">0</span>m0.<span class="hljs-number">571</span>s
 </code></pre>
 <h1 id="5-">5 .</h1>
 <p>C &#xD504;&#xB85C;&#xADF8;&#xB798;&#xBC0D;&#xC5D0;&#xC11C;&#xB294; &#xC0AC;&#xC6A9; &#xC911;&#xC778; FD &#xB97C; &#xB2E4;&#xB978; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB85C; &#xC804;&#xB2EC;&#xD558;&#xB294; &#xAC83;&#xB3C4; &#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;.
