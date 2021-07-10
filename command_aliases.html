@@ -1424,6 +1424,9 @@ elseif s:line1 =~<span class="hljs-comment"># &apos;m4 .*&lt;&lt;\\&apos;       
 elseif s:line1 =~<span class="hljs-comment"># &apos;python3\? .*&lt;&lt;\\&apos;     &quot; python</span>
     <span class="hljs-built_in">set</span> ft=python
 
+elseif s:line1 =~<span class="hljs-comment"># &apos;node .*&lt;&lt;\\&apos;          &quot; node</span>
+    <span class="hljs-built_in">set</span> ft=javascript
+
 endif
 unlet s:line1 s:line2 s:line3
 </code></pre>
