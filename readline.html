@@ -1748,7 +1748,8 @@ $ <span class="hljs-built_in">stat</span> disk.img
 Device: <span class="hljs-number">801</span>h/<span class="hljs-number">2049</span>d      Inode: <span class="hljs-number">11028268</span>    Links: <span class="hljs-number">1</span>
 . . . .
 
-<span class="hljs-comment"># mnt &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB97C; &#xC0DD;&#xC131;&#xD558;&#xACE0; loop &#xC7A5;&#xCE58;&#xB97C; &#xC774;&#xC6A9;&#xD574; disk.img &#xD30C;&#xC77C;&#xC744; &#xB9C8;&#xC6B4;&#xD2B8; &#xD569;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-comment"># mnt &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB97C; &#xC0DD;&#xC131;&#xD558;&#xACE0; -o loop &#xC635;&#xC158;&#xC744; &#xC774;&#xC6A9;&#xD574; disk.img &#xD30C;&#xC77C;&#xC744; &#xB9C8;&#xC6B4;&#xD2B8; &#xD569;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-comment"># &#xADF8;&#xB7EC;&#xBA74; /dev/loop? &#xC7A5;&#xCE58;&#xAC00; disk.img &#xD30C;&#xC77C;&#xACFC; &#xC5F0;&#xACB0;&#xB418;&#xACE0; mnt &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0; &#xB9C8;&#xC6B4;&#xD2B8; &#xB429;&#xB2C8;&#xB2E4;.</span>
 $ mkdir mnt &amp;&amp; sudo mount -o loop disk.img mnt &amp;&amp; sudo chmod <span class="hljs-number">777</span> mnt
 
 $ mount | grep disk.img
