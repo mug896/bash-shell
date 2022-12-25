@@ -1596,7 +1596,12 @@ $ ls <span class="hljs-operator">-l</span> x1 x2
 -rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896   <span class="hljs-number">0</span> <span class="hljs-number">2017</span>-<span class="hljs-number">01</span>-<span class="hljs-number">25</span> <span class="hljs-number">02</span>:<span class="hljs-number">44</span> x2
 </code></pre>
 <p>&#xCC38;&#xACE0;&#xB85C; &#xC608;&#xC81C;&#xB85C;&#xB4E0; sudo &#xBA85;&#xB839;&#xC740; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xD560; &#xC218;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-bash">$ <span class="hljs-built_in">echo</span> <span class="hljs-number">0</span> | sudo tee /proc/sys/kernel/yama/ptrace_scope
+<pre><code class="lang-bash"><span class="hljs-comment"># sh -c &apos;...&apos; &#xB85C; &#xC791;&#xC131;&#xD558;&#xB294; &#xBA85;&#xB839;&#xC774; &#xAE38;&#xC5B4;&#xC9C0;&#xACE0; quotes &#xC774; &#xD3EC;&#xD568;&#xB420; &#xACBD;&#xC6B0; heredoc &#xC744; &#xC774;&#xC6A9;&#xD558;&#xB294; &#xAC83;&#xC774; &#xD3B8;&#xB9AC;&#xD558;&#xB2E4;.</span>
+$ sudo sh - &lt;&lt;\@
+<span class="hljs-built_in">echo</span> <span class="hljs-number">0</span> &gt; /proc/sys/kernel/yama/ptrace_scope
+@
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-number">0</span> | sudo tee /proc/sys/kernel/yama/ptrace_scope
 <span class="hljs-number">0</span>
 </code></pre>
 <pre><code class="lang-bash"><span class="hljs-comment"># root &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0; &#xC784;&#xC2DC;&#xD30C;&#xC77C;&#xC744; &#xC0DD;&#xC131;&#xD558;&#xB824;&#xACE0; &#xD55C; &#xAC83;&#xC778;&#xB370; &#xBA85;&#xB839; &#xCE58;&#xD658;&#xC740; </span>

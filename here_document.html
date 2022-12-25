@@ -1400,7 +1400,7 @@ $ cat &lt;&lt;ABC     <span class="hljs-comment"># &#xAD6C;&#xBD84;&#xC790; ABC<
 here <span class="hljs-number">100</span>
 document <span class="hljs-number">07</span>/<span class="hljs-number">23</span>/<span class="hljs-number">15</span>
 
-<span class="hljs-comment"># &#xAD6C;&#xBD84;&#xC790;&#xB97C; quote &#xD558;&#xAC70;&#xB098; escape &#xD558;&#xBA74; &#xBCC0;&#xC218;&#xD655;&#xC7A5;, &#xBA85;&#xB839;&#xCE58;&#xD658;&#xC774; &#xC548;&#xB41C;&#xB2E4;.</span>
+<span class="hljs-comment"># &#xAD6C;&#xBD84;&#xC790;&#xB97C; quote &#xD558;&#xAC70;&#xB098; escape &#xD558;&#xBA74; &#xBCC0;&#xC218;&#xD655;&#xC7A5;, &#xBA85;&#xB839;&#xCE58;&#xD658;&#xC774; &#xBC1C;&#xC0DD;&#xD558;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
 $ AA=<span class="hljs-number">100</span>
 $ cat &lt;&lt;<span class="hljs-string">&apos;END&apos;</span>   <span class="hljs-comment"># &#xB610;&#xB294; &lt;&lt;\END</span>
 &gt; here <span class="hljs-variable">$AA</span>
@@ -1479,7 +1479,7 @@ EOF
         . . . .
 </code></pre>
 <h4 id="here-document-&#xB97C;-&#xD30C;&#xC77C;&#xB85C;-&#xC4F0;&#xAE30;">Here document &#xB97C; &#xD30C;&#xC77C;&#xB85C; &#xC4F0;&#xAE30;</h4>
-<pre><code class="lang-bash">$ cat &lt;&lt;\END &gt; file.conf     <span class="hljs-comment"># &lt;&lt;END &#xB294; 0&lt;&lt;END &#xACFC; &#xAC19;&#xC740; &#xAC83;&#xC784;</span>
+<pre><code class="lang-bash">$ cat &lt;&lt;\END &gt; file.conf     <span class="hljs-comment"># &lt;&lt;END &#xB294; 0&lt;&lt;END &#xC640; &#xAC19;&#xC740; &#xAC83;&#xC784;</span>
 here     = <span class="hljs-number">100</span>
 document = <span class="hljs-number">200</span>
 END
@@ -1636,8 +1636,8 @@ EOF
 cpu0     cpu1     cpu2     cpu3     cpu4     cpu5     cpu6     cpu7     
 <span class="hljs-number">289</span>      <span class="hljs-number">232</span>      <span class="hljs-number">269</span>      <span class="hljs-number">198</span>      <span class="hljs-number">260</span>      <span class="hljs-number">214</span>      <span class="hljs-number">279</span>      <span class="hljs-number">215</span>
 </code></pre>
-<h4 id="sh-c--&#xB610;&#xB294;-bash-c--&#xC0AC;&#xC6A9;&#xC2DC;-multiline-&#xBA85;&#xB839;-&#xC791;&#xC131;&#xBC95;">sh -c ... &#xB610;&#xB294; bash -c ... &#xC0AC;&#xC6A9;&#xC2DC; multi-line &#xBA85;&#xB839; &#xC791;&#xC131;&#xBC95;</h4>
-<p>&#xBCF4;&#xD1B5; <code>sh -c ...</code> &#xD615;&#xD0DC;&#xB85C; &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xD560; &#xB54C;&#xB294; quote &#xC744; &#xD558;&#xACE0; single-line &#xC73C;&#xB85C; &#xC791;&#xC131;&#xD558;&#xB294;&#xB370;&#xC694;.
+<h4 id="sh-c--&#xB610;&#xB294;-bash-c--&#xC0AC;&#xC6A9;&#xC2DC;-multiline-&#xBA85;&#xB839;-&#xC791;&#xC131;&#xBC95;"><code>sh -c &apos;...&apos;</code> &#xB610;&#xB294; <code>bash -c &apos;...&apos;</code> &#xC0AC;&#xC6A9;&#xC2DC; multi-line &#xBA85;&#xB839; &#xC791;&#xC131;&#xBC95;</h4>
+<p>&#xBCF4;&#xD1B5; <code>sh -c &apos;...&apos;</code> &#xD615;&#xD0DC;&#xB85C; &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xD560; &#xB54C;&#xB294; quote &#xC744; &#xD558;&#xACE0; single-line &#xC73C;&#xB85C; &#xC791;&#xC131;&#xD558;&#xB294;&#xB370;&#xC694;.
 here document &#xB97C; &#xC774;&#xC6A9;&#xD558;&#xBA74; multi-line &#xC73C;&#xB85C; &#xBA85;&#xB839;&#xC744; &#xC791;&#xC131;&#xD560; &#xC218; &#xC788;&#xACE0;
 quotes &#xB3C4; single, double quotes &#xBAA8;&#xB450; escape &#xC5C6;&#xC774; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ IFS= <span class="hljs-built_in">read</span> -rd <span class="hljs-string">&apos;&apos;</span> CMD &lt;&lt;\EOF || :             $ bash -c <span class="hljs-string">&quot;<span class="hljs-variable">$( cat &lt;&lt;\EOF
