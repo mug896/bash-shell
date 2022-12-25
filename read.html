@@ -1422,6 +1422,7 @@ find * -print0 | <span class="hljs-keyword">while</span> <span class="hljs-built
 
 <span class="hljs-comment"># -d &#xAC12;&#xC744; null &#xB85C; &#xC124;&#xC815;&#xD558;&#xBA74; &#xD30C;&#xC77C; &#xC804;&#xCCB4; &#xB77C;&#xC778;&#xC744; &#xC77D;&#xC5B4; &#xB4E4;&#xC785;&#xB2C8;&#xB2E4;.</span>
 <span class="hljs-comment"># -d &apos;&apos; &#xB294; &#xC2E4;&#xC81C; -d $&apos;\0&apos; &#xC640; &#xAC19;&#xACE0; -d &#xC640; &apos;&apos; &#xC0AC;&#xC774;&#xC5D0; &#xACF5;&#xBC31;&#xC774; &#xC788;&#xC5B4;&#xC57C; &#xB429;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-comment"># ( -d &apos;&apos; &#xB294; &#xB450; &#xAC1C;&#xC758; &#xC778;&#xC218;&#xAC00; &#xB418;&#xC9C0;&#xB9CC; -d&apos;&apos; &#xC77C; &#xACBD;&#xC6B0;&#xB294; quotes &#xC774; &#xC81C;&#xAC70;&#xB418;&#xACE0; &#xB098;&#xBA74; -d &#xD558;&#xB098;&#xC758; &#xC778;&#xC218;&#xAC00; &#xB418;&#xBBC0;&#xB85C; )</span>
 $ <span class="hljs-built_in">read</span> -r <span class="hljs-operator">-d</span> <span class="hljs-string">&apos;&apos;</span> whole &lt; datafile
 
 $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$whole</span>&quot;</span>
