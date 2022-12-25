@@ -1489,26 +1489,6 @@ AA=$( <span class="hljs-built_in">test</span> <span class="hljs-number">1</span>
 $ ./test.sh 
 start ...
 </code></pre>
-<h4 id="compound-commands-&#xC758;-&#xACBD;&#xC6B0;">compound commands &#xC758; &#xACBD;&#xC6B0;</h4>
-<p>compound compounds &#xC758; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC740; &#xB530;&#xB85C; errexit &#xC635;&#xC158;&#xC5D0; &#xC758;&#xD574; &#xCC98;&#xB9AC;&#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.
-&#xB2E4;&#xC74C; &#xC67C;&#xCABD;&#xC758; &#xACBD;&#xC6B0; <code>if</code> &#xBB38;&#xC758; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC774; &#xC624;&#xB958;&#xB85C; &#xBCF4;&#xC77C; &#xC218; &#xC788;&#xC73C;&#xB098; &#xC774;&#xAC83;&#xC740;
-&#xC55E;&#xC120; <code>[ 1 = 3 ] &amp;&amp; echo yes</code> &#xBA85;&#xB839;&#xBB38;&#xC758; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC73C;&#xB85C; <code>&amp;&amp;</code> &#xC5F0;&#xC0B0;&#xC790;&#xC5D0; &#xC758;&#xD574; &#xC885;&#xB8CC;&#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-bash"><span class="hljs-comment">#!/bin/bash -e                                #!/bin/bash -e</span>
-
-<span class="hljs-built_in">echo</span> start...                                 <span class="hljs-built_in">echo</span> start...
-<span class="hljs-keyword">if</span> <span class="hljs-built_in">test</span> <span class="hljs-number">1</span> = <span class="hljs-number">1</span>; <span class="hljs-keyword">then</span>                           <span class="hljs-keyword">if</span> <span class="hljs-built_in">test</span> <span class="hljs-number">1</span> = <span class="hljs-number">1</span>; <span class="hljs-keyword">then</span>
-    <span class="hljs-built_in">test</span> <span class="hljs-number">1</span> = <span class="hljs-number">3</span> &amp;&amp; <span class="hljs-built_in">echo</span> yes                        <span class="hljs-built_in">test</span> <span class="hljs-number">1</span> = <span class="hljs-number">3</span>         <span class="hljs-comment"># &amp;&amp; &#xC5F0;&#xC0B0;&#xC790; &#xC81C;&#xAC70;</span>
-<span class="hljs-keyword">fi</span>                                            <span class="hljs-keyword">fi</span>
-<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;exit status :&quot;</span> $?                       <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;exit status :&quot;</span> $?
-<span class="hljs-built_in">echo</span> end...                                   <span class="hljs-built_in">echo</span> end...
-
--------------------------                     -------------------------
-
-$ ./test.sh                                   $ ./test.sh
-start...                                      start...        <span class="hljs-comment"># &#xC885;&#xB8CC;&#xB41C;&#xB2E4;.</span>
-<span class="hljs-built_in">exit</span> status : <span class="hljs-number">1</span>
-end...
-</code></pre>
 <h4 id="redirection-&#xC774;-&#xD0A4;&#xC6CC;&#xB4DC;&#xC5D0;-&#xC5F0;&#xACB0;&#xB418;&#xC5B4;-&#xC0AC;&#xC6A9;&#xB420;-&#xACBD;&#xC6B0;">redirection &#xC774; &#xD0A4;&#xC6CC;&#xB4DC;&#xC5D0; &#xC5F0;&#xACB0;&#xB418;&#xC5B4; &#xC0AC;&#xC6A9;&#xB420; &#xACBD;&#xC6B0;</h4>
 <p>redirection &#xC774; <code>{ ;}</code> &#xB098; compound commands &#xC758; &#xD0A4;&#xC6CC;&#xB4DC;&#xC5D0; &#xC5F0;&#xACB0;&#xB418;&#xC5B4; &#xC0AC;&#xC6A9;&#xB420; &#xACBD;&#xC6B0;,
 redirection &#xCC98;&#xB9AC;&#xC5D0;&#xC11C; &#xC624;&#xB958;&#xAC00; &#xBC1C;&#xC0DD;&#xD574;&#xB3C4; &#xC885;&#xB8CC;&#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.
