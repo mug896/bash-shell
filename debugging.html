@@ -1655,8 +1655,8 @@ $ <span class="hljs-built_in">echo</span> $?
 <p>&#xB2E4;&#xC74C;&#xC740; ERR trap &#xC744; &#xC124;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-shebang">#!/bin/bash</span>
 <span class="hljs-comment"># $LINENO &#xAC12;&#xC774; &#xC62C;&#xBC14;&#xB974;&#xAC8C; &#xD45C;&#xC2DC;&#xB418;&#xB824;&#xBA74; trap &#xCCAB; &#xB77C;&#xC778;&#xC5D0; &#xC704;&#xCE58;&#xD574;&#xC57C; &#xD568;</span>
-<span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;exitcode=$? LINE=$LINENO
-echo &quot;ERROR: $BASH_SOURCE: $LINE: exit $exitcode: $BASH_COMMAND&quot;
+<span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;exitcode=$? lineno=$LINENO
+echo &quot;ERROR: $BASH_SOURCE: $lineno: exit $exitcode: $BASH_COMMAND&quot;
 exit $exitcode
 &apos;</span> ERR
 
@@ -1683,8 +1683,8 @@ ERR trap &#xC774; &#xB429;&#xB2C8;&#xB2E4;.
 &#xB530;&#xB77C;&#xC11C; ERR trap &#xBA54;&#xC2DC;&#xC9C0;&#xAC00; &#xD504;&#xB85C;&#xC138;&#xC2A4; &#xBCC4;&#xB85C; &#xCD9C;&#xB825;&#xB418;&#xB294; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;</p>
 <pre><code class="lang-bash"><span class="hljs-comment">#!/bin/bash -E</span>
 
-<span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;exitcode=$? LINE=$LINENO
-echo &quot;ERROR: $BASH_SOURCE: $LINE: exit $exitcode: $BASH_COMMAND&quot;
+<span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;exitcode=$? lineno=$LINENO
+echo &quot;ERROR: $BASH_SOURCE: $lineno: exit $exitcode: $BASH_COMMAND&quot;
 exit $exitcode
 &apos;</span> ERR
 
@@ -1709,8 +1709,8 @@ ERROR: ./test.sh: <span class="hljs-number">13</span>: <span class="hljs-built_i
 &#xBA85;&#xB839; &#xCE58;&#xD658;&#xC5D0;&#xC11C; &#xBC1C;&#xC0DD;&#xD558;&#xB294; &#xC624;&#xB958;&#xB294; &#xC624;&#xB958;&#xB85C; &#xCDE8;&#xAE09;&#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.
 &#xD558;&#xC9C0;&#xB9CC; &#xB300;&#xC785; &#xC5F0;&#xC0B0;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xB420; &#xACBD;&#xC6B0;&#xB294; &#xC624;&#xB958;&#xB85C; &#xCDE8;&#xAE09;&#xB429;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-comment">#!/bin/bash -E</span>
-<span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;exitcode=$? LINE=$LINENO
-echo &quot;ERROR: $BASH_SOURCE: $LINE: exit $exitcode: $BASH_COMMAND&quot;
+<span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;exitcode=$? lineno=$LINENO
+echo &quot;ERROR: $BASH_SOURCE: $lineno: exit $exitcode: $BASH_COMMAND&quot;
 exit $exitcode
 &apos;</span> ERR
 
@@ -1730,8 +1730,8 @@ $ <span class="hljs-built_in">echo</span> $?
 <span class="hljs-comment">##############  &#xB300;&#xC785; &#xC5F0;&#xC0B0; #################</span>
 
 <span class="hljs-comment">#!/bin/bash -E</span>
-<span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;exitcode=$? LINE=$LINENO
-echo &quot;ERROR: $BASH_SOURCE: $LINE: exit $exitcode: $BASH_COMMAND&quot;
+<span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;exitcode=$? lineno=$LINENO
+echo &quot;ERROR: $BASH_SOURCE: $lineno: exit $exitcode: $BASH_COMMAND&quot;
 exit $exitcode
 &apos;</span> ERR
 
