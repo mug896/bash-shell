@@ -1682,12 +1682,17 @@ $
 $ res=$( <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$val1</span> + <span class="hljs-variable">$val2</span>&quot;</span> | bc ); <span class="hljs-built_in">echo</span> <span class="hljs-variable">$res</span>
 <span class="hljs-number">17.38</span>
 
+<span class="hljs-comment"># &#xCD08;&#xC6D4;&#xC218;&#xC911;&#xC5D0; &#xD558;&#xB098;&#xC778; Champernowne constant</span>
+$ bc &lt;&lt;&lt; <span class="hljs-string">&apos;scale=1000; 60499999499 / 490050000000&apos;</span>
+.<span class="hljs-number">1234567891011121314151617181920212223242526272829303132333435363738</span>\
+<span class="hljs-number">39404142434445464748495051525354555657585960616263646566676869707172</span>\
+<span class="hljs-number">73747576777879808182838485868788899091929394959697</span>  <span class="hljs-number">990001020304050607</span>\
+. . .
 $ bc &lt;&lt;&lt; <span class="hljs-string">&apos;scale=1000; 1 / 998001&apos;</span> 
 .<span class="hljs-number">0000010020030040050060070080090100110120130140150160170180190200210</span>\
 <span class="hljs-number">22023024025026027028029030031032033034035036037038039040041042043044</span>\
 <span class="hljs-number">04504604704804905005105205305405505605705805906006106206306406506606</span>\
-<span class="hljs-number">70680690700710720730740750760770780790800810820830840850860870880890</span>\
-......
+. . .
 </code></pre>
 <p>Gregory&#x2013;Leibniz series &#xB97C; &#xC774;&#xC6A9;&#xD574; pi &#xAC12; &#xAD6C;&#xD558;&#xAE30;</p>
 <p><img src="images/leibniz_series.png" alt=""></p>
