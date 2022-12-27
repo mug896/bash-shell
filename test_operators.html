@@ -1754,7 +1754,7 @@ $ qalc <span class="hljs-string">&apos;30 deg to rad&apos;</span>
 $ qalc <span class="hljs-string">&apos;e^(pi * i)&apos;</span>
 e^(pi &#xD7; i) = &#x2212;<span class="hljs-number">1</span>
 
-$ qalc <span class="hljs-string">&apos;e^(pi * i / 2)&apos;</span>
+$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;e^(pi * i / 2)&apos;</span> | qalc -t -c0 | sed -E <span class="hljs-string">&apos;/^&gt;|^$/d&apos;</span>
 e^((pi &#xD7; i) / <span class="hljs-number">2</span>) = i
 </code></pre>
 <h1 id="3-">3 .</h1>
