@@ -1720,6 +1720,31 @@ j(n,x)   The Bessel function of integer order n of x.
 </code></pre><blockquote>
 <p>16 &#xC9C4;&#xC218;&#xB97C; &#xC0AC;&#xC6A9;&#xD560;&#xB550; &#xB300;&#xBB38;&#xC790;&#xB97C; &#xC0AC;&#xC6A9;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;. ( &#xC18C;&#xBB38;&#xC790;&#xB294; &#xBCC0;&#xC218; &#xC774;&#xB984;&#xC73C;&#xB85C; &#xC0AC;&#xC6A9;&#xB428; )</p>
 </blockquote>
+<p>&#xC2E0;&#xC138;&#xB300; &#xACC4;&#xC0B0;&#xAE30;&#xB85C; qalculate &#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xBA85;&#xB839; &#xB77C;&#xC778;&#xC5D0;&#xC11C;&#xB3C4; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-sh">$ sudo apt install qalculate-gtk
+
+$ qalc <span class="hljs-string">&apos;factor(15x^3 + 92x^2 + 89x + 20)&apos;</span>
+(<span class="hljs-number">15</span> &#xD7; (x^<span class="hljs-number">3</span>)) + (<span class="hljs-number">92</span> &#xD7; (x^<span class="hljs-number">2</span>)) + (<span class="hljs-number">89</span> &#xD7; x) + <span class="hljs-number">20</span> = (<span class="hljs-number">3</span>x + <span class="hljs-number">1</span>)(<span class="hljs-number">5</span>x + <span class="hljs-number">4</span>)(x + <span class="hljs-number">5</span>)
+
+$ qalc <span class="hljs-string">&apos;solve((3x + 1)(5x + 4)(x + 5) = 0)&apos;</span>
+solve((((<span class="hljs-number">3</span> &#xD7; x) + <span class="hljs-number">1</span>) &#xD7; ((<span class="hljs-number">5</span> &#xD7; x) + <span class="hljs-number">4</span>) &#xD7; (x + <span class="hljs-number">5</span>)) = <span class="hljs-number">0</span>) = [&#x2212;<span class="hljs-number">5</span>  &#x2212;<span class="hljs-number">4</span>/<span class="hljs-number">5</span>  &#x2212;<span class="hljs-number">1</span>/<span class="hljs-number">3</span>] &#x2248; [&#x2212;<span class="hljs-number">5</span>  &#x2212;<span class="hljs-number">0.8</span>  &#x2212;<span class="hljs-number">0.3333333333</span>]
+
+$ qalc <span class="hljs-string">&apos;diff(x * sin(x))&apos;</span>
+diff(x &#xD7; sin(x radians)) = cos(x) &#xD7; x + sin(x)
+
+$ qalc <span class="hljs-string">&apos;integrate(cos(x) &#xD7; x + sin(x))&apos;</span>
+integrate((cos(x radians) &#xD7; x) + sin(x radians)) = sin(x) &#xD7; x + C
+
+$ qalc <span class="hljs-string">&apos;plot(x * sin(x), -500, 500)&apos;</span>           <span class="hljs-comment"># gnuplot &#xD328;&#xD0A4;&#xC9C0; &#xC124;&#xCE58; &#xD544;&#xC694;</span>
+plot(x &#xD7; sin(x radians), &#x2212;<span class="hljs-number">500</span>, <span class="hljs-number">500</span>) = <span class="hljs-number">0</span>
+
+$ qalc <span class="hljs-string">&apos;e^(pi * i)&apos;</span>
+e^(pi &#xD7; i) = &#x2212;<span class="hljs-number">1</span>
+
+$ qalc <span class="hljs-string">&apos;e^(pi * i / 2)&apos;</span>
+e^((pi &#xD7; i) / <span class="hljs-number">2</span>) = i
+</code></pre>
 <h1 id="3-">3 .</h1>
 <p>Shell &#xC5D0;&#xC11C;&#xB294; &#xC785;, &#xCD9C;&#xB825;&#xC774; terminal &#xC774;&#xB098; pipe, regular file &#xB85C; &#xC5F0;&#xACB0;&#xB420; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.<br>&#xD604;&#xC7AC; stdin &#xC774; &#xC5B4;&#xB514;&#xC5D0; &#xC5F0;&#xACB0;&#xB418;&#xC5B4; &#xC788;&#xB294;&#xC9C0; &#xC5B4;&#xB5BB;&#xAC8C; &#xC54C; &#xC218; &#xC788;&#xC744;&#xAE4C;&#xC694;? </p>
 <pre><code class="lang-bash">$ <span class="hljs-built_in">test</span> -t <span class="hljs-number">0</span>; <span class="hljs-built_in">echo</span> $?                         <span class="hljs-comment"># stdin &#xC774; terminal &#xC5D0; &#xC5F0;&#xACB0;&#xB418;&#xC5B4; &#xC788;&#xB294;&#xC9C0; &#xD14C;&#xC2A4;&#xD2B8;</span>
