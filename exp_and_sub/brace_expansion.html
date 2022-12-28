@@ -1381,13 +1381,14 @@ $ ls /usr/<span class="hljs-built_in">local</span>/{,foo/}bar
 /usr/<span class="hljs-built_in">local</span>/foo/bar
 . . .
 
-$ paste &lt;( shuf -n5 -i <span class="hljs-number">1</span>-<span class="hljs-number">99</span> ){,}
-<span class="hljs-number">57</span>      <span class="hljs-number">79</span>
-<span class="hljs-number">59</span>      <span class="hljs-number">68</span>
-<span class="hljs-number">75</span>      <span class="hljs-number">90</span>
-<span class="hljs-number">53</span>      <span class="hljs-number">72</span>
-<span class="hljs-number">85</span>      <span class="hljs-number">98</span>
-
+$ <span class="hljs-built_in">echo</span> &lt;( <span class="hljs-built_in">echo</span> x ){,,}
+/dev/fd/<span class="hljs-number">63</span> /dev/fd/<span class="hljs-number">62</span> /dev/fd/<span class="hljs-number">61</span>
+$ cat &lt;( shuf -n5 -i <span class="hljs-number">1</span>-<span class="hljs-number">99</span> )
+<span class="hljs-number">91</span>
+<span class="hljs-number">52</span>
+<span class="hljs-number">15</span>
+<span class="hljs-number">73</span>
+<span class="hljs-number">64</span>
 $ paste &lt;( shuf -n5 -i <span class="hljs-number">1</span>-<span class="hljs-number">99</span> ){,,} 
 <span class="hljs-number">48</span>      <span class="hljs-number">18</span>      <span class="hljs-number">91</span>
 <span class="hljs-number">58</span>      <span class="hljs-number">24</span>      <span class="hljs-number">95</span>
