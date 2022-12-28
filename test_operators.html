@@ -1759,7 +1759,7 @@ $ qalc <span class="hljs-string">&apos;e^(pi * i)&apos;</span>
 e^(pi &#xD7; i) = &#x2212;<span class="hljs-number">1</span>
 
 $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;e^(pi * i / 2)&apos;</span> | qalc -t -c0 | sed -E <span class="hljs-string">&apos;/^&gt;|^$/d&apos;</span>
-e^((pi &#xD7; i) / <span class="hljs-number">2</span>) = i
+  i
 
 $ qalc <span class="hljs-operator">-s</span> <span class="hljs-string">&quot;precision 200&quot;</span> <span class="hljs-string">&apos;60499999499 / 490050000000&apos;</span>
 <span class="hljs-number">60499999499</span> / <span class="hljs-number">490050000000</span> &#x2248; <span class="hljs-number">0.123456789101112131415161718192021222324252627282930313233</span>
