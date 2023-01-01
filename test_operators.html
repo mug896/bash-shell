@@ -1695,7 +1695,7 @@ $ bc &lt;&lt;&lt; <span class="hljs-string">&apos;scale=1000; 1 / 998001&apos;</
 <span class="hljs-number">04504604704804905005105205305405505605705805906006106206306406506606</span>\
 . . .
 </code></pre>
-<p>Gregory&#x2013;Leibniz series &#xB97C; &#xC774;&#xC6A9;&#xD574; pi &#xAC12; &#xAD6C;&#xD558;&#xAE30;</p>
+<p>Gregory&#x2013;Leibniz series &#xB97C; &#xC774;&#xC6A9;&#xD574; pi &#xAC12; &#xAD6C;&#xD574;&#xBCF4;&#xAE30;</p>
 <p><img src="images/leibniz_series.png" alt=""></p>
 <pre><code class="lang-bash"><span class="hljs-comment"># &#xC18C;&#xC218;&#xC810; &#xB137;&#xC9F8; &#xC790;&#xB9AC;&#xBD80;&#xD130;&#xB294; &#xC815;&#xD655;&#xD558;&#xC9C0; &#xC54A;&#xB2E4;.</span>
 $ seq <span class="hljs-operator">-f</span> <span class="hljs-string">&apos;4/%g&apos;</span> <span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">9999</span> | paste <span class="hljs-operator">-s</span> <span class="hljs-operator">-d</span> <span class="hljs-string">&apos;-+&apos;</span> |  bc <span class="hljs-operator">-l</span>
@@ -1707,6 +1707,34 @@ $ bc <span class="hljs-operator">-l</span> &lt;&lt;&lt; <span class="hljs-string
 <span class="hljs-number">81640628620899862803482534211706798214808651328230664709384460955058</span>\
 <span class="hljs-number">22317253594081284811174502841027019385211055596446229489549303819644</span>\
 . . .
+</code></pre>
+<p>&#xD14C;&#xC77C;&#xB7EC; &#xC2DC;&#xB9AC;&#xC988;&#xB97C; &#xC774;&#xC6A9;&#xD574; &#xC790;&#xC5F0;&#xC0C1;&#xC218; <code>e</code> &#xAD6C;&#xD574;&#xBCF4;&#xAE30;</p>
+<p><img src="images/taylor_series.png" alt=""></p>
+<pre><code class="lang-sh">$ awk <span class="hljs-string">&apos;BEGIN { 
+    for (i = 1; i &lt;= 11; i++) { 
+        str = &quot;(1&quot;
+        for (j = 1; j &lt; i; j++) str = str &quot;*&quot; j
+        print &quot;1/&quot; str &quot;)&quot;
+    }
+}&apos;</span>
+<span class="hljs-number">1</span>/(<span class="hljs-number">1</span>)
+<span class="hljs-number">1</span>/(<span class="hljs-number">1</span>*<span class="hljs-number">1</span>)
+<span class="hljs-number">1</span>/(<span class="hljs-number">1</span>*<span class="hljs-number">1</span>*<span class="hljs-number">2</span>)
+<span class="hljs-number">1</span>/(<span class="hljs-number">1</span>*<span class="hljs-number">1</span>*<span class="hljs-number">2</span>*<span class="hljs-number">3</span>)
+<span class="hljs-number">1</span>/(<span class="hljs-number">1</span>*<span class="hljs-number">1</span>*<span class="hljs-number">2</span>*<span class="hljs-number">3</span>*<span class="hljs-number">4</span>)
+<span class="hljs-number">1</span>/(<span class="hljs-number">1</span>*<span class="hljs-number">1</span>*<span class="hljs-number">2</span>*<span class="hljs-number">3</span>*<span class="hljs-number">4</span>*<span class="hljs-number">5</span>)
+<span class="hljs-number">1</span>/(<span class="hljs-number">1</span>*<span class="hljs-number">1</span>*<span class="hljs-number">2</span>*<span class="hljs-number">3</span>*<span class="hljs-number">4</span>*<span class="hljs-number">5</span>*<span class="hljs-number">6</span>)
+. . .
+$ awk <span class="hljs-string">&apos;BEGIN { 
+    for (i = 1; i &lt;= 11; i++) { 
+        str = &quot;(1&quot;
+        for (j = 1; j &lt; i; j++) str = str &quot;*&quot; j
+        print &quot;1/&quot; str &quot;)&quot; 
+}}&apos;</span> | paste <span class="hljs-operator">-s</span> <span class="hljs-operator">-d</span> <span class="hljs-string">&apos;+&apos;</span> | bc <span class="hljs-operator">-l</span>
+<span class="hljs-number">2.71828180114638447967</span>
+
+$ bc <span class="hljs-operator">-l</span> &lt;&lt;&lt; <span class="hljs-string">&apos;e(1)&apos;</span>
+<span class="hljs-number">2.71828182845904523536</span>
 </code></pre>
 <p><code>bc</code> &#xBA85;&#xB839;&#xC740; arbitrary-precision arithmetic  &#xC5F0;&#xC0B0;&#xAE30;&#xB85C; &#xB0B4;&#xBD80;&#xC801;&#xC73C;&#xB85C; &#xBAA8;&#xB4E0; &#xC5F0;&#xC0B0;&#xC744;
 10 &#xC9C4;&#xC218;&#xB85C; &#xCC98;&#xB9AC;&#xD558;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; 2 &#xC9C4;&#xC218;&#xB85C; &#xCC98;&#xB9AC;&#xB418;&#xB294; float, double &#xC5F0;&#xC0B0;&#xACFC; &#xB2EC;&#xB9AC; &#xC815;&#xD655;&#xD55C;? &#xAC12;&#xC744; &#xCD9C;&#xB825;&#xD569;&#xB2C8;&#xB2E4;.
