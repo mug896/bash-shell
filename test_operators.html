@@ -1710,8 +1710,8 @@ $ bc <span class="hljs-operator">-l</span> &lt;&lt;&lt; <span class="hljs-string
 </code></pre>
 <p>&#xD14C;&#xC77C;&#xB7EC; &#xC2DC;&#xB9AC;&#xC988;&#xB97C; &#xC774;&#xC6A9;&#xD574; &#xC790;&#xC5F0;&#xC0C1;&#xC218; <code>e</code> &#xAD6C;&#xD574;&#xBCF4;&#xAE30;</p>
 <p><img src="images/taylor_series.png" alt=""></p>
-<pre><code class="lang-sh">$ awk <span class="hljs-string">&apos;BEGIN { 
-    for (i = 1; i &lt;= 11; i++) { 
+<pre><code class="lang-sh">$ awk <span class="hljs-string">&apos;BEGIN {
+    for (i = 1; i &lt;= 10; i++) {
         str = &quot;(1&quot;
         for (j = 1; j &lt; i; j++) str = str &quot;*&quot; j
         print &quot;1/&quot; str &quot;)&quot;
@@ -1725,13 +1725,13 @@ $ bc <span class="hljs-operator">-l</span> &lt;&lt;&lt; <span class="hljs-string
 <span class="hljs-number">1</span>/(<span class="hljs-number">1</span>*<span class="hljs-number">1</span>*<span class="hljs-number">2</span>*<span class="hljs-number">3</span>*<span class="hljs-number">4</span>*<span class="hljs-number">5</span>)
 <span class="hljs-number">1</span>/(<span class="hljs-number">1</span>*<span class="hljs-number">1</span>*<span class="hljs-number">2</span>*<span class="hljs-number">3</span>*<span class="hljs-number">4</span>*<span class="hljs-number">5</span>*<span class="hljs-number">6</span>)
 . . .
-$ awk <span class="hljs-string">&apos;BEGIN { 
-    for (i = 1; i &lt;= 11; i++) { 
+$ awk <span class="hljs-string">&apos;BEGIN {
+    for (i = 1; i &lt;= 10; i++) {
         str = &quot;(1&quot;
         for (j = 1; j &lt; i; j++) str = str &quot;*&quot; j
-        print &quot;1/&quot; str &quot;)&quot; 
+        print &quot;1/&quot; str &quot;)&quot;
 }}&apos;</span> | paste <span class="hljs-operator">-s</span> <span class="hljs-operator">-d</span> <span class="hljs-string">&apos;+&apos;</span> | bc <span class="hljs-operator">-l</span>
-<span class="hljs-number">2.71828180114638447967</span>
+<span class="hljs-number">2.71828152557319223982</span>
 
 $ bc <span class="hljs-operator">-l</span> &lt;&lt;&lt; <span class="hljs-string">&apos;e(1)&apos;</span>
 <span class="hljs-number">2.71828182845904523536</span>
