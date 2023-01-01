@@ -1697,7 +1697,10 @@ $ bc &lt;&lt;&lt; <span class="hljs-string">&apos;scale=1000; 1 / 998001&apos;</
 </code></pre>
 <p>Gregory&#x2013;Leibniz series &#xB97C; &#xC774;&#xC6A9;&#xD574; pi &#xAC12; &#xAD6C;&#xD574;&#xBCF4;&#xAE30;</p>
 <p><img src="images/leibniz_series.png" alt=""></p>
-<pre><code class="lang-bash"><span class="hljs-comment"># &#xC18C;&#xC218;&#xC810; &#xB137;&#xC9F8; &#xC790;&#xB9AC;&#xBD80;&#xD130;&#xB294; &#xC815;&#xD655;&#xD558;&#xC9C0; &#xC54A;&#xB2E4;.</span>
+<pre><code class="lang-bash">$ seq <span class="hljs-operator">-f</span> <span class="hljs-string">&apos; 4/%g &apos;</span> <span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">20</span> | paste <span class="hljs-operator">-s</span> <span class="hljs-operator">-d</span> <span class="hljs-string">&apos;-+&apos;</span>
+ <span class="hljs-number">4</span>/<span class="hljs-number">1</span> - <span class="hljs-number">4</span>/<span class="hljs-number">3</span> + <span class="hljs-number">4</span>/<span class="hljs-number">5</span> - <span class="hljs-number">4</span>/<span class="hljs-number">7</span> + <span class="hljs-number">4</span>/<span class="hljs-number">9</span> - <span class="hljs-number">4</span>/<span class="hljs-number">11</span> + <span class="hljs-number">4</span>/<span class="hljs-number">13</span> - <span class="hljs-number">4</span>/<span class="hljs-number">15</span> + <span class="hljs-number">4</span>/<span class="hljs-number">17</span> - <span class="hljs-number">4</span>/<span class="hljs-number">19</span>
+
+<span class="hljs-comment"># &#xC18C;&#xC218;&#xC810; &#xB137;&#xC9F8; &#xC790;&#xB9AC;&#xBD80;&#xD130;&#xB294; &#xC815;&#xD655;&#xD558;&#xC9C0; &#xC54A;&#xB2E4;.</span>
 $ seq <span class="hljs-operator">-f</span> <span class="hljs-string">&apos;4/%g&apos;</span> <span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">9999</span> | paste <span class="hljs-operator">-s</span> <span class="hljs-operator">-d</span> <span class="hljs-string">&apos;-+&apos;</span> |  bc <span class="hljs-operator">-l</span>
 <span class="hljs-number">3.14139265359179323814</span>
 
