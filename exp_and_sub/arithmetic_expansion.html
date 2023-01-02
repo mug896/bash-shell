@@ -1463,7 +1463,7 @@ $ <span class="hljs-built_in">echo</span> $(( ( <span class="hljs-number">2</spa
 <p>&#xAC70;&#xB4ED;&#xC81C;&#xACF1;&#xC740; &#xC5F0;&#xC0B0;&#xC790;&#xB85C; <code>**</code> &#xB97C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4; ( <code>^</code> &#xB294; XOR &#xC5F0;&#xC0B0;&#xC790;&#xB85C; &#xC0AC;&#xC6A9;&#xB418;&#xBBC0;&#xB85C; ).
 &#xD55C;&#xAC00;&#xC9C0; &#xC0AC;&#xC6A9;&#xC2DC; &#xC8FC;&#xC758;&#xD560; &#xC810;&#xC740; &#xC5F0;&#xC0B0; &#xBC29;&#xC2DD;&#xC774; &#xC694;&#xC998; &#xC0AC;&#xC6A9;&#xB418;&#xB294; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xB4E4;&#xACFC; &#xB2E4;&#xB985;&#xB2C8;&#xB2E4;.
 &#xC774;&#xAC83;&#xC740; &#xACFC;&#xAC70;&#xC758; &#xC720;&#xBB3C;&#xB85C; &#xC218;&#xC815;&#xB418;&#xC9C0; &#xBABB;&#xD558;&#xACE0; &#xB0A8;&#xC544;&#xC788;&#xB294; &#xAE30;&#xB2A5;&#xC778;&#xB370; 
-&#xC74C;&#xC218;&#xB97C; &#xAC70;&#xB4ED;&#xC81C;&#xACF1;&#xD560; &#xACBD;&#xC6B0; &#xBCF4;&#xD1B5; <code>-</code> &#xB97C; &#xC81C;&#xC678;&#xD558;&#xACE0; &#xAC70;&#xB4ED;&#xC81C;&#xACF1;&#xC744; &#xD55C;&#xD6C4;&#xC5D0;
+&#xC74C;&#xC218;&#xB97C; &#xAC70;&#xB4ED;&#xC81C;&#xACF1;&#xD560; &#xACBD;&#xC6B0; &#xBCF4;&#xD1B5; <code>-</code> &#xB97C; &#xC81C;&#xC678;&#xD558;&#xACE0; &#xBA3C;&#xC800; &#xAC70;&#xB4ED;&#xC81C;&#xACF1;&#xC744; &#xD55C;&#xD6C4;&#xC5D0;
 &#xACB0;&#xACFC;&#xC5D0; <code>-</code> &#xAC00; &#xBD99;&#xB294;&#xB370; &#xBC18;&#xD574;&#xC11C; shell &#xC5D0;&#xC11C;&#xB294; &#xC74C;&#xC218; &#xC790;&#xCCB4;&#xB97C; &#xAC70;&#xB4ED;&#xC81C;&#xACF1;&#xD569;&#xB2C8;&#xB2E4;.
 &#xC774;&#xAC83;&#xC740;  ksh, zsh, bc &#xC5D0;&#xC11C;&#xB3C4; &#xBAA8;&#xB450; &#xB3D9;&#xC77C;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ <span class="hljs-built_in">echo</span> $(( -<span class="hljs-number">2</span> ** <span class="hljs-number">2</span> ))                <span class="hljs-comment"># (-2) &#xB97C; 2 &#xC81C;&#xACF1; &#xD55C;&#xAC83;&#xACFC; &#xAC19;&#xB2E4;.</span>
@@ -1479,7 +1479,7 @@ $ bc <span class="hljs-operator">-l</span> &lt;&lt;&lt; <span class="hljs-string
 
 $ awk <span class="hljs-string">&apos;BEGIN { print -2 ^ 2 }&apos;</span>       <span class="hljs-comment"># &#xADF8;&#xC678; &#xACC4;&#xC0B0;&#xAE30;&#xB098; &#xC694;&#xC998; &#xC0AC;&#xC6A9;&#xB418;&#xB294; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC758; &#xACBD;&#xC6B0;&#xB294;</span>
 -<span class="hljs-number">4</span>                                   <span class="hljs-comment"># 2 &#xC5D0; 2 &#xC81C;&#xACF1;&#xC744; &#xD55C;&#xD6C4;&#xC5D0; &#xACB0;&#xACFC;&#xC5D0; &quot;-&quot; &#xAC00; &#xBD99;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
-
+                                     <span class="hljs-comment"># (&quot;^&quot; &#xC5F0;&#xC0B0;&#xC790;&#xAC00; &quot;-&quot; &#xBCF4;&#xB2E4; &#xC6B0;&#xC120;&#xC21C;&#xC704;&#xAC00; &#xB192;&#xC73C;&#xBBC0;&#xB85C;)</span>
 $ perl -E <span class="hljs-string">&apos;say -2 ** 2&apos;</span>
 -<span class="hljs-number">4</span>
 
