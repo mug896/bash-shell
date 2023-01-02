@@ -1472,6 +1472,9 @@ $ <span class="hljs-built_in">echo</span> $(( ( <span class="hljs-number">2</spa
 $ <span class="hljs-built_in">echo</span> $(( -(<span class="hljs-number">2</span> ** <span class="hljs-number">2</span>) ))
 -<span class="hljs-number">4</span>
 
+$ bc <span class="hljs-operator">-l</span> &lt;&lt;&lt; <span class="hljs-string">&apos;-2^2&apos;</span>
+<span class="hljs-number">4</span>
+
 -------------------------------
 
 $ awk <span class="hljs-string">&apos;BEGIN { print -2 ^ 2 }&apos;</span>       <span class="hljs-comment"># &#xADF8;&#xC678; &#xACC4;&#xC0B0;&#xAE30;&#xB098; &#xC694;&#xC998; &#xC0AC;&#xC6A9;&#xB418;&#xB294; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC758; &#xACBD;&#xC6B0;&#xB294;</span>
