@@ -1466,11 +1466,6 @@ $ <span class="hljs-built_in">echo</span> $(( ( <span class="hljs-number">2</spa
 &#xC74C;&#xC218;&#xB97C; &#xAC70;&#xB4ED;&#xC81C;&#xACF1;&#xD560; &#xACBD;&#xC6B0; &#xBCF4;&#xD1B5; <code>-</code> &#xB97C; &#xC81C;&#xC678;&#xD558;&#xACE0; &#xBA3C;&#xC800; &#xAC70;&#xB4ED;&#xC81C;&#xACF1;&#xC744; &#xD55C;&#xD6C4;&#xC5D0;
 &#xACB0;&#xACFC;&#xC5D0; <code>-</code> &#xAC00; &#xBD99;&#xB294;&#xB370; &#xBC18;&#xD574;&#xC11C; shell &#xC5D0;&#xC11C;&#xB294; &#xC74C;&#xC218; &#xC790;&#xCCB4;&#xB97C; &#xAC70;&#xB4ED;&#xC81C;&#xACF1;&#xD569;&#xB2C8;&#xB2E4;.
 &#xC774;&#xAC83;&#xC740;  ksh, zsh, bc &#xC5D0;&#xC11C;&#xB3C4; &#xBAA8;&#xB450; &#xB3D9;&#xC77C;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<blockquote>
-<p>&#xC18C;&#xD504;&#xD2B8;&#xC6E8;&#xC5B4;&#xB294; &#xC774;&#xAC8C; &#xBB38;&#xC81C; &#xC785;&#xB2C8;&#xB2E4;. &#xC5F0;&#xC0B0;&#xC744; &#xD558;&#xB294;&#xB370; &#xAE30;&#xBCF8;&#xC801;&#xC778; &#xAE30;&#xB2A5;&#xC744; &#xCC98;&#xC74C;&#xC5D0;
-&#xC798;&#xBABB; &#xC815;&#xC758;&#xD558;&#xBA74; &#xB098;&#xC911;&#xC5D0; &#xACE0;&#xCE60;&#xC218;&#xAC00; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;. &#xAE30;&#xC874;&#xC5D0; &#xC791;&#xC131;&#xB41C; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC774; 
-&#xBAA8;&#xB450; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xAC8C; &#xB418;&#xBBC0;&#xB85C;.</p>
-</blockquote>
 <pre><code class="lang-bash">$ <span class="hljs-built_in">echo</span> $(( -<span class="hljs-number">2</span> ** <span class="hljs-number">2</span> ))                <span class="hljs-comment"># (-2) &#xB97C; 2 &#xC81C;&#xACF1; &#xD55C;&#xAC83;&#xACFC; &#xAC19;&#xB2E4;.</span>
 <span class="hljs-number">4</span>                                    <span class="hljs-comment"># (ksh, zsh, bc &#xBAA8;&#xB450; &#xB3D9;&#xC77C;)</span>
 
@@ -1493,6 +1488,25 @@ $ python3 -c <span class="hljs-string">&apos;print (-2 ** 2)&apos;</span>
 
 $ qalc <span class="hljs-string">&apos;-2 ^ 2&apos;</span>
 &#x2212;(<span class="hljs-number">2</span>^<span class="hljs-number">2</span>) = &#x2212;<span class="hljs-number">4</span>
+</code></pre>
+<p>&#xC18C;&#xD504;&#xD2B8;&#xC6E8;&#xC5B4;&#xB294; &#xC774;&#xAC8C; &#xBB38;&#xC81C; &#xC785;&#xB2C8;&#xB2E4;. &#xC5F0;&#xC0B0;&#xC744; &#xD558;&#xB294;&#xB370; &#xAE30;&#xBCF8;&#xC801;&#xC778; &#xAE30;&#xB2A5;&#xC744; &#xCC98;&#xC74C;&#xC5D0;
+&#xC798;&#xBABB; &#xC815;&#xC758;&#xD558;&#xBA74; &#xB098;&#xC911;&#xC5D0; &#xACE0;&#xCE60;&#xC218;&#xAC00; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4; ( &#xAE30;&#xC874;&#xC5D0; &#xC791;&#xC131;&#xB41C; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC774; 
+&#xBAA8;&#xB450; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xAC8C; &#xB418;&#xBBC0;&#xB85C; ).
+shell &#xBC29;&#xC2DD;&#xC774; &#xBB38;&#xC81C;&#xAC00; &#xB418;&#xB294;&#xAC83;&#xC740; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; <code>-</code> &#xC5F0;&#xC0B0;&#xC790;&#xC758; &#xAC1C;&#xC218;&#xAC00; &#xBCC0;&#xACBD;&#xC774; &#xB3FC;&#xB3C4; &#xBD80;&#xD638;&#xAC00;
+&#xBC14;&#xB00C;&#xC9C8; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-sh">$ <span class="hljs-built_in">echo</span> $(( <span class="hljs-number">10</span> - <span class="hljs-number">3</span> ** <span class="hljs-number">2</span> ))         <span class="hljs-comment"># 10 - ( 3 ** 2 ) = 10 - 9 = 1</span>
+<span class="hljs-number">1</span>
+$ <span class="hljs-built_in">echo</span> $(( <span class="hljs-number">10</span> - - <span class="hljs-number">3</span> ** <span class="hljs-number">2</span> ))       <span class="hljs-comment"># 10 - ( - 3 ** 2 ) = 10 - 9 = 1</span>
+<span class="hljs-number">1</span>
+$ <span class="hljs-built_in">echo</span> $(( <span class="hljs-number">10</span> - - - <span class="hljs-number">3</span> ** <span class="hljs-number">2</span> ))     <span class="hljs-comment"># - - &#xB294; + &#xC774;&#xBBC0;&#xB85C;</span>
+<span class="hljs-number">1</span>                                 <span class="hljs-comment"># 10 - ( - - 3 ** 2 ) = 10 - ( 3 ** 2 ) = 10 - 9 = 1</span>
+
+$ python3 -c <span class="hljs-string">&apos;print(10 - 3 ** 2)&apos;</span>          <span class="hljs-comment"># 10 - ( 3 ** 2 ) = 10 - 9 = 1</span>
+<span class="hljs-number">1</span>
+$ python3 -c <span class="hljs-string">&apos;print(10 - - 3 ** 2)&apos;</span>        <span class="hljs-comment"># - - &#xB294; + &#xC774;&#xBBC0;&#xB85C;</span>
+<span class="hljs-number">19</span>                                         <span class="hljs-comment"># 10 + ( 3 ** 2 ) = 10 + 9 = 19</span>
+$ python3 -c <span class="hljs-string">&apos;print(10 - - - 3 ** 2)&apos;</span>      <span class="hljs-comment"># - - - &#xB294; - &#xC774;&#xBBC0;&#xB85C;</span>
+<span class="hljs-number">1</span>                                          <span class="hljs-comment"># 10 - ( 3 ** 2 ) = 10 - 9 = 1</span>
 </code></pre>
 <h1 id="quiz">Quiz</h1>
 <p>&#xC785;&#xB825; &#xAC12;&#xC744; 2 &#xC9C4;&#xC218;&#xB85C; &#xBCC0;&#xD658;&#xD574;&#xC11C; &#xCD9C;&#xB825;&#xD558;&#xB294; &#xBA85;&#xB839;&#xC744; &#xB9CC;&#xB4DC;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.
