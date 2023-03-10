@@ -1481,6 +1481,8 @@ lxc)
 &#xC124;&#xC815;&#xB41C; &#xAC12;&#xC740; &#xD1A0;&#xAE00;&#xD0A4;&#xB97C; &#xB204;&#xB978; &#xD6C4; &#xB2E4;&#xC74C;&#xBC88; &#xD504;&#xB86C;&#xD504;&#xD2B8;&#xAC00; &#xD45C;&#xC2DC;&#xB420;&#xB54C; &#xBCC0;&#xACBD; &#xB429;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># ~/.bashrc &#xD30C;&#xC77C;&#xC5D0;&#xC11C; PS1 &#xD504;&#xB86C;&#xD504;&#xD2B8; &#xC124;&#xC815;</span>
 
+<span class="hljs-built_in">bind</span> <span class="hljs-string">&apos;&quot;\C-@&quot;: &quot;git &quot;&apos;</span>    <span class="hljs-comment"># &#xCD08;&#xAE30;&#xAC12;</span>
+
 PS1+=<span class="hljs-string">&apos;$(
     case $(bind -S | grep -P -m1 -o &quot;(?&lt;=C-@ outputs )\S+&quot;) in
         git) echo G ;;
