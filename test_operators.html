@@ -1779,11 +1779,11 @@ integrate((cos(x radians) &#xD7; x) + sin(x radians)) = sin(x) &#xD7; x + C
 $ qalc <span class="hljs-string">&apos;plot(x * sin(x), -500, 500)&apos;</span>            <span class="hljs-comment"># gnuplot &#xD328;&#xD0A4;&#xC9C0; &#xC124;&#xCE58; &#xD544;&#xC694;</span>
 plot(x &#xD7; sin(x radians), &#x2212;<span class="hljs-number">500</span>, <span class="hljs-number">500</span>) = <span class="hljs-number">0</span>
 
-$ qalc <span class="hljs-string">&apos;30 deg to rad&apos;</span>
-<span class="hljs-number">30</span> degrees = (&#x3C0; / <span class="hljs-number">6</span>) rad &#x2248; <span class="hljs-number">0.52359877559829887308</span> rad
-
-$ qalc <span class="hljs-string">&apos;arcsin(1/2) to deg&apos;</span>
+$ qalc <span class="hljs-string">&apos;arcsin(1/2) to deg&apos;</span>                     <span class="hljs-comment"># 30 deg to rad ...</span>
 arcsin(<span class="hljs-number">1</span> / <span class="hljs-number">2</span>) = <span class="hljs-number">30</span>&#xB0;
+
+$ qalc <span class="hljs-string">&apos;sin(30 deg)&apos;</span>
+sin(<span class="hljs-number">30</span> &#xD7; degree) = <span class="hljs-number">1</span>/<span class="hljs-number">2</span> = <span class="hljs-number">0.5</span>
 
 $ qalc <span class="hljs-string">&apos;[1 2 3; 4 5 6] * [7 8; 9 10; 11 12]&apos;</span>    <span class="hljs-comment"># matrix multiplication</span>
 [<span class="hljs-number">1</span>  <span class="hljs-number">2</span>  <span class="hljs-number">3</span>; <span class="hljs-number">4</span>  <span class="hljs-number">5</span>  <span class="hljs-number">6</span>] * [<span class="hljs-number">7</span>  <span class="hljs-number">8</span>; <span class="hljs-number">9</span>  <span class="hljs-number">10</span>; <span class="hljs-number">11</span>  <span class="hljs-number">12</span>] = [<span class="hljs-number">58</span>  <span class="hljs-number">64</span>; <span class="hljs-number">139</span>  <span class="hljs-number">154</span>]
