@@ -1767,6 +1767,9 @@ solve((((<span class="hljs-number">3</span> &#xD7; x) + <span class="hljs-number
 $ qalc <span class="hljs-string">&apos;multisolve([ x + y = 10, x - y = 2 ], [x, y])&apos;</span>    <span class="hljs-comment"># x, y &#xB300;&#xC2E0;&#xC5D0; \a, \b &#xD615;&#xD0DC;&#xB3C4; &#xAC00;&#xB2A5;</span>
 multisolve([((x + y) = <span class="hljs-number">10</span>)  ((x &#x2212; y) = <span class="hljs-number">2</span>)], [x  y]) = [<span class="hljs-number">6</span>  <span class="hljs-number">4</span>]
 
+$ qalc <span class="hljs-string">&apos;(\a + \b)^4&apos;</span>
+(<span class="hljs-string">&apos;a&apos;</span> + <span class="hljs-string">&apos;b&apos;</span>)^<span class="hljs-number">4</span> = <span class="hljs-string">&apos;a&apos;</span>^<span class="hljs-number">4</span> + <span class="hljs-number">4</span><span class="hljs-string">&apos;a&apos;</span>^<span class="hljs-number">3</span> &#xD7; <span class="hljs-string">&apos;b&apos;</span> + <span class="hljs-number">6</span><span class="hljs-string">&apos;a&apos;</span>^<span class="hljs-number">2</span> &#xD7; <span class="hljs-string">&apos;b&apos;</span>^<span class="hljs-number">2</span> + <span class="hljs-number">4</span><span class="hljs-string">&apos;a&apos;</span><span class="hljs-string">&apos;b&apos;</span>^<span class="hljs-number">3</span> + <span class="hljs-string">&apos;b&apos;</span>^<span class="hljs-number">4</span>
+
 $ qalc <span class="hljs-string">&apos;diff(x * sin(x))&apos;</span>
 diff(x &#xD7; sin(x radians)) = cos(x) &#xD7; x + sin(x)
 
