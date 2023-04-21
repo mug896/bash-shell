@@ -1475,29 +1475,32 @@ time: cannot run {: No such file or directory
 . . .
 . . .
 </span></code></pre>
-<h3 id="function-or-script-file-or-alias-">function or script file or alias ?</h3>
-<p>shell &#xC5D0;&#xC11C; &#xBA85;&#xB839;&#xC744; &#xC791;&#xC131;&#xD560; &#xB54C; function &#xC73C;&#xB85C; &#xC791;&#xC131;&#xD560;&#xC9C0; &#xC544;&#xB2C8;&#xBA74; &#xC678;&#xBD80; &#xBA85;&#xB839;&#xCC98;&#xB7FC; script file &#xB85C; &#xC791;&#xC131;&#xD560;&#xC9C0; &#xC544;&#xB2C8;&#xBA74; alias &#xB85C; &#xD560;&#xC9C0; &#xC560;&#xB9E4;&#xD55C; &#xACBD;&#xC6B0;&#xAC00; &#xC788;&#xB294;&#xB370;&#xC694;.  &#xCC28;&#xC774;&#xC810;&#xC744; &#xC0B4;&#xD3B4;&#xBCF4;&#xBA74; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<h3 id="script-file-or-function-or-alias-">script file or function or alias ?</h3>
+<p>shell &#xC5D0;&#xC11C; &#xBA85;&#xB839;&#xC744; &#xC791;&#xC131;&#xD560; &#xB54C; &#xC678;&#xBD80; &#xBA85;&#xB839;&#xCC98;&#xB7FC; script file &#xB85C; &#xC791;&#xC131;&#xD560;&#xC9C0; &#xC544;&#xB2C8;&#xBA74;
+shell function &#xC73C;&#xB85C; &#xC791;&#xC131;&#xD560;&#xC9C0; &#xC544;&#xB2C8;&#xBA74; alias &#xB85C; &#xD560;&#xC9C0; &#xC560;&#xB9E4;&#xD55C; &#xACBD;&#xC6B0;&#xAC00; &#xC788;&#xB294;&#xB370;&#xC694;.
+&#xCC28;&#xC774;&#xC810;&#xC744; &#xC0B4;&#xD3B4;&#xBCF4;&#xBA74; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <ul>
-<li>&#xC77C;&#xB2E8; &#xAC00;&#xC7A5; &#xD070; &#xCC28;&#xC774;&#xB294; function &#xC774;&#xB098; alias &#xB294; &#xC678;&#xBD80;&#xC5D0; &#xD30C;&#xC77C;&#xB85C; &#xC874;&#xC7AC;&#xD558;&#xC9C0; &#xC54A;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; 
+<li><p>&#xC77C;&#xB2E8; &#xAC00;&#xC7A5; &#xD070; &#xCC28;&#xC774;&#xB294; function &#xC774;&#xB098; alias &#xB294; &#xC678;&#xBD80;&#xC5D0; &#xD30C;&#xC77C;&#xB85C; &#xC874;&#xC7AC;&#xD558;&#xC9C0; &#xC54A;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; 
 &#xD2B9;&#xC815; &#xBA85;&#xB839;&#xC774; &#xC2E4;&#xD589; &#xC911;&#xC5D0; &#xC678;&#xBD80; &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xC2E4;&#xD589;&#xC2DC;&#xD0A4;&#xACE0;&#xC790; &#xD560;&#xB54C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xACE0;, &#xB610;&#xD55C;
 <code>sudo</code>, <code>env</code>, <code>xargs</code> &#xBA85;&#xB839;&#xC774;&#xB098; <code>find</code> &#xBA85;&#xB839;&#xC758; <code>-exec</code> &#xC561;&#xC158;&#xC5D0;&#xC11C;&#xB3C4; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.
-&#xC5EC;&#xAE30;&#xC11C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC73C;&#xB824;&#xBA74; &#xC678;&#xBD80;&#xC5D0; &#xD30C;&#xC77C;&#xB85C; &#xC874;&#xC7AC;&#xD558;&#xB294; script file &#xB85C; &#xC791;&#xC131;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</li>
-</ul>
-<ul>
-<li>alias, function &#xC740; &#xD604;&#xC7AC; &#xD504;&#xB86C;&#xD504;&#xD2B8; shell &#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xBBC0;&#xB85C; shell &#xC758; &#xD658;&#xACBD; &#xBCC0;&#xC218;&#xAC12;&#xC744; &#xBC14;&#xAFB8;&#xAC70;&#xB098; &#xC635;&#xC158; &#xC124;&#xC815;&#xC744; &#xBCC0;&#xACBD;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
-&#xD558;&#xC9C0;&#xB9CC; script file &#xC740; bash child process &#xAC00; &#xC0C8;&#xB85C; &#xC0DD;&#xC131;&#xB418;&#xC5B4; &#xC2E4;&#xD589;&#xB418;&#xBBC0;&#xB85C; &#xD604;&#xC7AC; shell &#xD658;&#xACBD;&#xC744; &#xBCC0;&#xACBD;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</li>
-</ul>
-<blockquote>
-<p>&#xC608;&#xB97C; &#xB4E4;&#xC5B4; builtin &#xBA85;&#xB839;&#xC778; <code>cd</code> &#xBA85;&#xB839;&#xC744; &#xD655;&#xC7A5;&#xD574; &#xC0AC;&#xC6A9;&#xD558;&#xB824; &#xD560; &#xACBD;&#xC6B0; function &#xC73C;&#xB85C;&#xB9CC; &#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;.  [<a href="builtin_commands.html#make_cd">&#xCC38;&#xC870;</a>]</p>
-</blockquote>
-<ul>
-<li>function &#xC758; &#xACBD;&#xC6B0; <code>export -f</code> &#xD558;&#xAC8C; &#xB418;&#xBA74; script file &#xB0B4;&#xC5D0;&#xC11C;&#xB3C4; &#xC2E4;&#xD589;&#xC2DC;&#xD0AC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
-&#xD558;&#xC9C0;&#xB9CC; alias &#xB294; &#xD504;&#xB86C;&#xD504;&#xD2B8; &#xC0C1;&#xC5D0;&#xC11C;&#xB9CC; &#xC2E4;&#xD589;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</li>
+&#xC5EC;&#xAE30;&#xC11C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC73C;&#xB824;&#xBA74; &#xC678;&#xBD80;&#xC5D0; &#xD30C;&#xC77C;&#xB85C; &#xC874;&#xC7AC;&#xD558;&#xB294; script file &#xB85C; &#xC791;&#xC131;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>
+</li>
+<li><p>script file &#xC791;&#xC131; &#xC2DC;&#xC5D0;&#xB294; <code>export -f</code> &#xD55C; shell function &#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xACE0;,
+shell function &#xC5D0;&#xC11C;&#xB294; alias &#xC815;&#xC758;&#xB97C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xD558;&#xC9C0;&#xB9CC; script file &#xC5D0;&#xC11C;
+alias &#xB294; &#xC9C1;&#xC811; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+</li>
 </ul>
 <blockquote>
 <p>function &#xC744; export &#xD558;&#xB294; &#xAE30;&#xB2A5;&#xC740; <code>bash</code> &#xC5D0;&#xC11C;&#xB9CC; &#xAC00;&#xB2A5;&#xD558;&#xACE0; <code>sh</code> &#xC5D0;&#xC11C;&#xB294; &#xC548;&#xB429;&#xB2C8;&#xB2E4;.
 &#xC608;&#xB97C; &#xB4E4;&#xC5B4; vi &#xC5D0;&#xB514;&#xD130;&#xC5D0;&#xC11C;&#xB294; &#xC678;&#xBD80; &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xD560;&#xB54C; <code>sh</code> &#xC774; &#xC544;&#xB2CC; <code>bash</code> &#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xBBC0;&#xB85C;
 export &#xD55C; function &#xC744; &#xC2E4;&#xD589;&#xC2DC;&#xD0AC; &#xC218; &#xC788;&#xC9C0;&#xB9CC; alias &#xB294; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+</blockquote>
+<ul>
+<li>alias, function &#xC740; &#xD604;&#xC7AC; &#xD504;&#xB86C;&#xD504;&#xD2B8; shell &#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xB418;&#xBBC0;&#xB85C; shell &#xC758; &#xD658;&#xACBD; &#xBCC0;&#xC218;&#xAC12;&#xC744; &#xBC14;&#xAFB8;&#xAC70;&#xB098; &#xC635;&#xC158; &#xC124;&#xC815;&#xC744; &#xBCC0;&#xACBD;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xD558;&#xC9C0;&#xB9CC; script file &#xC740; bash child process &#xAC00; &#xC0C8;&#xB85C; &#xC0DD;&#xC131;&#xB418;&#xC5B4; &#xC2E4;&#xD589;&#xB418;&#xBBC0;&#xB85C; &#xD604;&#xC7AC; shell &#xD658;&#xACBD;&#xC744; &#xBCC0;&#xACBD;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</li>
+</ul>
+<blockquote>
+<p>&#xC608;&#xB97C; &#xB4E4;&#xC5B4; builtin &#xBA85;&#xB839;&#xC778; <code>cd</code> &#xBA85;&#xB839;&#xC744; &#xD655;&#xC7A5;&#xD574; &#xC0AC;&#xC6A9;&#xD558;&#xB824; &#xD560; &#xACBD;&#xC6B0; function &#xC73C;&#xB85C;&#xB9CC; &#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;.  [<a href="builtin_commands.html#make_cd">&#xCC38;&#xC870;</a>]</p>
 </blockquote>
 <ul>
 <li>alias &#xB294; <code>\</code> &#xB85C; &#xAC04;&#xB2E8;&#xD558;&#xAC8C; escape &#xD560;&#xC218; &#xC788;&#xB294; &#xBC18;&#xBA74;&#xC5D0; function &#xC758; &#xACBD;&#xC6B0;&#xB294; <code>command</code> &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</li>
