@@ -1293,13 +1293,20 @@
                     
                         <h2 id="login-vs-nonlogin-shell">Login vs Non-Login Shell</h2>
 <p>&#xC774;&#xBC88;&#xC5D4; &#xC880; &#xB2E4;&#xB978; &#xAD00;&#xC810;&#xC5D0;&#xC11C; shell &#xC774; &#xC2E4;&#xD589;&#xB418;&#xB294; &#xD658;&#xACBD;&#xC744; &#xB450;&#xAC00;&#xC9C0;&#xB85C; &#xB098;&#xB204;&#xC5B4; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xB9AC;&#xBAA8;&#xD2B8; &#xC11C;&#xBC84;&#xC5D0; ssh &#xC774;&#xB098; telnet &#xC73C;&#xB85C; &#xC811;&#xC18D;&#xD574;&#xC11C; login &#xACFC;&#xC815;&#xC744; &#xAC70;&#xCCD0; &#xC0AC;&#xC6A9;&#xD558;&#xAC8C; &#xB418;&#xB294; login shell &#xACFC; &#xC708;&#xB3C4;&#xC6B0; &#xB9E4;&#xB2C8;&#xC800;&#xC5D0;&#xC11C; &#xBA54;&#xB274;&#xB85C; &#xC81C;&#xACF5;&#xD558;&#xB294; &#xD130;&#xBBF8;&#xB110; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC744; &#xC2E4;&#xD589;&#xC2DC;&#xCF1C; &#xC0AC;&#xC6A9;&#xD558;&#xAC8C; &#xB418;&#xB294; non-login shell &#xC785;&#xB2C8;&#xB2E4;. </p>
-<p>login shell &#xC778;&#xC9C0; &#xC544;&#xB2CC;&#xC9C0;&#xB294;  <code>shopt -q login_shell; echo $?</code> &#xC744; &#xD1B5;&#xD574; &#xC54C;&#xC544;&#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<blockquote>
+<p>login shell &#xC778;&#xC9C0; &#xC544;&#xB2CC;&#xC9C0;&#xB294;  <code>shopt -q login_shell; echo $?</code> &#xC744; &#xD1B5;&#xD574; &#xC54C;&#xC544;&#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.<br><code>profile</code>, <code>bashrc</code> &#xB4F1;&#xC758; &#xD30C;&#xC77C;&#xC5D0;&#xB294; &#xC0AC;&#xC6A9;&#xC790;&#xAC00; &#xC6D0;&#xD558;&#xB294; &#xC258; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB97C; &#xC791;&#xC131;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+</blockquote>
 <h3 id="login-shell">Login Shell</h3>
 <ul>
-<li><p>&#xC2DC;&#xC791;&#xC2DC; <code>/etc/profile</code>,  <code>~/.bash_profile</code>, <code>~/.bash_login</code>, <code>~/.profile</code> &#xC21C;&#xC11C;&#xB85C; &#xD30C;&#xC77C;&#xC744; &#xC77D;&#xC5B4;&#xB4E4;&#xC5EC; &#xC2E4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;.
+<li>&#xC2DC;&#xC791;&#xC2DC; <code>/etc/profile</code>,  <code>~/.bash_profile</code>, <code>~/.bash_login</code>, <code>~/.profile</code> &#xC21C;&#xC11C;&#xB85C; &#xD30C;&#xC77C;&#xC744; &#xC77D;&#xC5B4;&#xB4E4;&#xC5EC; &#xC2E4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;.
 &#xBCF4;&#xD1B5; <code>/etc/profile</code> &#xC5D0;&#xC11C;&#xB294; <code>.</code> ( source &#xBA85;&#xB839; ) &#xC744; &#xC774;&#xC6A9;&#xD574; <code>/etc/bash.bashrc</code> &#xB97C; &#xC77D;&#xC5B4;&#xB4E4;&#xC774;&#xACE0; <code>~/.profile</code> &#xC5D0;&#xC11C;&#xB294; <code>~/.bashrc</code> &#xD30C;&#xC77C;&#xC744; &#xC77D;&#xC5B4;&#xB4E4;&#xC785;&#xB2C8;&#xB2E4;.
-(<code>bash --login -c</code> &#xC640; &#xAC19;&#xC774; &#xC2E4;&#xD589;&#xD560; &#xACBD;&#xC6B0;&#xB3C4; &#xC801;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4; ).</p>
-</li>
+(<code>bash --login -c</code> &#xC640; &#xAC19;&#xC774; &#xC2E4;&#xD589;&#xD560; &#xACBD;&#xC6B0;&#xB3C4; &#xC801;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4; ).</li>
+</ul>
+<blockquote>
+<p>.profile &#xACFC; .bash_profile &#xB450; &#xAC00;&#xC9C0;&#xAC00; &#xC874;&#xC7AC;&#xD558;&#xB294; &#xC774;&#xC720;&#xB294; <code>sh</code> &#xACFC; <code>bash</code> &#xB97C; &#xAD6C;&#xBD84;&#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C;
+&#xC785;&#xB2C8;&#xB2E4;. &#xAC00;&#xB839; bash &#xAC00; &#xC0AC;&#xC6A9;&#xB420; &#xACBD;&#xC6B0; .bash_profile &#xD30C;&#xC77C;&#xC774; &#xC874;&#xC7AC;&#xD558;&#xBA74; .profile &#xD30C;&#xC77C;&#xC740; &#xC2E4;&#xD589;&#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+</blockquote>
+<ul>
 <li><p>logout ( &#xB610;&#xB294; exit ) &#xC2DC;&#xC5D0;  <code>~/.bash_logout</code> &#xD30C;&#xC77C;&#xC744; &#xC2E4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;.</p>
 </li>
 <li><p><code>shopt -s huponexit</code> &#xC635;&#xC158; &#xC124;&#xC815;&#xC744; &#xD1B5;&#xD574; logout &#xC2DC;&#xC5D0; background &#xB85C; &#xC2E4;&#xD589;&#xB418;&#xB294; job &#xB4E4;&#xC5D0;&#xAC8C; HUP &#xC2DC;&#xADF8;&#xB110;&#xC744; &#xBCF4;&#xB0B4; &#xC885;&#xB8CC;&#xD558;&#xAC8C; &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
