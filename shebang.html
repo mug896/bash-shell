@@ -1464,6 +1464,18 @@ void main() async {
 $ seq <span class="hljs-number">10</span> | ./<span class="hljs-built_in">test</span>5
 Total : <span class="hljs-number">55</span>
 </code></pre>
+<p>&#xB2E4;&#xC74C;&#xC740; Julia &#xC5B8;&#xC5B4; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB97C; &#xC2E4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ cat <span class="hljs-built_in">test</span>6
+<span class="hljs-comment">#!/usr/bin/env julia</span>
+total::Int = <span class="hljs-number">0</span>
+<span class="hljs-keyword">for</span> line = readlines()
+    global total += parse(Int, line)
+end
+println(<span class="hljs-string">&quot;Total : &quot;</span>, total)
+
+$ seq <span class="hljs-number">10</span> | ./<span class="hljs-built_in">test</span>6
+Total : <span class="hljs-number">55</span>
+</code></pre>
 <h4 id="&#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;-&#xD30C;&#xC77C;&#xC5D0;&#xB294;-set-uid-&#xB97C;-&#xC124;&#xC815;&#xD560;-&#xC218;-&#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;">&#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xD30C;&#xC77C;&#xC5D0;&#xB294; set uid &#xB97C; &#xC124;&#xC815;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</h4>
 <p>&#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC744; root &#xAD8C;&#xD55C;&#xC73C;&#xB85C; &#xC2E4;&#xD589;&#xD558;&#xAC8C; &#xB9CC;&#xB4E4;&#xC218; &#xC788;&#xB294; set uid &#xC124;&#xC815;&#xC744; shell script &#xC5D0; &#xC801;&#xC6A9;&#xD560; &#xACBD;&#xC6B0; 
 &#xBCF4;&#xC548;&#xACFC; &#xAD00;&#xB828;&#xD574;&#xC11C; &#xB9CE;&#xC740; &#xBB38;&#xC81C;&#xAC00; &#xC0DD;&#xAE38; &#xC218; &#xC788;&#xB2E4;&#xACE0; &#xD569;&#xB2C8;&#xB2E4;. &#xADF8;&#xB9AC;&#xACE0; shell script &#xC740; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; &#xBA85;&#xB839;&#xB4E4;&#xC744; &#xB2E4;&#xB8E8;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xC5B4;&#xB5A4; &#xBA85;&#xB839;&#xC774; &#xBCF4;&#xC548;&#xACFC; &#xAD00;&#xB828;&#xD574;&#xC11C; &#xBC84;&#xADF8;&#xAC00; &#xC788;&#xC744; &#xACBD;&#xC6B0; &#xBC14;&#xB85C; &#xBB38;&#xC81C;&#xB85C; &#xC774;&#xC5B4;&#xC9C8; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. </p>
