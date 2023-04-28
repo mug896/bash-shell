@@ -2063,7 +2063,7 @@ void <span class="hljs-function"><span class="hljs-title">main</span></span>() {
     int totalSize = <span class="hljs-number">0</span>;
     var dir = Directory(<span class="hljs-string">&quot;/usr&quot;</span>);
     dir.listSync(recursive: <span class="hljs-literal">true</span>, followLinks: <span class="hljs-literal">false</span>)
-       .forEach((ent) { <span class="hljs-keyword">if</span> (ent is File) totalSize += ent.statSync().size; });
+       .forEach((ent) { <span class="hljs-keyword">if</span> (ent is File) totalSize += ent.lengthSync(); });
     <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Total size: <span class="hljs-variable">$totalSize</span>&quot;</span>);
 }
 @
