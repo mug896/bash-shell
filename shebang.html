@@ -1422,9 +1422,8 @@ public class Hello {
     public static void main(String[] args) {
         long total = <span class="hljs-number">0</span>;
         Scanner input = new Scanner(System.in);
-        <span class="hljs-keyword">while</span> (input.hasNextLine()) {
+        <span class="hljs-keyword">while</span> (input.hasNextLine())
             total += Integer.parseInt(input.nextLine());
-        }
         System.out.println(<span class="hljs-string">&quot;Total : &quot;</span> + total);
     }
 }
