@@ -1466,11 +1466,11 @@ Total : <span class="hljs-number">55</span>
 <p>&#xB2E4;&#xC74C;&#xC740; Julia &#xC5B8;&#xC5B4; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB97C; &#xC2E4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ cat <span class="hljs-built_in">test</span>6
 <span class="hljs-comment">#!/usr/bin/env julia</span>
-<span class="hljs-built_in">let</span> total::Int = <span class="hljs-number">0</span>
+<span class="hljs-built_in">let</span> v = Int[]
     <span class="hljs-keyword">for</span> line = eachline()
-        total += parse(Int, line)
+        push!(v, parse(Int, line))
     end
-    println(<span class="hljs-string">&quot;Total : &quot;</span>, total)
+    println(<span class="hljs-string">&quot;Total : &quot;</span>, sum(v))
 end
 
 $ seq <span class="hljs-number">10</span> | ./<span class="hljs-built_in">test</span>6
