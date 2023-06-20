@@ -1619,9 +1619,32 @@ application &#xB808;&#xC774;&#xC5B4;&#xC5D0;&#xC11C; &#xBCF4;&#xBA74; &#xBD88;&#
 <p>&#xCEE8;&#xD14C;&#xC774;&#xB108;&#xB294; &#xAC00;&#xC0C1;&#xBA38;&#xC2E0; OS &#xC2E4;&#xD589; &#xC5C6;&#xC774; isolation &#xAE30;&#xC220;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xC5EC;
 &#xC2E4;&#xC81C; &#xAC00;&#xC0C1;&#xBA38;&#xC2E0;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xD6A8;&#xACFC;&#xB97C; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;.
 &#xC5EC;&#xAE30;&#xC5D0;&#xB294; cgroup &#xC744; &#xC774;&#xC6A9;&#xD55C; &#xB9AC;&#xC18C;&#xC2A4; &#xAD00;&#xB9AC; ( cpu, memory, disk, network ... ),
-namespace &#xB97C; &#xC774;&#xC6A9;&#xD574;&#xC11C; process id, user id, group id, network ... &#xB4F1;&#xB3C4;
+namespace &#xB97C; &#xC774;&#xC6A9;&#xD574;&#xC11C; hostname, process id, user id, network ... &#xB4F1;&#xB3C4;
 &#xB3C5;&#xB9BD;&#xC801;&#xC73C;&#xB85C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC73C;&#xBBC0;&#xB85C; &#xC2E4;&#xC81C; &#xAC00;&#xC0C1;&#xBA38;&#xC2E0;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xAC83;&#xACFC; &#xB3D9;&#xC77C;&#xD55C; &#xD658;&#xACBD;&#xC5D0;&#xC11C;
 application &#xC744; &#xC6B4;&#xC601;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>&#xB2E4;&#xC74C;&#xC740; unshare &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD574;&#xC11C; bash shell &#xC744; &#xB3C5;&#xB9BD;&#xC801;&#xC778; UTS namespace &#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-sh">$ hostname                <span class="hljs-comment"># &#xD604;&#xC7AC; hostname</span>
+EliteBook
+
+$ sudo unshare --uts /bin/bash
+
+$ lsns -t uts
+        NS TYPE NPROCS    PID USER             COMMAND
+<span class="hljs-number">4026531838</span> uts     <span class="hljs-number">315</span>      <span class="hljs-number">1</span> root             /sbin/init splash
+. . .
+<span class="hljs-number">4026533257</span> uts       <span class="hljs-number">2</span> <span class="hljs-number">238698</span> root             /bin/bash   &lt;----
+
+$ hostname HelloHost      <span class="hljs-comment"># UTS namespace &#xB294; &#xB3C5;&#xB9BD;&#xC801;&#xC778; hostname &#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xAC8C; &#xD574;&#xC90D;&#xB2C8;&#xB2E4;.</span>
+
+$ hostname
+HelloHost
+
+$ <span class="hljs-built_in">exit</span>                    <span class="hljs-comment"># bash &#xC744; exit &#xD558;&#xBA74;</span>
+<span class="hljs-built_in">exit</span>
+
+$ hostname                <span class="hljs-comment"># &#xAE30;&#xC874;&#xC758; hostname &#xC774; &#xCD9C;&#xB825;&#xB41C;&#xB2E4;.</span>
+EliteBook
+</code></pre>
 <p>&#xD604;&#xC7AC; &#xB9AC;&#xB205;&#xC2A4;&#xC5D0;&#xC11C; &#xB9CE;&#xC774; &#xC0AC;&#xC6A9;&#xB418;&#xB294; &#xCEE8;&#xD14C;&#xC774;&#xB108;&#xB294; docker &#xC640; lxc &#xAE30;&#xBC18;&#xC758; lxd &#xC778;&#xB370;&#xC694;.
 &#xC774;&#xAC83;&#xC740; &#xBAA8;&#xB450; &#xB9AC;&#xB205;&#xC2A4; OS &#xC5D0;&#xC11C; &#xC81C;&#xACF5;&#xD558;&#xB294; &#xCEE8;&#xD14C;&#xC774;&#xB108; &#xAE30;&#xC220;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xBBC0;&#xB85C;
 &#xC0AC;&#xC6A9;&#xBC29;&#xBC95;&#xC774;&#xB098; &#xC81C;&#xACF5;&#xD558;&#xB294; &#xAE30;&#xB2A5;&#xB4E4;&#xC774; &#xBE44;&#xC2B7;&#xD55C; &#xC810;&#xC774; &#xB9CE;&#xC2B5;&#xB2C8;&#xB2E4;.
