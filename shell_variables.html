@@ -1329,9 +1329,14 @@ $ <span class="hljs-built_in">cd</span> p2p-next
 <h4 id="path">PATH</h4>
 <p> &#xC678;&#xBD80; &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xD560; &#xB54C; &#xC790;&#xB3D9;&#xC73C;&#xB85C; &#xAC80;&#xC0C9;&#xD560; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB97C; <code>PATH</code> &#xD658;&#xACBD; &#xBCC0;&#xC218;&#xC5D0; &#xB4F1;&#xB85D;&#xD574; &#xB193;&#xC2B5;&#xB2C8;&#xB2E4;.
  &#xBA85;&#xB839;&#xC744; &#xCC3E;&#xC744; &#xB54C;&#xB294; &#xC55E;&#xC5D0;&#xC11C;&#xBD80;&#xD130; &#xB4F1;&#xB85D;&#xB41C; &#xC21C;&#xC11C;&#xB300;&#xB85C; &#xCC3E;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xB3D9;&#xC77C;&#xD55C; &#xC774;&#xB984;&#xC744; &#xAC00;&#xC9C4; &#xBA85;&#xB839;&#xC774; 
- &#xC874;&#xC7AC;&#xD560; &#xACBD;&#xC6B0; &#xC81C;&#xC77C; &#xC55E;&#xC758; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0; &#xC788;&#xB294; &#xBA85;&#xB839;&#xC774; &#xC2E4;&#xD589;&#xB418;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.
- &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB294; <code>:</code> &#xBB38;&#xC790;&#xB85C; &#xBD84;&#xB9AC;&#xD574;&#xC11C; &#xB4F1;&#xB85D;&#xD558;&#xACE0; &#xACF5;&#xBC31;&#xC5C6;&#xC774; &#xBD99;&#xC5EC; &#xC368;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>
-<h4 id="ps1">PS1</h4>
+ &#xC874;&#xC7AC;&#xD560; &#xACBD;&#xC6B0; &#xC81C;&#xC77C; &#xC55E;&#xC758; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0; &#xC788;&#xB294; &#xBA85;&#xB839;&#xC774; &#xC2E4;&#xD589;&#xB418;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<p> &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB294; <code>:</code> &#xBB38;&#xC790;&#xB85C; &#xBD84;&#xB9AC;&#xD574;&#xC11C; &#xB4F1;&#xB85D;&#xD558;&#xACE0; &#xACF5;&#xBC31;&#xC5C6;&#xC774; &#xBD99;&#xC5EC; &#xC368;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.
+ <code>:</code> &#xBB38;&#xC790;&#xAC00; &#xB9E8;&#xC55E; or &#xB9E8;&#xB4A4; &#xC5D0; &#xC624;&#xAC70;&#xB098; <code>::</code> &#xC640; &#xAC19;&#xC774; &#xAC12;&#xC774; empty &#xAC00; &#xB420;&#xACBD;&#xC6B0;
+ &#xD604;&#xC7AC; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB3C4; &#xAC80;&#xC0C9;&#xD558;&#xAC8C; &#xB418;&#xBBC0;&#xB85C; &#xC8FC;&#xC758;&#xD560; &#xD544;&#xC694;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code>PATH=:/bin:/usr/bin:/usr/local/bin        # &quot;:&quot; &#xAC00; &#xB9E8;&#xC55E;&#xC5D0; &#xC704;&#xCE58; (.: &#xC640; &#xAC19;&#xC74C;)
+PATH=/bin:/usr/bin:/usr/local/bin:        # &quot;:&quot; &#xAC00; &#xB9E8;&#xB4A4;&#xC5D0; &#xC704;&#xCE58; (:. &#xC640; &#xAC19;&#xC74C;)
+PATH=/bin:/usr/bin::/usr/local/bin        # &quot;::&quot; (:.: &#xC640; &#xAC19;&#xC74C;)
+</code></pre><h4 id="ps1">PS1</h4>
 <p> Default interaction prompt &#xC785;&#xB2C8;&#xB2E4;. &#xD504;&#xB86C;&#xD504;&#xD2B8; &#xBAA8;&#xC591;&#xC744; &#xBCC0;&#xACBD;&#xD558;&#xAE30; &#xC704;&#xD574; &#xC5EC;&#xB7EC;&#xAC00;&#xC9C0; <a href="http://www.gnu.org/software/bash/manual/bashref.html#Controlling-the-Prompt" target="_blank">&#xD2B9;&#xC218;&#xBB38;&#xC790;</a> &#xB97C; &#xC0AC;&#xC6A9;&#xD560;&#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># \u &#x2013; &#xC544;&#xC774;&#xB514;</span>
 <span class="hljs-comment"># \h &#x2013; &#xD638;&#xC2A4;&#xD2B8;&#xC774;&#xB984;</span>
