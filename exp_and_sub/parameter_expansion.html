@@ -1440,25 +1440,25 @@ base64
 <p>${PARAMETER:-WORD}<br>${PARAMETER-WORD}</p>
 </blockquote>
 <p><code>${AA:-linux}</code> : AA &#xBCC0;&#xC218;&#xAC12;&#xC744; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. &#xADF8;&#xB7F0;&#xB370; AA &#xBCC0;&#xC218;&#xAC00; &#xC874;&#xC7AC;&#xD558;&#xC9C0; &#xC54A;&#xAC70;&#xB098;, null &#xAC12;&#xC744; &#xAC16;&#xB294; &#xACBD;&#xC6B0; linux &#xB97C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. ( &#xBB3C;&#xB860; <code>AA</code> &#xB300;&#xC2E0;&#xC5D0; <code>${AA[2]:-linux}</code> &#xC640; &#xAC19;&#xC774; array &#xAC12;&#xB3C4; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. )</p>
-<pre><code class="lang-bash"><span class="hljs-comment"># var=${AA:-linux} &#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</span>
+<pre><code class="lang-bash"><span class="hljs-comment"># BB=${AA:-linux} &#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</span>
 <span class="hljs-keyword">if</span> [ -n <span class="hljs-string">&quot;<span class="hljs-variable">$AA</span>&quot;</span> ]; <span class="hljs-keyword">then</span>
-    var=<span class="hljs-variable">$AA</span>
+    BB=<span class="hljs-variable">$AA</span>
 <span class="hljs-keyword">else</span>
-    var=linux
+    BB=linux
 <span class="hljs-keyword">fi</span>
 </code></pre>
 <p><code>${AA-linux}</code> : AA &#xBCC0;&#xC218;&#xAC12;&#xC744; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. &#xADF8;&#xB7F0;&#xB370; AA &#xBCC0;&#xC218;&#xAC00; &#xC874;&#xC7AC;&#xD558;&#xC9C0; &#xC54A;&#xC744; &#xACBD;&#xC6B0; linux &#xB97C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. 
 AA &#xBCC0;&#xC218;&#xAC00; &#xC874;&#xC7AC;&#xD558;&#xAE30;&#xB9CC; &#xD558;&#xBA74; &#xB418;&#xBBC0;&#xB85C; &#xC774; &#xD45C;&#xD604;&#xC2DD;&#xC740; AA &#xAC12;&#xC73C;&#xB85C; null &#xB3C4; &#xD5C8;&#xC6A9;&#xB418;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-bash"><span class="hljs-comment"># var=${AA-linux} &#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</span>
+<pre><code class="lang-bash"><span class="hljs-comment"># BB=${AA-linux} &#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</span>
 <span class="hljs-keyword">if</span> [ -v AA ]; <span class="hljs-keyword">then</span>
-    var=<span class="hljs-variable">$AA</span>
+    BB=<span class="hljs-variable">$AA</span>
 <span class="hljs-keyword">else</span>
-    var=linux
+    BB=linux
 <span class="hljs-keyword">fi</span>
 </code></pre>
 <p><code>sh</code> &#xC5D0;&#xC11C;&#xB294; test &#xBA85;&#xB839;&#xC5D0;&#xC11C; &#xBCC0;&#xC218; &#xC874;&#xC7AC; &#xC5EC;&#xBD80;&#xB97C; &#xCCB4;&#xD06C;&#xD558;&#xB294;<code>-v</code> &#xC635;&#xC158;&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xB294;&#xB370;
 &#xC774; &#xD45C;&#xD604;&#xC2DD;&#xC744; &#xD65C;&#xC6A9;&#xD558;&#xBA74; &#xAC04;&#xC811;&#xC801;&#xC73C;&#xB85C; &#xCCB4;&#xD06C; &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
-&#xC608;&#xB97C; &#xB4E4;&#xC5B4; <code>var=${AA-linux}</code> &#xB300;&#xC785; &#xC5F0;&#xC0B0;&#xC5D0;&#xC11C; var &#xBCC0;&#xC218;&#xAC00; linux &#xB85C; &#xC124;&#xC815;&#xB410;&#xB2E4;&#xBA74;
+&#xC608;&#xB97C; &#xB4E4;&#xC5B4; <code>BB=${AA-linux}</code> &#xB300;&#xC785; &#xC5F0;&#xC0B0;&#xC5D0;&#xC11C; BB &#xBCC0;&#xC218;&#xAC00; linux &#xB85C; &#xC124;&#xC815;&#xB410;&#xB2E4;&#xBA74;
 &#xD604;&#xC7AC; &#xBCC0;&#xC218; <code>AA</code> &#xB294; &#xC874;&#xC7AC;&#xD558;&#xC9C0; &#xC54A;&#xB294; &#xC0C1;&#xD0DC;&#xC8E0;</p>
 <pre><code class="lang-bash">$ AA=ubuntu
 
@@ -1621,19 +1621,19 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$AA</span>
 <p>${PARAMETER:+WORD}<br>${PARAMETER+WORD}</p>
 </blockquote>
 <p><code>${AA:+linux}</code> : AA &#xBCC0;&#xC218;&#xAC00; &#xAC12;&#xC744; &#xAC00;&#xC9C0;&#xACE0; &#xC788;&#xC73C;&#xBA74; linux &#xB97C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. &#xBCC0;&#xC218;&#xAC00; &#xC874;&#xC7AC;&#xD558;&#xC9C0; &#xC54A;&#xAC70;&#xB098; &#xAC12;&#xC774; null &#xC774;&#xBA74; null &#xC744; &#xB9AC;&#xD134;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-bash"><span class="hljs-comment"># var=${AA:+linux} &#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</span>
+<pre><code class="lang-bash"><span class="hljs-comment"># BB=${AA:+linux} &#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</span>
 <span class="hljs-keyword">if</span> [ -n <span class="hljs-string">&quot;<span class="hljs-variable">$AA</span>&quot;</span> ]; <span class="hljs-keyword">then</span>
-    var=linux
+    BB=linux
 <span class="hljs-keyword">else</span>
-    var=<span class="hljs-string">&quot;&quot;</span>
+    BB=<span class="hljs-string">&quot;&quot;</span>
 <span class="hljs-keyword">fi</span>
 </code></pre>
 <p><code>${AA+linux}</code> : AA &#xBCC0;&#xC218;&#xAC00; &#xC874;&#xC7AC;&#xD558;&#xAE30;&#xB9CC; &#xD558;&#xBA74; linux &#xB97C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. &#xBCC0;&#xC218;&#xAC00; &#xC874;&#xC7AC;&#xD558;&#xC9C0; &#xC54A;&#xC73C;&#xBA74; null &#xC744; &#xB9AC;&#xD134;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-bash"><span class="hljs-comment"># var=${AA+linux} &#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</span>
+<pre><code class="lang-bash"><span class="hljs-comment"># BB=${AA+linux} &#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</span>
 <span class="hljs-keyword">if</span> [ -v AA ]; <span class="hljs-keyword">then</span>
-    var=linux
+    BB=linux
 <span class="hljs-keyword">else</span>
-    var=<span class="hljs-string">&quot;&quot;</span>
+    BB=<span class="hljs-string">&quot;&quot;</span>
 <span class="hljs-keyword">fi</span>
 </code></pre>
 <pre><code class="lang-bash">$ AA=hello
