@@ -2077,7 +2077,7 @@ sys     <span class="hljs-number">0</span>m1.<span class="hljs-number">117</span
 -----------------------------------------------  Go &#xC5B8;&#xC5B4;
 
 <span class="hljs-comment"># Go &#xC5B8;&#xC5B4;&#xB294; goroutine &#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; &#xBA40;&#xD2F0;&#xCF54;&#xC5B4; &#xC2A4;&#xB808;&#xB4DC;&#xB97C; &#xBAA8;&#xB450; &#xC0AC;&#xC6A9;&#xD558;&#xBBC0;&#xB85C; &#xC18D;&#xB3C4;&#xAC00; &#xC81C;&#xC77C; &#xBE60;&#xB985;&#xB2C8;&#xB2E4;.</span>
-$ ( <span class="hljs-built_in">cd</span> `mktemp <span class="hljs-operator">-d</span> -p /dev/shm` &amp;&amp; <span class="hljs-built_in">trap</span> <span class="hljs-string">&quot;rm -rf &apos;<span class="hljs-variable">$PWD</span>&apos;&quot;</span> <span class="hljs-number">0</span> &amp;&amp; go mod init <span class="hljs-built_in">test</span> &amp;&amp; cat &lt;&lt;\@ &gt; main.go &amp;&amp; go mod tidy &amp;&amp; go build &amp;&amp; time ./<span class="hljs-built_in">test</span> )
+$ ( <span class="hljs-built_in">cd</span> `mktemp <span class="hljs-operator">-d</span> -p /dev/shm` &amp;&amp; <span class="hljs-built_in">trap</span> <span class="hljs-string">&quot;rm -rf &apos;<span class="hljs-variable">$PWD</span>&apos;&quot;</span> <span class="hljs-number">0</span> &amp;&amp; go mod init <span class="hljs-built_in">test</span> <span class="hljs-number">2</span>&gt; /dev/null &amp;&amp; cat &lt;&lt;\@ &gt; main.go &amp;&amp; go mod tidy &amp;&amp; go build &amp;&amp; time ./<span class="hljs-built_in">test</span> )
 package main
 import (
     <span class="hljs-string">&quot;os&quot;</span>
