@@ -1505,7 +1505,7 @@ AA
 heredoc &#xC73C;&#xB85C;&#xB3C4; &#xC2E4;&#xD589;&#xD560; &#xC218; &#xC788;&#xAC8C; alias &#xB97C; &#xC124;&#xC815;&#xD558;&#xB824;&#xBA74; &#xC5B4;&#xB5BB;&#xAC8C; &#xD560;&#xAE4C;&#xC694;?</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># java &#xAC00; &#xC2E4;&#xD589; &#xC911;&#xC5D0; &#xBE44;&#xC815;&#xC0C1; &#xC885;&#xB8CC;&#xB420; &#xACBD;&#xC6B0;&#xC5D0;&#xB3C4; $tmp &#xD30C;&#xC77C;&#xC774; &#xC0AD;&#xC81C;&#xB418;&#xB824;&#xBA74; trap &#xC744; &#xC124;&#xC815;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</span>
 $ <span class="hljs-built_in">alias</span> jrun=$( cat &lt;&lt;\@
-( tmp=`mktemp -p /dev/shm` &amp;&amp; <span class="hljs-built_in">trap</span> <span class="hljs-string">&quot;rm -f <span class="hljs-variable">$tmp</span>&quot;</span> <span class="hljs-number">0</span> &amp;&amp; cat &lt;&lt;\@ &gt; <span class="hljs-variable">$tmp</span> &amp;&amp; java --source <span class="hljs-number">20</span> <span class="hljs-variable">$tmp</span> )
+( tmp=`mktemp -p /dev/shm XXXXX.java` &amp;&amp; <span class="hljs-built_in">trap</span> <span class="hljs-string">&quot;rm -f <span class="hljs-variable">$tmp</span>&quot;</span> <span class="hljs-number">0</span> &amp;&amp; cat &lt;&lt;\@ &gt; <span class="hljs-variable">$tmp</span> &amp;&amp; java <span class="hljs-variable">$tmp</span> )
 @
 )
 
