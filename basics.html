@@ -1603,8 +1603,8 @@ grep: unrecognized option <span class="hljs-string">&apos;--bar&apos;</span>
 Usage: grep [OPTION]... PATTERN [FILE]...
 Try <span class="hljs-string">&apos;grep --help&apos;</span> <span class="hljs-keyword">for</span> more information.
 </code></pre>
-<p>&#xC774;&#xC640; &#xAC19;&#xC740; &#xACBD;&#xC6B0; <code>--</code> &#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xC5EC; &quot;<code>&#xC774; &#xB4A4;&#xB85C;&#xBD80;&#xD130;&#xB294; &#xC635;&#xC158;&#xC774; &#xC544;&#xB2C8;&#xB2E4;</code>&quot; &#xB77C;&#xACE0; &#xC120;&#xC5B8;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. </p>
-<pre><code class="lang-bash"><span class="hljs-comment"># &apos;--&apos; &#xB294; end of options &#xC744; &#xB098;&#xD0C0;&#xB0C4;</span>
+<p>&#xC774;&#xC640; &#xAC19;&#xC740; &#xACBD;&#xC6B0; <code>--</code> (&#xB610;&#xB294; <code>-</code>) &#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xC5EC; &quot;<code>&#xC774; &#xB4A4;&#xB85C;&#xBD80;&#xD130;&#xB294; &#xC635;&#xC158;&#xC774; &#xC544;&#xB2C8;&#xB2E4;</code>&quot; &#xB77C;&#xACE0; &#xC120;&#xC5B8;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. </p>
+<pre><code class="lang-bash"><span class="hljs-comment"># &apos;--&apos; (&#xB610;&#xB294; &apos;-&apos;) &#xB294; end of options &#xC744; &#xB098;&#xD0C0;&#xB0C4;</span>
 
 $ grep -r -- <span class="hljs-string">&quot;-n&quot;</span>         <span class="hljs-comment"># &apos;--&apos; &#xB97C; &#xC774;&#xC6A9;&#xD558;&#xC5EC; &apos;-n&apos; &#xC740; &#xC635;&#xC158;&#xC774; &#xC544;&#xB2D8;&#xC744; &#xC120;&#xC5B8; </span>
 OK
@@ -1612,8 +1612,8 @@ OK
 $ grep -r -- <span class="hljs-string">&quot;--bar&quot;</span> 
 OK
 </code></pre>
-<p>&#xADF8;&#xB7EC;&#xBBC0;&#xB85C; script &#xC791;&#xC131;&#xC2DC; &#xBA85;&#xB839;&#xC758; &#xC778;&#xC218;&#xB85C; &#xBCC0;&#xC218;&#xB97C; &#xC0AC;&#xC6A9;&#xD560; &#xACBD;&#xC6B0; <code>--</code> &#xB97C; &#xC774;&#xC6A9;&#xD574; &#xBD84;&#xB9AC;&#xD574;&#xC57C; &#xC624;&#xB958;&#xB97C; &#xC904;&#xC77C; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. </p>
-<pre><code class="lang-bash"><span class="hljs-built_in">command</span> -o val -- <span class="hljs-string">&quot;<span class="hljs-variable">$arg1</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$arg2</span>&quot;</span>
+<p>&#xADF8;&#xB7EC;&#xBBC0;&#xB85C; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xC791;&#xC131;&#xC2DC; &#xC778;&#xC218;&#xB85C; &#xC784;&#xC758;&#xC758; &#xAC12;&#xC744; &#xBC1B;&#xB294; &#xBCC0;&#xC218;&#xB97C; &#xC0AC;&#xC6A9;&#xD560; &#xACBD;&#xC6B0; <code>--</code> &#xB97C; &#xC774;&#xC6A9;&#xD574; &#xBD84;&#xB9AC;&#xD574;&#xC57C; &#xC624;&#xB958;&#xB97C; &#xC904;&#xC77C; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. </p>
+<pre><code class="lang-bash">my_script.sh -o val -- <span class="hljs-string">&quot;<span class="hljs-variable">$arg1</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$arg2</span>&quot;</span>
 </code></pre>
 <h3 id="stdio-&#xC744;-&#xB098;&#xD0C0;&#xB0B4;&#xB294;-">STDIO &#xC744; &#xB098;&#xD0C0;&#xB0B4;&#xB294; <code>-</code></h3>
 <p>&#xBA85;&#xB839;&#xB4E4;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xB2E4; &#xBCF4;&#xBA74; &#xC885;&#xC885; <code>-</code> &#xBB38;&#xC790;&#xAC00; input &#xC774;&#xB098; output &#xC5D0; &#xC0AC;&#xC6A9;&#xB418;&#xB294; &#xACBD;&#xC6B0;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
