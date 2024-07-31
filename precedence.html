@@ -1521,7 +1521,10 @@ tmpfile=`mktemp`
         <span class="hljs-comment"># $pos &#xC774;&#xD6C4;&#xC758; &#xD30C;&#xC77C;&#xB0B4;&#xC6A9;&#xC744; &#xD30C;&#xC774;&#xD504;&#xB97C; &#xD1B5;&#xD574; &#xC555;&#xCD95;&#xD574;&#xC81C; &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xC804;&#xB2EC;&#xD569;&#xB2C8;&#xB2E4;.</span>
         tail -c +<span class="hljs-variable">$pos</span> <span class="hljs-string">&quot;<span class="hljs-variable">$vmlinuz</span>&quot;</span> | <span class="hljs-variable">$2</span> &gt; <span class="hljs-string">&quot;<span class="hljs-variable">$tmpfile</span>&quot;</span> <span class="hljs-number">2</span>&gt; /dev/null
         <span class="hljs-comment"># &#xC555;&#xCD95;&#xD574;&#xC81C;&#xB41C; &#xD30C;&#xC77C;&#xC774; elf &#xD30C;&#xC77C;&#xC774; &#xB9DE;&#xC744; &#xACBD;&#xC6B0; cat &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD574; stdout &#xC73C;&#xB85C; &#xCD9C;&#xB825;&#xD569;&#xB2C8;&#xB2E4;.</span>
-        readelf -h <span class="hljs-string">&quot;<span class="hljs-variable">$tmpfile</span>&quot;</span> &gt; /dev/null <span class="hljs-number">2</span>&gt;&amp;<span class="hljs-number">1</span> &amp;&amp; { cat <span class="hljs-string">&quot;<span class="hljs-variable">$tmpfile</span>&quot;</span>; <span class="hljs-built_in">exit</span> ;}
+        <span class="hljs-keyword">if</span> readelf -h <span class="hljs-string">&quot;<span class="hljs-variable">$tmpfile</span>&quot;</span> &gt; /dev/null <span class="hljs-number">2</span>&gt;&amp;<span class="hljs-number">1</span>; <span class="hljs-keyword">then</span>
+            cat <span class="hljs-string">&quot;<span class="hljs-variable">$tmpfile</span>&quot;</span>
+            <span class="hljs-built_in">exit</span>
+        <span class="hljs-keyword">fi</span>
     <span class="hljs-keyword">done</span>
 }
 
