@@ -1775,7 +1775,6 @@ no
 </blockquote>
 <pre><code class="lang-c"><span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
 <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span></span>
-<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;string.h&gt;</span></span>
 <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdbool.h&gt;</span></span>
 
 <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">matchhere</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *str, <span class="hljs-keyword">char</span> *pat)</span></span>;
@@ -1830,11 +1829,13 @@ no
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span> 
 </span>{
     <span class="hljs-keyword">if</span> (argc &lt; <span class="hljs-number">3</span>) usage(argv[<span class="hljs-number">0</span>]);
-    <span class="hljs-keyword">if</span> (match(argv[<span class="hljs-number">1</span>], argv[<span class="hljs-number">2</span>]))
+    <span class="hljs-keyword">if</span> (match(argv[<span class="hljs-number">1</span>], argv[<span class="hljs-number">2</span>])) {
         <span class="hljs-built_in">puts</span>(<span class="hljs-string">&quot;yes&quot;</span>);
-    <span class="hljs-keyword">else</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    } <span class="hljs-keyword">else</span> {
         <span class="hljs-built_in">puts</span>(<span class="hljs-string">&quot;no&quot;</span>);
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+    }
 }
 </code></pre>
 <p>&#xC544;&#xB798;&#xB294; &#xC704;&#xC640; &#xB3D9;&#xC77C;&#xD55C; &#xCF54;&#xB4DC;&#xC778;&#xB370; array &#xB300;&#xC2E0;&#xC5D0; &#xD3EC;&#xC778;&#xD130;&#xB97C; &#xC0AC;&#xC6A9;&#xD55C; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.
@@ -1842,7 +1843,6 @@ no
 &#xADF8;&#xB7EC;&#xBA74; <code>i</code>, <code>j</code> &#xAC19;&#xC740; &#xC778;&#xB371;&#xC2A4; &#xBCC0;&#xC218;&#xB3C4; &#xD544;&#xC694;&#xC5C6;&#xACE0; &#xC880; &#xB354; &#xAC04;&#xB2E8;&#xD574; &#xC9D1;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-c"><span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
 <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span></span>
-<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;string.h&gt;</span></span>
 <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdbool.h&gt;</span></span>
 
 <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">matchhere</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *str, <span class="hljs-keyword">char</span> *pat)</span></span>;
@@ -1896,11 +1896,13 @@ no
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span> 
 </span>{
     <span class="hljs-keyword">if</span> (argc &lt; <span class="hljs-number">3</span>) usage(argv[<span class="hljs-number">0</span>]);
-    <span class="hljs-keyword">if</span> (match(argv[<span class="hljs-number">1</span>], argv[<span class="hljs-number">2</span>]))
+    <span class="hljs-keyword">if</span> (match(argv[<span class="hljs-number">1</span>], argv[<span class="hljs-number">2</span>])) {
         <span class="hljs-built_in">puts</span>(<span class="hljs-string">&quot;yes&quot;</span>);
-    <span class="hljs-keyword">else</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    } <span class="hljs-keyword">else</span> {
         <span class="hljs-built_in">puts</span>(<span class="hljs-string">&quot;no&quot;</span>);
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+    }
 }
 </code></pre>
 <p><code>uftrace</code> &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; &#xD568;&#xC218; &#xD638;&#xCD9C; &#xAD00;&#xACC4;&#xB97C; &#xD55C;&#xB208;&#xC5D0; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.

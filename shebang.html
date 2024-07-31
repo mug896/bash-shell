@@ -1578,7 +1578,6 @@ $ <span class="hljs-built_in">echo</span> $?
 ///bin/<span class="hljs-literal">true</span> &amp;&amp; <span class="hljs-built_in">exec</span> bash -c <span class="hljs-string">&apos;cmd=&quot;&apos;</span><span class="hljs-string">&quot;<span class="hljs-variable">${0##*/}</span>&quot;</span><span class="hljs-string">&apos;&quot; cur=&quot;&apos;</span><span class="hljs-string">&quot;<span class="hljs-variable">$PWD</span>&quot;</span><span class="hljs-string">&apos;&quot;; cd `mktemp -d -p /dev/shm` &amp;&amp; trap &quot;rm -rf &apos;</span>\<span class="hljs-string">&apos;&apos;</span><span class="hljs-variable">$PWD</span><span class="hljs-string">&apos;\&apos;</span><span class="hljs-string">&apos;&quot; 0 &amp;&amp; gcc -Wall -lm -xc &quot;$cur/&apos;</span><span class="hljs-string">&quot;<span class="hljs-variable">$0</span>&quot;</span><span class="hljs-string">&apos;&quot; -o &quot;$cmd&quot; &amp;&amp; cd &quot;$cur&quot; &amp;&amp; &quot;$OLDPWD/$cmd&quot; &quot;$@&quot;&apos;</span> x <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>
 
 <span class="hljs-comment">#include &lt;stdio.h&gt;</span>
-<span class="hljs-comment">#include &lt;stdlib.h&gt;</span>
 int main(int argc, char *argv[]) {
     <span class="hljs-keyword">for</span> (int i = <span class="hljs-number">0</span>; i &lt; argc; i++)
         <span class="hljs-built_in">printf</span> (<span class="hljs-string">&quot;arg %d: %s\n&quot;</span>, i, argv[i]);
