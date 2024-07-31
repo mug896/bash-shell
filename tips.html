@@ -1333,6 +1333,11 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span 
 foo       bar
 zoo
 
+<span class="hljs-comment"># &#xBB3C;&#xB860; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &quot;foo   bar   zoo&quot; &#xB97C; &#xB9CC;&#xB4E4;&#xB824;&#xACE0; &#xD558;&#xB294; &#xACBD;&#xC6B0;&#xC5D0;&#xB294; quotes &#xC774; &#xD544;&#xC694;&#xD569;&#xB2C8;&#xB2E4;.</span>
+$ FF=<span class="hljs-string">&quot;<span class="hljs-variable">$AA</span><span class="hljs-variable">$BB</span>          zoo&quot;</span>
+$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$FF</span>&quot;</span>
+foo          bar          zoo
+
 -------------------------------------
 
 $ ARR=(<span class="hljs-number">11</span> <span class="hljs-number">22</span> <span class="hljs-string">&quot;33     44&quot;</span> <span class="hljs-number">55</span>)
@@ -1343,12 +1348,12 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span 
 <span class="hljs-number">11</span> <span class="hljs-number">22</span> <span class="hljs-number">33</span>     <span class="hljs-number">44</span> <span class="hljs-number">55</span>
 
 <span class="hljs-comment"># BB=${ARR[*]} &#xB294; &#xACB0;&#xACFC;&#xC801;&#xC73C;&#xB85C; BB=&quot;${ARR[*]}&quot; &#xC640; &#xAC19;&#xB2E4;. (echo &quot;${ARR[*]}&quot;)</span>
-$ ( IFS=: BB=<span class="hljs-variable">${ARR[*]}</span>; IFS=$<span class="hljs-string">&apos; \t\n&apos;</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$BB</span>&quot;</span>  )
+$ ( IFS=: BB=<span class="hljs-variable">${ARR[*]}</span>; <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$BB</span>&quot;</span>  )
 <span class="hljs-number">11</span>:<span class="hljs-number">22</span>:<span class="hljs-number">33</span>     <span class="hljs-number">44</span>:<span class="hljs-number">55</span>
 
 -------------------------------------
 
-$ touch AA=<span class="hljs-number">100</span>
+$ touch AA=<span class="hljs-number">100</span>   <span class="hljs-comment"># &#xD30C;&#xC77C; &apos;AA=100&apos; &#xC0DD;&#xC131;</span>
 $ AA=*           <span class="hljs-comment"># &#xB300;&#xC785;&#xC5F0;&#xC0B0; &#xC5D0;&#xC11C;&#xB294; globbing &#xC774; &#xC77C;&#xC5B4;&#xB098;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;. (AA=&quot;*&quot; &#xC640; &#xAC19;&#xB2E4;)</span>
 $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$AA</span>&quot;</span>
 *
@@ -1360,7 +1365,7 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span 
 FILE_PREFIX=myfile.split
 SORTED_FILES=<span class="hljs-variable">$FILE_PREFIX</span>.*.sorted
 
-rm <span class="hljs-operator">-f</span> <span class="hljs-variable">$SORTED_FILES</span>
+rm <span class="hljs-operator">-f</span> <span class="hljs-variable">$SORTED_FILES</span>      <span class="hljs-comment"># myfile.split.*.sorted &#xC640; &#xB9E4;&#xCE6D;&#xB418;&#xB294; &#xD30C;&#xC77C;&#xC774; &#xBAA8;&#xB450; &#xC0AD;&#xC81C;&#xB41C;&#xB2E4;.</span>
 </code></pre>
 <p>&#xB9CC;&#xC57D;&#xC5D0; &#xB300;&#xC785; &#xC5F0;&#xC0B0;&#xC5D0;&#xC11C; &#xACF5;&#xBC31;&#xACFC; &#xAC1C;&#xD589;&#xC744; &#xBB34;&#xC2DC;&#xD558;&#xACE0; &#xC2F6;&#xC73C;&#xBA74; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ AA=<span class="hljs-string">&quot;I
