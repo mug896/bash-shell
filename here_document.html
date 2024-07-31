@@ -1879,7 +1879,7 @@ EOF
 </blockquote>
 <pre><code class="lang-bash">$ <span class="hljs-function"><span class="hljs-title">watchdump</span></span> () {
     <span class="hljs-built_in">local</span> input=<span class="hljs-variable">${2//\*/\\*}</span>; input=<span class="hljs-variable">${input//[/\\[}</span>
-    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span> | entr -cs <span class="hljs-string">&quot;<span class="hljs-variable">$( cat &lt;&lt;EOF
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span> | entr -c sh -c <span class="hljs-string">&quot;<span class="hljs-variable">$( cat &lt;&lt;EOF
         objdump -dC &quot;$1&quot; | awk -F &apos;\t&apos; \
         &apos;NF == 1 { print; next } NF == 2 { next } { sub(/ +#[^#]*$/, &quot;&quot;)</span>; print \$3 }&apos; |
         sed -n &apos;/^[[:xdigit:]]\+ &lt;\.\?&apos;&quot;</span><span class="hljs-variable">$input</span><span class="hljs-string">&quot;&apos;&gt;:$/,/^$/p&apos;
