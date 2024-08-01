@@ -1483,13 +1483,12 @@ int <span class="hljs-function"><span class="hljs-title">main</span></span>() {
     int fd = open(<span class="hljs-string">&quot;tmp.txt&quot;</span>, O_WRONLY | O_CREAT | O_TRUNC, <span class="hljs-number">0644</span>);
     fork();
     write(fd, <span class="hljs-string">&quot;xyz&quot;</span>, <span class="hljs-number">3</span>);
-    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%ld\n&quot;</span>, lseek(fd, <span class="hljs-number">0</span>, SEEK_CUR));
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;PID: %d, SEEK_CUR: %ld\n&quot;</span>, getpid(), lseek(fd, <span class="hljs-number">0</span>, SEEK_CUR));
     <span class="hljs-built_in">return</span> <span class="hljs-number">0</span>;
 }
 @
-
-<span class="hljs-number">3</span>            <span class="hljs-comment"># parent &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC640; child &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; FD &#xB97C; &#xACF5;&#xC720;&#xD558;&#xC5EC;</span>
-<span class="hljs-number">6</span>            <span class="hljs-comment"># &#xAC01;&#xAC01; &#xD604;&#xC7AC; &#xD30C;&#xC77C; &#xD3EC;&#xC9C0;&#xC158;&#xC774; 3, 6 (3 + 3) &#xC774; &#xB41C;&#xB2E4;.</span>
+PID: <span class="hljs-number">2744866</span>, SEEK_CUR: <span class="hljs-number">3</span>      <span class="hljs-comment"># parent &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC640; child &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; FD &#xB97C; &#xACF5;&#xC720;&#xD558;&#xC5EC;</span>
+PID: <span class="hljs-number">2744867</span>, SEEK_CUR: <span class="hljs-number">6</span>      <span class="hljs-comment"># &#xAC01;&#xAC01; &#xD604;&#xC7AC; &#xD30C;&#xC77C; &#xD3EC;&#xC9C0;&#xC158;&#xC774; 3 &#xACFC; 6 (3 + 3) &#xC774; &#xB41C;&#xB2E4;.</span>
 </code></pre>
 <p>named pipe &#xB3C4; anonymouse pipe &#xC640; &#xB3D9;&#xC77C;&#xD558;&#xAC8C; &#xB3D9;&#xC791;&#xD569;&#xB2C8;&#xB2E4;.<br>pipe &#xB294; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; &#xD30C;&#xC77C; &#xD3EC;&#xC9C0;&#xC158;&#xC774; &#xC0AC;&#xC6A9;&#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ mkfifo mypipe

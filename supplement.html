@@ -2104,15 +2104,12 @@ sys     <span class="hljs-number">0</span>m0<span class="hljs-number">.538</span
     <span class="hljs-keyword">pid_t</span> childpid;
     <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= num; i++) {
         childpid = fork();
-        <span class="hljs-keyword">if</span> (childpid == <span class="hljs-number">0</span>) <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">if</span> (childpid == <span class="hljs-number">0</span>) pause();
     }
 
-    <span class="hljs-keyword">if</span> (childpid &gt; <span class="hljs-number">0</span>) {
-        GET_MEM_SIZE(&amp;size2);
-        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%zd KB\n&quot;</span>, size1 - size2);
-        kill(<span class="hljs-number">0</span>, SIGTERM);
-    }
-    pause();
+    GET_MEM_SIZE(&amp;size2);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%zd KB\n&quot;</span>, size1 - size2);
+    kill(<span class="hljs-number">0</span>, SIGTERM);
 }
 --------------------------------------------------------------
 
