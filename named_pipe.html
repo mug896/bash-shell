@@ -2285,7 +2285,7 @@ client &#xC758; socket &#xC774; &#xC0DD;&#xC131;&#xB418;&#xC9C0; &#xC54A;&#xACE0
 
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span>
 </span>{
-    signal(SIGINT, &amp;INT_handler);
+    signal(SIGINT, INT_handler);
     atexit(&amp;exit_handler);
     clist = <span class="hljs-built_in">malloc</span>(<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">client_list_t</span>));
     clist-&gt;next = <span class="hljs-literal">NULL</span>;
@@ -2352,8 +2352,8 @@ jmp_buf env;
 
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span>
 </span>{
-    signal(SIGINT, &amp;INT_handler);
-    signal(SIGUSR1, &amp;USR1_handler);
+    signal(SIGINT, INT_handler);
+    signal(SIGUSR1, USR1_handler);
     atexit(&amp;exit_handler);
     <span class="hljs-built_in">sprintf</span>(client_sock, <span class="hljs-string">&quot;%s%u%s&quot;</span>, <span class="hljs-string">&quot;client_&quot;</span>, getpid(), <span class="hljs-string">&quot;.sock&quot;</span>);
 
