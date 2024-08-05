@@ -1363,6 +1363,14 @@ command1 &#xC774; &#xC815;&#xC0C1; &#xC885;&#xB8CC;&#xD558;&#xBA74; command2 &#x
 
 <span class="hljs-comment"># &#xC2DC;&#xC2A4;&#xD15C;&#xC5D0; ifconfig &#xBA85;&#xB839;&#xC774; &#xC874;&#xC7AC;&#xD558;&#xC9C0; &#xC54A;&#xC744;&#xACBD;&#xC6B0; ip &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xAC8C; &#xB41C;&#xB2E4;.</span>
 ifconfig <span class="hljs-number">2</span>&gt; /dev/null || ip link show up
+
+A &amp;&amp; {
+    B &amp;&amp; {
+        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;A and B both passed&quot;</span>
+    } || {
+        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;A passed, B failed&quot;</span>
+    }
+} || <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;A failed&quot;</span>
 </code></pre>
 <h5 id="5---------&#xC744;-&#xC774;&#xC6A9;&#xD55C;-&#xBA85;&#xB839;-grouping">5 . { ... ;} , ( ... ) &#xC744; &#xC774;&#xC6A9;&#xD55C; &#xBA85;&#xB839; grouping</h5>
 <p>&#xC5EC;&#xB7EC; &#xBA85;&#xB839;&#xB4E4;&#xC744; &#xD558;&#xB098;&#xC758; &#xADF8;&#xB8F9;&#xC73C;&#xB85C; &#xB9CC;&#xB4E4;&#xC5B4; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xB300;&#xD45C;&#xC801;&#xC778;&#xAC8C; function &#xC778;&#xB370;&#xC694;.
