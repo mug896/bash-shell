@@ -1341,21 +1341,25 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$var</span
 <blockquote>
 <p>command1 &amp;&amp; command2</p>
 </blockquote>
-<p><code>&amp;&amp;</code> &#xBA54;&#xD0C0;&#xBB38;&#xC790;&#xB294; command1 &#xC758; &#xC2E4;&#xD589;&#xC774; &#xC815;&#xC0C1; &#xC885;&#xB8CC;&#xD558;&#xBA74; command2 &#xB97C; &#xC2E4;&#xD589;&#xD558;&#xACE0; command1 &#xC774; &#xC624;&#xB958;&#xB85C; &#xC885;&#xB8CC;&#xD560; &#xACBD;&#xC6B0;&#xB294; command2 &#xB97C; &#xC2E4;&#xD589;&#xD558;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;. </p>
+<p><code>&amp;&amp;</code> &#xBA54;&#xD0C0;&#xBB38;&#xC790;&#xB294; command1 &#xC758; &#xC2E4;&#xD589;&#xC774; &#xC815;&#xC0C1; &#xC885;&#xB8CC;&#xD558;&#xBA74; command2 &#xB97C; &#xC2E4;&#xD589;&#xD558;&#xACE0;
+command1 &#xC774; &#xC624;&#xB958;&#xB85C; &#xC885;&#xB8CC;&#xD560; &#xACBD;&#xC6B0;&#xB294; command2 &#xB97C; &#xC2E4;&#xD589;&#xD558;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-sh"><span class="hljs-comment"># command1 &amp;&amp; command2 &#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740;&#xAC83; &#xC785;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-keyword">if</span> <span class="hljs-built_in">command</span>1; <span class="hljs-keyword">then</span>
+    <span class="hljs-built_in">command</span>2
+<span class="hljs-keyword">fi</span>
+</code></pre>
 <blockquote>
 <p>command1 || command2</p>
 </blockquote>
-<p><code>||</code> &#xBA54;&#xD0C0;&#xBB38;&#xC790;&#xB294; command1 &#xC774; &#xC624;&#xB958;&#xB85C; &#xC885;&#xB8CC;&#xD560; &#xACBD;&#xC6B0; command2 &#xB97C; &#xC2E4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;. command1 &#xC774; &#xC815;&#xC0C1; &#xC885;&#xB8CC;&#xD558;&#xBA74; command2 &#xB294; &#xC2E4;&#xD589;&#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-bash"><span class="hljs-comment"># &#xC2DC;&#xC2A4;&#xD15C;&#xC5D0; ifconfig &#xBA85;&#xB839;&#xC774; &#xC874;&#xC7AC;&#xD558;&#xC9C0; &#xC54A;&#xC73C;&#xBA74; ip &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xAC8C; &#xB41C;&#xB2E4;.</span>
-{ ifconfig || ip link show up ;} <span class="hljs-number">2</span>&gt; /dev/null | awk ...
+<p><code>||</code> &#xBA54;&#xD0C0;&#xBB38;&#xC790;&#xB294; command1 &#xC774; &#xC624;&#xB958;&#xB85C; &#xC885;&#xB8CC;&#xD560; &#xACBD;&#xC6B0; command2 &#xB97C; &#xC2E4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;.
+command1 &#xC774; &#xC815;&#xC0C1; &#xC885;&#xB8CC;&#xD558;&#xBA74; command2 &#xB294; &#xC2E4;&#xD589;&#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-sh"><span class="hljs-comment"># command1 || command2 &#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740;&#xAC83; &#xC785;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-keyword">if</span> ! <span class="hljs-built_in">command</span>1; <span class="hljs-keyword">then</span>
+    <span class="hljs-built_in">command</span>2
+<span class="hljs-keyword">fi</span>
 
-A &amp;&amp; {
-    B &amp;&amp; {
-        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;A and B both passed&quot;</span>
-    } || {
-        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;A passed, B failed&quot;</span>
-    }
-} || <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;A failed&quot;</span>
+<span class="hljs-comment"># &#xC2DC;&#xC2A4;&#xD15C;&#xC5D0; ifconfig &#xBA85;&#xB839;&#xC774; &#xC874;&#xC7AC;&#xD558;&#xC9C0; &#xC54A;&#xC744;&#xACBD;&#xC6B0; ip &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xAC8C; &#xB41C;&#xB2E4;.</span>
+ifconfig <span class="hljs-number">2</span>&gt; /dev/null || ip link show up
 </code></pre>
 <h5 id="5---------&#xC744;-&#xC774;&#xC6A9;&#xD55C;-&#xBA85;&#xB839;-grouping">5 . { ... ;} , ( ... ) &#xC744; &#xC774;&#xC6A9;&#xD55C; &#xBA85;&#xB839; grouping</h5>
 <p>&#xC5EC;&#xB7EC; &#xBA85;&#xB839;&#xB4E4;&#xC744; &#xD558;&#xB098;&#xC758; group &#xC73C;&#xB85C; &#xB9CC;&#xB4E4;&#xC5B4; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xB300;&#xD45C;&#xC801;&#xC778;&#xAC8C; function &#xC778;&#xB370;&#xC694;. &#xC774;&#xB807;&#xAC8C; group &#xC744; &#xB9CC;&#xB4E4;&#xBA74; &#xC548;&#xC5D0; &#xC788;&#xB294; &#xBA85;&#xB839;&#xB4E4;&#xC774; &#xC2E4;&#xD589;&#xC2DC;&#xC5D0; &#xAC19;&#xC740; context &#xB97C; &#xAC00;&#xC9D1;&#xB2C8;&#xB2E4;.</p>
@@ -2051,7 +2055,7 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$var</span
 <span class="hljs-comment">#!/bin/bash -e</span>
 
 <span class="hljs-keyword">if</span> [ <span class="hljs-variable">$#</span> = <span class="hljs-number">0</span> ]; <span class="hljs-keyword">then</span>
-    <span class="hljs-built_in">echo</span> &gt;&amp;<span class="hljs-number">2</span> <span class="hljs-string">&quot;Usage: <span class="hljs-variable">${0##*/}</span> functionName&quot;</span>
+    <span class="hljs-built_in">echo</span> &gt;&amp;<span class="hljs-number">2</span> <span class="hljs-string">&quot;Usage: <span class="hljs-variable">${0##*/}</span> function_name&quot;</span>
     <span class="hljs-built_in">exit</span> <span class="hljs-number">1</span>
 <span class="hljs-keyword">fi</span>
 
@@ -2095,7 +2099,7 @@ $ go-func Join
 <span class="hljs-comment">#!/bin/bash -e</span>
 
 <span class="hljs-keyword">if</span> [ <span class="hljs-variable">$#</span> = <span class="hljs-number">0</span> ]; <span class="hljs-keyword">then</span>
-    <span class="hljs-built_in">echo</span> &gt;&amp;<span class="hljs-number">2</span> <span class="hljs-string">&quot;Usage: <span class="hljs-variable">${0##*/}</span> typeName&quot;</span>
+    <span class="hljs-built_in">echo</span> &gt;&amp;<span class="hljs-number">2</span> <span class="hljs-string">&quot;Usage: <span class="hljs-variable">${0##*/}</span> type_name&quot;</span>
     <span class="hljs-built_in">exit</span> <span class="hljs-number">1</span>
 <span class="hljs-keyword">fi</span>
 
