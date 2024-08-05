@@ -1771,6 +1771,19 @@ compopt -o nospace
 </tr>
 </tbody>
 </table>
+<blockquote>
+<p><code>declare -i idx</code> &#xB85C; idx &#xBCC0;&#xC218;&#xC5D0; integer &#xC18D;&#xC131;&#xC744; &#xC8FC;&#xB354;&#xB77C;&#xB3C4; <code>idx++</code> &#xC640; &#xAC19;&#xC740; &#xBB38;&#xBC95;&#xC740;
+&#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC65C;&#xB0D0;&#xD558;&#xBA74; &#xC258; &#xC5D0;&#xC11C;&#xB294; idx++ &#xAC00; &#xBA85;&#xB839; &#xC774;&#xB984;&#xC774; &#xB418;&#xAE30; &#xB54C;&#xBB38;&#xC785;&#xB2C8;&#xB2E4;.
+&#xB300;&#xC2E0;&#xC5D0; <code>idx+=1</code> &#xC640; &#xAC19;&#xC740; &#xB300;&#xC785; &#xC5F0;&#xC0B0;&#xC5D0;&#xC11C;&#xB294; integer &#xC18D;&#xC131;&#xC774; &#xC801;&#xC6A9;&#xB420; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+</blockquote>
+<pre><code class="lang-sh"><span class="hljs-built_in">declare</span> -i idx=<span class="hljs-number">0</span>
+idx++              <span class="hljs-comment"># &#xC624;&#xB958;!  &#xC5EC;&#xAE30;&#xC11C; idx++ &#xB294; &#xBA85;&#xB839; &#xC774;&#xB984;&#xC774; &#xB41C;&#xB2E4;.</span>
+idx+=<span class="hljs-number">1</span>             <span class="hljs-comment"># ok</span>
+
+<span class="hljs-comment"># let &#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; declare &#xAC00; &#xD544;&#xC694;&#xC5C6;&#xB2E4;.</span>
+idx=<span class="hljs-number">0</span>
+<span class="hljs-built_in">let</span> idx++          <span class="hljs-comment"># ok</span>
+</code></pre>
 <h3 id="dirs">dirs</h3>
 <blockquote>
 <p>dirs [-clpv] [+N] [-N]</p>
