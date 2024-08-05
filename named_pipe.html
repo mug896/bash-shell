@@ -2286,7 +2286,7 @@ client &#xC758; socket &#xC774; &#xC0DD;&#xC131;&#xB418;&#xC9C0; &#xC54A;&#xACE0
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span>
 </span>{
     signal(SIGINT, INT_handler);
-    atexit(&amp;exit_handler);
+    atexit(exit_handler);
     clist = <span class="hljs-built_in">malloc</span>(<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">client_list_t</span>));
     clist-&gt;next = <span class="hljs-literal">NULL</span>;
 
@@ -2339,22 +2339,21 @@ client &#xC758; socket &#xC774; &#xC0DD;&#xC131;&#xB418;&#xC9C0; &#xC54A;&#xACE0
 <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;sys/socket.h&gt;</span></span>
 <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;signal.h&gt;</span></span>
 <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;sys/epoll.h&gt;</span></span>
-<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;setjmp.h&gt;</span></span>
 
 <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *server_sock = <span class="hljs-string">&quot;server.sock&quot;</span>;     <span class="hljs-comment">// server &#xC18C;&#xCF13;&#xD30C;&#xC77C;</span>
 <span class="hljs-keyword">char</span> client_sock[<span class="hljs-number">25</span>];                        <span class="hljs-comment">// client &#xC18C;&#xCF13;&#xD30C;&#xC77C;</span>
-jmp_buf env;
+<span class="hljs-keyword">int</span> sockfd;
 
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">exit_handler</span><span class="hljs-params">()</span> </span>{ unlink(client_sock); }
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">INT_handler</span><span class="hljs-params">()</span> </span>{ longjmp(env, <span class="hljs-number">3</span>); }      <span class="hljs-comment">// Ctrl-c &#xB85C; &#xC885;&#xB8CC;&#xC2DC; longjmp</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">USR1_handler</span><span class="hljs-params">()</span> </span>{ longjmp(env, <span class="hljs-number">1</span>); }     <span class="hljs-comment">// Ctrl-d &#xB85C; &#xC885;&#xB8CC;&#xC2DC;</span>
 <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">error_exit</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *msg)</span> </span>{ perror(msg); <span class="hljs-built_in">exit</span>(<span class="hljs-number">1</span>); }
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">exit_handler</span><span class="hljs-params">()</span> </span>{ unlink(client_sock); }
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">INT_handler</span><span class="hljs-params">()</span> </span>{ write(sockfd,<span class="hljs-string">&quot;\b\b\b&quot;</span>, <span class="hljs-number">3</span>); <span class="hljs-built_in">exit</span>(<span class="hljs-number">2</span>); }    <span class="hljs-comment">// Ctrl-c &#xB85C; &#xC885;&#xB8CC;&#xC2DC;</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">USR1_handler</span><span class="hljs-params">()</span> </span>{ write(sockfd,<span class="hljs-string">&quot;\b\b\b&quot;</span>, <span class="hljs-number">3</span>); <span class="hljs-built_in">exit</span>(<span class="hljs-number">0</span>); }   <span class="hljs-comment">// Ctrl-d &#xB85C; &#xC885;&#xB8CC;&#xC2DC;</span>
 
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span>
 </span>{
     signal(SIGINT, INT_handler);
     signal(SIGUSR1, USR1_handler);
-    atexit(&amp;exit_handler);
+    atexit(exit_handler);
     <span class="hljs-built_in">sprintf</span>(client_sock, <span class="hljs-string">&quot;%s%u%s&quot;</span>, <span class="hljs-string">&quot;client_&quot;</span>, getpid(), <span class="hljs-string">&quot;.sock&quot;</span>);
 
     <span class="hljs-comment">// client --&gt; server &#xC811;&#xC18D;&#xC744; &#xC704;&#xD55C; &#xC8FC;&#xC18C;</span>
@@ -2365,7 +2364,7 @@ jmp_buf env;
     <span class="hljs-keyword">struct</span> sockaddr_un clientaddr = { .sun_family = AF_UNIX };
     <span class="hljs-built_in">strcpy</span>(clientaddr.sun_path, client_sock);
 
-    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> sockfd = socket(AF_UNIX, SOCK_DGRAM, <span class="hljs-number">0</span>);
+    sockfd = socket(AF_UNIX, SOCK_DGRAM, <span class="hljs-number">0</span>);
 
     <span class="hljs-comment">// bind() &#xB97C; &#xC774;&#xC6A9;&#xD574; client &#xC18C;&#xCF13;&#xD30C;&#xC77C;&#xC744; &#xB9CC;&#xB4E4;&#xC5B4;&#xC8FC;&#xC5B4;&#xC57C; &#xD55C;&#xB2E4;.</span>
     <span class="hljs-keyword">if</span> (bind(sockfd, (<span class="hljs-keyword">struct</span> sockaddr *) &amp;clientaddr, <span class="hljs-keyword">sizeof</span>(clientaddr)) == -<span class="hljs-number">1</span>)
@@ -2379,12 +2378,6 @@ jmp_buf env;
     <span class="hljs-keyword">char</span> buf[<span class="hljs-number">1024</span>] = <span class="hljs-string">&quot;\a\a\a&quot;</span>;     <span class="hljs-comment">// &#xC11C;&#xBC84;&#xB85C; &quot;\a\a\a&quot; &#xC2A4;&#xD2B8;&#xB9C1;&#xC744; &#xBCF4;&#xB0B4; &#xC811;&#xC18D;&#xC744; &#xC54C;&#xB9BC;</span>
     write(sockfd, buf, <span class="hljs-number">3</span>);
 
-    <span class="hljs-keyword">int</span> ret = setjmp(env);
-    <span class="hljs-keyword">if</span> (ret != <span class="hljs-number">0</span>) {
-        <span class="hljs-built_in">strcpy</span>(buf, <span class="hljs-string">&quot;\b\b\b&quot;</span>);     <span class="hljs-comment">// Ctrl-c &#xB85C; &#xC885;&#xB8CC;&#xD560;&#xACBD;&#xC6B0; &quot;\b\b\b&quot; &#xB97C; &#xBCF4;&#xB0B4; &#xC885;&#xB8CC;&#xB97C; &#xC54C;&#xB9BC;</span>
-        write(sockfd, buf, <span class="hljs-number">3</span>);
-        <span class="hljs-built_in">exit</span>(ret - <span class="hljs-number">1</span>);
-    }
     <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> epollfd = epoll_create(<span class="hljs-number">1</span>);
     <span class="hljs-keyword">struct</span> epoll_event ev = { .events = EPOLLIN };
     ev.data.fd = STDIN_FILENO;
