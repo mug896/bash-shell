@@ -2143,7 +2143,7 @@ lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-nu
         .sun_path    = <span class="hljs-string">&quot;server.sock&quot;</span>,
     };
     <span class="hljs-keyword">if</span> (bind(sockfd, (<span class="hljs-keyword">struct</span> sockaddr *)&amp;addr_un, <span class="hljs-keyword">sizeof</span>(addr_un)) == -<span class="hljs-number">1</span>)
-        error_exit(<span class="hljs-string">&quot;bind()&quot;</span>);
+        error_exit(<span class="hljs-string">&quot;ERROR: bind()&quot;</span>);
     listen(sockfd, <span class="hljs-number">10</span>);
 
     <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> epollfd = epoll_create(<span class="hljs-number">1</span>);
@@ -2183,7 +2183,7 @@ lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-nu
         .sun_path    = <span class="hljs-string">&quot;server.sock&quot;</span>,
     };
     <span class="hljs-keyword">if</span> (connect(sockfd, (<span class="hljs-keyword">struct</span> sockaddr *)&amp;addr_un, <span class="hljs-keyword">sizeof</span>(addr_un)) == -<span class="hljs-number">1</span>)
-        error_exit(<span class="hljs-string">&quot;connect()&quot;</span>);
+        error_exit(<span class="hljs-string">&quot;ERROR: connect()&quot;</span>);
 
     <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> epollfd = epoll_create(<span class="hljs-number">1</span>);              <span class="hljs-comment">// &#xC785;&#xB825;&#xC744; stdin &#xACFC; socket</span>
     <span class="hljs-keyword">struct</span> epoll_event ev = { .events = EPOLLIN };    <span class="hljs-comment">// &#xB450; &#xAD70;&#xB370;&#xC11C; &#xBC1B;&#xC544;&#xC57C; &#xD558;&#xAE30; &#xB54C;&#xBB38;&#xC5D0;</span>
@@ -2297,7 +2297,7 @@ client &#xC758; socket &#xC774; &#xC0DD;&#xC131;&#xB418;&#xC9C0; &#xC54A;&#xACE0
 
     <span class="hljs-comment">// bind() &#xB85C; server &#xC18C;&#xCF13;&#xD30C;&#xC77C; &#xC0DD;&#xC131;.</span>
     <span class="hljs-keyword">if</span> (bind(sockfd, (<span class="hljs-keyword">struct</span> sockaddr *) &amp;serveraddr, <span class="hljs-keyword">sizeof</span>(serveraddr)) == -<span class="hljs-number">1</span>)
-        error_exit(<span class="hljs-string">&quot;bind()&quot;</span>);
+        error_exit(<span class="hljs-string">&quot;ERROR: bind()&quot;</span>);
 
     <span class="hljs-keyword">struct</span> sockaddr_un clientaddr = { .sun_family = AF_UNIX };
     <span class="hljs-keyword">char</span> sbuf[<span class="hljs-number">1024</span> - sizeof_field(<span class="hljs-keyword">struct</span> sockaddr_un, sun_path) - <span class="hljs-number">2</span>];
@@ -2368,12 +2368,12 @@ client &#xC758; socket &#xC774; &#xC0DD;&#xC131;&#xB418;&#xC9C0; &#xC54A;&#xACE0
 
     <span class="hljs-comment">// bind() &#xB97C; &#xC774;&#xC6A9;&#xD574; client &#xC18C;&#xCF13;&#xD30C;&#xC77C;&#xC744; &#xB9CC;&#xB4E4;&#xC5B4;&#xC8FC;&#xC5B4;&#xC57C; &#xD55C;&#xB2E4;.</span>
     <span class="hljs-keyword">if</span> (bind(sockfd, (<span class="hljs-keyword">struct</span> sockaddr *) &amp;clientaddr, <span class="hljs-keyword">sizeof</span>(clientaddr)) == -<span class="hljs-number">1</span>)
-        error_exit(<span class="hljs-string">&quot;bind()&quot;</span>);
+        error_exit(<span class="hljs-string">&quot;ERROR: bind()&quot;</span>);
 
     <span class="hljs-comment">// &#xC5EC;&#xAE30;&#xC11C; connect() &#xB294; &#xAF2D; &#xD544;&#xC694;&#xD55C; &#xAC83;&#xC740; &#xC544;&#xB2C8;&#xC9C0;&#xB9CC; connect() &#xB97C; &#xD558;&#xC9C0; &#xC54A;&#xC73C;&#xBA74; &#xC544;&#xB798;&#xC11C;</span>
     <span class="hljs-comment">// write(), read() &#xB300;&#xC2E0;&#xC5D0; serveraddr &#xC640;&#xD568;&#xAED8; sendto(), recvfrom() &#xC744; &#xC0AC;&#xC6A9;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</span>
     <span class="hljs-keyword">if</span> (connect(sockfd, (<span class="hljs-keyword">struct</span> sockaddr *) &amp;serveraddr, <span class="hljs-keyword">sizeof</span>(serveraddr)) == -<span class="hljs-number">1</span>)
-        error_exit(<span class="hljs-string">&quot;connect()&quot;</span>);
+        error_exit(<span class="hljs-string">&quot;ERROR: connect()&quot;</span>);
 
     <span class="hljs-keyword">char</span> buf[<span class="hljs-number">1024</span>] = <span class="hljs-string">&quot;\a\a\a&quot;</span>;     <span class="hljs-comment">// &#xC11C;&#xBC84;&#xB85C; &quot;\a\a\a&quot; &#xC2A4;&#xD2B8;&#xB9C1;&#xC744; &#xBCF4;&#xB0B4; &#xC811;&#xC18D;&#xC744; &#xC54C;&#xB9BC;</span>
     write(sockfd, buf, <span class="hljs-number">3</span>);
@@ -2393,7 +2393,7 @@ client &#xC758; socket &#xC774; &#xC0DD;&#xC131;&#xB418;&#xC9C0; &#xC54A;&#xACE0
             <span class="hljs-keyword">int</span> rc = read(STDIN_FILENO, buf, <span class="hljs-keyword">sizeof</span>(buf));
             <span class="hljs-keyword">if</span> (rc == <span class="hljs-number">0</span> || buf[rc - <span class="hljs-number">1</span>] != <span class="hljs-string">&apos;\n&apos;</span>) raise(SIGUSR1);
             <span class="hljs-keyword">if</span> (write(sockfd, buf, rc) == -<span class="hljs-number">1</span>)    <span class="hljs-comment">// &#xC11C;&#xBC84;&#xAC00; &#xC885;&#xB8CC;&#xB410;&#xC744;&#xB54C; &#xC4F0;&#xAE30;&#xB294; &#xC624;&#xB958;&#xAC00; &#xB41C;&#xB2E4;</span>
-                error_exit(<span class="hljs-string">&quot;write()&quot;</span>);
+                error_exit(<span class="hljs-string">&quot;ERROR: write()&quot;</span>);
         } 
         <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (events[<span class="hljs-number">0</span>].data.fd == sockfd) {
             <span class="hljs-keyword">int</span> rc = read(sockfd, buf, <span class="hljs-keyword">sizeof</span>(buf));

@@ -2181,7 +2181,7 @@ int main()
         .sun_path    = &apos;\0&apos;,           // &#xB610;&#xB294; &quot;mysock&quot;
     };
     if (connect(sockfd, (struct sockaddr *)&amp;addr_un, sizeof(addr_un)) == -1)
-        error_exit(&quot;connect()&quot;);
+        error_exit(&quot;ERROR: connect()&quot;);
 
     int fd1 = open(&quot;tmp1.txt&quot;, O_WRONLY | O_CREAT | O_APPEND, 0644);
     int fd2 = open(&quot;tmp2.txt&quot;, O_WRONLY | O_CREAT | O_APPEND, 0644);
@@ -2234,7 +2234,7 @@ int main()
         .sun_path    = &apos;\0&apos;,          // &#xB610;&#xB294; &quot;mysock&quot;
     };
     if (bind(sockfd, (struct sockaddr *)&amp;addr_un, sizeof(addr_un)) == -1)
-        error_exit(&quot;bind()&quot;);
+        error_exit(&quot;ERROR: bind()&quot;);
     listen(sockfd, 10);
     int conn_sock = accept(sockfd, NULL, NULL);
 
