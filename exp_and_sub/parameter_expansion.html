@@ -2062,6 +2062,16 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${goo[@]@A
 <span class="hljs-built_in">declare</span> -A goo=([ab]=<span class="hljs-string">&quot;100&quot;</span> [<span class="hljs-built_in">cd</span>]=<span class="hljs-string">&quot;200&quot;</span> )
 </code></pre>
 <h1 id="quiz">Quiz</h1>
+<p>Linux &#xC640; Unix &#xC6B4;&#xC601;&#xCCB4;&#xC81C; &#xC5D0;&#xC11C;&#xB294; &#xACBD;&#xB85C;&#xB97C; &#xAD6C;&#xBD84;&#xD558;&#xB294; &#xBB38;&#xC790;&#xB85C; <code>/</code> &#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xB294;&#xB370;&#xC694;.
+Windows &#xC6B4;&#xC601;&#xCCB4;&#xC81C; &#xC5D0;&#xC11C;&#xB294; &#xBC18;&#xB300;&#xB85C; <code>\</code> &#xBB38;&#xC790;&#xB97C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.
+&#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; Windows &#xACBD;&#xB85C;&#xAC00; &#xC8FC;&#xC5B4;&#xC84C;&#xC744;&#xB54C; Unix &#xACBD;&#xB85C;&#xB85C; &#xBCC0;&#xACBD;&#xD558;&#xB824;&#xBA74; &#xC5B4;&#xB5BB;&#xAC8C; &#xD560;&#xAE4C;&#xC694;?</p>
+<pre><code class="lang-sh">$ project_dir=<span class="hljs-string">&quot;\Documents\Projects\Newsletters\Summer&quot;</span>
+
+<span class="hljs-comment"># &apos;\&apos; &#xBB38;&#xC790;&#xB294; escape &#xD560;&#xB54C; &#xC0AC;&#xC6A9;&#xB418;&#xBBC0;&#xB85C; &apos;\\&apos; &#xC640; &#xAC19;&#xC774; escape &#xD574;&#xC57C; &#xD55C;&#xB2E4;.</span>
+$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">${project_dir//\\//}</span>&quot;</span>
+/Documents/Projects/Newsletters/Summer
+</code></pre>
+<h1 id="2-">2 .</h1>
 <p>16 &#xC9C4;&#xC218;&#xC5D0;&#xC11C; Most Significant Byte ( &#xC81C;&#xC77C; &#xC67C;&#xCABD; &#xBB38;&#xC790; ) &#xAC00; 8 &#xC774;&#xC0C1;&#xC774;&#xBA74; 
 sign bit &#xC774; 1 &#xC774; &#xB418;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xC74C;&#xC218;&#xAC00; &#xB418;&#xB294;&#xB370;&#xC694;.
 16 &#xC9C4;&#xC218; &#xAC12;&#xC744; &#xBD80;&#xD638; &#xC788;&#xB294; &#xC815;&#xC218;&#xAC12;&#xC73C;&#xB85C; &#xD45C;&#xC2DC;&#xD558;&#xB824;&#xBA74; &#xC5B4;&#xB5BB;&#xAC8C; &#xD560;&#xAE4C;&#xC694;?</p>
@@ -2100,7 +2110,7 @@ $ hex2int <span class="hljs-number">0</span>x79
 $ hex2int <span class="hljs-number">0</span>x78
 <span class="hljs-number">120</span>
 </code></pre>
-<h1 id="2-">2 .</h1>
+<h1 id="3-">3 .</h1>
 <p>&#xBA85;&#xB839;&#xC758; &#xC778;&#xC218;&#xB85C; &#xD30C;&#xC77C;&#xC774; &#xC8FC;&#xC5B4;&#xC9C0;&#xBA74; &#xD30C;&#xC77C;&#xC5D0;&#xC11C; &#xB77C;&#xC778;&#xC744; &#xC77D;&#xC5B4;&#xB4E4;&#xC5EC; &#xCC98;&#xB9AC;&#xD558;&#xACE0;,
 &#xADF8;&#xB807;&#xC9C0; &#xC54A;&#xC73C;&#xBA74; stdin ( &#xD130;&#xBBF8;&#xB110;, &#xD30C;&#xC774;&#xD504;, redirection ) &#xC5D0;&#xC11C; &#xB77C;&#xC778;&#xC744; &#xC77D;&#xC5B4;&#xC11C; &#xCC98;&#xB9AC;&#xD558;&#xB294; &#xBA85;&#xB839;&#xC744; &#xB9CC;&#xB4DC;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ <span class="hljs-function"><span class="hljs-title">func1</span></span> () {                                      $ cat tmp.txt
