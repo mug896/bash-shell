@@ -2195,7 +2195,30 @@ $ ltrace -n3 -x+ ./hello_static
 Couldn<span class="hljs-string">&apos;t find .dynsym or .dynstr in &quot;/proc/14338/exe&quot;
 hello world
 </span></code></pre>
+<h3 id="strace-&#xCD9C;&#xB825;&#xC744;-&#xBCF4;&#xAE30;&#xC704;&#xD55C;-&#xC124;&#xC815;">strace &#xCD9C;&#xB825;&#xC744; &#xBCF4;&#xAE30;&#xC704;&#xD55C; &#xC124;&#xC815;</h3>
+<p>strace &#xCD9C;&#xB825;&#xC744; &#xD558;&#xC774;&#xB77C;&#xC774;&#xD2B8; &#xD574;&#xC11C; &#xBCF4;&#xB824;&#xBA74; <code>vim</code> &#xB610;&#xB294; <code>bat</code> &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xD30C;&#xC77C;&#xC758; &#xD655;&#xC7A5;&#xC790;&#xAC00; <code>.strace</code> &#xC774;&#xBA74; &#xC790;&#xB3D9;&#xC73C;&#xB85C; strace &#xCD9C;&#xB825; &#xD30C;&#xC77C;&#xB85C; &#xC778;&#xC2DD;&#xD558;&#xB294;&#xB370;
+&#xD30C;&#xC774;&#xD504;&#xC5D0;&#xC11C; &#xC77D;&#xC5B4;&#xB4E4;&#xC77C; &#xB54C;&#xB294; &#xD655;&#xC7A5;&#xC790;&#xB97C; &#xC778;&#xC2DD;&#xD560; &#xC218; &#xC5C6;&#xC73C;&#xBBC0;&#xB85C; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xD574;&#xC57C; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># batcat &#xBA85;&#xB839;&#xC740; &#xC124;&#xCE58;&#xAC00; &#xD544;&#xC694;&#xD569;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-comment"># sudo apt install bat</span>
+
+$ <span class="hljs-built_in">alias</span> batcat=<span class="hljs-string">&apos;batcat --theme ansi -S -p&apos;</span>
+
+$ strace date <span class="hljs-number">2</span>&gt;&amp;<span class="hljs-number">1</span> &gt; /dev/null | batcat <span class="hljs-operator">-l</span> strace
+
+$ <span class="hljs-built_in">alias</span> vi-strace=<span class="hljs-string">&apos;vi -c &quot;set ft=strace&quot;&apos;</span>
+
+$ strace date <span class="hljs-number">2</span>&gt;&amp;<span class="hljs-number">1</span> &gt; /dev/null | vi-strace -
+</code></pre>
 <h1 id="quiz">Quiz</h1>
+<p>&#xD130;&#xBBF8;&#xB110;&#xC5D0;&#xC11C; &#xC5B4;&#xB5A4; &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xD558;&#xB294;&#xB370; &#xBA85;&#xB839;&#xC774; &#xC5B4;&#xB290; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0;&#xC11C; &#xC5B4;&#xB5A4; &#xD30C;&#xC77C;&#xC744; &#xC0DD;&#xC131;&#xD558;&#xB294;&#xC9C0;
+&#xB610;&#xB294; &#xC5B4;&#xB5A4; &#xD30C;&#xC77C;&#xC744; &#xC77D;&#xB294;&#xC9C0; &#xAD81;&#xAE08;&#xD560; &#xB54C;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xC5B4;&#xB5BB;&#xAC8C; &#xC54C;&#xC544;&#xBCFC; &#xC218; &#xC788;&#xC744;&#xAE4C;&#xC694;?</p>
+<pre><code class="lang-sh">$ strace <span class="hljs-operator">-e</span> %file <span class="hljs-operator">-f</span> npx http-server <span class="hljs-number">2</span>&gt; npx.strace
+
+$ batcat npx.strace
+</code></pre>
+<h1 id="2-">2 .</h1>
 <p>&#xADF8;&#xB798;&#xD53D;&#xCE74;&#xB4DC;, &#xC0AC;&#xC6B4;&#xB4DC;, &#xB9C8;&#xC6B0;&#xC2A4; &#xAC19;&#xC740; &#xC7A5;&#xCE58;&#xB4E4;&#xC740; &#xB2E4;&#xB978; &#xC2DC;&#xC2A4;&#xD15C;&#xCF5C;&#xC744; &#xC0AC;&#xC6A9;&#xD560;&#xAE4C;&#xC694;?  </p>
 <p>&#xBAA8;&#xB450; &#xAC19;&#xC740; &#xC2DC;&#xC2A4;&#xD15C;&#xCF5C;&#xC744; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.
 /dev &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0; &#xC788;&#xB294; &#xC7A5;&#xCE58; &#xD30C;&#xC77C;&#xB4E4;&#xC744; <code>ls -l</code> &#xD574; &#xBCF4;&#xBA74; &#xD30C;&#xC77C; &#xC0AC;&#xC774;&#xC988; &#xB300;&#xC2E0;&#xC5D0; &#xB450;&#xAC1C;&#xC758; &#xC22B;&#xC790;&#xAC00; <code>,</code> &#xB85C;
@@ -2213,7 +2236,7 @@ minor number &#xAC00; &#xBAA8;&#xB450; &#xB2E4;&#xB978; &#xAC83;&#xC744; &#xC54C
 &#xC774; &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC;&#xB97C; &#xC774;&#xC6A9;&#xD574; openGL &#xAC19;&#xC740; &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC;&#xB97C; &#xB9CC;&#xB4E4;&#xACE0; &#xC0AC;&#xC6A9;&#xC790;&#xB294; openGL &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC;&#xB97C; &#xC774;&#xC6A9;&#xD558;&#xC5EC;
 &#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC744; &#xC81C;&#xC791;&#xD558;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</p>
 <p><a href="https://en.wikipedia.org/wiki/File:Linux_API.svg" target="_blank"><img src="images/Linux_API2.png" alt=""></a></p>
-<h1 id="2">2.</h1>
+<h1 id="3">3.</h1>
 <p>&#xD2B9;&#xC815; &#xC2DC;&#xC2A4;&#xD15C;&#xCF5C; &#xD568;&#xC218;&#xAC00; &#xC2DC;&#xC2A4;&#xD15C; &#xC131;&#xB2A5;&#xC5D0; &#xC601;&#xD5A5;&#xC744; &#xC904; &#xC815;&#xB3C4;&#xB85C; frequently &#xC0AC;&#xC6A9;&#xB420; &#xACBD;&#xC6B0; 
 shared library &#xD615;&#xD0DC;&#xB85C; &#xC81C;&#xACF5;&#xD558;&#xC5EC; &#xC624;&#xBC84;&#xD5E4;&#xB4DC;&#xB97C; &#xC904;&#xC774;&#xB294; &#xBC29;&#xBC95;&#xC774; vDSO ( virtual dynamic shared object ) &#xC785;&#xB2C8;&#xB2E4;.
 &#xB530;&#xB77C;&#xC11C; &#xBAA8;&#xB4E0; &#xC2E4;&#xD589; &#xC911;&#xC778; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC5D0;&#xB294; &#xCEE4;&#xB110;&#xC5D0; &#xC758;&#xD574; vDSO &#xAC00; &#xC790;&#xB3D9;&#xC73C;&#xB85C; &#xB9F5;&#xD551;&#xB418;&#xB294;&#xB370;&#xC694;.
@@ -2251,7 +2274,7 @@ $ nm -D vdso.dump
 <span class="hljs-number">0000000000000840</span> W gettimeofday
 <span class="hljs-number">00000000000008</span>d0 W time
 </code></pre>
-<h1 id="3">3.</h1>
+<h1 id="4">4.</h1>
 <p>&#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC744; &#xC2E4;&#xD589;&#xD558;&#xAE30; &#xC704;&#xD55C; &#xD544;&#xC694;&#xC870;&#xAC74;&#xC73C;&#xB85C; &#xD2B9;&#xC815; &#xBC84;&#xC804; &#xC774;&#xC0C1;&#xC758; GLIBC &#xAC00; &#xC694;&#xAD6C;&#xB418;&#xB294; &#xACBD;&#xC6B0;&#xAC00; &#xC788;&#xB294;&#xB370;&#xC694;.
 &#xC5B4;&#xB5BB;&#xAC8C; &#xD558;&#xBA74; &#xD604;&#xC7AC; &#xC2DC;&#xC2A4;&#xD15C;&#xC5D0; &#xC124;&#xCE58;&#xB41C; &#xBC84;&#xC804;&#xC744; &#xC54C; &#xC218; &#xC788;&#xC744;&#xAE4C;&#xC694;?</p>
 <pre><code class="lang-bash">$ ldd --version | head -<span class="hljs-number">1</span>
@@ -2259,22 +2282,6 @@ ldd (Ubuntu GLIBC <span class="hljs-number">2.36</span>-<span class="hljs-number
 
 $ /lib64/ld-linux-x86-<span class="hljs-number">64</span>.so.<span class="hljs-number">2</span> --version | head -<span class="hljs-number">1</span>
 ld.so (Ubuntu GLIBC <span class="hljs-number">2.36</span>-<span class="hljs-number">0</span>ubuntu4) stable release version <span class="hljs-number">2.36</span>.
-</code></pre>
-<h3 id="vi-&#xC5D0;&#xB514;&#xD130;-&#xC124;&#xC815;-tip">vi &#xC5D0;&#xB514;&#xD130; &#xC124;&#xC815; tip</h3>
-<p>&#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; alias &#xB97C; &#xC124;&#xC815;&#xD574; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; strace &#xCD9C;&#xB825;&#xC744; highlight &#xD574;&#xC11C; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-bash">$ <span class="hljs-built_in">alias</span> vi-strace=<span class="hljs-string">&apos;vi -c &quot;set ft=strace&quot;&apos;</span>
-
-$ strace date <span class="hljs-number">2</span>&gt;&amp;<span class="hljs-number">1</span> &gt; /dev/null | vi-strace -
-</code></pre>
-<p>&#xB610;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; <a href="command_aliases.html#scripts.vim">~/.vim/scripts.vim</a>  &#xD30C;&#xC77C;&#xC5D0; &#xCD94;&#xAC00;&#xD560; &#xC218;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-vim"><span class="hljs-keyword">elseif</span> <span class="hljs-variable">s:line1</span> =~ <span class="hljs-string">&apos;^\([0-9]\+ \+\)\?\w\+(.\+\(= \(?\|-\?[x[:xdigit:]]\+\)\|\.\.\.&gt;$\)&apos;</span> 
-    \ || <span class="hljs-variable">s:line1</span> =~ <span class="hljs-string">&apos;^strace:.\+attached$&apos;</span>
-    \ || <span class="hljs-variable">s:line1</span> =~ <span class="hljs-string">&apos;^\(\[pid \+[0-9]\+]\| \?\[[x[:xdigit:]]\+]\)\{,2\} *[[:alnum:]_@.]\+(&apos;</span>
-    <span class="hljs-keyword">set</span> ft=strace
-.............................................................
-
- <span class="hljs-string">&quot; &#xD14C;&#xC2A4;&#xD2B8; &#xD574;&#xBCF4;&#xAE30;
-</span><span class="hljs-keyword">sh</span>$ strace date <span class="hljs-number">2</span>&gt;&amp;<span class="hljs-number">1</span> &gt; /dev/null | <span class="hljs-keyword">vi</span> -
 </code></pre>
 
                     
