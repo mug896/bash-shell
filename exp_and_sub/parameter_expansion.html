@@ -1330,20 +1330,23 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${#BB[@]}<
 <blockquote>
 <p>${PARAMETER#PATTERN}<br>${PARAMETER##PATTERN}<br>${PARAMETER%PATTERN}<br>${PARAMETER%%PATTERN}</p>
 </blockquote>
-<p>&#xBCC0;&#xC218;&#xAC00; &#xAC00;&#xC9C0;&#xB294; &#xAC12;&#xC744; &#xD328;&#xD134;&#xC744; &#xC774;&#xC6A9;&#xD574; &#xB9E4;&#xCE6D;&#xB418;&#xB294; &#xBD80;&#xBD84;&#xC744; &#xC798;&#xB77C;&#xB0BC; &#xB54C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. <code>#</code> &#xAE30;&#xD638;&#xB294; &#xD328;&#xD134;&#xC744; &#xC55E;&#xC5D0;&#xC11C;&#xBD80;&#xD130; &#xC801;&#xC6A9;&#xD55C;&#xB2E4;&#xB294; &#xB73B;&#xC774;&#xACE0; <code>%</code> &#xAE30;&#xD638;&#xB294; &#xD328;&#xD134;&#xC744; &#xB4A4;&#xC5D0;&#xC11C;&#xBD80;&#xD130; &#xC801;&#xC6A9;&#xD55C;&#xB2E4;&#xB294; &#xB73B;&#xC785;&#xB2C8;&#xB2E4;. &#xAE30;&#xD638;&#xAC00; &#xB450; &#xAC1C;&#xB85C; &#xC911;&#xBCF5;&#xB41C; &#xAC83;&#xC740; longest match &#xB97C; &#xB73B;&#xD558;&#xACE0; &#xD558;&#xB098;&#xC9DC;&#xB9AC;&#xB294; shortest match &#xB97C; &#xB73B;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<p>&#xBCC0;&#xC218;&#xAC00; &#xAC00;&#xC9C0;&#xB294; &#xAC12;&#xC744; &#xD328;&#xD134;&#xC744; &#xC774;&#xC6A9;&#xD574; &#xB9E4;&#xCE6D;&#xB418;&#xB294; &#xBD80;&#xBD84;&#xC744; &#xC798;&#xB77C;&#xB0BC; &#xB54C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.
+<code>#</code> &#xAE30;&#xD638;&#xB294; &#xD328;&#xD134;&#xC744; &#xC55E;&#xC5D0;&#xC11C;&#xBD80;&#xD130; &#xC801;&#xC6A9;&#xD55C;&#xB2E4;&#xB294; &#xB73B;&#xC774;&#xACE0; <code>%</code> &#xAE30;&#xD638;&#xB294; &#xD328;&#xD134;&#xC744; &#xB4A4;&#xC5D0;&#xC11C;&#xBD80;&#xD130;
+&#xC801;&#xC6A9;&#xD55C;&#xB2E4;&#xB294; &#xB73B;&#xC785;&#xB2C8;&#xB2E4;. &#xAE30;&#xD638;&#xAC00; &#xB450;&#xAC1C;&#xC778; <code>##</code>, <code>%%</code> &#xB294; longest match &#xB97C; &#xB73B;&#xD558;&#xACE0;
+&#xD558;&#xB098;&#xC778; <code>#</code>, <code>%</code> &#xB294; shortest match &#xB97C; &#xB73B;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <blockquote>
 <p>PATTERN &#xC5D0;&#xB294; <code>*</code>, <code>?</code>, <code>[ ]</code>  glob &#xBB38;&#xC790;&#xB97C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 </blockquote>
-<pre><code class="lang-bash">AA=<span class="hljs-string">&quot;this.is.a.inventory.tar.gz&quot;</span>
+<pre><code class="lang-bash">AA=<span class="hljs-string">&quot;this.is.an.inventory.tar.gz&quot;</span>
 
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${AA#*.}</span>               <span class="hljs-comment"># &#xC55E;&#xC5D0;&#xC11C; &#xBD80;&#xD130; shortest match</span>
-is.a.inventory.tar.gz
+is.an.inventory.tar.gz
 
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${AA##*.}</span>              <span class="hljs-comment"># &#xC55E;&#xC5D0;&#xC11C; &#xBD80;&#xD130; longest match</span>
 gz
 
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${AA%.*}</span>               <span class="hljs-comment"># &#xB4A4;&#xC5D0;&#xC11C; &#xBD80;&#xD130; shortest match</span>
-this.is.a.inventory.tar
+this.is.an.inventory.tar
 
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${AA%%.*}</span>              <span class="hljs-comment"># &#xB4A4;&#xC5D0;&#xC11C; &#xBD80;&#xD130; longest match</span>
 this
