@@ -1404,13 +1404,15 @@ $ [ <span class="hljs-literal">false</span> ]; <span class="hljs-built_in">echo<
 <span class="hljs-number">0</span>
 
 <span class="hljs-comment"># &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; if &#xBB38;&#xC744; &#xC791;&#xC131;&#xD558;&#xBA74; true, false &#xBA85;&#xB839;&#xC774; &#xC2E4;&#xD589;&#xB429;&#xB2C8;&#xB2E4;.</span>
-$ isSet=<span class="hljs-literal">false</span>
-$ <span class="hljs-keyword">if</span> <span class="hljs-variable">$isSet</span>; <span class="hljs-keyword">then</span> <span class="hljs-built_in">echo</span> AAA; <span class="hljs-keyword">else</span> <span class="hljs-built_in">echo</span> BBB; <span class="hljs-keyword">fi</span>    // <span class="hljs-literal">false</span> &#xBA85;&#xB839;&#xC774; &#xC2E4;&#xD589;&#xB428;
-BBB
-
 $ isSet=<span class="hljs-literal">true</span>
 $ <span class="hljs-keyword">if</span> <span class="hljs-variable">$isSet</span>; <span class="hljs-keyword">then</span> <span class="hljs-built_in">echo</span> AAA; <span class="hljs-keyword">else</span> <span class="hljs-built_in">echo</span> BBB; <span class="hljs-keyword">fi</span>    // <span class="hljs-literal">true</span> &#xBA85;&#xB839;&#xC774; &#xC2E4;&#xD589;&#xB428;
 AAA
+
+$ cygwin=<span class="hljs-literal">false</span> msys=<span class="hljs-literal">false</span> darwin=<span class="hljs-literal">false</span>
+$ <span class="hljs-keyword">if</span> ! <span class="hljs-variable">$cygwin</span> &amp;&amp; ! <span class="hljs-variable">$msys</span> &amp;&amp; ! <span class="hljs-variable">$darwin</span>; <span class="hljs-keyword">then</span>
+      <span class="hljs-built_in">echo</span> CCC
+  <span class="hljs-keyword">fi</span>
+CCC
 </code></pre>
 <h3 id="&#xBE44;&#xAD50;&#xD558;&#xB294;-&#xBCC0;&#xC218;&#xB294;-quote-&#xD574;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;">&#xBE44;&#xAD50;&#xD558;&#xB294; &#xBCC0;&#xC218;&#xB294; quote &#xD574;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;.</h3>
 <p><code>[</code> &#xBA85;&#xB839;&#xC740; &#xC778;&#xC218;&#xB85C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xBCC0;&#xC218;&#xB97C; quote &#xD558;&#xC9C0; &#xC54A;&#xC73C;&#xBA74; &#xC815;&#xC0C1;&#xC801;&#xC778; &#xACB0;&#xACFC;&#xAC00; &#xB098;&#xC624;&#xC9C0; &#xC54A;&#xC744; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
