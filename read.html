@@ -1665,14 +1665,13 @@ $ <span class="hljs-built_in">read</span> -r v &lt;&amp;<span class="hljs-number
 $ <span class="hljs-built_in">read</span> -r v &lt;&amp;<span class="hljs-number">3</span>; <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;exit: $?, value: <span class="hljs-variable">$v</span>&quot;</span>
 <span class="hljs-built_in">exit</span>: <span class="hljs-number">1</span>, value:
 </code></pre>
-<p>&#xD30C;&#xC77C; &#xB9C8;&#xC9C0;&#xB9C9; &#xB77C;&#xC778;&#xC5D0; newline &#xC774; &#xC5C6;&#xC73C;&#xBA74; value &#xAC12;&#xC740; &#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C; &#xC124;&#xC815;&#xB418;&#xB294;&#xB370;&#xB3C4;
+<p>&#xD30C;&#xC77C; &#xB9C8;&#xC9C0;&#xB9C9;&#xC5D0; newline &#xC774; &#xC5C6;&#xC73C;&#xBA74; value &#xAC12;&#xC740; &#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C; &#xC124;&#xC815;&#xB418;&#xB294;&#xB370;&#xB3C4;
 &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC740; 1 &#xC774; &#xB420; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
-&#xB530;&#xB77C;&#xC11C; while &#xBB38;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xB41C;&#xB2E4;&#xBA74; &#xB9C8;&#xC9C0;&#xB9C9; &#xB77C;&#xC778;&#xC740; &#xCD9C;&#xB825;&#xB418;&#xC9C0; &#xC54A;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.
-&#xC774;&#xAC83;&#xC740; <code>-d</code> &#xC635;&#xC158; &#xAC12;&#xC73C;&#xB85C; null &#xC744; &#xC0AC;&#xC6A9;&#xD574; &#xD30C;&#xC77C; &#xC804;&#xCCB4;&#xB97C; &#xC77D;&#xC5B4;&#xB4E4;&#xC77C; &#xB54C;&#xB3C4; &#xB3D9;&#xC77C;&#xD569;&#xB2C8;&#xB2E4;.</p>
+&#xB530;&#xB77C;&#xC11C; while &#xBB38;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xB41C;&#xB2E4;&#xBA74; &#xB9C8;&#xC9C0;&#xB9C9; &#xB77C;&#xC778;&#xC740; &#xCD9C;&#xB825;&#xB418;&#xC9C0; &#xC54A;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ <span class="hljs-built_in">echo</span> -en <span class="hljs-string">&quot;111\n222&quot;</span> &gt; file
 
 $ od <span class="hljs-operator">-a</span> file
-<span class="hljs-number">0000000</span>   <span class="hljs-number">1</span>   <span class="hljs-number">1</span>   <span class="hljs-number">1</span>  nl   <span class="hljs-number">2</span>   <span class="hljs-number">2</span>   <span class="hljs-number">2</span>        <span class="hljs-comment"># &#xB9C8;&#xC9C0;&#xB9C9; &#xB77C;&#xC778;&#xC5D0; newline &#xC774; &#xC5C6;&#xB2E4;.</span>
+<span class="hljs-number">0000000</span>   <span class="hljs-number">1</span>   <span class="hljs-number">1</span>   <span class="hljs-number">1</span>  nl   <span class="hljs-number">2</span>   <span class="hljs-number">2</span>   <span class="hljs-number">2</span>        <span class="hljs-comment"># &#xB9C8;&#xC9C0;&#xB9C9;&#xC5D0; newline &#xC774; &#xC5C6;&#xB2E4;.</span>
 <span class="hljs-number">0000007</span>
 
 $ <span class="hljs-built_in">exec</span> <span class="hljs-number">3</span>&lt;&gt; file
@@ -1683,6 +1682,17 @@ $ <span class="hljs-built_in">read</span> -r v &lt;&amp;<span class="hljs-number
 <span class="hljs-comment"># value &#xAC12;&#xC740; &#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C; &#xC124;&#xC815;&#xB418;&#xC9C0;&#xB9CC; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC740; 1 &#xC774; &#xB41C;&#xB2E4;.</span>
 $ <span class="hljs-built_in">read</span> -r v &lt;&amp;<span class="hljs-number">3</span>; <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;exit: $?, value: <span class="hljs-variable">$v</span>&quot;</span>
 <span class="hljs-built_in">exit</span>: <span class="hljs-number">1</span>, value: <span class="hljs-number">222</span>
+</code></pre>
+<p><code>-d</code> &#xC635;&#xC158; &#xAC12;&#xC73C;&#xB85C; null &#xC744; &#xC0AC;&#xC6A9;&#xD574; &#xD30C;&#xC77C; &#xC804;&#xCCB4;&#xB97C; &#xC77D;&#xC5B4;&#xB4E4;&#xC77C; &#xB54C;&#xB3C4; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC774; 1 &#xC774; &#xB41C;&#xB2E4;.</p>
+<pre><code class="lang-sh">$ <span class="hljs-built_in">echo</span> -en <span class="hljs-string">&quot;111\n222\n&quot;</span> &gt; file
+
+$ od <span class="hljs-operator">-a</span> file
+<span class="hljs-number">0000000</span>   <span class="hljs-number">1</span>   <span class="hljs-number">1</span>   <span class="hljs-number">1</span>  nl   <span class="hljs-number">2</span>   <span class="hljs-number">2</span>   <span class="hljs-number">2</span>  nl       <span class="hljs-comment"># &#xD30C;&#xC77C; &#xB9C8;&#xC9C0;&#xB9C9;&#xC5D0; newline &#xC774; &#xC788;&#xB294;&#xB370;&#xB3C4;</span>
+<span class="hljs-number">0000007</span>                                       <span class="hljs-comment"># -d &apos;&apos; &#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC774; 1 &#xC774; &#xB41C;&#xB2E4;.</span>
+
+$ <span class="hljs-built_in">read</span> -r <span class="hljs-operator">-d</span> <span class="hljs-string">&apos;&apos;</span> v &lt; file; <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;exit: $?, value: <span class="hljs-variable">$v</span>&quot;</span>  
+<span class="hljs-built_in">exit</span>: <span class="hljs-number">1</span>, value: <span class="hljs-number">111</span>
+<span class="hljs-number">222</span>
 </code></pre>
 <h1 id="quiz">Quiz</h1>
 <p>&#xD30C;&#xC77C;&#xC744; while &#xBB38;&#xC73C;&#xB85C; &#xC77D;&#xC5B4;&#xB4E4;&#xC77C; &#xB54C; &#xD30C;&#xC77C; &#xB05D;&#xC5D0; newline &#xC774; &#xC5C6;&#xC73C;&#xBA74;
