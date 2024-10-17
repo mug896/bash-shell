@@ -1830,22 +1830,29 @@ go/PATENTS
 go/README.md
 . . .
 </code></pre>
-<p>&#xB2E4;&#xC74C;&#xC740; docker hub &#xC5D0;&#xC11C; &#xD2B9;&#xC815; &#xC774;&#xBBF8;&#xC9C0;&#xC758; taglist &#xB97C; &#xAD6C;&#xD558;&#xB294; &#xD568;&#xC218;&#xB294; &#xC791;&#xC131;&#xD558;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</p>
-<blockquote>
-<p>&#xD568;&#xC218; &#xC2E4;&#xD589;&#xC744; &#xC704;&#xD574;&#xC120; JSON &#xCC98;&#xB9AC;&#xAE30;&#xC778; <a href="https://www.44bits.io/ko/post/cli_json_processor_jq_basic_syntax" target="_blank">jq</a> &#xBA85;&#xB839;&#xC774; &#xC788;&#xC5B4;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>
-</blockquote>
-<pre><code class="lang-bash">docker-<span class="hljs-function"><span class="hljs-title">taglist</span></span> ()
-{
-    <span class="hljs-keyword">if</span> (( <span class="hljs-variable">$#</span> == <span class="hljs-number">0</span> )); <span class="hljs-keyword">then</span>
-        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Usage: <span class="hljs-variable">$FUNCNAME</span> &lt;image&gt;&quot;</span>
-        <span class="hljs-built_in">return</span> <span class="hljs-number">1</span>
-    <span class="hljs-keyword">fi</span> &gt;&amp;<span class="hljs-number">2</span>
-    curl <span class="hljs-operator">-s</span>SL https://registry.hub.docker.com/v2/repositories/library/<span class="hljs-variable">$1</span>/tags/?page_size=<span class="hljs-number">1000</span> |
-        jq -r <span class="hljs-string">&apos;.results[].name&apos;</span> | sort -V
-}
+<p>&#xC704;&#xC5D0;&#xC11C; &#xC791;&#xC131;&#xD55C; tarr &#xBA85;&#xB839;&#xC740; &#xC258; &#xD568;&#xC218;&#xC774;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; sudo &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xC2E4;&#xD589;&#xC744; &#xD560;&#xC218;&#xB294; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xC608;&#xB97C; &#xB4E4;&#xC5B4; &#xC0AC;&#xC6A9;&#xC790; &#xD648; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xAC00; &#xC544;&#xB2CC; <code>/opt</code> &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0; &#xC555;&#xCD95;&#xC744; &#xD480;&#xC218;&#xAC00; &#xC5C6;&#xC8E0;.
+&#xB2E4;&#xC74C;&#xC740; sudo &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xC2E4;&#xD589;&#xD560;&#xC218; &#xC788;&#xAC8C; tarr &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xD30C;&#xC77C;&#xB85C; &#xB2E4;&#xC2DC; &#xC791;&#xC131;&#xD558;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-sh">$ cat tarr
+<span class="hljs-shebang">#! /bin/bash
+</span>
+<span class="hljs-keyword">if</span> (( <span class="hljs-variable">$#</span> == <span class="hljs-number">0</span> )); <span class="hljs-keyword">then</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Usage: <span class="hljs-variable">${0##*/}</span> remote-file [options for tar]&quot;</span>
+    <span class="hljs-built_in">exit</span> <span class="hljs-number">1</span>
+<span class="hljs-keyword">fi</span> &gt;&amp;<span class="hljs-number">2</span>
+file=<span class="hljs-variable">$1</span> ext=<span class="hljs-variable">${file##*.}</span>
+<span class="hljs-built_in">shift</span>
+<span class="hljs-built_in">exec</span> curl <span class="hljs-operator">-s</span>SL <span class="hljs-string">&quot;<span class="hljs-variable">$file</span>&quot;</span> | tar -xvf - --<span class="hljs-variable">$ext</span> <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>
+--------------------------------------------------------
 
-$ docker-taglist python
-. . .
+$ chmod +x tarr
+
+$ sudo env | grep PATH
+PATH=/usr/<span class="hljs-built_in">local</span>/sbin:/usr/<span class="hljs-built_in">local</span>/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
+
+$ sudo mv tarr /usr/<span class="hljs-built_in">local</span>/bin
+
+$ sudo tarr https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz -C /opt
 </code></pre>
 <h1 id="2-">2 .</h1>
 <p>&#xD568;&#xC218;&#xB294; &#xC77C;&#xBC18; &#xBA85;&#xB839;&#xACFC; &#xB3D9;&#xC77C;&#xD558;&#xAC8C; &#xC0AC;&#xC6A9;&#xB418;&#xBBC0;&#xB85C; &#xBC18;&#xD658;&#xAC12;&#xC744; &#xBCC0;&#xC218;&#xC5D0; &#xB300;&#xC785;&#xD558;&#xB824;&#xBA74; &#xBCF4;&#xD1B5; &#xBA85;&#xB839;&#xCE58;&#xD658;&#xC744;
