@@ -1,0 +1,2460 @@
+<!DOCTYPE HTML>
+<html lang="ko" >
+    
+    <head>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-161001174-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-161001174-1');
+</script>
+
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Named Pipe | Introduction</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+        <link rel="stylesheet" href="./styles/website.css">
+    
+
+        
+    
+    
+    <link rel="next" href="./buffering.html" />
+    
+    
+    <link rel="prev" href="./pipe.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="10.4"
+        data-chapter-title="Named Pipe"
+        data-filepath="named_pipe.md"
+        data-basepath="."
+
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="bug_reports.html">
+            
+                
+                    <a href="./bug_reports.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Bug reports
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="basics.html">
+            
+                
+                    <a href="./basics.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Basics
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="quotes.html">
+            
+                
+                    <a href="./quotes.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        Quotes
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="escape_sequences.html">
+            
+                
+                    <a href="./escape_sequences.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.1.</b>
+                        
+                        Escape Sequences
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="variables.html">
+            
+                
+                    <a href="./variables.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        Variables
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="functions.html">
+            
+                
+                    <a href="./functions.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        Functions
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="exit_status.html">
+            
+                
+                    <a href="./exit_status.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        Exit Status
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="pattern_matching.html">
+            
+                
+                    <a href="./pattern_matching.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        Pattern Matching
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="shebang.html">
+            
+                
+                    <a href="./shebang.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                        #!
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="interactive_non-interactive.html">
+            
+                
+                    <a href="./interactive_non-interactive.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.7.</b>
+                        
+                        Interactive vs Non-Interactive Shell
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="login_non-login.html">
+            
+                
+                    <a href="./login_non-login.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.8.</b>
+                        
+                        Login vs Non-Login Shell
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="etc.html">
+            
+                
+                    <a href="./etc.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.9.</b>
+                        
+                        etc
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="test.html">
+            
+                
+                    <a href="./test.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Test
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="test_operators.html">
+            
+                
+                    <a href="./test_operators.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        Operators
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="subshells.html">
+            
+                
+                    <a href="./subshells.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        Subshells
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="process_creation.html">
+            
+                
+                    <a href="./process_creation.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        Process Creation
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="commands.html">
+            
+                
+                    <a href="./commands.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Commands
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="builtin_commands.html">
+            
+                
+                    <a href="./builtin_commands.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        Builtin Commands
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="read.html">
+            
+                
+                    <a href="./read.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.1.</b>
+                        
+                        read
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2" data-path="printf.html">
+            
+                
+                    <a href="./printf.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.2.</b>
+                        
+                        printf
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3" data-path="eval.html">
+            
+                
+                    <a href="./eval.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.3.</b>
+                        
+                        eval
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.4" data-path="getopts.html">
+            
+                
+                    <a href="./getopts.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.4.</b>
+                        
+                        getopts
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="keyword_commands.html">
+            
+                
+                    <a href="./keyword_commands.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        Keyword Commands
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.2.1" data-path="compound_commands.html">
+            
+                
+                    <a href="./compound_commands.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.1.</b>
+                        
+                        Compound Commands
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="special_commands.html">
+            
+                
+                    <a href="./special_commands.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                        Special Commands
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="expr.html">
+            
+                
+                    <a href="./expr.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.4.</b>
+                        
+                        expr
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="grep.html">
+            
+                
+                    <a href="./grep.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.5.</b>
+                        
+                        grep
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="find.html">
+            
+                
+                    <a href="./find.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.6.</b>
+                        
+                        find
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7" data-path="xargs.html">
+            
+                
+                    <a href="./xargs.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.7.</b>
+                        
+                        xargs
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="arrays.html">
+            
+                
+                    <a href="./arrays.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        Arrays
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="metacharacters.html">
+            
+                
+                    <a href="./metacharacters.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        Shell Metacharacters
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1" data-path="precedence.html">
+            
+                
+                    <a href="./precedence.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.1.</b>
+                        
+                        Precedence
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="expansions_and_substitutions.html">
+            
+                
+                    <a href="./expansions_and_substitutions.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        Expansions and Substitutions
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1" data-path="exp_and_sub/brace_expansion.html">
+            
+                
+                    <a href="./exp_and_sub/brace_expansion.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.1.</b>
+                        
+                        Brace Expansion
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="exp_and_sub/tilde_expansion.html">
+            
+                
+                    <a href="./exp_and_sub/tilde_expansion.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.2.</b>
+                        
+                        Tilde Expansion
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3" data-path="exp_and_sub/parameter_expansion.html">
+            
+                
+                    <a href="./exp_and_sub/parameter_expansion.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.3.</b>
+                        
+                        Parameter Expansion
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.4" data-path="exp_and_sub/arithmetic_expansion.html">
+            
+                
+                    <a href="./exp_and_sub/arithmetic_expansion.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.4.</b>
+                        
+                        Arithmetic Expansion
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.5" data-path="exp_and_sub/command_substitution.html">
+            
+                
+                    <a href="./exp_and_sub/command_substitution.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.5.</b>
+                        
+                        Command Substitution
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.6" data-path="exp_and_sub/process_substitution.html">
+            
+                
+                    <a href="./exp_and_sub/process_substitution.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.6.</b>
+                        
+                        Process Substitution
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.7" data-path="exp_and_sub/word_splitting.html">
+            
+                
+                    <a href="./exp_and_sub/word_splitting.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.7.</b>
+                        
+                        Word Splitting
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.8" data-path="exp_and_sub/filename_expansion.html">
+            
+                
+                    <a href="./exp_and_sub/filename_expansion.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.8.</b>
+                        
+                        Filename Expansion
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="job_control.html">
+            
+                
+                    <a href="./job_control.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        Job Control
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="9.1" data-path="session_and_process-group.html">
+            
+                
+                    <a href="./session_and_process-group.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.1.</b>
+                        
+                        Session and Process Group
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.2" data-path="process_state_codes.html">
+            
+                
+                    <a href="./process_state_codes.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.2.</b>
+                        
+                        Process State Codes
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.3" data-path="tty.html">
+            
+                
+                    <a href="./tty.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.3.</b>
+                        
+                        TTY
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.4" data-path="mutual_exclusion.html">
+            
+                
+                    <a href="./mutual_exclusion.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.4.</b>
+                        
+                        Mutual Exclusion
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="redirections.html">
+            
+                
+                    <a href="./redirections.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                        Redirections
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="10.1" data-path="file_descriptors.html">
+            
+                
+                    <a href="./file_descriptors.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.1.</b>
+                        
+                        File Descriptors
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.2" data-path="here_document.html">
+            
+                
+                    <a href="./here_document.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.2.</b>
+                        
+                        &lt;&lt; , &lt;&lt;&lt;
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.3" data-path="pipe.html">
+            
+                
+                    <a href="./pipe.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.3.</b>
+                        
+                        Pipe
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="10.4" data-path="named_pipe.html">
+            
+                
+                    <a href="./named_pipe.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.4.</b>
+                        
+                        Named Pipe
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.5" data-path="buffering.html">
+            
+                
+                    <a href="./buffering.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.5.</b>
+                        
+                        Buffering
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="11" data-path="signals_and_traps.html">
+            
+                
+                    <a href="./signals_and_traps.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.</b>
+                        
+                        Signals and Traps
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="11.1" data-path="kill.html">
+            
+                
+                    <a href="./kill.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.1.</b>
+                        
+                        kill
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11.2" data-path="trap.html">
+            
+                
+                    <a href="./trap.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.2.</b>
+                        
+                        trap
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11.3" data-path="signals_table.html">
+            
+                
+                    <a href="./signals_table.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.3.</b>
+                        
+                        Signals Table
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="12" data-path="command_aliases.html">
+            
+                
+                    <a href="./command_aliases.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.</b>
+                        
+                        Command Aliases
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="13" data-path="command_history.html">
+            
+                
+                    <a href="./command_history.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.</b>
+                        
+                        Command History
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="14" data-path="command_completion.html">
+            
+                
+                    <a href="./command_completion.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.</b>
+                        
+                        Command Completion
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="15" data-path="readline.html">
+            
+                
+                    <a href="./readline.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.</b>
+                        
+                        Readline
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="16" data-path="colors_and_prompt.html">
+            
+                
+                    <a href="./colors_and_prompt.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.</b>
+                        
+                        Colors and Prompt
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="17" data-path="shell_variables.html">
+            
+                
+                    <a href="./shell_variables.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>17.</b>
+                        
+                        Shell Variables
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="17.1" data-path="positional_parameters.html">
+            
+                
+                    <a href="./positional_parameters.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>17.1.</b>
+                        
+                        Positional Parameters
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="17.2" data-path="special_parameters.html">
+            
+                
+                    <a href="./special_parameters.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>17.2.</b>
+                        
+                        Special Parameters
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="18" data-path="shell_options.html">
+            
+                
+                    <a href="./shell_options.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>18.</b>
+                        
+                        Shell Options
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="18.1" data-path="command_line_options.html">
+            
+                
+                    <a href="./command_line_options.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>18.1.</b>
+                        
+                        Command-line options
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="19" data-path="debugging.html">
+            
+                
+                    <a href="./debugging.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>19.</b>
+                        
+                        Debugging
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="20" data-path="locale.html">
+            
+                
+                    <a href="./locale.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>20.</b>
+                        
+                        Locale
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="21" data-path="sh.html">
+            
+                
+                    <a href="./sh.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>21.</b>
+                        
+                        sh
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="22" data-path="tips.html">
+            
+                
+                    <a href="./tips.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>22.</b>
+                        
+                        Tips
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="23" data-path="closing.html">
+            
+                
+                    <a href="./closing.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>23.</b>
+                        
+                        맺음말
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="24" data-path="supplement.html">
+            
+                
+                    <a href="./supplement.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>24.</b>
+                        
+                        별책부록
+                    </a>
+            
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" >Introduction</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="named-pipe">Named Pipe</h1>
+<p><code>|</code> &#xD30C;&#xC774;&#xD504;&#xB97C; &#xC774;&#xC6A9;&#xD574; &#xBA85;&#xB839;&#xB4E4;&#xC744; &#xC5F0;&#xACB0;&#xD558;&#xC5EC; &#xC0AC;&#xC6A9;&#xD558;&#xAC70;&#xB098; &#xBA85;&#xB839;, &#xD504;&#xB85C;&#xC138;&#xC2A4; &#xCE58;&#xD658;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xBA85;&#xB839; &#xC2E4;&#xD589; &#xC911;&#xC5D0; &#xC790;&#xB3D9;&#xC73C;&#xB85C; pipe &#xAC00; &#xC0DD;&#xC131;&#xB418;&#xC5B4; &#xC0AC;&#xC6A9;&#xB41C; &#xD6C4; &#xC0AC;&#xB77C;&#xC9C0;&#xAC8C; &#xB418;&#xB294;&#xB370;&#xC694;.
+&#xC774;&#xB54C; &#xC0DD;&#xC131;&#xB418;&#xB294; &#xD30C;&#xC774;&#xD504;&#xB97C; &#xC774;&#xB984;&#xC774; &#xC5C6;&#xB2E4;&#xACE0; &#xD574;&#xC11C; unnamed pipe &#xB610;&#xB294; anonymous pipe &#xB77C;&#xACE0; &#xD569;&#xB2C8;&#xB2E4;.
+&#xC774;&#xC5D0; &#xBC18;&#xD574; named pipe &#xB294; &#xC9C1;&#xC811; &#xD30C;&#xC774;&#xD504;&#xB97C; &#xD30C;&#xC77C;&#xB85C; &#xB9CC;&#xB4E4;&#xC5B4; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.
+shell &#xC5D0;&#xC11C; <a href="https://en.wikipedia.org/wiki/Inter-process_communication" target="_blank">IPC (Inter Process Communication)</a> &#xC774; &#xD544;&#xC694;&#xD560;&#xB54C; &#xD65C;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>named pipe &#xB294; &#xD30C;&#xC77C;&#xACFC; &#xB3D9;&#xC77C;&#xD558;&#xAC8C; &#xC0AC;&#xC6A9;&#xB420; &#xC218; &#xC788;&#xB294;&#xB370; &#xD30C;&#xC77C;&#xACFC; &#xB2E4;&#xB978; &#xC810;&#xC740; redirection &#xC744; &#xC774;&#xC6A9;&#xD574; &#xB370;&#xC774;&#xD130;&#xB97C; &#xCD9C;&#xB825;&#xD588;&#xC744; &#xB54C; &#xD30C;&#xC77C;&#xC740; &#xB370;&#xC774;&#xD130;&#xB97C; &#xC800;&#xC7A5;&#xD558;&#xB294; &#xBC18;&#xBA74; pipe &#xB294; &#xC800;&#xC7A5;&#xD558;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;&#xB294; &#xC810;&#xC785;&#xB2C8;&#xB2E4;.
+&#xADF8;&#xB798;&#xC11C; &#xB9CC;&#xC57D;&#xC5D0; &#xB514;&#xC2A4;&#xD06C; &#xC6A9;&#xB7C9;&#xC774; &#xBD80;&#xC871;&#xD55C; &#xC0C1;&#xD0DC;&#xC5D0;&#xC11C; &#xC6A9;&#xB7C9;&#xC774; &#xD070; &#xD30C;&#xC77C;&#xC744; &#xB2E4;&#xB8E8;&#xACE0;&#xC790; &#xD560; &#xB54C; pipe &#xB97C; &#xC774;&#xC6A9;&#xD558;&#xBA74; &#xD504;&#xB85C;&#xC138;&#xC2A4; &#xC911;&#xAC04;&#xC5D0; &#xC784;&#xC2DC;&#xD30C;&#xC77C;&#xC744; &#xB9CC;&#xB4E4;&#xC9C0; &#xC54A;&#xC544;&#xB3C4; &#xB418;&#xBBC0;&#xB85C; &#xB514;&#xC2A4;&#xD06C; &#xC0AC;&#xC6A9;&#xC744; &#xD53C;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xB2E4;&#xC74C;&#xC740; gzip &#xC73C;&#xB85C; &#xC555;&#xCD95;&#xB3FC; &#xC788;&#xB294; mysql &#xB370;&#xC774;&#xD130; &#xD30C;&#xC77C;&#xC744; &#xC555;&#xCD95; &#xD574;&#xC81C;&#xD558;&#xC5EC; mypipe &#xB85C; &#xCD9C;&#xB825;&#xD558;&#xACE0; mysql &#xD504;&#xB86C;&#xD504;&#xD2B8; &#xC0C1;&#xC5D0;&#xC11C; named pipe &#xB97C; &#xC774;&#xC6A9;&#xD574; &#xD14C;&#xC774;&#xBE14;&#xC5D0; &#xB85C;&#xB4DC; &#xD558;&#xB294; &#xC608;&#xC785;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ mkfifo /tmp/mypipe       <span class="hljs-comment"># &#xB610;&#xB294; mknod /tmp/mypipe p</span>
+$ gzip --stdout <span class="hljs-operator">-d</span> dbfile.gz &gt; /tmp/mypipe
+
+<span class="hljs-comment"># &#xB2E4;&#xC74C;&#xC740; mysql &#xD504;&#xB86C;&#xD504;&#xD2B8; &#xC0C1;&#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xD558;&#xB294; &#xBA85;&#xB839;&#xC785;&#xB2C8;&#xB2E4;.</span>
+mysql&gt; LOAD DATA INFILE <span class="hljs-string">&apos;/tmp/mypipe&apos;</span> INTO TABLE tableName;
+</code></pre>
+<p>&#xB610; &#xD55C;&#xAC00;&#xC9C0;  pipe &#xB294; &#xB370;&#xC774;&#xD130;&#xB97C; &#xC800;&#xC7A5;&#xD558;&#xC9C0; &#xC54A;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xD30C;&#xC77C; &#xB0B4;&#xC6A9;&#xC744; random access &#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;. &#xADF8;&#xB7EC;&#xBBC0;&#xB85C;  &#xC704;&#xC5D0;&#xC11C;&#xCC98;&#xB7FC; &#xD30C;&#xC77C;&#xC744; open &#xD55C; &#xD6C4;&#xC5D0;&#xB294; &#xCC98;&#xC74C;&#xBD80;&#xD130; &#xB05D;&#xAE4C;&#xC9C0; &#xD55C; &#xBC88;&#xC5D0; &#xC77D;&#xAC70;&#xB098; &#xC368;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;. </p>
+<p>&#xB2E4;&#xC74C;&#xC740; named pipe &#xB97C; &#xC774;&#xC6A9;&#xD574;&#xC11C; &#xC77C;&#xC885;&#xC758; &#xD504;&#xB85D;&#xC2DC;&#xB97C; &#xB9CC;&#xB4DC;&#xB294; &#xC608;&#xC778;&#xB370;&#xC694;.
+&#xBA85;&#xB839; &#xB77C;&#xC778;&#xC5D0;&#xC11C; &#xCCAB;&#xBC88;&#xC9F8; nc &#xBA85;&#xB839;&#xC740; localhost 8080 &#xD3EC;&#xD2B8;&#xB97C; &#xB9AC;&#xC2A4;&#xB2DD;&#xD558;&#xACE0; &#xC788;&#xB2E4;&#xAC00; &#xBE0C;&#xB77C;&#xC6B0;&#xC800;&#xAC00; &#xC811;&#xC18D;&#xD558;&#xBA74; &#xBC1B;&#xC740; request &#xB97C; &#xADF8;&#xB300;&#xB85C; stdout &#xC73C;&#xB85C; &#xCD9C;&#xB825;&#xD569;&#xB2C8;&#xB2E4;.
+&#xB450;&#xBC88;&#xC9F8; nc &#xB294; korea.gnu.org 80 &#xC5D0; &#xC811;&#xC18D;&#xD558;&#xB294;&#xB370; &#xB450; &#xBA85;&#xB839;&#xC740; <code>|</code> &#xB85C; &#xC5F0;&#xACB0;&#xB3FC; &#xC788;&#xC73C;&#xBBC0;&#xB85C; &#xBE0C;&#xB77C;&#xC6B0;&#xC800;&#xC758; request &#xAC00; gnu.org &#xB85C; &#xC804;&#xB2EC;&#xB418;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.
+&#xC774;&#xB54C; gnu.org &#xC5D0;&#xC11C; &#xBC1B;&#xC740; &#xACB0;&#xACFC;&#xB294; &#xB450;&#xBC88;&#xC9F8; nc &#xBA85;&#xB839;&#xC758; stdout &#xC73C;&#xB85C; &#xCD9C;&#xB825;&#xB418;&#xB294;&#xB370; &#xC9C0;&#xAE08;&#xC740; <code>&gt; mypipe</code> &#xB85C; &#xC5F0;&#xACB0;&#xB3FC;
+&#xC788;&#xC73C;&#xBBC0;&#xB85C; &#xACB0;&#xACFC;&#xAC00; <code>&gt; mypipe</code> &#xB85C; &#xBCF4;&#xB0B4;&#xC9C0;&#xACE0; &#xB2E4;&#xC2DC; &#xCCAB;&#xBC88;&#xC9F8; nc &#xBA85;&#xB839;&#xC758; <code>&lt; mypipe</code> &#xB97C; &#xD1B5;&#xD574; &#xC785;&#xB825;&#xC73C;&#xB85C; &#xB4E4;&#xC5B4;&#xAC00;&#xC11C; &#xBE0C;&#xB77C;&#xC6B0;&#xC800;&#xAE4C;&#xC9C0; &#xB3C4;&#xB2EC;&#xD558;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ mkfifo mypipe
+$ nc <span class="hljs-operator">-l</span> localhost <span class="hljs-number">8080</span> &lt; mypipe | nc korea.gnu.org <span class="hljs-number">80</span> &gt; mypipe
+
+$ nc <span class="hljs-operator">-l</span> localhost <span class="hljs-number">8080</span> &lt; mypipe | nc ftp.debian.com <span class="hljs-number">80</span> &gt; mypipe
+</code></pre>
+<p>&#xC774;&#xB807;&#xAC8C; named pipe &#xB97C; &#xC774;&#xC6A9;&#xD558;&#xBA74; &#xAE30;&#xC874;&#xC758; <code>|</code> &#xD30C;&#xC774;&#xD504;&#xB97C; &#xD1B5;&#xD574;&#xC11C; &#xD558;&#xC9C0; &#xBABB;&#xD558;&#xB294; &#xC791;&#xC5C5;&#xB4E4;&#xC744; &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<h2 id="pipe-&#xB294;-fifo">Pipe &#xB294; FIFO</h2>
+<p>Pipe &#xB294; FIFO ( First In First Out ) &#xD615;&#xC2DD;&#xC73C;&#xB85C; &#xB370;&#xC774;&#xD130;&#xAC00; &#xC804;&#xB2EC;&#xB429;&#xB2C8;&#xB2E4;. &#xADF8;&#xB7EC;&#xB2C8;&#xAE4C; &#xC81C;&#xC77C; &#xBA3C;&#xC800; pipe &#xB85C; &#xB4E4;&#xC5B4;&#xAC04; &#xB370;&#xC774;&#xD130;&#xAC00; pipe &#xB97C; &#xC77D;&#xAC8C; &#xB418;&#xBA74; &#xC81C;&#xC77C; &#xBA3C;&#xC800; &#xAC12;&#xC73C;&#xB85C; &#xB098;&#xC624;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;. </p>
+<pre><code class="lang-bash">$ mkfifo mypipe
+<span class="hljs-comment"># FD &#xB97C; &#xC5F0;&#xACB0;&#xD558;&#xBA74; &#xBC84;&#xD37C;&#xAC00; &#xCC28;&#xAE30; &#xC804;&#xAE4C;&#xC9C0; block &#xB418;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;.</span>
+$ <span class="hljs-built_in">exec</span> <span class="hljs-number">3</span>&lt;&gt; mypipe  
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-number">111</span> &gt; mypipe 
+$ <span class="hljs-built_in">echo</span> <span class="hljs-number">222</span> &gt; mypipe 
+$ <span class="hljs-built_in">echo</span> <span class="hljs-number">333</span> &gt; mypipe 
+
+$ <span class="hljs-built_in">read</span> line &lt; mypipe; <span class="hljs-built_in">echo</span> <span class="hljs-variable">$line</span>
+<span class="hljs-number">111</span>
+$ <span class="hljs-built_in">read</span> line &lt; mypipe; <span class="hljs-built_in">echo</span> <span class="hljs-variable">$line</span>
+<span class="hljs-number">222</span>
+$ <span class="hljs-built_in">read</span> line &lt; mypipe; <span class="hljs-built_in">echo</span> <span class="hljs-variable">$line</span>
+<span class="hljs-number">333</span>
+
+$ <span class="hljs-built_in">exec</span> <span class="hljs-number">3</span>&gt;&amp;-
+</code></pre>
+<h2 id="pipe-&#xB294;-block-&#xB41C;&#xB2E4;">Pipe &#xB294; block &#xB41C;&#xB2E4;.</h2>
+<p>&#xC704;&#xC758; FIFO &#xC608;&#xC5D0;&#xC11C; &#xB370;&#xC774;&#xD130;&#xB97C; mypipe &#xB85C; &#xC785;&#xB825;&#xD560;&#xB54C; <code>exec 3&lt;&gt; mypipe</code> &#xB97C; &#xC0AC;&#xC6A9;&#xD55C; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xC774;&#xAC83;&#xC740; pipe &#xB85C; &#xB370;&#xC774;&#xD130;&#xB97C; &#xC804;&#xB2EC;&#xD560; &#xB54C; &#xB370;&#xC774;&#xD130;&#xB97C; &#xC77D;&#xB294; &#xC0C1;&#xB300;&#xD3B8;&#xC774; &#xC5C6;&#xC73C;&#xBA74; block &#xB418;&#xAE30; &#xB54C;&#xBB38;&#xC785;&#xB2C8;&#xB2E4;.
+&#xC55E;&#xC11C; &#xC774;&#xC57C;&#xAE30;&#xD588;&#xC9C0;&#xB9CC; pipe &#xB294; &#xD30C;&#xC77C;&#xACFC; &#xB2EC;&#xB9AC; &#xB370;&#xC774;&#xD130;&#xB97C; &#xC800;&#xC7A5;&#xD558;&#xC9C0; &#xC54A;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xC77D;&#xB294; &#xC0C1;&#xB300;&#xD3B8;&#xC774; &#xC5C6;&#xC73C;&#xBA74; &#xC791;&#xC5C5;&#xC774; &#xC911;&#xB2E8;&#xB429;&#xB2C8;&#xB2E4;. 
+&#xB610;&#xD55C; writer &#xAC00; &#xC5C6;&#xB294; &#xC0C1;&#xD0DC;&#xC5D0;&#xC11C; &#xC77D;&#xAE30;&#xB97C; &#xC2DC;&#xB3C4;&#xD560; &#xB54C;&#xB3C4; block &#xB429;&#xB2C8;&#xB2E4;. 
+&#xB2E4;&#xC2DC; &#xB9D0;&#xD574; pipe &#xB294; writer &#xC640; reader &#xAC00; &#xC11C;&#xB85C; &#xC5F0;&#xACB0;&#xB418;&#xC5B4; &#xC788;&#xC5B4;&#xC57C; &#xC791;&#xC5C5;&#xC774; &#xC9C4;&#xD589;&#xB420; &#xC218; &#xC788;&#xC73C;&#xBA70; writer &#xAC00; &#xC4F0;&#xAE30;&#xB97C; &#xC644;&#xB8CC;&#xD558;&#xACE0; &#xC885;&#xB8CC;&#xD558;&#xAC8C; &#xB418;&#xBA74; reader &#xB3C4; &#xD568;&#xAED8; &#xC885;&#xB8CC;&#xD558;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<h4 id="broken-pipe-&#xC5D0;&#xB7EC;">Broken pipe &#xC5D0;&#xB7EC;</h4>
+<p>writer &#xC640; reader &#xAC00; &#xC11C;&#xB85C; &#xC5F0;&#xACB0;&#xB41C; &#xC0C1;&#xD0DC;&#xC5D0;&#xC11C; writer &#xAC00; &#xBA3C;&#xC800; &#xC885;&#xB8CC;&#xD558;&#xB294; &#xAC83;&#xC740;
+&#xC624;&#xB958;&#xAC00; &#xB418;&#xC9C0; &#xC54A;&#xC9C0;&#xB9CC; writer &#xAC00; &#xC9C0;&#xC18D;&#xC801;&#xC73C;&#xB85C; pipe &#xC5D0; &#xC4F0;&#xACE0; &#xC788;&#xB294; &#xC0C1;&#xD0DC;&#xC5D0;&#xC11C; 
+reader &#xAC00; &#xBA3C;&#xC800; &#xC885;&#xB8CC;&#xD558;&#xAC8C; &#xB418;&#xBA74; writer &#xB294; Broken pipe &#xC624;&#xB958;&#xB85C; &#xC885;&#xB8CC;&#xD558;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ mkfifo mypipe
+
+<span class="hljs-comment"># writer &#xC4F0;&#xAE30;&#xC2DC;&#xC791;, &#xD558;&#xC9C0;&#xB9CC; reader &#xAC00; &#xC77D;&#xAE30; &#xC804;&#xAE4C;&#xC9C0; block &#xB41C;&#xB2E4;.</span>
+$ <span class="hljs-keyword">while</span> :; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> $(( i++ )); sleep <span class="hljs-number">1</span>; <span class="hljs-keyword">done</span> &gt; mypipe &amp;  
+[<span class="hljs-number">1</span>] <span class="hljs-number">17103</span>
+
+$ cat mypipe  <span class="hljs-comment"># reader &#xC77D;&#xAE30; &#xC2DC;&#xC791;</span>
+<span class="hljs-number">0</span>
+<span class="hljs-number">1</span>
+<span class="hljs-number">2</span>
+<span class="hljs-number">3</span>
+<span class="hljs-number">4</span>
+^C            <span class="hljs-comment"># ctrl-c &#xB85C; &#xAC15;&#xC81C; &#xC885;&#xB8CC;</span>
+
+$             <span class="hljs-comment"># Broken pipe &#xC5D0;&#xB7EC;&#xB85C; writer &#xC885;&#xB8CC;&#xB428;</span>
+[<span class="hljs-number">1</span>]+  Broken pipe             <span class="hljs-keyword">while</span> :; <span class="hljs-keyword">do</span>   
+    <span class="hljs-built_in">echo</span> $(( i++ )); sleep <span class="hljs-number">1</span>;
+<span class="hljs-keyword">done</span> &gt; mypipe
+</code></pre>
+<p>&#xC704;&#xC640; &#xB3D9;&#xC77C;&#xD55C; &#xC0C1;&#xD669;&#xC774; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; read &#xBA85;&#xB839;&#xC744; while &#xBB38;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.
+<code>read line &lt; mypipe</code> &#xBA85;&#xB839;&#xC774; &#xC2E4;&#xD589;&#xC744; &#xC644;&#xB8CC;&#xD558;&#xBA74; mypipe &#xC640;&#xC758; &#xC5F0;&#xACB0;&#xC774; &#xB04A;&#xAE30;&#xBBC0;&#xB85C;
+writer &#xAC00; Broken pipe &#xC5D0;&#xB7EC;&#xB85C; &#xC885;&#xB8CC;&#xB429;&#xB2C8;&#xB2E4;.
+&#xB530;&#xB77C;&#xC11C; &#xB450; &#xBC88;&#xC9F8;&#xC640; &#xAC19;&#xC774; mypipe &#xB97C; while &#xBB38;&#xC758; done &#xD0A4;&#xC6CC;&#xB4DC;&#xC5D0; &#xC5F0;&#xACB0;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ <span class="hljs-keyword">for</span> (( i=<span class="hljs-number">1</span>; i&lt;=<span class="hljs-number">10</span>; i++ )) <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-variable">$i</span>; <span class="hljs-keyword">done</span> &gt; mypipe &amp;
+[<span class="hljs-number">1</span>] <span class="hljs-number">22564</span>
+
+$ <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> line &lt; mypipe; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$line</span>&quot;</span>; <span class="hljs-keyword">done</span>
+<span class="hljs-number">1</span>
+<span class="hljs-number">2</span>
+<span class="hljs-number">3</span>
+[<span class="hljs-number">1</span>]+  Broken pipe             <span class="hljs-keyword">for</span> ((i=<span class="hljs-number">1</span>; i&lt;=<span class="hljs-number">10</span>; i++ ))    <span class="hljs-comment"># writer &#xC885;&#xB8CC;</span>
+--------------------------------------------------------------------
+
+$ <span class="hljs-keyword">for</span> (( i=<span class="hljs-number">1</span>; i&lt;=<span class="hljs-number">10</span>; i++ )) <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-variable">$i</span>; <span class="hljs-keyword">done</span> &gt; mypipe &amp;
+[<span class="hljs-number">1</span>] <span class="hljs-number">22597</span>
+
+$ <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> line; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$line</span>&quot;</span>; <span class="hljs-keyword">done</span> &lt; mypipe     <span class="hljs-comment"># mypipe &#xB97C; done &#xD0A4;&#xC6CC;&#xB4DC;&#xC5D0; &#xC5F0;&#xACB0;</span>
+<span class="hljs-number">1</span>
+<span class="hljs-number">2</span>
+<span class="hljs-number">3</span>
+<span class="hljs-number">4</span>
+<span class="hljs-number">5</span>
+<span class="hljs-number">6</span>
+<span class="hljs-number">7</span>
+<span class="hljs-number">8</span>
+<span class="hljs-number">9</span>
+<span class="hljs-number">10</span>
+[<span class="hljs-number">1</span>]+  Done                    <span class="hljs-keyword">for</span> ((i=<span class="hljs-number">1</span>; i&lt;=<span class="hljs-number">10</span>; i++ ))
+</code></pre>
+<h4 id="reader-&#xC758;-&#xC790;&#xB3D9;-&#xC5F0;&#xACB0;-&#xD574;&#xC81C;">Reader &#xC758; &#xC790;&#xB3D9; &#xC5F0;&#xACB0; &#xD574;&#xC81C;</h4>
+<p>writer &#xC640; reader &#xAC00; &#xC11C;&#xB85C; pipe &#xC5D0; &#xC5F0;&#xACB0;&#xB41C; &#xC0C1;&#xD0DC;&#xC5D0;&#xC11C; writer &#xAC00; &#xBA3C;&#xC800; &#xC885;&#xB8CC;&#xD558;&#xB294; &#xAC83;&#xC740;
+&#xC624;&#xB958;&#xAC00; &#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC774;&#xB54C; &#xD30C;&#xC774;&#xD504;&#xC5D0;&#xC11C; &#xC77D;&#xC744; &#xB370;&#xC774;&#xD130;&#xAC00; &#xC5C6;&#xB294; reader &#xB294; 
+&#xC790;&#xB3D9;&#xC73C;&#xB85C; &#xD30C;&#xC774;&#xD504;&#xB85C;&#xBD80;&#xD130; &#xC5F0;&#xACB0;&#xC774; &#xD574;&#xC81C;&#xB429;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># terminal 1</span>
+<span class="hljs-comment"># writer &#xC2DC;&#xC791;. &#xD604;&#xC7AC; reader &#xAC00; &#xC5C6;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; block</span>
+$ <span class="hljs-keyword">while</span> :; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> $(( i++ )); sleep <span class="hljs-number">1</span>; <span class="hljs-keyword">done</span> &gt; mypipe
+
+<span class="hljs-comment"># terminal 2</span>
+$ cat mypipe    <span class="hljs-comment"># reader &#xC2E4;&#xD589; </span>
+<span class="hljs-number">0</span>
+<span class="hljs-number">1</span>
+<span class="hljs-number">2</span>
+<span class="hljs-number">3</span>
+...
+
+<span class="hljs-comment"># terminal 1</span>
+<span class="hljs-comment"># &#xD604;&#xC7AC; &#xC2E4;&#xD589;&#xC911;&#xC778; writer &#xB97C; ctrl-c &#xB85C; &#xAC15;&#xC81C; &#xC885;&#xB8CC;</span>
+
+<span class="hljs-comment"># terminal 2</span>
+<span class="hljs-comment"># reader &#xB294; &#xC77D;&#xC744; &#xB370;&#xC774;&#xD130;&#xAC00; &#xC5C6;&#xC73C;&#xBBC0;&#xB85C; &#xD30C;&#xC774;&#xD504; &#xC5F0;&#xACB0;&#xC774; &#xD574;&#xC81C;&#xB418;&#xACE0; &#xB2E4;&#xC74C; &#xD504;&#xB86C;&#xD504;&#xD2B8;&#xAC00; &#xB72C;&#xB2E4;.</span>
+</code></pre>
+<p>&#xC774;&#xC640; &#xAC19;&#xC740; &#xC0C1;&#xD669;&#xC740; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; main &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; while &#xBB38;&#xC5D0;&#xC11C; &#xD30C;&#xC774;&#xD504;&#xB97C; &#xC77D;&#xACE0; &#xC788;&#xB294; &#xC0C1;&#xD0DC;&#xC5D0;&#xC11C;
+background &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xD30C;&#xC774;&#xD504;&#xC5D0; &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xC4F0;&#xB294; &#xACBD;&#xC6B0;&#xC785;&#xB2C8;&#xB2E4;.
+&#xC774;&#xB7F4; &#xACBD;&#xC6B0; &#xCC98;&#xC74C; &#xC5F0;&#xACB0;&#xB41C; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC758; &#xBA54;&#xC2DC;&#xC9C0;&#xAC00; &#xC804;&#xB2EC;&#xB41C; &#xD6C4;&#xC5D0;&#xB294; reader &#xC5D0; &#xD574;&#xB2F9;&#xD558;&#xB294; 
+main &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xC885;&#xB8CC;&#xB418;&#xBBC0;&#xB85C; &#xB098;&#xBA38;&#xC9C0; background &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB4E4;&#xC740; write block &#xC0C1;&#xD0DC;&#xC5D0; &#xB193;&#xC774;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ cat test.sh
+<span class="hljs-shebang">#!/bin/bash
+</span>
+<span class="hljs-keyword">for</span> ((i=<span class="hljs-number">1</span>; i&lt;=<span class="hljs-number">5</span>; i++)) <span class="hljs-keyword">do</span>        <span class="hljs-comment"># 5 &#xAC1C;&#xC758; background &#xD504;&#xB85C;&#xC138;&#xC2A4; &#xC0DD;&#xC131; (writer)</span>
+( 
+    sleep <span class="hljs-number">0</span>.$(( RANDOM % <span class="hljs-number">5</span> ))
+    <span class="hljs-built_in">echo</span> process <span class="hljs-variable">$i</span> .... &gt; mypipe
+) &amp;
+<span class="hljs-keyword">done</span>
+
+<span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> line; <span class="hljs-keyword">do</span>              <span class="hljs-comment"># main &#xD504;&#xB85C;&#xC138;&#xC2A4; (reader)</span>
+    <span class="hljs-built_in">echo</span> main <span class="hljs-built_in">read</span>: <span class="hljs-variable">$line</span>
+<span class="hljs-keyword">done</span> &lt; mypipe
+-------------------------------------------
+
+$ ./test.sh 
+main <span class="hljs-built_in">read</span>: process <span class="hljs-number">4</span> ....       <span class="hljs-comment"># 4 &#xBC88;&#xC9F8; background &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; main &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC640; &#xC5F0;&#xACB0;&#xB428;</span>
+                                <span class="hljs-comment"># ( &#xBA54;&#xC2DC;&#xC9C0;&#xAC00; 2 &#xAC1C;&#xAC00; &#xBCF4;&#xC77C;&#xC218;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xB3D9;&#xC2DC;&#xC5D0; &#xC2E4;&#xD589;&#xB418;&#xBBC0;&#xB85C; )</span>
+
+<span class="hljs-comment"># writer &#xC778; 4 &#xBC88;&#xC9F8; background &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xC885;&#xB8CC;&#xB418;&#xC5B4; reader &#xC778; main &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB3C4; &#xC885;&#xB8CC;&#xB418;&#xACE0;</span>
+<span class="hljs-comment"># &#xB098;&#xBA38;&#xC9C0; background &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB4E4;&#xC740; write block &#xC0C1;&#xD0DC;&#xC5D0; &#xB193;&#xC774;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</span>
+$ ps jf | grep <span class="hljs-string">&apos;test.s[h]&apos;</span>
+    <span class="hljs-number">1</span>  <span class="hljs-number">7847</span>  <span class="hljs-number">7840</span>  <span class="hljs-number">4926</span> pts/<span class="hljs-number">15</span>    <span class="hljs-number">7867</span> S     <span class="hljs-number">1000</span>   <span class="hljs-number">0</span>:<span class="hljs-number">00</span> /bin/bash ./test.sh
+    <span class="hljs-number">1</span>  <span class="hljs-number">7843</span>  <span class="hljs-number">7840</span>  <span class="hljs-number">4926</span> pts/<span class="hljs-number">15</span>    <span class="hljs-number">7867</span> S     <span class="hljs-number">1000</span>   <span class="hljs-number">0</span>:<span class="hljs-number">00</span> /bin/bash ./test.sh
+    <span class="hljs-number">1</span>  <span class="hljs-number">7842</span>  <span class="hljs-number">7840</span>  <span class="hljs-number">4926</span> pts/<span class="hljs-number">15</span>    <span class="hljs-number">7867</span> S     <span class="hljs-number">1000</span>   <span class="hljs-number">0</span>:<span class="hljs-number">00</span> /bin/bash ./test.sh
+    <span class="hljs-number">1</span>  <span class="hljs-number">7841</span>  <span class="hljs-number">7840</span>  <span class="hljs-number">4926</span> pts/<span class="hljs-number">15</span>    <span class="hljs-number">7867</span> S     <span class="hljs-number">1000</span>   <span class="hljs-number">0</span>:<span class="hljs-number">00</span> /bin/bash ./test.sh
+
+$ <span class="hljs-built_in">kill</span> -- -<span class="hljs-number">7840</span>   <span class="hljs-comment"># background &#xD504;&#xB85C;&#xC138;&#xC2A4; &#xADF8;&#xB8F9; &#xC885;&#xB8CC;</span>
+</code></pre>
+<h2 id="fd-&#xB97C;-pipe-&#xC5D0;-&#xC5F0;&#xACB0;&#xD574;&#xC11C;-&#xC0AC;&#xC6A9;">FD &#xB97C; pipe &#xC5D0; &#xC5F0;&#xACB0;&#xD574;&#xC11C; &#xC0AC;&#xC6A9;</h2>
+<p>&#xC704;&#xC5D0;&#xC11C; &#xC0B4;&#xD3B4;&#xBCF8; &#xBC14;&#xC640; &#xAC19;&#xC774; &#xD30C;&#xC774;&#xD504;&#xB294; &#xC0C1;&#xB300;&#xD3B8;&#xC758; &#xC5F0;&#xACB0; &#xC0C1;&#xD0DC;&#xC5D0; &#xB530;&#xB77C; broken pipe &#xC624;&#xB958;&#xB85C; writer &#xAC00; &#xC885;&#xB8CC;&#xB418;&#xAC70;&#xB098; &#xC544;&#xB2C8;&#xBA74; &#xC77D;&#xC744; &#xB370;&#xC774;&#xD130;&#xAC00; &#xC5C6;&#xB294; reader &#xB294; &#xD30C;&#xC774;&#xD504;&#xC5D0;&#xC11C; &#xC790;&#xB3D9;&#xC73C;&#xB85C; &#xC5F0;&#xACB0;&#xC774; &#xD574;&#xC81C;&#xB429;&#xB2C8;&#xB2E4;.
+&#xC774;&#xC640; &#xAC19;&#xC740; &#xD2B9;&#xC131;&#xC740; &#xD30C;&#xC774;&#xD504;&#xC5D0;&#xC11C; &#xC77D;&#xC5B4;&#xB4E4;&#xC77C; &#xB370;&#xC774;&#xD130;&#xAC00; &#xC5C6;&#xB354;&#xB77C;&#xB3C4; &#xC9C0;&#xC18D;&#xC801;&#xC73C;&#xB85C; &#xC5F0;&#xACB0;&#xC744; &#xC720;&#xC9C0;&#xD558;&#xACE0; &#xC788;&#xB2E4;&#xAC00; &#xB370;&#xC774;&#xD130;&#xAC00; &#xB4E4;&#xC5B4;&#xC62C; &#xACBD;&#xC6B0; &#xCC98;&#xB9AC;&#xD558;&#xACE0;&#xC790; &#xD560;&#xB54C;&#xB098; &#xB610;&#xB294; writer &#xAC00; &#xC9C0;&#xC18D;&#xC801;&#xC73C;&#xB85C; &#xB370;&#xC774;&#xD130;&#xB97C; &#xC4F0;&#xACE0; &#xC788;&#xB294; &#xC0C1;&#xD0DC;&#xC5D0;&#xC11C; reader &#xAC00; &#xC77C;&#xC2DC;&#xC801;&#xC73C;&#xB85C; &#xC5F0;&#xACB0;&#xC744; &#xD574;&#xC81C;&#xD558;&#xACE0;&#xC790; &#xD560;&#xB54C; &#xC7A5;&#xC560;&#xAC00; &#xB429;&#xB2C8;&#xB2E4;.
+&#xC774;&#xC640; &#xAC19;&#xC740; &#xACBD;&#xC6B0;&#xC5D0; FD &#xB97C; &#xD30C;&#xC774;&#xD504;&#xC5D0; &#xC5F0;&#xACB0;&#xD558;&#xC5EC; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xBB38;&#xC81C;&#xB97C; &#xD574;&#xACB0;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<video width="770" height="242" controls preload="auto">
+  <source src="images/named_pipe0.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+
+<pre><code class="lang-bash"><span class="hljs-comment"># named pipe &#xB294; &#xC2DC;&#xC2A4;&#xD15C;&#xC5D0;&#xC11C; &#xBAA8;&#xB450; &#xC811;&#xADFC;&#xD560; &#xC218; &#xC788;&#xB294; &#xD30C;&#xC77C;&#xC774;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; (file system namespace)</span>
+<span class="hljs-comment"># &#xC774; &#xBA85;&#xB839;&#xC740; &#xC544;&#xBB34; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC5D0;&#xC11C; &#xD55C;&#xBC88;&#xB9CC; &#xC2E4;&#xD589;&#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.  </span>
+<span class="hljs-comment"># &#xADF8;&#xB9AC;&#xACE0; &#xC124;&#xC815;&#xD55C; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xC885;&#xB8CC;&#xD558;&#xBA74; &#xC5F0;&#xACB0;&#xB3C4; &#xD574;&#xC81C;&#xB429;&#xB2C8;&#xB2E4;.</span>
+
+$ mkfifo mypipe
+
+$ <span class="hljs-built_in">exec</span> <span class="hljs-number">3</span>&lt;&gt; mypipe
+</code></pre>
+<p>writer &#xAC00; &#xC9C0;&#xC18D;&#xC801;&#xC73C;&#xB85C; &#xC4F0;&#xACE0; &#xC788;&#xB294; &#xC0C1;&#xD0DC;&#xC5D0;&#xC11C; reader &#xB97C; &#xAC15;&#xC81C; &#xC885;&#xB8CC;&#xD558;&#xAE30;</p>
+<pre><code class="lang-bash">$ <span class="hljs-keyword">while</span> :; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span>  $(( i++ )); sleep <span class="hljs-number">1</span>; <span class="hljs-keyword">done</span> &gt; mypipe &amp;
+[<span class="hljs-number">1</span>] <span class="hljs-number">21951</span>
+
+$ cat mypipe
+<span class="hljs-number">0</span>
+<span class="hljs-number">1</span>
+<span class="hljs-number">2</span>
+<span class="hljs-number">3</span>
+<span class="hljs-number">4</span>
+^C    <span class="hljs-comment"># ctrl-c &#xAC15;&#xC81C; &#xC885;&#xB8CC;</span>
+
+<span class="hljs-comment"># reader &#xB97C; &#xAC15;&#xC81C; &#xC885;&#xB8CC; &#xC2DC;&#xACBC;&#xC9C0;&#xB9CC; writer &#xB294; broken pipe &#xB85C; &#xC885;&#xB8CC;&#xB418;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;.</span>
+<span class="hljs-comment"># &#xADF8;&#xB9AC;&#xACE0; &#xB2E4;&#xC2DC; &#xD30C;&#xC774;&#xD504;&#xB97C; &#xC77D;&#xC73C;&#xBA74; &#xB2E4;&#xC74C; &#xB370;&#xC774;&#xD130;&#xAC00; &#xC774;&#xC5B4;&#xC9C4;&#xB2E4;.</span>
+$ cat mypipe    
+<span class="hljs-number">5</span>
+<span class="hljs-number">6</span>
+<span class="hljs-number">7</span>
+<span class="hljs-number">8</span>
+^C
+</code></pre>
+<p>reader &#xAC00; &#xC9C0;&#xC18D;&#xC801;&#xC73C;&#xB85C; &#xC77D;&#xACE0; &#xC788;&#xB294; &#xC0C1;&#xD0DC;&#xC5D0;&#xC11C; writer &#xB97C; &#xC885;&#xB8CC;&#xD558;&#xAE30;</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># terminal 1</span>
+$ <span class="hljs-keyword">while</span> :; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span>  $(( i++ )); sleep <span class="hljs-number">1</span>; <span class="hljs-keyword">done</span> &gt; mypipe  <span class="hljs-comment"># writer &#xC2E4;&#xD589;</span>
+
+<span class="hljs-comment"># terminal 2</span>
+$ cat mypipe  <span class="hljs-comment"># reader &#xC2E4;&#xD589;</span>
+<span class="hljs-number">0</span>
+<span class="hljs-number">1</span>
+<span class="hljs-number">2</span>
+<span class="hljs-number">3</span>
+...
+
+<span class="hljs-comment"># terminal 1</span>
+<span class="hljs-comment"># ctrl-c &#xB85C; writer &#xAC15;&#xC81C; &#xC885;&#xB8CC;</span>
+
+<span class="hljs-comment"># terminal 2</span>
+<span class="hljs-comment"># writer &#xAC00; &#xC885;&#xB8CC;&#xB418;&#xC5B4; &#xC77D;&#xC5B4;&#xB4E4;&#xC77C; &#xB370;&#xC774;&#xD130;&#xAC00; &#xC5C6;&#xC9C0;&#xB9CC; &#xD30C;&#xC774;&#xD504;&#xC5D0; &#xC5F0;&#xACB0;&#xC744; &#xC9C0;&#xC18D;&#xD558;&#xACE0; &#xC788;&#xC74C;.</span>
+
+<span class="hljs-comment"># terminal 1</span>
+<span class="hljs-comment"># &#xB2E4;&#xC2DC; writer &#xC5F0;&#xACB0; </span>
+$ <span class="hljs-keyword">while</span> :; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span>  $(( i++ )); sleep <span class="hljs-number">1</span>; <span class="hljs-keyword">done</span> &gt; mypipe
+
+<span class="hljs-comment"># terminal 2</span>
+<span class="hljs-comment"># writer &#xAC00; &#xB2E4;&#xC2DC; &#xC5F0;&#xACB0;&#xD558;&#xC5EC; &#xC4F4; &#xB370;&#xC774;&#xD130;&#xAC00; &#xC5F0;&#xC774;&#xC5B4;&#xC11C; &#xC77D;&#xD600;&#xC9C4;&#xB2E4;. </span>
+<span class="hljs-number">4</span>
+<span class="hljs-number">5</span>
+<span class="hljs-number">6</span>
+<span class="hljs-number">7</span>
+...
+</code></pre>
+<h4 id="&#xD65C;&#xC6A9;-&#xC608;&#xC81C;-">&#xD65C;&#xC6A9; &#xC608;&#xC81C; )</h4>
+<h4 id="1">1.</h4>
+<p>&#xB2E4;&#xC74C;&#xC740; named pipe &#xB97C; &#xC774;&#xC6A9;&#xD574; &#xC911;&#xB2E8; &#xC5C6;&#xC774; &#xB370;&#xC774;&#xD130; &#xCC98;&#xB9AC;&#xD558;&#xB294; &#xC608;&#xC785;&#xB2C8;&#xB2E4;.</p>
+<video width="768" height="212" controls preload="auto">
+  <source src="images/named_pipe1.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+
+
+<h4 id="2">2.</h4>
+<p>&#xC774;&#xBC88;&#xC5D0;&#xB294; fifo_data, fifo_even, fifo_odd 3&#xAC1C;&#xB97C; &#xB9CC;&#xB4E4;&#xC5B4;&#xC11C; &#xD504;&#xB85C;&#xC138;&#xC2A4; A &#xAC00;
+fifo_data &#xC5D0; &#xB370;&#xC774;&#xD130;&#xB97C; &#xC785;&#xB825;&#xD558;&#xBA74; &#xD504;&#xB85C;&#xC138;&#xC2A4; B &#xB294; &#xC785;&#xB825;&#xBC1B;&#xC740; &#xB370;&#xC774;&#xD130;&#xB97C; &#xC9DD;&#xC218;&#xC640; &#xD640;&#xC218;&#xB85C; &#xBD84;&#xB958;&#xD574;&#xC11C;
+fifo_even, fifo_odd &#xB85C; &#xAC01;&#xAC01; &#xC804;&#xB2EC;&#xD569;&#xB2C8;&#xB2E4;.
+&#xD504;&#xB85C;&#xC138;&#xC2A4; C &#xB294; fifo_even &#xB85C;&#xBD80;&#xD130; &#xB370;&#xC774;&#xD130;&#xB97C; &#xC785;&#xB825;&#xBC1B;&#xC544; &#xC9DD;&#xC218;&#xB97C; &#xCC98;&#xB9AC;&#xD558;&#xACE0;
+&#xD504;&#xB85C;&#xC138;&#xC2A4; D &#xB294; fifo_odd &#xB85C;&#xBD80;&#xD130; &#xD640;&#xC218;&#xB97C; &#xCC98;&#xB9AC;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<video width="768" height="212" controls preload="auto">
+  <source src="images/named_pipe2.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+
+<p>&#xC2E4;&#xD589; &#xC911;&#xC5D0; &#xC9DD;&#xC218;&#xB97C; &#xCC98;&#xB9AC;&#xD558;&#xB294; &#xD504;&#xB85C;&#xC138;&#xC2A4; C &#xB97C; &#xC885;&#xB8CC;&#xD558;&#xAC70;&#xB098; &#xB610;&#xB294; &#xCF54;&#xB4DC;&#xC5D0; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; sleep &#xC744; &#xCD94;&#xAC00;&#xD558;&#xBA74;
+&#xD640;&#xC218;&#xB97C; &#xCC98;&#xB9AC;&#xD558;&#xB294; &#xD504;&#xB85C;&#xC138;&#xC2A4; D &#xC758; &#xCD9C;&#xB825;&#xC774; &#xC5B4;&#xB5A4; &#xC2DD;&#xC73C;&#xB85C; &#xBCC0;&#xD558;&#xB294;&#xC9C0; &#xD55C;&#xBC88; &#xD14C;&#xC2A4;&#xD2B8;&#xD574;&#xBCF4;&#xC138;&#xC694;</p>
+<pre><code class="lang-bash">$ awk <span class="hljs-string">&apos;@load &quot;time&quot;; { gsub(/^|$/,&quot;#&quot;); print; sleep(0.01) }
+    END { print &quot;end...&quot; }&apos;</span> fifo_even
+</code></pre>
+<h3 id="multiple-writers-and-readers">Multiple writers and readers</h3>
+<p>&#xD30C;&#xC774;&#xD504;&#xB294; &#xBCC4;&#xB2E4;&#xB978; &#xAE30;&#xB2A5; &#xC5C6;&#xC774; &#xB2E8;&#xC21C; byte stream &#xC785;&#xB2C8;&#xB2E4;.
+&#xB530;&#xB77C;&#xC11C; &#xBCF5;&#xC218;&#xAC1C;&#xC758; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xB3D9;&#xC2DC;&#xC5D0; &#xD30C;&#xC774;&#xD504;&#xB85C;&#xBD80;&#xD130; &#xC77D;&#xAE30;&#xB97C; &#xD558;&#xAC70;&#xB098; &#xC4F0;&#xAE30;&#xB97C; &#xD558;&#xBA74;
+&#xC804;&#xCCB4; &#xBC14;&#xC774;&#xD2B8; &#xC218;&#xB294; &#xC62C;&#xBC14;&#xB974;&#xAC8C; &#xC804;&#xB2EC;&#xB418;&#xC9C0;&#xB9CC; &#xB77C;&#xC778; &#xB2E8;&#xC704;&#xB85C;&#xB294; &#xC81C;&#xB300;&#xB85C; &#xBD84;&#xBC30;&#xAC00; &#xC548;&#xB429;&#xB2C8;&#xB2E4;.
+&#xB2E8; &#xD558;&#xB098; &#xBCF4;&#xC7A5;&#xB418;&#xB294; &#xAC83;&#xC740; &#xB450; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; atomic write &#xC5D0; &#xD574;&#xB2F9;&#xD558;&#xB294; 4096 &#xBC14;&#xC774;&#xD2B8; &#xB0B4;&#xC5D0;&#xC11C; 
+&#xB77C;&#xC778; &#xB2E8;&#xC704;&#xB85C; &#xC4F0;&#xAE30;&#xB97C; &#xD558;&#xBA74; &#xB450; &#xB77C;&#xC778;&#xC774; &#xACB9;&#xCE58;&#xC9C0;&#xB294; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>&#xB2E4;&#xC74C;&#xC740; multiple writers, single reader &#xC758; &#xC608;&#xC785;&#xB2C8;&#xB2E4;.
+2 &#xAC1C;&#xC758; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xB3D9;&#xC2DC;&#xC5D0; &#xD30C;&#xC774;&#xD504;&#xB85C; &#xC4F0;&#xAE30;&#xB97C; &#xD558;&#xACE0; 1 &#xAC1C;&#xC758; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00;
+&#xD30C;&#xC774;&#xD504;&#xB97C; &#xC77D;&#xC5B4;&#xC11C; &#xD30C;&#xC77C;&#xB85C; &#xC800;&#xC7A5;&#xD569;&#xB2C8;&#xB2E4;.
+&#xB450; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; echo &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD574; &#xB77C;&#xC778; &#xB2E8;&#xC704;&#xB85C; atomic write &#xC744; &#xD558;&#xACE0; &#xC788;&#xAE30; &#xB54C;&#xBB38;&#xC5D0;
+&#xB77C;&#xC778;&#xC774; &#xACB9;&#xCE58;&#xC9C0; &#xC54A;&#xACE0; &#xC62C;&#xBC14;&#xB85C; &#xC804;&#xB2EC;&#xB418;&#xB294; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xC774;&#xB54C; &#xD30C;&#xC77C;&#xB85C; &#xC800;&#xC7A5;&#xB418;&#xB294; &#xC21C;&#xC11C;&#xB294; &#xC608;&#xCE21;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;</p>
+<pre><code class="lang-bash">$ mkfifo mypipe
+
+<span class="hljs-comment"># 2 &#xAC1C;&#xC758; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC5D0;&#xC11C; 10,000 &#xB77C;&#xC778;&#xC529; &#xD30C;&#xC774;&#xD504;&#xB85C; &#xC4F0;&#xAE30; &#xD569;&#xB2C8;&#xB2E4;.</span>
+$ <span class="hljs-keyword">for</span> (( i=<span class="hljs-number">1</span>; i&lt;=<span class="hljs-number">10000</span>; i++ )) <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$i</span>&quot;</span>; <span class="hljs-keyword">done</span> &gt; mypipe &amp; 
+[<span class="hljs-number">1</span>] <span class="hljs-number">20134</span>
+
+$ <span class="hljs-keyword">for</span> (( i=<span class="hljs-number">1</span>; i&lt;=<span class="hljs-number">10000</span>; i++ )) <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;--- <span class="hljs-variable">$i</span>&quot;</span>; <span class="hljs-keyword">done</span> &gt; mypipe &amp;
+[<span class="hljs-number">2</span>] <span class="hljs-number">20151</span>
+
+<span class="hljs-comment"># single reader : &#xD30C;&#xC774;&#xD504;&#xB97C; &#xC77D;&#xC5B4;&#xC11C; &#xD30C;&#xC77C; x1 &#xB85C; &#xC800;&#xC7A5;&#xD569;&#xB2C8;&#xB2E4;.</span>
+$ <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> v; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$v</span>&quot;</span>; <span class="hljs-keyword">done</span> &lt; mypipe &gt; x1
+
+$ wc <span class="hljs-operator">-l</span> x1     <span class="hljs-comment"># &#xD569;&#xACC4; 20,000 &#xB77C;&#xC778;</span>
+<span class="hljs-number">20000</span> x1
+
+$ head x1      <span class="hljs-comment"># &#xC800;&#xC7A5;&#xB418;&#xB294; &#xC21C;&#xC11C;&#xB294; &#xC608;&#xCE21;&#xD560; &#xC218; &#xC5C6;&#xB2E4;.</span>
+<span class="hljs-number">1</span>
+--- <span class="hljs-number">1</span>
+<span class="hljs-number">2</span>
+--- <span class="hljs-number">2</span>
+<span class="hljs-number">3</span>
+<span class="hljs-number">4</span>
+--- <span class="hljs-number">3</span>
+<span class="hljs-number">5</span>
+--- <span class="hljs-number">4</span>
+--- <span class="hljs-number">5</span>
+</code></pre>
+<p>&#xB2E4;&#xC74C;&#xC740; multiple readers, single writer &#xC758; &#xC608;&#xC778;&#xB370; &#xC774; &#xACBD;&#xC6B0;&#xC5D0;&#xB294;
+&#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C; &#xB77C;&#xC778; &#xB2E8;&#xC704;&#xB85C; &#xC77D;&#xAE30;&#xAC00; &#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.
+writer &#xC758; &#xACBD;&#xC6B0;&#xB294; &#xC790;&#xAE30;&#xAC00; &#xC4F0;&#xB294; &#xB0B4;&#xC6A9;&#xC744; &#xC54C;&#xACE0; &#xC788;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xB77C;&#xC778; &#xB2E8;&#xC704;&#xB85C; &#xC4F0;&#xB294; &#xAC8C; &#xAC00;&#xB2A5;&#xD558;&#xC9C0;&#xB9CC;
+reader &#xC758; &#xACBD;&#xC6B0;&#xB294; &#xD30C;&#xC774;&#xD504;&#xC5D0;&#xC11C; 5 &#xBB38;&#xC790; &#xB4A4;&#xC5D0; newline &#xC774; &#xC62C;&#xC9C0; 10 &#xBB38;&#xC790; &#xB4A4;&#xC5D0; newline &#xC774; &#xC62C;&#xC9C0;
+&#xC54C; &#xC218; &#xC5C6;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xB77C;&#xC778; &#xB2E8;&#xC704;&#xB85C; &#xC77D;&#xB294;&#xB2E4;&#xB294; &#xAC83;&#xC740; meaningless &#xD569;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># 2 &#xAC1C;&#xC758; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xB3D9;&#xC2DC;&#xC5D0; &#xD558;&#xB098;&#xC758; &#xD30C;&#xC774;&#xD504;&#xC5D0;&#xC11C; &#xC77D;&#xAE30;&#xB97C; &#xD558;&#xC5EC; &#xAC01;&#xAC01; &#xD30C;&#xC77C;&#xB85C; &#xC800;&#xC7A5;&#xD569;&#xB2C8;&#xB2E4;. </span>
+$ <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> v; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$v</span>&quot;</span>; <span class="hljs-keyword">done</span> &lt; mypipe &gt; x1 &amp;        
+[<span class="hljs-number">1</span>] <span class="hljs-number">20445</span>
+
+$ <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> v; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$v</span>&quot;</span>; <span class="hljs-keyword">done</span> &lt; mypipe &gt; x2 &amp;
+[<span class="hljs-number">2</span>] <span class="hljs-number">20460</span>
+
+<span class="hljs-comment"># single writer : &#xC804;&#xCCB4; 20,000 &#xB77C;&#xC778;&#xC744; &#xD30C;&#xC774;&#xD504;&#xB85C; &#xC4F0;&#xAE30;&#xD569;&#xB2C8;&#xB2E4;.</span>
+$ <span class="hljs-keyword">for</span> (( i=<span class="hljs-number">1</span>; i&lt;=<span class="hljs-number">20000</span>; i++ )) <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;&lt;<span class="hljs-variable">$i</span>&gt;&quot;</span>; <span class="hljs-keyword">done</span> &gt; mypipe
+
+$ wc <span class="hljs-operator">-l</span> x1 x2    <span class="hljs-comment"># &#xD569;&#xACC4; &#xB77C;&#xC778; &#xAC1C;&#xC218;&#xB294; &#xC62C;&#xBC14;&#xB974;&#xAC8C; &#xCD9C;&#xB825;&#xB418;&#xC9C0;&#xB9CC; </span>
+  <span class="hljs-number">9783</span> x1
+ <span class="hljs-number">10217</span> x2
+ <span class="hljs-number">20000</span> total
+
+$ less x1        <span class="hljs-comment"># &#xD30C;&#xC77C;&#xC744; &#xC5F4;&#xC5B4;&#xBCF4;&#xBA74; &#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C; &#xB77C;&#xC778; &#xB2E8;&#xC704;&#xB85C; &#xC77D;&#xAE30;&#xAC00; &#xB418;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;.</span>
+. . .
+&lt;<span class="hljs-number">1570</span>&gt;
+&lt;<span class="hljs-number">1572</span>&gt;
+&lt;<span class="hljs-number">1575</span>&gt;
+<span class="hljs-number">5</span>&gt;&lt;<span class="hljs-number">1578</span>&gt;
+&lt;<span class="hljs-number">1580</span>
+&lt;<span class="hljs-number">1583</span>&gt;
+<span class="hljs-number">15</span>&lt;<span class="hljs-number">1586</span>&gt;
+&lt;<span class="hljs-number">1588</span>&gt;&lt;<span class="hljs-number">1589</span>&gt;
+&lt;<span class="hljs-number">151</span>&lt;<span class="hljs-number">1592</span>&gt;
+<span class="hljs-number">14</span>&lt;<span class="hljs-number">1595</span>&gt;
+&lt;<span class="hljs-number">157</span>
+&lt;<span class="hljs-number">1600</span>&gt;
+&lt;<span class="hljs-number">1603</span>&gt;
+&lt;<span class="hljs-number">1606</span>&gt;
+. . .
+</code></pre>
+<h3 id="pipe-buffer-size">Pipe buffer size</h3>
+<p>Reader &#xAC00; &#xC5C6;&#xB294; &#xC0C1;&#xD0DC;&#xC5D0;&#xC11C; writer &#xAC00; &#xD30C;&#xC774;&#xD504;&#xC5D0; &#xC4F0;&#xAE30;&#xB97C; &#xD558;&#xBA74; &#xCEE4;&#xB110;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; pipe buffer size &#xB97C; &#xC54C;&#xC544;&#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.  <code>ulimit -a</code> &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xC870;&#xD68C;&#xD574; &#xBCF4;&#xBA74; pipe size &#xAC00; 8 * 512 bytes = 4096 &#xB85C; &#xB098;&#xC624;&#xC9C0;&#xB9CC; &#xB9AC;&#xB205;&#xC2A4;&#xC758; &#xACBD;&#xC6B0; 16 &#xAC1C;&#xAE4C;&#xC9C0; &#xBC84;&#xD37C;&#xB97C; &#xD560;&#xB2F9;&#xD574; &#xC0AC;&#xC6A9;&#xD558;&#xBBC0;&#xB85C; 4096 * 16 = 65,536 &#xAE4C;&#xC9C0; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;. &#xC5EC;&#xAE30;&#xC11C; 4096 &#xC740; &#xC5EC;&#xB7EC; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xB3D9;&#xC2DC;&#xC5D0; &#xAC19;&#xC740; &#xD30C;&#xC77C;&#xC5D0; write &#xD560;&#xB54C; &#xB370;&#xC774;&#xD130;&#xAC00; &#xC11C;&#xB85C; &#xACB9;&#xCE58;&#xC9C0; &#xC54A;&#xACE0; atomic &#xD558;&#xAC8C; &#xC4F8; &#xC218; &#xC788;&#xB294; &#xD06C;&#xAE30;&#xC5D0; &#xD574;&#xB2F9;&#xD569;&#xB2C8;&#xB2E4;. </p>
+<pre><code class="lang-bash">$ grep PIPE_BUF /usr/include/linux/limits.h 
+<span class="hljs-comment">#define PIPE_BUF        4096    /* # bytes in atomic write to a pipe */</span>
+
+----------------------------------------
+
+$ grep PIPE_DEF_BUFFERS /usr/src/linux-headers-`uname -r`/include/linux/pipe_fs_i.h
+<span class="hljs-comment">#define PIPE_DEF_BUFFERS        16</span>
+
+----------------------------------------
+
+$ mkfifo mypipe
+$ <span class="hljs-built_in">exec</span> <span class="hljs-number">3</span>&lt;&gt; mypipe
+
+<span class="hljs-comment"># ctrl-c &#xB85C; &#xC885;&#xB8CC; ( &#xBC84;&#xD37C;&#xAC00; &#xCC28;&#xAC8C;&#xB418;&#xBA74; &#xBE14;&#xB85D;&#xB418;&#xBBC0;&#xB85C; )</span>
+$ <span class="hljs-keyword">while</span> :; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> -n <span class="hljs-string">&apos;1&apos;</span>; <span class="hljs-keyword">done</span> &gt; mypipe     
+^Cbash: <span class="hljs-built_in">echo</span>: write error: Interrupted system call
+
+<span class="hljs-comment"># outfile &#xB85C; &#xBC84;&#xD37C; &#xB0B4;&#xC6A9;&#xC744; &#xCD9C;&#xB825;&#xD6C4; ctrl-c &#xB85C; &#xC885;&#xB8CC;</span>
+$ cat mypipe &gt; outfile
+^C
+
+<span class="hljs-comment"># outfile &#xD30C;&#xC77C; &#xC0AC;&#xC774;&#xC988;&#xAC00; 4096 * 16 = 65,536 &#xC73C;&#xB85C; &#xB098;&#xC634;</span>
+$ ls <span class="hljs-operator">-l</span> outfile
+-rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">65536</span> <span class="hljs-number">08.03</span>.<span class="hljs-number">2015</span> <span class="hljs-number">15</span>:<span class="hljs-number">33</span> outfile
+</code></pre>
+<h2 id="&#xC591;&#xBC29;&#xD5A5;-&#xD1B5;&#xC2E0;">&#xC591;&#xBC29;&#xD5A5; &#xD1B5;&#xC2E0;</h2>
+<p>&#xD30C;&#xC774;&#xD504;&#xB294; &#xB2E8;&#xBC29;&#xD5A5;&#xC774;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xB450; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xC11C;&#xB85C; &#xB300;&#xD654;&#xB97C; &#xB098;&#xB204;&#xAE30; &#xC704;&#xD574;&#xC11C;&#xB294; &#xB450;&#xAC1C;&#xC758; &#xD30C;&#xC774;&#xD504;&#xAC00; &#xD544;&#xC694;&#xD569;&#xB2C8;&#xB2E4;.
+&#xC774;&#xC640;&#xAC19;&#xC740; &#xBC29;&#xBC95;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xB294; &#xAC83;&#xC774; keyword &#xBA85;&#xB839;&#xC911;&#xC5D0; &#xD558;&#xB098;&#xC778; <a href="keyword_commands.html#coproc">coproc</a> &#xC785;&#xB2C8;&#xB2E4;. coproc &#xB294; &#xC785;, &#xCD9C;&#xB825; &#xC6A9;&#xC73C;&#xB85C; &#xB450;&#xAC1C;&#xC758; &#xD30C;&#xC774;&#xD504;&#xB97C; &#xB9CC;&#xB4E4;&#xC5B4;&#xC11C; &#xC785;&#xB825; &#xD30C;&#xC774;&#xD504;&#xB97C; &#xD1B5;&#xD574; &#xC678;&#xBD80; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB85C;&#xBD80;&#xD130; &#xC785;&#xB825;&#xC744; &#xBC1B;&#xACE0; &#xC5F0;&#xC0B0;&#xACB0;&#xACFC;&#xB97C; &#xCD9C;&#xB825; &#xD30C;&#xC774;&#xD504;&#xB97C; &#xD1B5;&#xD574; &#xC804;&#xB2EC;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<p><img src="images/bidirectional_pipe.png" alt="bidirectional pipe"></p>
+<h2 id="socket">Socket</h2>
+<p>named pipe &#xC758; &#xACBD;&#xC6B0; &#xD504;&#xB85C;&#xC138;&#xC2A4; A &#xAC00; &#xD30C;&#xC774;&#xD504;&#xC5D0; &#xAC12;&#xC744; &#xC4F0;&#xBA74; &#xD504;&#xB85C;&#xC138;&#xC2A4; B &#xAC00; &#xAC12;&#xC744; &#xC77D;&#xC744; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xB610;&#xD55C; &#xD504;&#xB85C;&#xC138;&#xC2A4; B &#xAC00; &#xD30C;&#xC774;&#xD504;&#xC5D0; &#xAC12;&#xC744; &#xC4F0;&#xBA74; &#xD504;&#xB85C;&#xC138;&#xC2A4; A &#xAC00; &#xAC12;&#xC744; &#xC77D;&#xC744; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xC774;&#xAC83;&#xC740; &#xC591;&#xBC29;&#xD5A5; &#xD1B5;&#xC2E0;&#xC774; &#xAC00;&#xB2A5;&#xD55C; &#xAC83;&#xCC98;&#xB7FC; &#xBCF4;&#xC774;&#xC9C0;&#xB9CC; &#xBB38;&#xC81C;&#xB294; &#xD504;&#xB85C;&#xC138;&#xC2A4; A &#xAC00; &#xAC12;&#xC744; &#xC4F4; &#xD6C4;&#xC5D0;
+&#xB2E4;&#xC2DC; &#xC790;&#xC2E0;&#xC774; &#xD30C;&#xC774;&#xD504;&#xB97C; &#xC77D;&#xC73C;&#xBA74; &#xAC12;&#xC774; &#xC77D;&#xD600;&#xC11C; &#xC774;&#xD6C4;&#xC5D0; &#xD504;&#xB85C;&#xC138;&#xC2A4; B &#xB294; &#xAC12;&#xC744; &#xC77D;&#xC744; &#xC218; &#xC5C6;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.
+unix domain socket &#xC740; named pipe &#xC640; &#xAC19;&#xC774; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0; socket &#xD30C;&#xC77C;&#xC744; &#xB9CC;&#xB4E4;&#xC5B4;&#xC11C; &#xC2DC;&#xC2A4;&#xD15C; &#xB0B4;&#xC758; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC640; &#xD1B5;&#xC2E0;&#xC744; &#xD558;&#xB294;&#xB370; &#xC774;&#xB54C; &#xC0DD;&#xC131;&#xB418;&#xB294; socket &#xD30C;&#xC77C;&#xC740; &#xB2E4;&#xB978; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xC811;&#xC18D;&#xD560;&#xB54C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; ip &#xC8FC;&#xC18C;&#xC640; &#xAC19;&#xC740; &#xC5ED;&#xD560;&#xC744; &#xD569;&#xB2C8;&#xB2E4;.
+&#xCEE4;&#xB110;&#xC774; &#xAD50;&#xD1B5;&#xC815;&#xB9AC;&#xB97C; &#xD574;&#xC8FC;&#xBBC0;&#xB85C; socket &#xC5D0; &#xC5F0;&#xACB0;&#xB41C; &#xD558;&#xB098;&#xC758; FD &#xB9CC;&#xC73C;&#xB85C;&#xB3C4; &#xC591;&#xBC29;&#xD5A5; &#xD1B5;&#xC2E0;&#xC744; &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p><img src="images/socket_diagram1.png" alt="socket_diagram1"></p>
+<p>&#xD130;&#xBBF8;&#xB110;&#xC5D0;&#xC11C; <code>nc</code> &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xC5EC; &#xC9C1;&#xC811; &#xD14C;&#xC2A4;&#xD2B8;&#xD574;&#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. 
+&#xBA3C;&#xC800; &#xD130;&#xBBF8;&#xB110;&#xC5D0; &#xC785;, &#xCD9C;&#xB825; &#xBA54;&#xC2DC;&#xC9C0;&#xAC00; &#xD568;&#xAED8; &#xD45C;&#xC2DC;&#xB418;&#xBBC0;&#xB85C; 2&#xAC1C;&#xC758; &#xD130;&#xBBF8;&#xB110;&#xC774; &#xD544;&#xC694;&#xD569;&#xB2C8;&#xB2E4;.
+terminal 1 &#xC5D0;&#xC11C; <code>nc -lU mysocket</code> &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xD558;&#xBA74; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0; mysocket &#xD30C;&#xC77C;&#xC774; &#xC0DD;&#xC131;&#xB418;&#xACE0; &#xC811;&#xC18D;&#xB300;&#xAE30; &#xC0C1;&#xD0DC;&#xAC00; &#xB429;&#xB2C8;&#xB2E4;.
+&#xC774;&#xC5B4; terminal 2 &#xC5D0;&#xC11C; <code>nc -U mysocket</code> &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xD558;&#xBA74; &#xB450; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xC5F0;&#xACB0;&#xB418;&#xB294;&#xB370; &#xC774;&#xD6C4;&#xC5D0; &#xC11C;&#xB85C; &#xBA54;&#xC2DC;&#xC9C0;&#xB97C;
+&#xC8FC;&#xACE0;&#xBC1B;&#xC744; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<ul>
+<li>terminal 1</li>
+</ul>
+<pre><code class="lang-bash">$ nc <span class="hljs-operator">-l</span> -U mysocket
+hello
+unix domain socket
+</code></pre>
+<ul>
+<li>terminal 2</li>
+</ul>
+<pre><code class="lang-bash">$ nc -U mysocket
+hello
+unix domain socket
+</code></pre>
+<p>&#xB2E4;&#xC74C;&#xC740; &#xB450; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xC5F0;&#xACB0;&#xB41C; &#xD6C4; FD &#xC0C1;&#xD0DC;&#xC778;&#xB370;&#xC694;. 
+<code>nc -l -U</code> &#xB85C; &#xC2E4;&#xD589;&#xD55C; &#xC11C;&#xBC84; &#xC18C;&#xCF13;&#xC740; &#xCC98;&#xC74C;&#xC5D0;&#xB294; socket FD &#xAC00; &#xD558;&#xB098;&#xC600;&#xB2E4;&#xAC00; ( listen )
+&#xD074;&#xB77C;&#xC774;&#xC5B8;&#xD2B8;&#xAC00; &#xC811;&#xC18D;&#xC744; &#xD558;&#xC5EC; ( accept ) &#xD558;&#xB098;&#xAC00; &#xCD94;&#xAC00;&#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xD074;&#xB77C;&#xC774;&#xC5B8;&#xD2B8; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB294; &#xD558;&#xB098;&#xC758; FD &#xB9CC; &#xC0AC;&#xC6A9;&#xD558;&#xACE0; &#xC788;&#xB294; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xB294;&#xB370;
+&#xC774;&#xB54C; FD &#xC5D0; &#xC5F0;&#xACB0;&#xB41C; socket &#xC744; &#xBCF4;&#xBA74; &#xB4A4;&#xC5D0; &#xBD99;&#xC740; &#xBC88;&#xD638;&#xAC00; &#xAC01;&#xAC01; &#xD2C0;&#xB9BD;&#xB2C8;&#xB2E4;.
+&#xB2E4;&#xC2DC; &#xB9D0;&#xD574;&#xC11C; &#xD504;&#xB85C;&#xC138;&#xC2A4; &#xBCC4;&#xB85C; &#xB2E4;&#xB978; socket &#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xACE0; &#xC788;&#xB294; &#xAC83;&#xC778;&#xB370;&#xC694;.
+pipe &#xB97C; &#xC774;&#xC6A9;&#xD574; &#xC591;&#xBC29;&#xD5A5; &#xD1B5;&#xC2E0;&#xC744; &#xD558;&#xB294; <a href="keyword_commands.html#coproc">coproc</a> &#xC758; FD &#xC640; &#xBE44;&#xAD50;&#xD574; &#xBCF4;&#xC2DC;&#xAE30; &#xBC14;&#xB78D;&#xB2C8;&#xB2E4;.</p>
+<p><img src="images/socket_fd.png" alt="socket fd"></p>
+<blockquote>
+<p>nc &#xBA85;&#xB839;&#xC740; &#xB3D9;&#xC2DC;&#xC5D0; &#xC5EC;&#xB7EC;&#xAC1C;&#xC758; &#xC811;&#xC18D;&#xC744; &#xBC1B;&#xC9C0; &#xBABB;&#xD558;&#xB294;&#xB370; ncat &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; &#xD14C;&#xC2A4;&#xD2B8;&#xD574;&#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.<br>$ ncat -k -l -U mysock</p>
+</blockquote>
+<p>unix domain socket &#xC744; &#xC774;&#xC6A9;&#xD558;&#xB294; &#xB300;&#xD45C;&#xC801;&#xC778; &#xD504;&#xB85C;&#xADF8;&#xB7A8; &#xC911;&#xC5D0; &#xD558;&#xB098;&#xAC00; xwindows &#xC11C;&#xBC84;&#xC778;&#xB370;&#xC694;.
+<code>/tmp/.X11-unix/</code> &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0; socket &#xD30C;&#xC77C;&#xC774; &#xC704;&#xCE58;&#xD569;&#xB2C8;&#xB2E4;. &#xB610;&#xD55C; <code>ls /run</code> &#xC774;&#xB098; <code>lsof -U</code>
+&#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xD558;&#xBA74; &#xC2DC;&#xC2A4;&#xD15C; &#xB0B4;&#xC5D0;&#xC11C; unix domain socket &#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xB4E4;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. 
+( pipe &#xB97C; &#xC774;&#xC6A9;&#xD558;&#xB294; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC740; <code>lsof | grep FIFO</code> ).</p>
+<p>unix domain socket &#xC740; &#xD30C;&#xC77C;&#xC2DC;&#xC2A4;&#xD15C;&#xC5D0; socket &#xD30C;&#xC77C;&#xC744; &#xB9CC;&#xB4E4;&#xC5B4; &#xD1B5;&#xC2E0;&#xD558;&#xAE30; &#xB54C;&#xBB38;&#xC5D0;
+&#xAC19;&#xC740; &#xCEF4;&#xD4E8;&#xD130;&#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xB294; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB4E4;&#xC5D0; &#xD55C;&#xD574;&#xC11C;&#xB9CC; &#xD1B5;&#xC2E0;&#xC774; &#xAC00;&#xB2A5;&#xD558;&#xB2E4;&#xB294; &#xB2E8;&#xC810;&#xC774; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+internet domain socket &#xC740; &#xC11C;&#xB85C; &#xB5A8;&#xC5B4;&#xC838; &#xC788;&#xB294; &#xCEF4;&#xD4E8;&#xD130;&#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xB294; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB4E4;&#xACFC;&#xB3C4; &#xD1B5;&#xC2E0;&#xC744; &#xD560; &#xC218; &#xC788;&#xAC8C; &#xD574;&#xC90D;&#xB2C8;&#xB2E4;.
+&#xC774;&#xB54C;&#xB294; &#xB370;&#xC774;&#xD130;&#xB97C; &#xC0C1;&#xC790;&#xC5D0; &#xB2F4;&#xC544; &#xC1A1;, &#xC218;&#xC2E0;&#xC790; &#xC8FC;&#xC18C;&#xB97C; &#xC801;&#xC5B4; &#xBCF4;&#xB0B4;&#xB294; packet &#xACFC; protocol &#xAC1C;&#xB150;&#xC774; &#xD544;&#xC694;&#xD558;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4; ( IPv4 or IPv6 ).
+&#xADF8;&#xB7EC;&#xBA74; &#xC778;&#xD130;&#xB137;&#xC758; &#xAE38;&#xBAA9;&#xB9C8;&#xB2E4; &#xC704;&#xCE58;&#xD574;&#xC788;&#xB294; router &#xB77C;&#xB294; &#xAE30;&#xACC4;&#xAC00; &#xC8FC;&#xC18C;&#xB97C; &#xBCF4;&#xACE0; &#xD574;&#xB2F9; packet &#xC744; &#xBAA9;&#xC801;&#xC9C0; &#xAE4C;&#xC9C0; &#xC804;&#xB2EC;&#xD569;&#xB2C8;&#xB2E4;.
+&#xB3C4;&#xCC29;&#xD55C; packet &#xC740; &#xD3EC;&#xD2B8; &#xBC88;&#xD638;&#xC5D0; &#xC758;&#xD574; &#xBD84;&#xB958;&#xB418;&#xC5B4; &#xD574;&#xB2F9; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC5D0;&#xAC8C; &#xC804;&#xB2EC;&#xB429;&#xB2C8;&#xB2E4;.</p>
+<p><img src="images/socket_diagram2.png" alt="socket_diagram2"></p>
+<p><code>nc</code> &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD574; internet domain socket &#xB3C4; &#xD14C;&#xC2A4;&#xD2B8;&#xD574;&#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xBA3C;&#xC800; &#xC811;&#xC18D;&#xC744; &#xBC1B;&#xB294; computer1 &#xC5D0;&#xC11C; <code>ifconfig</code> &#xBA85;&#xB839;&#xC73C;&#xB85C; ip &#xC8FC;&#xC18C;&#xB97C; &#xD655;&#xC778;&#xD55C; &#xB2E4;&#xC74C; 
+<code>nc -l 8080</code> &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xD558;&#xBA74; &#xC811;&#xC18D;&#xB300;&#xAE30; &#xC0C1;&#xD0DC;&#xAC00; &#xB429;&#xB2C8;&#xB2E4;.
+&#xC774;&#xC5B4; computer2 &#xC5D0;&#xC11C; computer1 &#xC758; ip &#xC8FC;&#xC18C;&#xC640; &#xD3EC;&#xD2B8;&#xBC88;&#xD638;&#xB97C; &#xC774;&#xC6A9;&#xD574; <code>nc 12.34.56.78 8080</code> &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xD558;&#xBA74;
+&#xB450; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xC5F0;&#xACB0;&#xB418;&#xB294;&#xB370; &#xC774;&#xD6C4;&#xBD80;&#xD130; &#xC11C;&#xB85C; &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xC8FC;&#xACE0;&#xBC1B;&#xC744; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<ul>
+<li>computer1</li>
+</ul>
+<pre><code class="lang-bash"><span class="hljs-comment"># TCP                                    # UDP</span>
+$ nc <span class="hljs-operator">-l</span> <span class="hljs-number">8080</span>                             $ nc <span class="hljs-operator">-l</span> -u <span class="hljs-number">8080</span>
+hello                                    hello
+internet domain socket                   internet domain socket
+</code></pre>
+<ul>
+<li>computer2</li>
+</ul>
+<pre><code class="lang-bash"><span class="hljs-comment"># TCP                                    # UDP</span>
+$ nc <span class="hljs-number">12.34</span>.<span class="hljs-number">56.78</span> <span class="hljs-number">8080</span>                    $ nc -u <span class="hljs-number">12.34</span>.<span class="hljs-number">56.78</span> <span class="hljs-number">8080</span>
+hello                                    hello
+internet domain socket                   internet domain socket
+</code></pre>
+<p>&#xB2E4;&#xC74C;&#xC740; socket &#xC744; &#xC774;&#xC6A9;&#xD574;&#xC11C; tar &#xD30C;&#xC77C;&#xC744; &#xC804;&#xC1A1;&#xD558;&#xB294; &#xC608;&#xC785;&#xB2C8;&#xB2E4;.</p>
+<ul>
+<li>computer1</li>
+</ul>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#xBA3C;&#xC800; tar &#xD30C;&#xC77C;&#xC744; &#xBC1B;&#xB294; &#xCEF4;&#xD4E8;&#xD130;&#xC5D0;&#xC11C; &#xB2E4;&#xC74C; &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;.</span>
+$ nc <span class="hljs-operator">-l</span> <span class="hljs-number">8080</span> | tar -xvz
+</code></pre>
+<ul>
+<li>computer2</li>
+</ul>
+<pre><code class="lang-bash"><span class="hljs-comment"># dir1 &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB97C; tar &#xD558;&#xACE0; &#xD30C;&#xC774;&#xD504;&#xB97C; &#xD1B5;&#xD574; nc &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xC804;&#xB2EC;&#xD569;&#xB2C8;&#xB2E4;.</span>
+$ tar -cvz ./dir1 | nc -N <span class="hljs-number">12.34</span>.<span class="hljs-number">56.78</span> <span class="hljs-number">8080</span>
+./dir1/
+./dir1/socat
+./dir1/ncat
+./dir1/websock.sh
+. . .
+----------------------------------------------------
+<span class="hljs-comment"># &#xB610;&#xB294; bash &#xC5D0;&#xC11C; &#xC81C;&#xACF5;&#xD558;&#xB294; socket &#xC5F0;&#xACB0; &#xAE30;&#xB2A5;&#xC744; &#xC0AC;&#xC6A9;</span>
+$ tar -cvz ./dir1 &gt; /dev/tcp/<span class="hljs-number">12.34</span>.<span class="hljs-number">56.78</span>/<span class="hljs-number">8080</span>     <span class="hljs-comment"># &#xD638;&#xC2A4;&#xD2B8; &#xC8FC;&#xC18C;&#xC5D0; &#xB85C;&#xCEEC;&#xD638;&#xC2A4;&#xD2B8;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xB824;&#xBA74;</span>
+./dir1/                                           <span class="hljs-comment"># localhost &#xB610;&#xB294; 0.0.0.0</span>
+./dir1/socat
+./dir1/ncat
+./dir1/websock.sh
+. . .
+</code></pre>
+<h3 id="bash-&#xC5D0;&#xC11C;-&#xC81C;&#xACF5;&#xD558;&#xB294;-socket-&#xC5F0;&#xACB0;-&#xAE30;&#xB2A5;">Bash &#xC5D0;&#xC11C; &#xC81C;&#xACF5;&#xD558;&#xB294; socket &#xC5F0;&#xACB0; &#xAE30;&#xB2A5;</h3>
+<p>bash &#xC5D0;&#xC11C;&#xB294; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xC5D0;&#xC11C; &#xC9C1;&#xC811; socket &#xC5D0; &#xC5F0;&#xACB0;&#xD560; &#xC218; &#xC788;&#xB294; &#xAE30;&#xB2A5;&#xC744; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xD615;&#xC2DD;&#xC744; &#xD1B5;&#xD574; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;.
+protocol &#xC740; tcp &#xB610;&#xB294; udp &#xB97C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<blockquote>
+<p>exec {file-descriptor}&lt;&gt; /dev/{protocol}/{host}/{port}  </p>
+<p>command &gt; /dev/{protocol}/{host}/{port}</p>
+</blockquote>
+<p>&#xC2E4;&#xC81C; /dev/protocal/host/port &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xAC00; &#xC874;&#xC7AC;&#xD558;&#xB294; &#xAC83;&#xC740; &#xC544;&#xB2D9;&#xB2C8;&#xB2E4;.
+bash &#xC5D0;&#xC11C; socket &#xC5F0;&#xACB0; &#xAE30;&#xB2A5;&#xC744; &#xC81C;&#xACF5;&#xD558;&#xAE30; &#xC704;&#xD574; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xC8FC;&#xC18C; &#xD615;&#xC2DD;&#xC774;&#xB77C;&#xACE0; &#xC0DD;&#xAC01;&#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.
+&#xB9AC;&#xC2A4;&#xB2DD;&#xC744; &#xC704;&#xD55C; &#xC11C;&#xBC84; socket &#xC740; <code>nc -l {port}</code> &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ cat &lt; /dev/tcp/time.nist.gov/<span class="hljs-number">13</span>
+<span class="hljs-number">57752</span> <span class="hljs-number">16</span>-<span class="hljs-number">12</span>-<span class="hljs-number">30</span> <span class="hljs-number">15</span>:<span class="hljs-number">11</span>:<span class="hljs-number">41</span> <span class="hljs-number">00</span> <span class="hljs-number">1</span> <span class="hljs-number">0</span> <span class="hljs-number">602.7</span> UTC(NIST) *
+
+$ <span class="hljs-built_in">exec</span> <span class="hljs-number">3</span>&lt;&gt; /dev/tcp/www.google.com/<span class="hljs-number">80</span>
+
+$ ls <span class="hljs-operator">-l</span> /dev/fd/
+total <span class="hljs-number">0</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2020</span>-<span class="hljs-number">02</span>-<span class="hljs-number">26</span> <span class="hljs-number">17</span>:<span class="hljs-number">42</span> <span class="hljs-number">0</span> -&gt; /dev/pts/<span class="hljs-number">13</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2020</span>-<span class="hljs-number">02</span>-<span class="hljs-number">26</span> <span class="hljs-number">17</span>:<span class="hljs-number">42</span> <span class="hljs-number">1</span> -&gt; /dev/pts/<span class="hljs-number">13</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2020</span>-<span class="hljs-number">02</span>-<span class="hljs-number">26</span> <span class="hljs-number">17</span>:<span class="hljs-number">42</span> <span class="hljs-number">2</span> -&gt; /dev/pts/<span class="hljs-number">13</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2020</span>-<span class="hljs-number">02</span>-<span class="hljs-number">26</span> <span class="hljs-number">17</span>:<span class="hljs-number">42</span> <span class="hljs-number">3</span> -&gt; socket:[<span class="hljs-number">4419777</span>]    <span class="hljs-comment"># socket</span>
+lr-x------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2020</span>-<span class="hljs-number">02</span>-<span class="hljs-number">26</span> <span class="hljs-number">17</span>:<span class="hljs-number">42</span> <span class="hljs-number">4</span> -&gt; /proc/<span class="hljs-number">8058</span>/fd/
+
+$ <span class="hljs-built_in">echo</span> hello &gt;&amp; <span class="hljs-number">3</span>
+$ cat &lt;&amp; <span class="hljs-number">3</span>
+HTTP/<span class="hljs-number">1.0</span> <span class="hljs-number">400</span> Bad Request
+Content-Type: text/html; charset=UTF-<span class="hljs-number">8</span>
+Referrer-Policy: no-referrer
+...
+...
+$ <span class="hljs-built_in">exec</span> <span class="hljs-number">3</span>&gt;&amp;-
+</code></pre>
+<hr>
+<p>Job Control &#xBA54;&#xB274;&#xC5D0; &#xBCF4;&#xBA74; wait &#xBA85;&#xB839;&#xACFC; &#xD30C;&#xC77C;&#xC744; &#xC774;&#xC6A9;&#xD574;&#xC11C; background job &#xB4E4;&#xC758; exit &#xAC12;&#xC744; &#xAD6C;&#xD558;&#xB294; &#xC608;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xADF8;&#xAC83;&#xC744; named pipe &#xB97C; &#xC774;&#xC6A9;&#xD574; &#xBC14;&#xAFBC; &#xAC83;&#xC778;&#xB370;&#xC694;. &#xC5EC;&#xAE30;&#xC11C; &#xB208;&#xC5EC;&#xACA8;&#xBCFC; &#xC810;&#xC740; FD &#xB97C; named pipe &#xC5D0; &#xC5F0;&#xACB0;&#xD574; &#xC0AC;&#xC6A9;&#xD558;&#xC9C0; &#xC54A;&#xC73C;&#xBA74; <code>while read -r res</code> &#xBB38;&#xC5D0;&#xC11C; &#xC77D;&#xC744; &#xB370;&#xC774;&#xD130;&#xAC00; &#xC5C6;&#xC744;&#xACBD;&#xC6B0; &#xBC14;&#xB85C; &#xC885;&#xB8CC;&#xAC00; &#xB429;&#xB2C8;&#xB2E4;. &#xC774; &#xBC29;&#xBC95;&#xC758; &#xC7A5;&#xC810;&#xC740;  &#xC885;&#xB8CC;&#xC0C1;&#xD0DC; &#xAC12;&#xC744; &#xAD6C;&#xD558;&#xAE30; &#xC704;&#xD574; 10 &#xAC1C;&#xC758; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xBAA8;&#xB450;  &#xC885;&#xB8CC;&#xB420; &#xB54C;&#xAE4C;&#xC9C0; &#xAE30;&#xB2E4;&#xB9AC;&#xC9C0; &#xC54A;&#xC544;&#xB3C4; &#xB41C;&#xB2E4;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash"><span class="hljs-shebang">#!/bin/bash
+</span>
+<span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;rm -f $mypipe&apos;</span> EXIT
+
+mypipe=`mktemp -u`
+mkfifo <span class="hljs-variable">$mypipe</span>
+<span class="hljs-built_in">exec</span> {fd1}&lt;&gt; <span class="hljs-variable">$mypipe</span>    <span class="hljs-comment"># fd1 &#xB97C; named pipe &#xC5D0; &#xC5F0;&#xACB0;</span>
+
+num_of_<span class="hljs-built_in">jobs</span>=<span class="hljs-number">10</span>
+
+<span class="hljs-function"><span class="hljs-title">do_job</span></span>() {
+    <span class="hljs-built_in">echo</span> start job <span class="hljs-variable">$i</span>...
+    sleep $((RANDOM % <span class="hljs-number">5</span>)) 
+    <span class="hljs-built_in">echo</span> ...done job <span class="hljs-variable">$i</span>
+    <span class="hljs-built_in">exit</span> $((RANDOM % num_of_<span class="hljs-built_in">jobs</span>))
+}
+
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> `seq <span class="hljs-variable">$num_of_jobs</span>`; <span class="hljs-keyword">do</span>
+( 
+    <span class="hljs-built_in">trap</span> <span class="hljs-string">&quot;echo job<span class="hljs-variable">$i</span> ---------- exit status: \$? &gt;&amp; <span class="hljs-variable">$fd1</span>&quot;</span> EXIT
+    <span class="hljs-keyword">do</span>_job 
+) &amp;
+<span class="hljs-keyword">done</span>
+
+i=<span class="hljs-number">1</span>
+<span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> -r res; <span class="hljs-keyword">do</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$res</span>&quot;</span>
+    [ <span class="hljs-variable">$i</span> <span class="hljs-operator">-eq</span> <span class="hljs-variable">$num_of_jobs</span> ] &amp;&amp; <span class="hljs-built_in">break</span> 
+    <span class="hljs-built_in">let</span> ++i
+<span class="hljs-keyword">done</span> &lt;&amp; <span class="hljs-variable">$fd1</span>
+
+<span class="hljs-built_in">echo</span> <span class="hljs-variable">$i</span> <span class="hljs-built_in">jobs</span> <span class="hljs-keyword">done</span> !!!
+
+<span class="hljs-comment">###########  output  ###########</span>
+
+start job <span class="hljs-number">1</span>...
+start job <span class="hljs-number">2</span>...
+start job <span class="hljs-number">3</span>...
+start job <span class="hljs-number">4</span>...
+start job <span class="hljs-number">5</span>...
+...done job <span class="hljs-number">4</span>
+job4 ---------- <span class="hljs-built_in">exit</span> status: <span class="hljs-number">0</span>
+...done job <span class="hljs-number">1</span>
+...done job <span class="hljs-number">5</span>
+job1 ---------- <span class="hljs-built_in">exit</span> status: <span class="hljs-number">3</span>
+job5 ---------- <span class="hljs-built_in">exit</span> status: <span class="hljs-number">0</span>
+...done job <span class="hljs-number">3</span>
+job3 ---------- <span class="hljs-built_in">exit</span> status: <span class="hljs-number">4</span>
+...done job <span class="hljs-number">2</span>
+job2 ---------- <span class="hljs-built_in">exit</span> status: <span class="hljs-number">0</span>
+<span class="hljs-number">5</span> <span class="hljs-built_in">jobs</span> <span class="hljs-keyword">done</span> !!!
+</code></pre>
+<blockquote>
+<ol>
+<li><code>&gt;&amp; FD</code> &#xC640; <code>&lt;&amp; FD</code> &#xB300;&#xC2E0;&#xC5D0; <code>&gt; mypipe</code> &#xC640; <code>&lt; mypipe</code> &#xB97C; &#xC0AC;&#xC6A9;&#xD574;&#xB3C4; &#xB418;&#xC9C0;&#xB9CC;
+<code>mypipe</code> &#xB97C; &#xC774;&#xC6A9;&#xD558;&#xB294; &#xAC83;&#xC740; &#xB9E4;&#xBC88; open, close &#xACFC;&#xC815;&#xC744; &#xAC70;&#xCE58;&#xAC8C; &#xB418;&#xBBC0;&#xB85C; <code>FD</code> &#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xAC83;&#xC774; &#xC88B;&#xC2B5;&#xB2C8;&#xB2E4;.  </li>
+<li>while &#xBB38;&#xC5D0;&#xC11C; <code>FD</code> &#xB97C; done &#xD0A4;&#xC6CC;&#xB4DC;&#xC5D0; &#xC5F0;&#xACB0;&#xD558;&#xC9C0; &#xC54A;&#xACE0; <code>read -r res &lt;&amp; FD</code> &#xC640; &#xAC19;&#xC774; &#xC0AC;&#xC6A9;&#xD560; &#xC218;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC0DD;&#xC131;&#xD55C; FD &#xB294; read &#xBA85;&#xB839;&#xC758; &#xC2E4;&#xD589;&#xC774; &#xC885;&#xB8CC;&#xB418;&#xC5B4;&#xB3C4; close &#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.</li>
+</ol>
+</blockquote>
+<hr>
+<p>&#xB2E4;&#xC74C; &#xC608;&#xC81C;&#xB294; &#xD30C;&#xC774;&#xD504;&#xC5D0;&#xC11C; &#xC77D;&#xC744; &#xB370;&#xC774;&#xD130;&#xAC00; &#xC5C6;&#xC744; &#xACBD;&#xC6B0; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xBE14;&#xB85D; &#xB41C;&#xB2E4;&#xB294; &#xC810;&#xC744; &#xC774;&#xC6A9;&#xD574;&#xC11C;
+&#xC77C;&#xC885;&#xC758; process pool &#xC744; &#xB9CC;&#xB4DC;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.
+multiple processes &#xAC00; &#xB3D9;&#xC2DC;&#xC5D0; &#xD558;&#xB098;&#xC758; &#xD30C;&#xC774;&#xD504;&#xB97C; &#xC77D;&#xAE30; &#xD558;&#xB294; &#xAC83;&#xC740; &#xBB38;&#xC81C;&#xAC00; &#xC788;&#xC9C0;&#xB9CC; 1 byte &#xC529;&#xC740; &#xAD1C;&#xCC2E;&#xC2B5;&#xB2C8;&#xB2E4;.
+fifo_work &#xD30C;&#xC774;&#xD504;&#xB294; main &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; worker &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB4E4;&#xC5D0;&#xAC8C; 1 byte &#xC529; &#xC804;&#xB2EC;&#xD558;&#xC5EC; &#xAE68;&#xC5B4;&#xB098;&#xAC8C; &#xD558;&#xB294; &#xC6A9;&#xB3C4;&#xB85C; &#xC0AC;&#xC6A9;&#xB418;&#xACE0;
+fifo_exit &#xD30C;&#xC774;&#xD504;&#xB294; worker &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; main &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC5D0;&#xAC8C; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC744; &#xC804;&#xB2EC;&#xD558;&#xB294; &#xC6A9;&#xB3C4;&#xB85C; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.</p>
+<p><strong>&#xC0AC;&#xC6A9;&#xBC29;&#xBC95; )</strong></p>
+<ol>
+<li>process pool &#xC5D0; &#xC791;&#xC5C5;&#xD560;&#xB2F9; ( <code>x</code> &#xC774;&#xC678;&#xC758; &#xBB38;&#xC790;&#xC0AC;&#xC6A9; ) : <code>11</code> ( 2&#xAC1C; &#xD560;&#xB2F9; ) <code>111</code> ( 3&#xAC1C; &#xD560;&#xB2F9; ) ...</li>
+<li>worker &#xD504;&#xB85C;&#xC138;&#xC2A4; &#xC885;&#xB8CC; : <code>x</code> ( 1&#xAC1C; &#xC885;&#xB8CC; ) <code>xx</code> ( 2&#xAC1C; &#xC885;&#xB8CC; ) ...</li>
+<li><code>q</code> : &#xC804;&#xCCB4; &#xD504;&#xB85C;&#xADF8;&#xB7A8; &#xC885;&#xB8CC;</li>
+</ol>
+<pre><code class="lang-bash"><span class="hljs-shebang">#!/bin/bash
+</span>
+fifo_work=`mktemp -u`   <span class="hljs-comment"># main &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; worker &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB4E4;&#xC5D0;&#xAC8C; 1 byte &#xC529; &#xC804;&#xB2EC;&#xD558;&#xB294; &#xC6A9;&#xB3C4;</span>
+mkfifo <span class="hljs-variable">$fifo_work</span>
+<span class="hljs-built_in">exec</span> {fd_work}&lt;&gt; <span class="hljs-variable">$fifo_work</span>
+
+fifo_<span class="hljs-built_in">exit</span>=`mktemp -u`   <span class="hljs-comment"># worker &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; exit status &#xB97C; main &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC5D0;&#xAC8C; &#xC804;&#xB2EC;&#xD558;&#xB294; &#xC6A9;&#xB3C4;</span>
+mkfifo <span class="hljs-variable">$fifo_exit</span>
+<span class="hljs-built_in">exec</span> {fd_<span class="hljs-built_in">exit</span>}&lt;&gt; <span class="hljs-variable">$fifo_exit</span>
+
+<span class="hljs-comment"># named pipe &#xD30C;&#xC77C;&#xC740; &#xC678;&#xBD80;&#xC5D0;&#xC11C; &#xB2E4;&#xB978; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; read, write &#xD560; &#xC218; &#xC788;&#xAE30; &#xB54C;&#xBB38;&#xC5D0;</span>
+<span class="hljs-comment"># FD &#xB97C; named pipe &#xC5D0; &#xC5F0;&#xACB0;&#xD55C; &#xD6C4;&#xC5D0;&#xB294; &#xC0AD;&#xC81C;&#xD569;&#xB2C8;&#xB2E4;.</span>
+rm <span class="hljs-operator">-f</span> <span class="hljs-variable">$fifo_work</span> <span class="hljs-variable">$fifo_exit</span>
+
+num_of_process=<span class="hljs-number">4</span>               <span class="hljs-comment"># process pool &#xD504;&#xB85C;&#xC138;&#xC2A4; &#xAC1C;&#xC218;</span>
+
+<span class="hljs-keyword">do</span>_job() (
+    <span class="hljs-built_in">echo</span> process <span class="hljs-variable">$i</span> running...
+    sleep $((RANDOM % <span class="hljs-number">5</span> + <span class="hljs-number">2</span>)) 
+    <span class="hljs-built_in">echo</span> ...process <span class="hljs-variable">$i</span> done.
+    <span class="hljs-built_in">exit</span> $((RANDOM % <span class="hljs-number">10</span>))
+)
+
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> `seq <span class="hljs-variable">$num_of_process</span>`; <span class="hljs-keyword">do</span>
+( 
+    <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> -n <span class="hljs-number">1</span> val; <span class="hljs-keyword">do</span>            <span class="hljs-comment"># fd_work &#xC73C;&#xB85C; &#xBD80;&#xD130; 1 byte &#xB97C; &#xC77D;&#xC5B4;&#xB4E4;&#xC784;</span>
+        <span class="hljs-keyword">if</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">$val</span>&quot;</span> = <span class="hljs-string">&quot;x&quot;</span> ]; <span class="hljs-keyword">then</span> 
+            <span class="hljs-built_in">echo</span> process <span class="hljs-variable">$i</span> <span class="hljs-built_in">exit</span> !!! 
+            <span class="hljs-built_in">exit</span>                       <span class="hljs-comment"># &#xAC12;&#xC774; &quot;x&quot; &#xC774;&#xBA74; exit &#xD569;&#xB2C8;&#xB2E4;.</span>
+        <span class="hljs-keyword">else</span> 
+            <span class="hljs-keyword">do</span>_job    <span class="hljs-comment"># &#xC791;&#xC5C5;&#xC774; &#xC644;&#xB8CC;&#xB418;&#xBA74; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC744; fd_exit &#xC73C;&#xB85C; &#xC804;&#xB2EC;</span>
+            <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;&gt;&gt;&gt;process <span class="hljs-variable">$i</span> exit status: $?&quot;</span> &gt;&amp; <span class="hljs-variable">$fd_exit</span>
+        <span class="hljs-keyword">fi</span>
+    <span class="hljs-keyword">done</span> &lt;&amp; <span class="hljs-variable">$fd_work</span> 
+) &amp;
+<span class="hljs-keyword">done</span>
+
+<span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> -p <span class="hljs-string">&quot;enter : &quot;</span> val; <span class="hljs-keyword">do</span>
+    [ <span class="hljs-string">&quot;<span class="hljs-variable">$val</span>&quot;</span> = <span class="hljs-string">&quot;q&quot;</span> ] &amp;&amp; <span class="hljs-built_in">kill</span> <span class="hljs-number">0</span>             <span class="hljs-comment"># &quot;q&quot; : &#xC804;&#xCCB4; &#xD504;&#xB85C;&#xADF8;&#xB7A8; &#xC885;&#xB8CC;</span>
+    num=$( <span class="hljs-built_in">echo</span> -n <span class="hljs-string">&quot;<span class="hljs-variable">$val</span>&quot;</span> | wc -c )
+    <span class="hljs-built_in">echo</span> -n <span class="hljs-string">&quot;<span class="hljs-variable">$val</span>&quot;</span> &gt;&amp; <span class="hljs-variable">$fd_work</span>             <span class="hljs-comment"># &#xC785;&#xB825;&#xBC1B;&#xC740; &#xBB38;&#xC790;&#xB97C; fd_work &#xC73C;&#xB85C; &#xC804;&#xB2EC;</span>
+
+    i=<span class="hljs-number">1</span>
+    <span class="hljs-keyword">if</span> [[ <span class="hljs-variable">$num</span> <span class="hljs-operator">-gt</span> <span class="hljs-number">0</span> &amp;&amp; <span class="hljs-variable">$val</span> != *x* ]]; <span class="hljs-keyword">then</span>    <span class="hljs-comment"># &#xAC12;&#xC774; &quot;x&quot; &#xAC00; &#xC544;&#xB2D0; &#xACBD;&#xC6B0; </span>
+        <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> -r res; <span class="hljs-keyword">do</span>                   <span class="hljs-comment"># fd_exit &#xC73C;&#xB85C; &#xBD80;&#xD130;</span>
+            <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$res</span>&quot;</span>                         <span class="hljs-comment"># &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC744; &#xC77D;&#xC5B4;&#xB4E4;&#xC784;</span>
+            [ <span class="hljs-string">&quot;<span class="hljs-variable">$i</span>&quot;</span> <span class="hljs-operator">-eq</span> <span class="hljs-string">&quot;<span class="hljs-variable">$num</span>&quot;</span> ] &amp;&amp; <span class="hljs-built_in">break</span> 
+            <span class="hljs-built_in">let</span> ++i
+        <span class="hljs-keyword">done</span> &lt;&amp; <span class="hljs-variable">$fd_exit</span>
+    <span class="hljs-keyword">fi</span>
+<span class="hljs-keyword">done</span>
+</code></pre>
+<video width="780" controls preload="auto">
+  <source src="images/process_pool.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+
+<h4 id="go-&#xC5B8;&#xC5B4;&#xC758;-channel-&#xC740;-&#xD30C;&#xC774;&#xD504;&#xC640;-&#xBE44;&#xC2B7;&#xD558;&#xB2E4;">Go &#xC5B8;&#xC5B4;&#xC758; channel &#xC740; &#xD30C;&#xC774;&#xD504;&#xC640; &#xBE44;&#xC2B7;&#xD558;&#xB2E4;.</h4>
+<p>&#xBA40;&#xD2F0;&#xCF54;&#xC5B4; CPU &#xB97C; &#xC880;&#xB354; &#xC27D;&#xAC8C; &#xD65C;&#xC6A9;&#xD558;&#xAE30; &#xC704;&#xD55C; &#xD504;&#xB85C;&#xADF8;&#xB798;&#xBC0D; &#xAE30;&#xBC95;&#xACFC; &#xC5B8;&#xC5B4;&#xB4E4;&#xC774; &#xB9CC;&#xB4E4;&#xC5B4;&#xC9C0;&#xACE0; &#xC788;&#xB294;&#xB370;&#xC694;.
+&#xC5EC;&#xAE30;&#xC5D0; Go &#xC5B8;&#xC5B4;&#xB294; channel &#xC744; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. &#xADF8;&#xB7F0;&#xB370; &#xC774; channel &#xC774; &#xC704;&#xC5D0;&#xC11C; &#xC124;&#xBA85;&#xD55C; pipe &#xC640;
+&#xBE44;&#xC2B7;&#xD558;&#xAC8C; &#xB3D9;&#xC791;&#xD569;&#xB2C8;&#xB2E4; ( &#xD30C;&#xC774;&#xD504; &#xC5C5;&#xADF8;&#xB808;&#xC774;&#xB4DC; &#xBC84;&#xC804;&#xC774;&#xB77C;&#xACE0; &#xBCF4;&#xBA74; &#xB428;. &#xD30C;&#xC774;&#xD504; &#xBC84;&#xD37C; &#xC0AC;&#xC774;&#xC988;&#xB3C4; 
+&#xC0AC;&#xC6A9;&#xC790;&#xAC00; &#xB9C8;&#xC74C;&#xB300;&#xB85C; &#xC124;&#xC815;&#xD560; &#xC218; &#xC788;&#xACE0;, Multiple Readers, Writers &#xB97C; &#xD574;&#xB3C4; &#xBB38;&#xC81C;&#xAC00; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4; ).
+&#xB2E4;&#xC74C;&#xC740; web crawler &#xC5D0;&#xC11C; &#xC774;&#xC804;&#xC5D0; &#xBC29;&#xBB38;&#xD588;&#xB358; url &#xC744; map &#xC5D0; &#xC800;&#xC7A5;&#xD574;&#xC11C; &#xC7AC;&#xBC29;&#xBB38; &#xD558;&#xB294;&#xAC83;&#xC744; 
+&#xBC29;&#xC9C0;&#xD558;&#xB294; &#xAC83;&#xC778;&#xB370;&#xC694;. &#xC5EC;&#xAE30;&#xC11C; map &#xC740; &#xC5EC;&#xB7EC; &#xC2A4;&#xB808;&#xB4DC;&#xAC00; &#xB3D9;&#xC2DC;&#xC5D0; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xACF5;&#xC720;&#xC790;&#xC6D0;&#xC774; &#xB418;&#xB294;&#xB370; 
+&#xAE30;&#xC874;&#xC5D0;&#xB294; lock &#xC744; &#xC0AC;&#xC6A9;&#xD574; &#xBCF4;&#xD638;&#xD588;&#xB2E4;&#xBA74; Go &#xC5D0;&#xC11C;&#xB294; channel &#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; lock &#xC774; &#xD544;&#xC694;&#xC5C6;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;. </p>
+<pre><code class="lang-go"><span class="hljs-comment">// &#xB450; &#xBC88;&#xC9F8; &#xC778;&#xC218;&#xB294; string &#xC744; key &#xB85C; &#xD558;&#xACE0; bool &#xC744; value &#xB85C; &#xD558;&#xB294; map &#xC744; &#xC804;&#xB2EC;&#xD558;&#xB294; channel.</span>
+<span class="hljs-comment">// &#xCC44;&#xB110; &#xC774;&#xB984; &#xC67C;&#xCABD;&#xC5D0; &#xBD99;&#xB294; &lt;- &#xB294; read &#xB97C; &#xC758;&#xBBF8;&#xD558;&#xACE0; &#xC624;&#xB978;&#xCABD;&#xC5D0; &#xBD99;&#xB294; &lt;- &#xB294; write &#xC744; &#xC758;&#xBBF8;&#xD569;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-keyword">func</span> Crawl (url <span class="hljs-typename">string</span>, visited_ch <span class="hljs-keyword">chan</span> <span class="hljs-keyword">map</span>[<span class="hljs-typename">string</span>]<span class="hljs-typename">bool</span>, ...&#xAE30;&#xD0C0;&#xC778;&#xC218;) {
+    visited := &lt;-visited_ch      <span class="hljs-comment">// channel &#xC5D0;&#xC11C; map &#xC744; &#xD558;&#xB098; &#xC77D;&#xC5B4;&#xB4E4;&#xC5EC; visited &#xB294; map &#xC774;&#xB41C;&#xB2E4;.</span>
+    found := visited[url]        <span class="hljs-comment">// &#xC774;&#xC804;&#xC5D0; url &#xC744; &#xC124;&#xC815;&#xD558;&#xC9C0; &#xC54A;&#xC558;&#xB2E4;&#xBA74; found &#xB294; false &#xAC00; &#xB41C;&#xB2E4;.</span>
+    visited[url] = <span class="hljs-constant">true</span>          <span class="hljs-comment">// map &#xC5D0; url &#xC744; key &#xB85C; &#xD558;&#xACE0; value &#xB294; true &#xB85C; &#xC124;&#xC815;.</span>
+    visited_ch &lt;- visited        <span class="hljs-comment">// &#xC124;&#xC815;&#xC774; &#xC644;&#xB8CC;&#xB418;&#xC5C8;&#xC73C;&#xBA74; &#xB2E4;&#xC2DC; map &#xC744; channel &#xB85C; &#xC804;&#xB2EC;.</span>
+                                 <span class="hljs-comment">// &#xCCAB; &#xBC88;&#xC9F8; &#xB77C;&#xC778;&#xC5D0;&#xC11C; &lt;-visited_ch (read &#xBE14;&#xB85D;&#xC0C1;&#xD0DC;) &#xC5D0; &#xC788;&#xB358;</span>
+    <span class="hljs-keyword">if</span> found { <span class="hljs-keyword">return</span> }          <span class="hljs-comment">// &#xB2E4;&#xB978; &#xC2A4;&#xB808;&#xB4DC;&#xAC00; map &#xC744; &#xC804;&#xB2EC;&#xBC1B;&#xAC8C; &#xB418;&#xACE0; &#xC2E4;&#xD589;&#xC744; &#xC7AC;&#xAC1C;&#xD569;&#xB2C8;&#xB2E4;.</span>
+    . . .                        <span class="hljs-comment">// &#xB530;&#xB77C;&#xC11C; lock &#xC5C6;&#xC774;&#xB3C4; &#xACF5;&#xC720;&#xC790;&#xC6D0;&#xC744; &#xBCF4;&#xD638;&#xD560; &#xC218; &#xC788;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</span>
+}
+</code></pre>
+<h4 id="file-io-&#xB294;-&#xC65C;-&#xB3D9;&#xAE30;&#xC801;&#xC73C;&#xB85C;-&#xCC98;&#xB9AC;&#xB420;&#xAE4C;">File I/O &#xB294; &#xC65C; &#xB3D9;&#xAE30;&#xC801;&#xC73C;&#xB85C; &#xCC98;&#xB9AC;&#xB420;&#xAE4C;?</h4>
+<p>&#xBE44;&#xB3D9;&#xAE30; &#xD504;&#xB808;&#xC784;&#xC6CC;&#xD06C;&#xB85C; &#xC720;&#xBA85;&#xD55C; nodejs &#xC5D0;&#xC11C;&#xB3C4; file I/O &#xB9CC;&#xD07C;&#xC740; &#xB530;&#xB85C; thread pool &#xC744; &#xB450;&#xC5B4;&#xC11C;
+&#xB3D9;&#xAE30;&#xC801;&#xC73C;&#xB85C; &#xCC98;&#xB9AC;&#xD558;&#xB294;&#xB370;&#xC694;.  &#xC774;&#xAC83;&#xC740; &#xC2E4;&#xC81C; &#xB514;&#xC2A4;&#xD06C;&#xC5D0;&#xC11C; &#xB370;&#xC774;&#xD130;&#xB97C; &#xAC00;&#xC838;&#xC624;&#xAC70;&#xB098; &#xC4F0;&#xB294;&#xB370; &#xC2DC;&#xAC04;&#xC774;
+&#xAC78;&#xB9AC;&#xB354;&#xB77C;&#xB3C4; &#xD56D;&#xC0C1; ok &#xAC00; &#xB418;&#xAE30; &#xB54C;&#xBB38;&#xC785;&#xB2C8;&#xB2E4;. 
+linux &#xB294; &#xBC84;&#xC804; 5.1 &#xBD80;&#xD130; <a href="https://unixism.net/loti/index.html" target="_blank">io_uring API</a> &#xAC00; &#xC81C;&#xACF5;&#xB418;&#xB294;&#xB370;&#xC694;.
+&#xC774;&#xAC83;&#xC740; epoll &#xC5D0;&#xC11C;&#xCC98;&#xB7FC; readiness model ( &#xC900;&#xBE44;&#xAC00; &#xB410;&#xC744;&#xB54C; &#xC774;&#xBCA4;&#xD2B8; &#xBC1C;&#xC0DD; ) &#xC774; &#xC544;&#xB2C8;&#xB77C; completion model ( &#xC644;&#xB8CC;&#xAC00; &#xB410;&#xC744;&#xB54C; &#xC774;&#xBCA4;&#xD2B8; &#xBC1C;&#xC0DD; ) &#xC744; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.
+&#xB530;&#xB77C;&#xC11C; block devices &#xB098; file I/O &#xC5D0;&#xC11C;&#xB3C4; &#xBE44;&#xB3D9;&#xAE30; &#xCC98;&#xB9AC;&#xAC00; &#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<blockquote>
+<p>io_uring &#xB3C4; &#xB0B4;&#xBD80;&#xC801;&#xC73C;&#xB85C;&#xB294; &#xCEE4;&#xB110; &#xC2A4;&#xB808;&#xB4DC;&#xB97C; &#xC774;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.
+&#xADF8;&#xB7EC;&#xB2C8;&#xAE4C; &#xC0AC;&#xC6A9;&#xC790; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC774; &#xC9C1;&#xC811; thread pool &#xC744; &#xC6B4;&#xC6A9;&#xD560; &#xD544;&#xC694;&#xAC00; &#xC5C6;&#xC5B4;&#xC9C0;&#xB294; &#xAC70;&#xC8E0;.
+nodejs &#xAC00; &#xC774;&#xC6A9;&#xD558;&#xACE0; &#xC788;&#xB294; libuv &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC; &#xC5D0;&#xC11C; io_uring &#xC0AC;&#xC6A9;&#xD588;&#xC744;&#xB54C; &#xAE30;&#xC874;&#xC5D0; &#xBE44;&#xD574;
+8&#xBC30; &#xAE4C;&#xC9C0; throughput &#xC774; &#xC99D;&#xAC00;&#xD588;&#xB2E4;&#xACE0; &#xD569;&#xB2C8;&#xB2E4;. (<a href="https://www.phoronix.com/news/libuv-io-uring" target="_blank">&#xB9C1;&#xD06C;</a>)</p>
+</blockquote>
+<h1 id="quiz">Quiz</h1>
+<p>named pipe &#xC5D0; FD &#xB97C; &#xC5F0;&#xACB0;&#xD55C; &#xD6C4;&#xC5D0; &#xD30C;&#xC77C;&#xC744; &#xC0AD;&#xC81C;&#xD558;&#xBA74; &#xC5B4;&#xB5BB;&#xAC8C; &#xB420;&#xAE4C;&#xC694;?</p>
+<p>&#xC544;&#xB798; &#xD14C;&#xC2A4;&#xD2B8;&#xC5D0;&#xC11C; &#xBCF4;&#xBA74; &#xC54C; &#xC218; &#xC788;&#xB4EF;&#xC774; &#xD30C;&#xC77C;&#xC774; &#xC0AD;&#xC81C;&#xB418;&#xC5B4;&#xB3C4; FD &#xB294; &#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C;
+&#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p><strong>1</strong> . named pipe &#xC0DD;&#xC131; &#xD6C4; FD &#xC5F0;&#xACB0;</p>
+<pre><code class="lang-bash">$ pipe=$(mktemp -u)      
+
+$ mkfifo <span class="hljs-variable">$pipe</span>
+
+$ ls <span class="hljs-operator">-l</span> <span class="hljs-variable">$pipe</span>
+prw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">0</span> <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">16</span> <span class="hljs-number">21</span>:<span class="hljs-number">30</span> /tmp/tmp.w1NNYBmni9|
+
+$ file <span class="hljs-variable">$pipe</span>
+/tmp/tmp.w1NNYBmni9: fifo (named pipe)
+
+$ <span class="hljs-built_in">exec</span> <span class="hljs-number">3</span>&lt;&gt; <span class="hljs-variable">$pipe</span>
+
+$ ls <span class="hljs-operator">-l</span> /proc/$$/fd
+total <span class="hljs-number">0</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">16</span> <span class="hljs-number">21</span>:<span class="hljs-number">13</span> <span class="hljs-number">0</span> -&gt; /dev/pts/<span class="hljs-number">14</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">16</span> <span class="hljs-number">21</span>:<span class="hljs-number">13</span> <span class="hljs-number">1</span> -&gt; /dev/pts/<span class="hljs-number">14</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">16</span> <span class="hljs-number">21</span>:<span class="hljs-number">13</span> <span class="hljs-number">2</span> -&gt; /dev/pts/<span class="hljs-number">14</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">16</span> <span class="hljs-number">21</span>:<span class="hljs-number">13</span> <span class="hljs-number">255</span> -&gt; /dev/pts/<span class="hljs-number">14</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">16</span> <span class="hljs-number">21</span>:<span class="hljs-number">15</span> <span class="hljs-number">3</span> -&gt; /tmp/tmp.w1NNYBmni9|
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-number">111</span> &gt;&amp;<span class="hljs-number">3</span>
+$ <span class="hljs-built_in">echo</span> <span class="hljs-number">222</span> &gt;&amp;<span class="hljs-number">3</span>
+
+$ <span class="hljs-built_in">read</span> line &lt;&amp;<span class="hljs-number">3</span>; <span class="hljs-built_in">echo</span> <span class="hljs-variable">$line</span>
+<span class="hljs-number">111</span>
+$ <span class="hljs-built_in">read</span> line &lt;&amp;<span class="hljs-number">3</span>; <span class="hljs-built_in">echo</span> <span class="hljs-variable">$line</span>
+<span class="hljs-number">222</span>
+</code></pre>
+<p><strong>2</strong> . named pipe &#xD30C;&#xC77C; &#xC0AD;&#xC81C;</p>
+<p>&#xD30C;&#xC77C;&#xC744; &#xC0AD;&#xC81C;&#xD55C; &#xD6C4;&#xC5D0; <code>ls -l /proc/$$/fd</code> &#xB97C; &#xCD9C;&#xB825;&#xD574; &#xBCF4;&#xBA74; 
+<a href="here_document.html">here document</a> &#xC640; &#xAC19;&#xC774; <code>deleted</code> &#xB85C; 
+&#xB098;&#xC624;&#xB294; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xD30C;&#xC77C;&#xC774; &#xC0AD;&#xC81C;&#xB418;&#xC5B4;&#xB3C4; &#xC0DD;&#xC131;&#xD55C; FD &#xB294; &#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ rm <span class="hljs-operator">-f</span> <span class="hljs-variable">$pipe</span>    <span class="hljs-comment"># named pipe &#xD30C;&#xC77C; &#xC0AD;&#xC81C;</span>
+
+$ ls <span class="hljs-operator">-l</span> /proc/$$/fd
+total <span class="hljs-number">0</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">16</span> <span class="hljs-number">21</span>:<span class="hljs-number">13</span> <span class="hljs-number">0</span> -&gt; /dev/pts/<span class="hljs-number">14</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">16</span> <span class="hljs-number">21</span>:<span class="hljs-number">13</span> <span class="hljs-number">1</span> -&gt; /dev/pts/<span class="hljs-number">14</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">16</span> <span class="hljs-number">21</span>:<span class="hljs-number">13</span> <span class="hljs-number">2</span> -&gt; /dev/pts/<span class="hljs-number">14</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">16</span> <span class="hljs-number">21</span>:<span class="hljs-number">13</span> <span class="hljs-number">255</span> -&gt; /dev/pts/<span class="hljs-number">14</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">16</span> <span class="hljs-number">21</span>:<span class="hljs-number">15</span> <span class="hljs-number">3</span> -&gt; /tmp/tmp.w1NNYBmni9 (deleted)
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-number">111</span> &gt;&amp;<span class="hljs-number">3</span>           
+$ <span class="hljs-built_in">echo</span> <span class="hljs-number">222</span> &gt;&amp;<span class="hljs-number">3</span>
+
+$ <span class="hljs-built_in">read</span> line &lt;&amp;<span class="hljs-number">3</span>; <span class="hljs-built_in">echo</span> <span class="hljs-variable">$line</span>
+<span class="hljs-number">111</span>
+$ <span class="hljs-built_in">read</span> line &lt;&amp;<span class="hljs-number">3</span>; <span class="hljs-built_in">echo</span> <span class="hljs-variable">$line</span>
+<span class="hljs-number">222</span>
+</code></pre>
+<p><strong>3</strong> . FD &#xC0AD;&#xC81C;</p>
+<p><code>/tmp/tmp.w1NNYBmni9 (deleted)</code> &#xD56D;&#xBAA9;&#xC774; &#xC81C;&#xAC70; &#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ <span class="hljs-built_in">exec</span> <span class="hljs-number">3</span>&gt;&amp;-
+
+$ ls <span class="hljs-operator">-l</span> /proc/$$/fd
+total <span class="hljs-number">0</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">16</span> <span class="hljs-number">21</span>:<span class="hljs-number">13</span> <span class="hljs-number">0</span> -&gt; /dev/pts/<span class="hljs-number">14</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">16</span> <span class="hljs-number">21</span>:<span class="hljs-number">13</span> <span class="hljs-number">1</span> -&gt; /dev/pts/<span class="hljs-number">14</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">16</span> <span class="hljs-number">21</span>:<span class="hljs-number">13</span> <span class="hljs-number">2</span> -&gt; /dev/pts/<span class="hljs-number">14</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">16</span> <span class="hljs-number">21</span>:<span class="hljs-number">13</span> <span class="hljs-number">255</span> -&gt; /dev/pts/<span class="hljs-number">14</span>
+</code></pre>
+<blockquote>
+<p>&#xC774;&#xAC83;&#xC740; unix domain socket &#xD30C;&#xC77C;&#xB3C4; &#xB9C8;&#xCC2C;&#xAC00;&#xC9C0;&#xC785;&#xB2C8;&#xB2E4;.
+&#xB450; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xC5F0;&#xACB0;&#xB41C; &#xD6C4;&#xC5D4; socket &#xD30C;&#xC77C;&#xC744; &#xC0AD;&#xC81C;&#xD574;&#xB3C4; &#xBB38;&#xC81C;&#xAC00; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+</blockquote>
+<h1 id="2">2.</h1>
+<p>shell &#xC5D0;&#xC11C; anonymous pipe &#xB9CC;&#xB4E4;&#xC5B4; &#xBCF4;&#xAE30;</p>
+<pre><code class="lang-bash">$ cat | cat &amp;
+
+$ <span class="hljs-built_in">echo</span> $!       <span class="hljs-comment"># &#xB450;&#xBC88;&#xC9F8; cat pid</span>
+<span class="hljs-number">9218</span>
+
+$ <span class="hljs-built_in">jobs</span> -p %+    <span class="hljs-comment"># &#xCCAB;&#xBC88;&#xC9F8; cat pid</span>
+<span class="hljs-number">9217</span>
+
+$ ls <span class="hljs-operator">-l</span> /proc/{<span class="hljs-number">9217</span>,<span class="hljs-number">9218</span>}/fd
+/proc/<span class="hljs-number">9217</span>/fd:
+total <span class="hljs-number">0</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">16</span> <span class="hljs-number">21</span>:<span class="hljs-number">15</span> <span class="hljs-number">0</span> -&gt; /dev/pts/<span class="hljs-number">14</span>
+l-wx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">16</span> <span class="hljs-number">21</span>:<span class="hljs-number">15</span> <span class="hljs-number">1</span> -&gt; pipe:[<span class="hljs-number">23509697</span>]
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">16</span> <span class="hljs-number">21</span>:<span class="hljs-number">15</span> <span class="hljs-number">2</span> -&gt; /dev/pts/<span class="hljs-number">14</span>
+
+/proc/<span class="hljs-number">9218</span>/fd:
+total <span class="hljs-number">0</span>
+lr-x------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">16</span> <span class="hljs-number">21</span>:<span class="hljs-number">15</span> <span class="hljs-number">0</span> -&gt; pipe:[<span class="hljs-number">23509697</span>]
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">16</span> <span class="hljs-number">21</span>:<span class="hljs-number">15</span> <span class="hljs-number">1</span> -&gt; /dev/pts/<span class="hljs-number">14</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">16</span> <span class="hljs-number">21</span>:<span class="hljs-number">15</span> <span class="hljs-number">2</span> -&gt; /dev/pts/<span class="hljs-number">14</span>
+
+<span class="hljs-comment"># FD 3 &#xBC88;&#xC744; &#xB450;&#xBC88;&#xC9F8; cat &#xBA85;&#xB839;&#xC758; stdin &#xC5D0; &#xC785;&#xB825;&#xC73C;&#xB85C; &#xC5F0;&#xACB0;</span>
+<span class="hljs-comment"># FD 4 &#xBC88;&#xC744; &#xCCAB;&#xBC88;&#xC9F8; cat &#xBA85;&#xB839;&#xC758; stdout &#xC5D0; &#xCD9C;&#xB825;&#xC73C;&#xB85C; &#xC5F0;&#xACB0;</span>
+$ <span class="hljs-built_in">exec</span> <span class="hljs-number">3</span>&lt; /proc/<span class="hljs-number">9218</span>/fd/<span class="hljs-number">0</span> <span class="hljs-number">4</span>&gt; /proc/<span class="hljs-number">9217</span>/fd/<span class="hljs-number">1</span>
+
+<span class="hljs-comment"># cat &#xD504;&#xB85C;&#xC138;&#xC2A4; &#xBAA8;&#xB450; &#xC885;&#xB8CC;</span>
+$ <span class="hljs-built_in">kill</span> %<span class="hljs-number">1</span>
+[<span class="hljs-number">1</span>]+  Terminated              cat | cat
+
+$ ls <span class="hljs-operator">-l</span> /proc/$$/fd            <span class="hljs-comment"># anonymouse pipe &#xAC00; &#xC0DD;&#xC131;&#xB418;&#xC5C8;&#xB2E4;!  :)</span>
+total <span class="hljs-number">0</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">16</span> <span class="hljs-number">21</span>:<span class="hljs-number">13</span> <span class="hljs-number">0</span> -&gt; /dev/pts/<span class="hljs-number">14</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">16</span> <span class="hljs-number">21</span>:<span class="hljs-number">13</span> <span class="hljs-number">1</span> -&gt; /dev/pts/<span class="hljs-number">14</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">16</span> <span class="hljs-number">21</span>:<span class="hljs-number">13</span> <span class="hljs-number">2</span> -&gt; /dev/pts/<span class="hljs-number">14</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">16</span> <span class="hljs-number">21</span>:<span class="hljs-number">13</span> <span class="hljs-number">255</span> -&gt; /dev/pts/<span class="hljs-number">14</span>
+lr-x------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">16</span> <span class="hljs-number">21</span>:<span class="hljs-number">15</span> <span class="hljs-number">3</span> -&gt; pipe:[<span class="hljs-number">23509697</span>]
+l-wx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">16</span> <span class="hljs-number">21</span>:<span class="hljs-number">15</span> <span class="hljs-number">4</span> -&gt; pipe:[<span class="hljs-number">23509697</span>]
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-number">111</span> &gt;&amp;<span class="hljs-number">4</span>
+$ <span class="hljs-built_in">echo</span> <span class="hljs-number">222</span> &gt;&amp;<span class="hljs-number">4</span>
+
+$ <span class="hljs-built_in">read</span> line &lt;&amp;<span class="hljs-number">3</span>; <span class="hljs-built_in">echo</span> <span class="hljs-variable">$line</span>
+<span class="hljs-number">111</span>
+$ <span class="hljs-built_in">read</span> line &lt;&amp;<span class="hljs-number">3</span>; <span class="hljs-built_in">echo</span> <span class="hljs-variable">$line</span>
+<span class="hljs-number">222</span>
+
+$ <span class="hljs-built_in">exec</span> <span class="hljs-number">3</span>&gt;&amp;- <span class="hljs-number">4</span>&gt;&amp;-
+
+$ ls <span class="hljs-operator">-l</span> /proc/$$/fd
+total <span class="hljs-number">0</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">16</span> <span class="hljs-number">21</span>:<span class="hljs-number">13</span> <span class="hljs-number">0</span> -&gt; /dev/pts/<span class="hljs-number">14</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">16</span> <span class="hljs-number">21</span>:<span class="hljs-number">13</span> <span class="hljs-number">1</span> -&gt; /dev/pts/<span class="hljs-number">14</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">16</span> <span class="hljs-number">21</span>:<span class="hljs-number">13</span> <span class="hljs-number">2</span> -&gt; /dev/pts/<span class="hljs-number">14</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">16</span> <span class="hljs-number">21</span>:<span class="hljs-number">13</span> <span class="hljs-number">255</span> -&gt; /dev/pts/<span class="hljs-number">14</span>
+</code></pre>
+<h1 id="3-">3 .</h1>
+<p>unix domain socket &#xC774; IP &#xC8FC;&#xC18C;&#xCCB4;&#xACC4;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xC9C0; &#xC54A;&#xACE0; &#xC5F0;&#xACB0;&#xC5D0; &#xD30C;&#xC77C;&#xC744; &#xC0AC;&#xC6A9;&#xD55C;&#xB2E4;&#xACE0; &#xD574;&#xC11C;
+&#xB3D9;&#xC2DC;&#xC5D0; &#xC5EC;&#xB7EC; clients &#xC640; &#xD1B5;&#xC2E0;&#xD560; &#xC218; &#xC5C6;&#xB294; &#xAC83;&#xC740; &#xC544;&#xB2D9;&#xB2C8;&#xB2E4;.
+&#xB610;&#xD55C; <code>SOCK_SEQPACKET</code> &#xD0C0;&#xC785;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; &#xBA54;&#xC2DC;&#xC9C0; &#xBC14;&#xC6B4;&#xB354;&#xB9AC;&#xAC00; &#xC720;&#xC9C0;&#xB418;&#xB294;
+&#xB370;&#xC774;&#xD130;&#xADF8;&#xB7A8;&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xB2E4;&#xC74C;&#xC740; unix domain socket &#xC744; &#xC774;&#xC6A9;&#xD574; multiple clients &#xB85C;&#xBD80;&#xD130; &#xC811;&#xC18D;&#xC744; &#xBC1B;&#xACE0;
+&#xB3D9;&#xC2DC;&#xC5D0; &#xC11C;&#xBC84;&#xC5D0;&#xC11C; multiple clients &#xB85C; &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xC804;&#xC1A1;&#xD558;&#xB294; &#xC608;&#xC785;&#xB2C8;&#xB2E4;.</p>
+<blockquote>
+<p>man socket</p>
+</blockquote>
+<table>
+<tr><td>SOCK_STREAM</td><td>Provides sequenced, reliable, two-way, connection-based byte streams.</td></tr>
+<tr><td>SOCK_DGRAM</td><td>Supports  datagrams  (connectionless,  unreliable messages of a fixed maximum length.</td></tr>
+<tr><td>SOCK_SEQPACKET</td><td>Provides a sequenced, reliable, two-way connection-based data transmission path for datagrams of fixed maximum length</td></tr>
+</table>
+
+<pre><code class="lang-c">$ cat unix_server.c
+
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span></span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;unistd.h&gt;</span></span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;sys/socket.h&gt;</span></span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;sys/un.h&gt;</span></span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;pthread.h&gt;</span></span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;sys/epoll.h&gt;</span></span>
+
+<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> MAX_CONN <span class="hljs-number">100</span></span>
+<span class="hljs-keyword">int</span> clist[MAX_CONN] = {<span class="hljs-number">0</span>};
+<span class="hljs-keyword">int</span> CUR_MAX = <span class="hljs-number">0</span>;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">error_exit</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *msg)</span> </span>{ perror(msg); <span class="hljs-built_in">exit</span>(<span class="hljs-number">1</span>); }
+
+<span class="hljs-function"><span class="hljs-keyword">void</span>* <span class="hljs-title">runfunc</span><span class="hljs-params">(<span class="hljs-keyword">void</span> *arg)</span> 
+</span>{
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> epollfd = (<span class="hljs-keyword">intptr_t</span>)arg;
+    <span class="hljs-keyword">struct</span> epoll_event events[<span class="hljs-number">1</span>];
+    <span class="hljs-keyword">char</span> buf[<span class="hljs-number">1024</span>];
+    <span class="hljs-built_in">puts</span>(<span class="hljs-string">&quot;epoll start...&quot;</span>);
+    <span class="hljs-keyword">while</span> (<span class="hljs-number">1</span>) 
+    {
+        epoll_wait(epollfd, events, <span class="hljs-number">1</span>, -<span class="hljs-number">1</span>);
+        <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> clientfd = events[<span class="hljs-number">0</span>].data.fd;
+
+        <span class="hljs-keyword">if</span> (events[<span class="hljs-number">0</span>].events &amp; EPOLLHUP) {     <span class="hljs-comment">// client &#xAC00; &#xC5F0;&#xACB0;&#xC774; close &#xB410;&#xC744;&#xACBD;&#xC6B0;</span>
+            epoll_ctl(epollfd, EPOLL_CTL_DEL, clientfd, <span class="hljs-literal">NULL</span>);
+            clist[clientfd] = <span class="hljs-number">0</span>;
+            close(clientfd);
+            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;DELE &lt;&lt;&lt; sockfd %d\n&quot;</span>, clientfd);
+        } 
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (events[<span class="hljs-number">0</span>].events &amp; EPOLLIN) {     <span class="hljs-comment">// client &#xB85C;&#xBD80;&#xD130; &#xC785;&#xB825;&#xC774; &#xC788;&#xC744;&#xACBD;&#xC6B0;</span>
+            <span class="hljs-keyword">int</span> sc = <span class="hljs-built_in">sprintf</span>(buf, <span class="hljs-string">&quot;[ sockfd %d ] &quot;</span>, clientfd);
+            <span class="hljs-keyword">int</span> rc = read(clientfd, buf + sc, <span class="hljs-keyword">sizeof</span>(buf) - sc - <span class="hljs-number">1</span>);
+            rc += sc;
+            buf[rc] = <span class="hljs-string">&apos;\0&apos;</span>;
+            <span class="hljs-built_in">fputs</span>(buf, <span class="hljs-built_in">stdout</span>);
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> fd = <span class="hljs-number">5</span>; fd &lt;= CUR_MAX; fd++)
+                <span class="hljs-keyword">if</span> (clist[fd] == <span class="hljs-number">1</span>) write(fd, buf, rc);
+        } 
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> 
+</span>{
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> sockfd = socket(AF_UNIX, SOCK_SEQPACKET, <span class="hljs-number">0</span>);
+    <span class="hljs-keyword">struct</span> sockaddr_un addr_un = {
+        .sun_family  = AF_UNIX,
+        .sun_path    = <span class="hljs-string">&quot;server.sock&quot;</span>,
+    };
+    <span class="hljs-keyword">if</span> (bind(sockfd, (<span class="hljs-keyword">struct</span> sockaddr *)&amp;addr_un, <span class="hljs-keyword">sizeof</span>(addr_un)) == -<span class="hljs-number">1</span>)
+        error_exit(<span class="hljs-string">&quot;ERROR: bind()&quot;</span>);
+    listen(sockfd, <span class="hljs-number">10</span>);
+
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> epollfd = epoll_create(<span class="hljs-number">1</span>);
+    <span class="hljs-keyword">struct</span> epoll_event ev = { .events = EPOLLIN | EPOLLHUP };
+
+    <span class="hljs-keyword">pthread_t</span> thread;
+    pthread_create(&amp;thread, <span class="hljs-literal">NULL</span>, runfunc, (<span class="hljs-keyword">void</span> *)(<span class="hljs-keyword">intptr_t</span>)epollfd);
+    pthread_detach(thread);
+
+    <span class="hljs-keyword">while</span> (<span class="hljs-number">1</span>) {
+        <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> conn_sock = accept(sockfd, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>);    <span class="hljs-comment">// &#xC0C8;&#xB85C; client &#xAC00; &#xC811;&#xC18D;&#xD558;&#xBA74;</span>
+        clist[conn_sock] = <span class="hljs-number">1</span>;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = MAX_CONN - <span class="hljs-number">1</span>; i &gt; <span class="hljs-number">4</span>; i--) 
+            <span class="hljs-keyword">if</span> (clist[i] == <span class="hljs-number">1</span>) { CUR_MAX = i; <span class="hljs-keyword">break</span>; }
+        ev.data.fd = conn_sock;
+        epoll_ctl(epollfd, EPOLL_CTL_ADD, conn_sock, &amp;ev);   <span class="hljs-comment">// epoll &#xC5D0; &#xB4F1;&#xB85D;</span>
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;CONN &gt;&gt;&gt; sockfd %d\n&quot;</span>, conn_sock);
+    }
+}
+</code></pre>
+<pre><code class="lang-c">$ cat unix_client.c
+
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span></span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;unistd.h&gt;</span></span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;sys/socket.h&gt;</span></span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;sys/un.h&gt;</span></span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;sys/epoll.h&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">error_exit</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *msg)</span> </span>{ perror(msg); <span class="hljs-built_in">exit</span>(<span class="hljs-number">1</span>); }
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> 
+</span>{
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> sockfd = socket(AF_UNIX, SOCK_SEQPACKET, <span class="hljs-number">0</span>);
+    <span class="hljs-keyword">struct</span> sockaddr_un addr_un = {
+        .sun_family  = AF_UNIX,
+        .sun_path    = <span class="hljs-string">&quot;server.sock&quot;</span>,
+    };
+    <span class="hljs-keyword">if</span> (connect(sockfd, (<span class="hljs-keyword">struct</span> sockaddr *)&amp;addr_un, <span class="hljs-keyword">sizeof</span>(addr_un)) == -<span class="hljs-number">1</span>)
+        error_exit(<span class="hljs-string">&quot;ERROR: connect()&quot;</span>);
+
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> epollfd = epoll_create(<span class="hljs-number">1</span>);              <span class="hljs-comment">// &#xC785;&#xB825;&#xC744; stdin &#xACFC; socket</span>
+    <span class="hljs-keyword">struct</span> epoll_event ev = { .events = EPOLLIN };    <span class="hljs-comment">// &#xB450; &#xAD70;&#xB370;&#xC11C; &#xBC1B;&#xC544;&#xC57C; &#xD558;&#xAE30; &#xB54C;&#xBB38;&#xC5D0;</span>
+    ev.data.fd = STDIN_FILENO;                        <span class="hljs-comment">// I/O multiplexer epoll &#xC744; &#xC0AC;&#xC6A9;</span>
+    epoll_ctl(epollfd, EPOLL_CTL_ADD, STDIN_FILENO, &amp;ev);
+    ev.data.fd = sockfd;
+    epoll_ctl(epollfd, EPOLL_CTL_ADD, sockfd, &amp;ev);
+    <span class="hljs-keyword">struct</span> epoll_event events[<span class="hljs-number">1</span>];
+
+    <span class="hljs-keyword">char</span> buf[<span class="hljs-number">1024</span>];
+    <span class="hljs-keyword">while</span> (<span class="hljs-number">1</span>) 
+    {
+        epoll_wait(epollfd, events, <span class="hljs-number">1</span>, -<span class="hljs-number">1</span>);
+
+        <span class="hljs-keyword">if</span> (events[<span class="hljs-number">0</span>].data.fd == STDIN_FILENO) {
+            <span class="hljs-keyword">int</span> rc = read(STDIN_FILENO, buf, <span class="hljs-keyword">sizeof</span>(buf));
+            <span class="hljs-keyword">if</span> (rc == <span class="hljs-number">0</span> || buf[rc - <span class="hljs-number">1</span>] != <span class="hljs-string">&apos;\n&apos;</span>) <span class="hljs-built_in">exit</span>(<span class="hljs-number">0</span>);    <span class="hljs-comment">// Ctrl-d &#xB97C; &#xB20C;&#xB800;&#xC744; &#xACBD;&#xC6B0; </span>
+            write(sockfd, buf, rc);                         <span class="hljs-comment">// (Ctrl-d &#xB294; signal &#xC774; &#xC544;&#xB2D8;)</span>
+        } 
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (events[<span class="hljs-number">0</span>].data.fd == sockfd) {
+            <span class="hljs-keyword">int</span> rc = read(sockfd, buf, <span class="hljs-keyword">sizeof</span>(buf));
+            <span class="hljs-keyword">if</span> (rc == <span class="hljs-number">0</span>) <span class="hljs-keyword">break</span>;
+            write(STDOUT_FILENO, buf, rc);
+        }
+    }
+}
+</code></pre>
+<pre><code class="lang-bash">$ gcc unix_server.c -pthread -o server
+
+$ gcc unix_client.c -o client
+</code></pre>
+<video width="770" height="264" controls preload="auto">
+  <source src="images/unix_domain_socket.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+
+
+<h1 id="4-">4 .</h1>
+<p>&#xC774;&#xBC88;&#xC5D0;&#xB294; &#xC704;&#xC640; &#xAC19;&#xC740; &#xAE30;&#xB2A5;&#xC744; <a href="https://gist.github.com/mug896/0bf81933ba3874a207098e23674dfb3c" target="_blank">connectionless &#xD55C; datagram</a> &#xC744; &#xC774;&#xC6A9;&#xD574;&#xC11C; &#xB9CC;&#xB4E4;&#xC5B4;&#xBCF4;&#xACA0;&#xC2B5;&#xB2C8;&#xB2E4;.
+datagram &#xC774;&#xB77C;&#xACE0; &#xD574;&#xC11C; internet domain socket &#xC5D0;&#xC11C;&#xCC98;&#xB7FC; UDP &#xAC00; &#xC0AC;&#xC6A9;&#xB418;&#xB294; &#xAC83;&#xC740; &#xC544;&#xB2D9;&#xB2C8;&#xB2E4;.
+unix domain socket &#xC774;&#xBBC0;&#xB85C; datagram &#xC774;&#xB77C;&#xB3C4; reliable &#xD558;&#xACE0; &#xC804;&#xC1A1; order &#xAC00; &#xC720;&#xC9C0;&#xB429;&#xB2C8;&#xB2E4;.
+&#xCF54;&#xB4DC;&#xB97C; &#xC791;&#xC131;&#xD560; &#xB54C; &#xD55C;&#xAC00;&#xC9C0; &#xC0DD;&#xAC01;&#xD574;&#xC57C;&#xB420; &#xC810;&#xC740; &#xC704;&#xC5D0;&#xC11C;&#xCC98;&#xB7FC; server &#xB9CC; &#xC18C;&#xCF13;&#xD30C;&#xC77C;&#xC744; &#xB9CC;&#xB4E4;&#xC5B4;&#xC11C;&#xB294;
+&#xC548;&#xB429;&#xB2C8;&#xB2E4; ( &#xADF8;&#xB7EC;&#xBA74; client --&gt; server &#xB85C;&#xB9CC; &#xBA54;&#xC2DC;&#xC9C0;&#xAC00; &#xC804;&#xB2EC;&#xB429;&#xB2C8;&#xB2E4; ).
+datagram &#xC740; TCP &#xC640; &#xB2EC;&#xB9AC; connectionless &#xD558;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; server &#xAC00; &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xB2E4;&#xC2DC; 
+client &#xC5D0;&#xAC8C; &#xC804;&#xC1A1;&#xD558;&#xB824;&#xBA74; &#xAC01; client &#xB4E4;&#xB3C4; &#xC18C;&#xCF13;&#xD30C;&#xC77C; ( ip &#xC8FC;&#xC18C; ) &#xB97C; &#xAC00;&#xC9C0;&#xACE0; &#xC788;&#xC5B4;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>
+<blockquote>
+<p>TCP &#xAC19;&#xC740; &#xACBD;&#xC6B0;&#xB294; connection &#xAC1C;&#xB150;&#xC774; &#xC788;&#xC5B4;&#xC11C; client &#xAC00; 3-way handshake &#xC744; &#xAC70;&#xCE58;&#xBA74; &#xC5F0;&#xACB0;&#xB41C;
+&#xAC83;&#xC73C;&#xB85C; &#xAC04;&#xC8FC;&#xD558;&#xACE0; 4-way handshake &#xC744; &#xAC70;&#xCCD0; &#xC885;&#xB8CC;&#xD558;&#xBA74; &#xC5F0;&#xACB0;&#xC774; &#xB04A;&#xAE34;&#xAC83;&#xC73C;&#xB85C; &#xAC04;&#xC8FC;&#xD569;&#xB2C8;&#xB2E4;.
+&#xB530;&#xB77C;&#xC11C; &#xC11C;&#xBC84;&#xCABD; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC758; FD &#xB97C; &#xC870;&#xD68C;&#xD574; &#xBCF4;&#xBA74; &#xC811;&#xC18D;&#xD55C; client &#xC758; socket &#xC774; &#xC0DD;&#xACBC;&#xB2E4;
+&#xC5C6;&#xC5B4;&#xC84C;&#xB2E4; &#xD558;&#xB294;&#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC9C0;&#xB9CC; datagram &#xC758; &#xACBD;&#xC6B0;&#xB294; connection &#xAC1C;&#xB150;&#xC774; &#xC5C6;&#xAE30; &#xB54C;&#xBB38;&#xC5D0;
+client &#xC758; socket &#xC774; &#xC0DD;&#xC131;&#xB418;&#xC9C0; &#xC54A;&#xACE0; &#xC5F0;&#xACB0; &#xB9FA;&#xC74C;&#xACFC; &#xB04A;&#xAE34; &#xC0C1;&#xD669;&#xC744; &#xC9C1;&#xC811; &#xCC98;&#xB9AC;&#xD574; &#xC8FC;&#xC5B4;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>
+</blockquote>
+<pre><code class="lang-c">$ cat datagram_server.c
+
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span></span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;unistd.h&gt;</span></span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;sys/un.h&gt;</span></span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;sys/socket.h&gt;</span></span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;signal.h&gt;</span></span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;string.h&gt;</span></span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> sizeof_field(t, f) (sizeof(((t*)<span class="hljs-number">0</span>)-&gt;f))</span>
+
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *sock_file = <span class="hljs-string">&quot;server.sock&quot;</span>;    <span class="hljs-comment">// server &#xC18C;&#xCF13;&#xD30C;&#xC77C; </span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">exit_handler</span><span class="hljs-params">()</span> </span>{ unlink(sock_file); }
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">INT_handler</span><span class="hljs-params">()</span> </span>{ <span class="hljs-built_in">exit</span>(<span class="hljs-number">2</span>); }
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">error_exit</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *msg)</span> </span>{ perror(msg); <span class="hljs-built_in">exit</span>(<span class="hljs-number">1</span>); }
+
+<span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> client_list {
+    <span class="hljs-keyword">char</span> sun_path[ sizeof_field(<span class="hljs-keyword">struct</span> sockaddr_un, sun_path) ];
+    <span class="hljs-keyword">struct</span> client_list *next;
+} <span class="hljs-keyword">client_list_t</span>;
+
+<span class="hljs-keyword">client_list_t</span> *clist;    <span class="hljs-comment">// client &#xBAA9;&#xB85D;&#xC744; &#xB2F4;&#xACE0;&#xC788;&#xB294; &#xB2E8;&#xBC29;&#xD5A5; linked list.</span>
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">add_client</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *sun_path)</span>    <span class="hljs-comment">// &#xC0C8;&#xB85C; client &#xAC00; &#xC811;&#xC18D;&#xD558;&#xBA74; &#xB9AC;&#xC2A4;&#xD2B8;&#xC5D0; &#xCD94;&#xAC00;.</span>
+</span>{
+    <span class="hljs-keyword">client_list_t</span> *newc = <span class="hljs-built_in">malloc</span>(<span class="hljs-keyword">sizeof</span>(*newc));
+    <span class="hljs-built_in">strcpy</span>(newc-&gt;sun_path, sun_path);
+    newc-&gt;next = clist-&gt;next;
+    clist-&gt;next = newc;
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;CONN &gt;&gt;&gt; %s\n&quot;</span>, sun_path);
+}
+
+<span class="hljs-keyword">client_list_t</span>* del_client(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *sun_path)    <span class="hljs-comment">// &#xB9AC;&#xC2A4;&#xD2B8;&#xC5D0;&#xC11C; client &#xC0AD;&#xC81C;.</span>
+{
+    <span class="hljs-keyword">client_list_t</span> *cur = clist, *prev;
+    <span class="hljs-keyword">while</span> (<span class="hljs-built_in">strcmp</span>(cur-&gt;sun_path, sun_path) != <span class="hljs-number">0</span>) {
+        prev = cur;
+        cur = cur-&gt;next;
+        <span class="hljs-keyword">if</span> (cur == <span class="hljs-literal">NULL</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;
+    }
+    prev-&gt;next = cur-&gt;next;
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;DELE &lt;&lt;&lt; %s\n&quot;</span>, cur-&gt;sun_path);
+    <span class="hljs-built_in">free</span>(cur);
+    <span class="hljs-keyword">return</span> prev;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span>
+</span>{
+    signal(SIGINT, INT_handler);
+    atexit(exit_handler);
+    clist = <span class="hljs-built_in">malloc</span>(<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">client_list_t</span>));
+    clist-&gt;next = <span class="hljs-literal">NULL</span>;
+
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> sockfd = socket(AF_UNIX, SOCK_DGRAM, <span class="hljs-number">0</span>);
+
+    <span class="hljs-keyword">struct</span> sockaddr_un serveraddr = { .sun_family = AF_UNIX };
+    <span class="hljs-built_in">strcpy</span>(serveraddr.sun_path, sock_file);
+
+    <span class="hljs-comment">// bind() &#xB85C; server &#xC18C;&#xCF13;&#xD30C;&#xC77C; &#xC0DD;&#xC131;.</span>
+    <span class="hljs-keyword">if</span> (bind(sockfd, (<span class="hljs-keyword">struct</span> sockaddr *) &amp;serveraddr, <span class="hljs-keyword">sizeof</span>(serveraddr)) == -<span class="hljs-number">1</span>)
+        error_exit(<span class="hljs-string">&quot;ERROR: bind()&quot;</span>);
+
+    <span class="hljs-keyword">struct</span> sockaddr_un clientaddr = { .sun_family = AF_UNIX };
+    <span class="hljs-keyword">char</span> sbuf[<span class="hljs-number">1024</span> - sizeof_field(<span class="hljs-keyword">struct</span> sockaddr_un, sun_path) - <span class="hljs-number">2</span>];
+    <span class="hljs-keyword">char</span> cbuf[<span class="hljs-number">1024</span>];
+    <span class="hljs-keyword">while</span> (<span class="hljs-number">1</span>) 
+    {
+        <span class="hljs-keyword">socklen_t</span> addrlen = <span class="hljs-keyword">sizeof</span>(serveraddr);
+        <span class="hljs-keyword">int</span> rc = recvfrom(sockfd, sbuf, <span class="hljs-keyword">sizeof</span>(sbuf), <span class="hljs-number">0</span>, (<span class="hljs-keyword">struct</span> sockaddr *) &amp;serveraddr, &amp;addrlen);
+        sbuf[rc] = <span class="hljs-string">&apos;\0&apos;</span>;
+        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">strcmp</span>(sbuf, <span class="hljs-string">&quot;\a\a\a&quot;</span>) == <span class="hljs-number">0</span>) {    <span class="hljs-comment">// &quot;\a\a\a&quot; &#xB294; &#xC811;&#xC18D; &#xC2DC;&#xC791;&#xC744; &#xB098;&#xD0C0;&#xB0B4;&#xB294; &#xC2A4;&#xD2B8;&#xB9C1;.</span>
+            add_client(serveraddr.sun_path);
+            <span class="hljs-keyword">continue</span>;
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-built_in">strcmp</span>(sbuf, <span class="hljs-string">&quot;\b\b\b&quot;</span>) == <span class="hljs-number">0</span>) {    <span class="hljs-comment">// &quot;\b\b\b&quot; &#xB294; &#xC811;&#xC18D; &#xC885;&#xB8CC;&#xB97C; &#xB098;&#xD0C0;&#xB0C4;.</span>
+            del_client(serveraddr.sun_path);
+            <span class="hljs-keyword">continue</span>;
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%s: %s&quot;</span>, serveraddr.sun_path, sbuf);
+        }
+
+        <span class="hljs-keyword">client_list_t</span> *head = clist;
+        <span class="hljs-keyword">while</span> (head-&gt;next != <span class="hljs-literal">NULL</span>) {
+            head = head-&gt;next;
+            <span class="hljs-built_in">strcpy</span>(clientaddr.sun_path, head-&gt;sun_path);
+            addrlen = <span class="hljs-keyword">sizeof</span>(clientaddr);
+            <span class="hljs-built_in">sprintf</span>(cbuf, <span class="hljs-string">&quot;%s: %s&quot;</span>, serveraddr.sun_path, sbuf);
+            rc = sendto(sockfd, cbuf, <span class="hljs-built_in">strlen</span>(cbuf), <span class="hljs-number">0</span>, (<span class="hljs-keyword">struct</span> sockaddr *) &amp;clientaddr, addrlen);
+            <span class="hljs-keyword">if</span> (rc == -<span class="hljs-number">1</span>)                            <span class="hljs-comment">// client &#xB85C; &#xC804;&#xC1A1;&#xC774; &#xC2E4;&#xD328;&#xD558;&#xC600;&#xB2E4;&#xB294; &#xAC83;&#xC740;</span>
+                head = del_client(head-&gt;sun_path);   <span class="hljs-comment">// client &#xC18C;&#xCF13;&#xD30C;&#xC77C;&#xC774; &#xC0AD;&#xC81C;&#xB418;&#xC5C8;&#xB2E4;&#xB294;</span>
+        }                                            <span class="hljs-comment">// &#xC758;&#xBBF8;&#xC774;&#xBBC0;&#xB85C; &#xB9AC;&#xC2A4;&#xD2B8;&#xC5D0;&#xC11C; client &#xC0AD;&#xC81C;</span>
+    }
+}
+</code></pre>
+<pre><code class="lang-c">$ cat datagram_client.c
+
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span></span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;unistd.h&gt;</span></span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;sys/un.h&gt;</span></span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;sys/socket.h&gt;</span></span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;signal.h&gt;</span></span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;sys/epoll.h&gt;</span></span>
+
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *server_sock = <span class="hljs-string">&quot;server.sock&quot;</span>;     <span class="hljs-comment">// server &#xC18C;&#xCF13;&#xD30C;&#xC77C;</span>
+<span class="hljs-keyword">char</span> client_sock[<span class="hljs-number">25</span>];                        <span class="hljs-comment">// client &#xC18C;&#xCF13;&#xD30C;&#xC77C;</span>
+<span class="hljs-keyword">int</span> sockfd;
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">error_exit</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *msg)</span> </span>{ perror(msg); <span class="hljs-built_in">exit</span>(<span class="hljs-number">1</span>); }
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">exit_handler</span><span class="hljs-params">()</span> </span>{ unlink(client_sock); }
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">INT_handler</span><span class="hljs-params">()</span> </span>{ write(sockfd,<span class="hljs-string">&quot;\b\b\b&quot;</span>, <span class="hljs-number">3</span>); <span class="hljs-built_in">exit</span>(<span class="hljs-number">2</span>); }    <span class="hljs-comment">// Ctrl-c &#xB85C; &#xC885;&#xB8CC;&#xC2DC;</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">USR1_handler</span><span class="hljs-params">()</span> </span>{ write(sockfd,<span class="hljs-string">&quot;\b\b\b&quot;</span>, <span class="hljs-number">3</span>); <span class="hljs-built_in">exit</span>(<span class="hljs-number">0</span>); }   <span class="hljs-comment">// Ctrl-d &#xB85C; &#xC885;&#xB8CC;&#xC2DC;</span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span>
+</span>{
+    signal(SIGINT, INT_handler);
+    signal(SIGUSR1, USR1_handler);
+    atexit(exit_handler);
+    <span class="hljs-built_in">sprintf</span>(client_sock, <span class="hljs-string">&quot;%s%u%s&quot;</span>, <span class="hljs-string">&quot;client_&quot;</span>, getpid(), <span class="hljs-string">&quot;.sock&quot;</span>);
+
+    <span class="hljs-comment">// client --&gt; server &#xC811;&#xC18D;&#xC744; &#xC704;&#xD55C; &#xC8FC;&#xC18C;</span>
+    <span class="hljs-keyword">struct</span> sockaddr_un serveraddr = { .sun_family = AF_UNIX };
+    <span class="hljs-built_in">strcpy</span>(serveraddr.sun_path, server_sock);
+
+    <span class="hljs-comment">// server --&gt; client &#xC811;&#xC18D;&#xC744; &#xC704;&#xD55C; &#xC8FC;&#xC18C;</span>
+    <span class="hljs-keyword">struct</span> sockaddr_un clientaddr = { .sun_family = AF_UNIX };
+    <span class="hljs-built_in">strcpy</span>(clientaddr.sun_path, client_sock);
+
+    sockfd = socket(AF_UNIX, SOCK_DGRAM, <span class="hljs-number">0</span>);
+
+    <span class="hljs-comment">// bind() &#xB97C; &#xC774;&#xC6A9;&#xD574; client &#xC18C;&#xCF13;&#xD30C;&#xC77C;&#xC744; &#xB9CC;&#xB4E4;&#xC5B4;&#xC8FC;&#xC5B4;&#xC57C; &#xD55C;&#xB2E4;.</span>
+    <span class="hljs-keyword">if</span> (bind(sockfd, (<span class="hljs-keyword">struct</span> sockaddr *) &amp;clientaddr, <span class="hljs-keyword">sizeof</span>(clientaddr)) == -<span class="hljs-number">1</span>)
+        error_exit(<span class="hljs-string">&quot;ERROR: bind()&quot;</span>);
+
+    <span class="hljs-comment">// &#xC5EC;&#xAE30;&#xC11C; connect() &#xB294; &#xAF2D; &#xD544;&#xC694;&#xD55C; &#xAC83;&#xC740; &#xC544;&#xB2C8;&#xC9C0;&#xB9CC; connect() &#xB97C; &#xD558;&#xC9C0; &#xC54A;&#xC73C;&#xBA74; &#xC544;&#xB798;&#xC11C;</span>
+    <span class="hljs-comment">// write(), read() &#xB300;&#xC2E0;&#xC5D0; serveraddr &#xC640;&#xD568;&#xAED8; sendto(), recvfrom() &#xC744; &#xC0AC;&#xC6A9;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</span>
+    <span class="hljs-keyword">if</span> (connect(sockfd, (<span class="hljs-keyword">struct</span> sockaddr *) &amp;serveraddr, <span class="hljs-keyword">sizeof</span>(serveraddr)) == -<span class="hljs-number">1</span>)
+        error_exit(<span class="hljs-string">&quot;ERROR: connect()&quot;</span>);
+
+    <span class="hljs-keyword">char</span> buf[<span class="hljs-number">1024</span>] = <span class="hljs-string">&quot;\a\a\a&quot;</span>;     <span class="hljs-comment">// &#xC11C;&#xBC84;&#xB85C; &quot;\a\a\a&quot; &#xC2A4;&#xD2B8;&#xB9C1;&#xC744; &#xBCF4;&#xB0B4; &#xC811;&#xC18D;&#xC744; &#xC54C;&#xB9BC;</span>
+    write(sockfd, buf, <span class="hljs-number">3</span>);
+
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> epollfd = epoll_create(<span class="hljs-number">1</span>);
+    <span class="hljs-keyword">struct</span> epoll_event ev = { .events = EPOLLIN };
+    ev.data.fd = STDIN_FILENO;
+    epoll_ctl(epollfd, EPOLL_CTL_ADD, STDIN_FILENO, &amp;ev);
+    ev.data.fd = sockfd;
+    epoll_ctl(epollfd, EPOLL_CTL_ADD, sockfd, &amp;ev);
+    <span class="hljs-keyword">struct</span> epoll_event events[<span class="hljs-number">1</span>];
+    <span class="hljs-keyword">while</span> (<span class="hljs-number">1</span>) 
+    {
+        epoll_wait(epollfd, events, <span class="hljs-number">1</span>, -<span class="hljs-number">1</span>);
+
+        <span class="hljs-keyword">if</span> (events[<span class="hljs-number">0</span>].data.fd == STDIN_FILENO) {
+            <span class="hljs-keyword">int</span> rc = read(STDIN_FILENO, buf, <span class="hljs-keyword">sizeof</span>(buf));
+            <span class="hljs-keyword">if</span> (rc == <span class="hljs-number">0</span> || buf[rc - <span class="hljs-number">1</span>] != <span class="hljs-string">&apos;\n&apos;</span>) raise(SIGUSR1);
+            <span class="hljs-keyword">if</span> (write(sockfd, buf, rc) == -<span class="hljs-number">1</span>)    <span class="hljs-comment">// &#xC11C;&#xBC84;&#xAC00; &#xC885;&#xB8CC;&#xB410;&#xC744;&#xB54C; &#xC4F0;&#xAE30;&#xB294; &#xC624;&#xB958;&#xAC00; &#xB41C;&#xB2E4;</span>
+                error_exit(<span class="hljs-string">&quot;ERROR: write()&quot;</span>);
+        } 
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (events[<span class="hljs-number">0</span>].data.fd == sockfd) {
+            <span class="hljs-keyword">int</span> rc = read(sockfd, buf, <span class="hljs-keyword">sizeof</span>(buf));
+            write(STDOUT_FILENO, buf, rc);
+        }
+    }
+}
+</code></pre>
+<pre><code class="lang-bash">$ gcc datagram_server.c -o server       <span class="hljs-comment"># &#xC2E4;&#xD589;&#xC744; &#xD574;&#xBCF4;&#xBA74; server &#xC640; client &#xB4E4; &#xAC01;&#xAC01; &#xD604;&#xC7AC;</span>
+                                        <span class="hljs-comment"># &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0; &#xC18C;&#xCF13;&#xD30C;&#xC77C;&#xC774; &#xC0DD;&#xC131;&#xB418;&#xB294; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
+$ gcc datagram_client.c -o client
+</code></pre>
+<blockquote>
+<p>datagram &#xC774;&#xB77C; message boundary &#xAC00; &#xC720;&#xC9C0;&#xB418;&#xBBC0;&#xB85C; &#xC0AC;&#xC6A9;&#xC790;&#xAC00; &#xB370;&#xC774;&#xD130;&#xB97C; &#xC785;&#xB825;&#xD558;&#xBA74;
+&#xD5E4;&#xB354;&#xB97C; &#xBD99;&#xC5EC;&#xBCF4;&#xB0B4;&#xACE0; &#xBC1B;&#xB294; &#xCABD; &#xC11C;&#xBC84;&#xC5D0;&#xC11C;&#xB294; &#xD5E4;&#xB354;&#xB97C; &#xC77D;&#xC5B4;&#xB4E4;&#xC5EC; &#xCC98;&#xB9AC;&#xD558;&#xB294; &#xC2DD;&#xC73C;&#xB85C; &#xD560;&#xC218;&#xB3C4; &#xC788;&#xACA0;&#xC8E0;</p>
+</blockquote>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./pipe.html" class="navigation navigation-prev " aria-label="Previous page: Pipe"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./buffering.html" class="navigation navigation-next " aria-label="Next page: Buffering"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

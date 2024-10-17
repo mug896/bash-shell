@@ -1,0 +1,1964 @@
+<!DOCTYPE HTML>
+<html lang="ko" >
+    
+    <head>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-161001174-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-161001174-1');
+</script>
+
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Readline | Introduction</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+        <link rel="stylesheet" href="./styles/website.css">
+    
+
+        
+    
+    
+    <link rel="next" href="./colors_and_prompt.html" />
+    
+    
+    <link rel="prev" href="./command_completion.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="15"
+        data-chapter-title="Readline"
+        data-filepath="readline.md"
+        data-basepath="."
+
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="bug_reports.html">
+            
+                
+                    <a href="./bug_reports.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Bug reports
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="basics.html">
+            
+                
+                    <a href="./basics.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Basics
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="quotes.html">
+            
+                
+                    <a href="./quotes.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        Quotes
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="escape_sequences.html">
+            
+                
+                    <a href="./escape_sequences.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.1.</b>
+                        
+                        Escape Sequences
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="variables.html">
+            
+                
+                    <a href="./variables.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        Variables
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="functions.html">
+            
+                
+                    <a href="./functions.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        Functions
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="exit_status.html">
+            
+                
+                    <a href="./exit_status.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        Exit Status
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="pattern_matching.html">
+            
+                
+                    <a href="./pattern_matching.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        Pattern Matching
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="shebang.html">
+            
+                
+                    <a href="./shebang.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                        #!
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="interactive_non-interactive.html">
+            
+                
+                    <a href="./interactive_non-interactive.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.7.</b>
+                        
+                        Interactive vs Non-Interactive Shell
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="login_non-login.html">
+            
+                
+                    <a href="./login_non-login.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.8.</b>
+                        
+                        Login vs Non-Login Shell
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="etc.html">
+            
+                
+                    <a href="./etc.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.9.</b>
+                        
+                        etc
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="test.html">
+            
+                
+                    <a href="./test.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Test
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="test_operators.html">
+            
+                
+                    <a href="./test_operators.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        Operators
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="subshells.html">
+            
+                
+                    <a href="./subshells.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        Subshells
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="process_creation.html">
+            
+                
+                    <a href="./process_creation.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        Process Creation
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="commands.html">
+            
+                
+                    <a href="./commands.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Commands
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="builtin_commands.html">
+            
+                
+                    <a href="./builtin_commands.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        Builtin Commands
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="read.html">
+            
+                
+                    <a href="./read.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.1.</b>
+                        
+                        read
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2" data-path="printf.html">
+            
+                
+                    <a href="./printf.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.2.</b>
+                        
+                        printf
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3" data-path="eval.html">
+            
+                
+                    <a href="./eval.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.3.</b>
+                        
+                        eval
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.4" data-path="getopts.html">
+            
+                
+                    <a href="./getopts.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.4.</b>
+                        
+                        getopts
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="keyword_commands.html">
+            
+                
+                    <a href="./keyword_commands.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        Keyword Commands
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.2.1" data-path="compound_commands.html">
+            
+                
+                    <a href="./compound_commands.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.1.</b>
+                        
+                        Compound Commands
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="special_commands.html">
+            
+                
+                    <a href="./special_commands.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                        Special Commands
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="expr.html">
+            
+                
+                    <a href="./expr.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.4.</b>
+                        
+                        expr
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="grep.html">
+            
+                
+                    <a href="./grep.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.5.</b>
+                        
+                        grep
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="find.html">
+            
+                
+                    <a href="./find.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.6.</b>
+                        
+                        find
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7" data-path="xargs.html">
+            
+                
+                    <a href="./xargs.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.7.</b>
+                        
+                        xargs
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="arrays.html">
+            
+                
+                    <a href="./arrays.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        Arrays
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="metacharacters.html">
+            
+                
+                    <a href="./metacharacters.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        Shell Metacharacters
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1" data-path="precedence.html">
+            
+                
+                    <a href="./precedence.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.1.</b>
+                        
+                        Precedence
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="expansions_and_substitutions.html">
+            
+                
+                    <a href="./expansions_and_substitutions.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        Expansions and Substitutions
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1" data-path="exp_and_sub/brace_expansion.html">
+            
+                
+                    <a href="./exp_and_sub/brace_expansion.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.1.</b>
+                        
+                        Brace Expansion
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="exp_and_sub/tilde_expansion.html">
+            
+                
+                    <a href="./exp_and_sub/tilde_expansion.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.2.</b>
+                        
+                        Tilde Expansion
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3" data-path="exp_and_sub/parameter_expansion.html">
+            
+                
+                    <a href="./exp_and_sub/parameter_expansion.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.3.</b>
+                        
+                        Parameter Expansion
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.4" data-path="exp_and_sub/arithmetic_expansion.html">
+            
+                
+                    <a href="./exp_and_sub/arithmetic_expansion.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.4.</b>
+                        
+                        Arithmetic Expansion
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.5" data-path="exp_and_sub/command_substitution.html">
+            
+                
+                    <a href="./exp_and_sub/command_substitution.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.5.</b>
+                        
+                        Command Substitution
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.6" data-path="exp_and_sub/process_substitution.html">
+            
+                
+                    <a href="./exp_and_sub/process_substitution.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.6.</b>
+                        
+                        Process Substitution
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.7" data-path="exp_and_sub/word_splitting.html">
+            
+                
+                    <a href="./exp_and_sub/word_splitting.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.7.</b>
+                        
+                        Word Splitting
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.8" data-path="exp_and_sub/filename_expansion.html">
+            
+                
+                    <a href="./exp_and_sub/filename_expansion.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.8.</b>
+                        
+                        Filename Expansion
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="job_control.html">
+            
+                
+                    <a href="./job_control.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        Job Control
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="9.1" data-path="session_and_process-group.html">
+            
+                
+                    <a href="./session_and_process-group.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.1.</b>
+                        
+                        Session and Process Group
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.2" data-path="process_state_codes.html">
+            
+                
+                    <a href="./process_state_codes.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.2.</b>
+                        
+                        Process State Codes
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.3" data-path="tty.html">
+            
+                
+                    <a href="./tty.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.3.</b>
+                        
+                        TTY
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.4" data-path="mutual_exclusion.html">
+            
+                
+                    <a href="./mutual_exclusion.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.4.</b>
+                        
+                        Mutual Exclusion
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="redirections.html">
+            
+                
+                    <a href="./redirections.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                        Redirections
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="10.1" data-path="file_descriptors.html">
+            
+                
+                    <a href="./file_descriptors.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.1.</b>
+                        
+                        File Descriptors
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.2" data-path="here_document.html">
+            
+                
+                    <a href="./here_document.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.2.</b>
+                        
+                        &lt;&lt; , &lt;&lt;&lt;
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.3" data-path="pipe.html">
+            
+                
+                    <a href="./pipe.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.3.</b>
+                        
+                        Pipe
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.4" data-path="named_pipe.html">
+            
+                
+                    <a href="./named_pipe.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.4.</b>
+                        
+                        Named Pipe
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.5" data-path="buffering.html">
+            
+                
+                    <a href="./buffering.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.5.</b>
+                        
+                        Buffering
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="11" data-path="signals_and_traps.html">
+            
+                
+                    <a href="./signals_and_traps.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.</b>
+                        
+                        Signals and Traps
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="11.1" data-path="kill.html">
+            
+                
+                    <a href="./kill.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.1.</b>
+                        
+                        kill
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11.2" data-path="trap.html">
+            
+                
+                    <a href="./trap.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.2.</b>
+                        
+                        trap
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11.3" data-path="signals_table.html">
+            
+                
+                    <a href="./signals_table.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.3.</b>
+                        
+                        Signals Table
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="12" data-path="command_aliases.html">
+            
+                
+                    <a href="./command_aliases.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.</b>
+                        
+                        Command Aliases
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="13" data-path="command_history.html">
+            
+                
+                    <a href="./command_history.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.</b>
+                        
+                        Command History
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="14" data-path="command_completion.html">
+            
+                
+                    <a href="./command_completion.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.</b>
+                        
+                        Command Completion
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="15" data-path="readline.html">
+            
+                
+                    <a href="./readline.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.</b>
+                        
+                        Readline
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="16" data-path="colors_and_prompt.html">
+            
+                
+                    <a href="./colors_and_prompt.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.</b>
+                        
+                        Colors and Prompt
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="17" data-path="shell_variables.html">
+            
+                
+                    <a href="./shell_variables.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>17.</b>
+                        
+                        Shell Variables
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="17.1" data-path="positional_parameters.html">
+            
+                
+                    <a href="./positional_parameters.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>17.1.</b>
+                        
+                        Positional Parameters
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="17.2" data-path="special_parameters.html">
+            
+                
+                    <a href="./special_parameters.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>17.2.</b>
+                        
+                        Special Parameters
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="18" data-path="shell_options.html">
+            
+                
+                    <a href="./shell_options.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>18.</b>
+                        
+                        Shell Options
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="18.1" data-path="command_line_options.html">
+            
+                
+                    <a href="./command_line_options.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>18.1.</b>
+                        
+                        Command-line options
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="19" data-path="debugging.html">
+            
+                
+                    <a href="./debugging.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>19.</b>
+                        
+                        Debugging
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="20" data-path="locale.html">
+            
+                
+                    <a href="./locale.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>20.</b>
+                        
+                        Locale
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="21" data-path="sh.html">
+            
+                
+                    <a href="./sh.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>21.</b>
+                        
+                        sh
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="22" data-path="tips.html">
+            
+                
+                    <a href="./tips.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>22.</b>
+                        
+                        Tips
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="23" data-path="closing.html">
+            
+                
+                    <a href="./closing.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>23.</b>
+                        
+                        맺음말
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="24" data-path="supplement.html">
+            
+                
+                    <a href="./supplement.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>24.</b>
+                        
+                        별책부록
+                    </a>
+            
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" >Introduction</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="readline">Readline</h1>
+<p>CLI (command line interface) &#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC5D0;&#xC11C; line editing, &#xBA85;&#xB839; history,
+brace &#xD655;&#xC7A5;, &#xBA85;&#xB839; &#xC790;&#xB3D9;&#xC644;&#xC131;&#xACFC; &#xAC19;&#xC740; &#xAE30;&#xB2A5;&#xC744; &#xC81C;&#xACF5;&#xD558;&#xB294; &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC;&#xB85C; shell &#xD504;&#xB86C;&#xD504;&#xD2B8; &#xC0C1;&#xC5D0;&#xC11C;
+&#xBA85;&#xB839;&#xBB38;&#xC744; &#xC791;&#xC131;&#xD560;&#xB54C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xD0A4;&#xC870;&#xD569;&#xC774;&#xB098; history &#xAE30;&#xB2A5;&#xC740; &#xC774; &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC;&#xB97C; &#xC774;&#xC6A9;&#xD558;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.
+line editing &#xC5D0;&#xB294; emacs &#xC640; vi &#xB450; &#xC885;&#xB958;&#xC758; &#xD0A4;&#xC870;&#xD569;&#xC744; &#xC81C;&#xACF5;&#xD558;&#xB294;&#xB370; &#xAE30;&#xBCF8; &#xC124;&#xC815;&#xC740; emacs &#xC774;&#xBA70;
+<code>set -o emacs</code> or <code>set -o vi</code> &#xC635;&#xC158;&#xC744; &#xD1B5;&#xD574; &#xBCC0;&#xACBD;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. </p>
+<blockquote>
+<p>man &#xD398;&#xC774;&#xC9C0;&#xB294; <code>man 3 readline</code> &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+</blockquote>
+<h3 id="readline-init-file">Readline init file</h3>
+<p>readline &#xC740; <code>~/.inputrc</code> &#xC124;&#xC815; &#xD30C;&#xC77C;&#xC744; &#xD1B5;&#xD574; &#xC635;&#xC158;&#xC744; &#xC124;&#xC815;&#xD558;&#xACE0; &#xD0A4;&#xC870;&#xD569;&#xC744; &#xCEE4;&#xC2A4;&#xD130;&#xB9C8;&#xC774;&#xC9D5; &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xB2E4;&#xC74C;&#xC740; <code>completion-ignore-case</code> &#xC635;&#xC158;&#xC744; &#xC124;&#xC815;&#xD558;&#xC5EC; <code>tab</code> &#xBC0F; <code>alt-/</code> &#xD0A4;&#xB97C; &#xC774;&#xC6A9;&#xD55C; &#xC790;&#xB3D9;&#xC644;&#xC131; &#xC2DC;&#xC5D0; &#xB300;, &#xC18C;&#xBB38;&#xC790; &#xAD6C;&#xBD84;&#xC5C6;&#xC774;  &#xD558;&#xACE0;
+<code>alt-space</code> &#xC5D0;&#xB294; &quot;git &quot; &#xC744; <code>ctrl-space</code> &#xC5D0;&#xB294; &quot;docker &quot; &#xC2A4;&#xD2B8;&#xB9C1;&#xC774; &#xD504;&#xB86C;&#xD504;&#xD2B8; &#xC0C1;&#xC5D0; &#xC785;&#xB825;&#xB418;&#xAC8C; &#xD558;&#xBA70; &#xD391;&#xC158;&#xD0A4; <code>F9</code>, <code>F10</code> &#xC5D0;&#xB294; &#xC790;&#xC8FC; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xBA85;&#xB839;&#xC744; &#xBC14;&#xC778;&#xB529;&#xD558;&#xB294; &#xC608;&#xC785;&#xB2C8;&#xB2E4;.</p>
+<p>&#xD0A4; &#xC870;&#xD569;&#xC5D0; &#xC0AC;&#xC6A9;&#xB418;&#xB294; &#xD0A4;&#xAC12;&#xC740; <code>Ctrl-v</code> &#xB098; <code>read</code> &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xC5EC; &#xAD6C;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.<br>&#xAD6C;&#xD55C; &#xD0A4;&#xAC12;&#xC5D0;&#xC11C; <code>^[</code> &#xBB38;&#xC790;&#xB97C; <code>\e</code> &#xB85C; &#xC218;&#xC815;&#xD558;&#xC5EC; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># Ctrl-v &#xC785;&#xB825; &#xD6C4; F9 &#xD0A4;&#xB97C; &#xB204;&#xB978; &#xC0C1;&#xD0DC;</span>
+$ ^[[<span class="hljs-number">20</span>~
+
+$ <span class="hljs-built_in">read</span>        <span class="hljs-comment"># enter &#xD6C4;&#xC5D0; &#xC6D0;&#xD558;&#xB294; &#xD0A4;&#xB97C; &#xC785;&#xB825;</span>
+^[[<span class="hljs-number">20</span>~        <span class="hljs-comment"># &#xD0A4;&#xAC12;&#xC740; &#xD130;&#xBBF8;&#xB110;&#xBCC4;&#xB85C; &#xB2E4;&#xB978;&#xAC12;&#xC774; &#xB098;&#xC62C; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
+</code></pre>
+<p><code>inputrc</code> &#xD30C;&#xC77C;&#xC744; &#xC218;&#xC815;&#xD55C; &#xD6C4;&#xC5D0; <code>Ctrl-x Ctrl-r</code> &#xB97C; &#xC785;&#xB825;&#xD558;&#xAC70;&#xB098; &#xC0C8;&#xB85C; &#xD130;&#xBBF8;&#xB110; &#xCC3D;&#xC744; &#xC5F4;&#xBA74; &#xC124;&#xC815;&#xB41C; &#xAE30;&#xB2A5;&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xD55C;&#xAC00;&#xC9C0; &#xC720;&#xC758;&#xD560; &#xC810;&#xC740; window manager &#xB098; &#xD130;&#xBBF8;&#xB110;&#xCC3D; &#xC790;&#xCCB4;&#xC5D0;&#xC11C; &#xC774;&#xBBF8; &#xD0A4;&#xC870;&#xD569;&#xC774; &#xC124;&#xC815;&#xB3FC;&#xC788;&#xC73C;&#xBA74; &#xC801;&#xC6A9;&#xC774; &#xB418;&#xC9C0; &#xC54A;&#xC73C;&#xBBC0;&#xB85C; &#xD544;&#xC694;&#xC5C6;&#xB294; &#xD0A4;&#xC870;&#xD569;&#xC740; &#xBA3C;&#xC800; &#xC0AD;&#xC81C;&#xD558;&#xC2DC;&#xAE30; &#xBC14;&#xB78D;&#xB2C8;&#xB2E4;.</p>
+<h4 id="inputrc-&#xD65C;&#xC6A9;-&#xC608;&#xC81C;">~/.inputrc &#xD65C;&#xC6A9; &#xC608;&#xC81C;</h4>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#xB300;,&#xC18C;&#xBB38;&#xC790; &#xAD6C;&#xBD84;&#xC5C6;&#xC774; word completion</span>
+<span class="hljs-built_in">set</span> completion-ignore-case on
+
+<span class="hljs-comment"># &#xBAA8;&#xB4DC; &#xC124;&#xC815;&#xC744; &#xD558;&#xC9C0; &#xC54A;&#xC744;&#xACBD;&#xC6B0; default &#xB294; emacs &#xC785;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-comment"># emacs &#xBAA8;&#xB4DC;&#xB85C; &#xC124;&#xC815;</span>
+<span class="hljs-comment"># set editing-mode emacs</span>
+<span class="hljs-comment"># vi &#xBAA8;&#xB4DC;&#xB85C; &#xC124;&#xC815;</span>
+<span class="hljs-comment"># set editing-mode vi</span>
+
+<span class="hljs-comment"># emacs &#xBAA8;&#xB4DC;&#xC77C;&#xACBD;&#xC6B0; &#xC801;&#xC6A9;</span>
+<span class="hljs-comment"># $if mode=emacs</span>
+
+<span class="hljs-comment"># ctrl + enter &#xB204;&#xB974;&#xBA74; &#xD604;&#xC7AC; &#xBA85;&#xB839;&#xD589; &#xC0C1;&#xC5D0; &#xC788;&#xB294; &#xC804;&#xCCB4; &#xB0B4;&#xC6A9; &#xC0AD;&#xC81C;</span>
+<span class="hljs-string">&quot;\e[9;8~&quot;</span>: <span class="hljs-built_in">kill</span>-whole-line
+
+<span class="hljs-comment"># alt-space &#xCE58;&#xBA74; &#xD504;&#xB86C;&#xD504;&#xD2B8;&#xC5D0; git &#xC785;&#xB825;</span>
+<span class="hljs-string">&quot;\e &quot;</span>: <span class="hljs-string">&quot;git &quot;</span>
+
+<span class="hljs-comment"># ctrl-space &#xCE58;&#xBA74; &#xD504;&#xB86C;&#xD504;&#xD2B8;&#xC5D0; docker &#xC785;&#xB825;</span>
+<span class="hljs-string">&quot;\C-@&quot;</span>: <span class="hljs-string">&quot;docker &quot;</span>
+
+<span class="hljs-comment"># Shift-F1 &#xD0A4;&#xC5D0; fzf &#xBA85;&#xB839;&#xC744; &#xBC14;&#xC778;&#xB529; &#xD569;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-comment"># fuzzy finder &#xB294; Junegunn Choi &#xB2D8;&#xC774; Go &#xC5B8;&#xC5B4;&#xB85C; &#xB9CC;&#xB4E0; &#xBA85;&#xB839;&#xC774;&#xC8E0;. &#xB9AC;&#xB205;&#xC2A4; &#xC18C;&#xC2A4; &#xAC19;&#xC740;</span>
+<span class="hljs-comment"># &#xB9CE;&#xC740; &#xD30C;&#xC77C;&#xC774; &#xC874;&#xC7AC;&#xD558;&#xB294; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0;&#xC11C; &#xD30C;&#xC77C; &#xC774;&#xB984;&#xC744; &#xBE60;&#xB974;&#xACE0; &#xC27D;&#xAC8C; &#xCC3E;&#xC744; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-string">&quot;\eO2P&quot;</span>: <span class="hljs-string">&quot; \C-u<span class="hljs-variable">$(fzf -m)</span>\e\C-e\C-a\C-y\b\C-e&quot;</span>
+
+<span class="hljs-comment"># &#xC774; &#xD568;&#xC218;&#xB294; &#xC6D0;&#xB798; \C-x\C-e &#xD0A4;&#xC5D0; &#xBC14;&#xC778;&#xB529; &#xB418;&#xC5B4;&#xC788;&#xB294;&#xB370; &#xD55C; &#xBC88;&#xC5D0; &#xC2E4;&#xD589;&#xD558;&#xAE30; &#xC704;&#xD574;</span>
+<span class="hljs-comment"># F2 &#xD0A4;&#xC5D0; &#xBC14;&#xC778;&#xB529; &#xD569;&#xB2C8;&#xB2E4;. &#xD604;&#xC7AC; &#xBA85;&#xB839;&#xD589; &#xC0C1;&#xC5D0;&#xC11C; &#xC791;&#xC131; &#xC911;&#xC778; &#xB0B4;&#xC6A9;&#xACFC; &#xD568;&#xAED8; vi &#xC5D0;&#xB514;&#xD130;&#xAC00; &#xC5F4;&#xB9BD;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-string">&quot;\eOQ&quot;</span>: edit-and-execute-command
+
+<span class="hljs-comment"># \C-k\C-u &#xB294; &#xAC01;&#xAC01; kill-line, unix-line-discard &#xD568;&#xC218;&#xB85C; &#xBC14;&#xC778;&#xB529;&#xB418;&#xC5B4; &#xC788;&#xC73C;&#xBBC0;&#xB85C;</span>
+<span class="hljs-comment"># &#xD604;&#xC7AC; &#xD504;&#xB86C;&#xD504;&#xD2B8;&#xC5D0; &#xC785;&#xB825;&#xB3FC;&#xC788;&#xB294; &#xC2A4;&#xD2B8;&#xB9C1;&#xC744; &#xBAA8;&#xB450; &#xC0AD;&#xC81C;&#xD569;&#xB2C8;&#xB2E4;. \C-m &#xC740; enter &#xB97C; &#xC758;&#xBBF8;&#xD569;&#xB2C8;&#xB2E4;.</span>
+
+<span class="hljs-comment"># F11 &#xD0A4;&#xC5D0; git pull &#xBA85;&#xB839; &#xBC14;&#xC778;&#xB529;</span>
+<span class="hljs-string">&quot;\e[23~&quot;</span>: <span class="hljs-string">&quot;\C-k\C-ugit pull\C-m&quot;</span>
+<span class="hljs-string">&quot;\e[23;2~&quot;</span>: <span class="hljs-string">&quot;\C-k\C-ugit diff @{1}\C-m&quot;</span>
+
+<span class="hljs-comment"># F12 &#xD0A4;&#xC5D0; git push &#xBA85;&#xB839; &#xBC14;&#xC778;&#xB529;</span>
+<span class="hljs-string">&quot;\e[24~&quot;</span>: <span class="hljs-string">&quot;\C-k\C-ugit push\C-m&quot;</span>
+
+<span class="hljs-comment"># &#xAE30;&#xC874; &#xD0A4;&#xBC14;&#xC778;&#xB529;&#xC744; undefined &#xD558;&#xACE0; &#xC2F6;&#xC73C;&#xBA74; </span>
+<span class="hljs-comment"># &quot;&#xD0A4;&#xAC12;&quot;: nop</span>
+
+<span class="hljs-comment"># $endif</span>
+</code></pre>
+<blockquote>
+<p>&#xD604;&#xC7AC; &#xBC14;&#xC778;&#xB529; &#xB418;&#xC5B4;&#xC788;&#xB294; &#xC0AC;&#xC6A9;&#xC790; &#xC815;&#xC758; &#xD0A4;&#xC870;&#xD569;&#xC740; <code>bind -s</code> &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xC870;&#xD68C;&#xD574; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.<br><code>bind -v</code> &#xB85C;&#xB294; &#xD604;&#xC7AC; &#xC124;&#xC815;&#xB418;&#xC5B4; &#xC788;&#xB294; readline &#xC635;&#xC158;&#xC744; &#xC870;&#xD68C;&#xD574; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+</blockquote>
+<h3 id="&#xC720;&#xC6A9;&#xD55C;-&#xD0A4;&#xBCF4;&#xB4DC;-shortcut">&#xC720;&#xC6A9;&#xD55C; &#xD0A4;&#xBCF4;&#xB4DC; shortcut</h3>
+<ul>
+<li><p>&#xC774;&#xC804; &#xBA85;&#xB839;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xB41C; &#xB9C8;&#xC9C0;&#xB9C9; &#xC778;&#xC218;&#xB97C; &#xC785;&#xB825;&#xD558;&#xACE0; &#xC2F6;&#xC744; &#xB54C;&#xB294; <code>Alt-.</code> &#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;. &#xC5F0;&#xC18D;&#xD574;&#xC11C; &#xB204;&#xB974;&#xBA74; &#xC774;&#xC804; &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xC774;&#xB3D9;&#xD569;&#xB2C8;&#xB2E4;.</p>
+</li>
+<li><p><code>Ctrl-r</code> &#xC740; &#xBA85;&#xB839; history &#xB97C; &#xAC80;&#xC0C9;&#xD558;&#xC5EC; &#xC785;&#xB825;&#xD55C; &#xD328;&#xD134;&#xC5D0; &#xD574;&#xB2F9;&#xD558;&#xB294; &#xBA85;&#xB839;&#xC744; &#xBD88;&#xB7EC;&#xC640; &#xC2E4;&#xD589;&#xD560; &#xC218; &#xC788;&#xAC8C; &#xD574;&#xC90D;&#xB2C8;&#xB2E4;. &#xC5F0;&#xC18D;&#xD574;&#xC11C; &#xB204;&#xB974;&#xBA74; &#xB9E4;&#xCE6D;&#xB418;&#xB294; &#xB2E4;&#xC74C; &#xD56D;&#xBAA9;&#xC73C;&#xB85C; &#xB118;&#xC5B4;&#xAC11;&#xB2C8;&#xB2E4;. ( &#xB2E4;&#xC2DC; &#xC55E;&#xCABD;&#xC73C;&#xB85C; &#xAC80;&#xC0C9;&#xC740; <code>Ctrl-s</code> )</p>
+</li>
+<li><p>&#xD504;&#xB86C;&#xD504;&#xD2B8; &#xC0C1;&#xC5D0;&#xC11C; &#xBA85;&#xB839;&#xBB38;&#xC744; &#xC791;&#xC131; &#xC911;&#xC5D0; &#xC5D0;&#xB514;&#xD130;&#xB97C; &#xBD88;&#xB7EC;&#xC624;&#xACE0; &#xC2F6;&#xC744; &#xB54C;
+<code>Ctrl-x Ctrl-e</code> &#xB97C; &#xC785;&#xB825;&#xD558;&#xBA74; &#xD604;&#xC7AC; &#xC791;&#xC131; &#xC911;&#xC778; &#xB0B4;&#xC6A9;&#xACFC; &#xD568;&#xAED8; vi editor &#xAC00; &#xC5F4;&#xB9BD;&#xB2C8;&#xB2E4;.
+<code>:wq</code> &#xBA85;&#xB839;&#xC73C;&#xB85C; vi &#xB97C; &#xC885;&#xB8CC;&#xD558;&#xBA74; &#xC218;&#xC815;&#xB41C; &#xBA85;&#xB839;&#xC774; &#xC2E4;&#xD589;&#xB418;&#xACE0; <code>:cq</code> &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xC885;&#xB8CC;&#xD558;&#xBA74; &#xC2E4;&#xD589;&#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+</li>
+</ul>
+<blockquote>
+<p>&#xC2E4;&#xD589;&#xB418;&#xB294; &#xC5D0;&#xB514;&#xD130;&#xB97C; &#xBCC0;&#xACBD;&#xD560; &#xC218; &#xC788;&#xB294;&#xB370; <code>$VISUAL</code>, <code>$EDITOR</code> &#xBCC0;&#xC218;&#xAC12; &#xC124;&#xC815; &#xC21C;&#xC11C;&#xC5D0; &#xB530;&#xB985;&#xB2C8;&#xB2E4;.</p>
+</blockquote>
+<ul>
+<li><p>tab &#xD0A4;&#xB85C; &#xD30C;&#xC77C;&#xC774;&#xB984; &#xC790;&#xB3D9;&#xC644;&#xC131;&#xC774; &#xB418;&#xC9C0; &#xC54A;&#xC744; &#xACBD;&#xC6B0; <code>Alt-/</code> &#xB85C; &#xC790;&#xB3D9;&#xC644;&#xC131;&#xC744; &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+</li>
+<li><p>&#xADF8; &#xC678; &#xC5EC;&#xB7EC; &#xD0A4;&#xC870;&#xD569;&#xC740; <a href="http://readline.kablamo.org/emacs.html" target="_blank">http://readline.kablamo.org/emacs.html</a> &#xC5D0;&#xC11C; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xC774;&#xC804;&#xC5D0; &#xC2E4;&#xD589;&#xB41C; &#xD0A4;&#xC870;&#xD569;&#xC744; undo (<code>Ctrl-/</code>) &#xD560;&#xC218;&#xB3C4; &#xC788;&#xACE0; cut &amp; paste &#xB3C4; &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+</li>
+<li><p>&#xC5EC;&#xB7EC; &#xB2E8;&#xACC4;&#xC758; &#xD0A4;&#xC870;&#xD569;&#xC774; &#xC124;&#xC815;&#xB418;&#xC5B4; &#xC0AC;&#xC6A9;&#xB420; &#xACBD;&#xC6B0; &#xD0A4;&#xC870;&#xD569; &#xC785;&#xB825; &#xC911;&#xAC04;&#xC5D0; &#xCDE8;&#xC18C;&#xD558;&#xB294; &#xBC29;&#xBC95;&#xC740; <code>Ctrl-g</code> &#xC785;&#xB2C8;&#xB2E4;.</p>
+</li>
+</ul>
+<blockquote>
+<p>&#xD604;&#xC7AC; &#xBC14;&#xC778;&#xB529; &#xB418;&#xC5B4;&#xC788;&#xB294; readline &#xD568;&#xC218; &#xD0A4;&#xC870;&#xD569;&#xC740; <code>bind -p</code> &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xC870;&#xD68C;&#xD574; &#xBCFC; &#xC218; &#xC788;&#xACE0;
+<code>bind -l</code> &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xC0AC;&#xC6A9; &#xAC00;&#xB2A5;&#xD55C; readline &#xD568;&#xC218; &#xBAA9;&#xB85D;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.  </p>
+</blockquote>
+<h4 id="&#xBA85;&#xB839;&#xC774;-readline-&#xAE30;&#xB2A5;&#xC744;-&#xC81C;&#xACF5;&#xD558;&#xC9C0;-&#xC54A;&#xC744;-&#xACBD;&#xC6B0;">&#xBA85;&#xB839;&#xC774; readline &#xAE30;&#xB2A5;&#xC744; &#xC81C;&#xACF5;&#xD558;&#xC9C0; &#xC54A;&#xC744; &#xACBD;&#xC6B0;</h4>
+<p>&#xBA85;&#xB839;&#xC774; readline &#xAE30;&#xB2A5;&#xC744; &#xC81C;&#xACF5;&#xD558;&#xC9C0; &#xC54A;&#xC744; &#xACBD;&#xC6B0; editing &#xD0A4; &#xC870;&#xD569;&#xC774;&#xB098; history &#xAC19;&#xC740; &#xAE30;&#xB2A5;&#xC744; 
+&#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xC5B4; &#xBD88;&#xD3B8;&#xD55C;&#xB370;&#xC694;. &#xC774;&#xB54C;&#xB294; <code>rlwrap</code> &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD574; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+perl &#xC5B8;&#xC5B4;&#xC758; &#xACBD;&#xC6B0; &#xC694;&#xC998; &#xB098;&#xC624;&#xB294; &#xC5B8;&#xC5B4;&#xB4E4;&#xACFC; &#xB2EC;&#xB9AC; &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xD574; &#xBCFC; &#xC218; &#xC788;&#xB294; 
+REPL (Read Evaluate Print Loop) &#xAE30;&#xB2A5;&#xC774; &#xC5C6;&#xB294;&#xB370;&#xC694;.
+&#xD558;&#xC9C0;&#xB9CC; &#xB514;&#xBC84;&#xAE45; &#xBAA8;&#xB4DC;&#xC5D0;&#xC11C; &#xBE44;&#xC2B7;&#xD558;&#xAC8C; &#xC2E4;&#xD589;&#xD574; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; <code>rlwarp</code> &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; &#xB514;&#xBC84;&#xAE45; &#xBAA8;&#xB4DC;&#xC5D0;&#xC11C;&#xB3C4; readline &#xAE30;&#xB2A5;&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-sh">$ <span class="hljs-built_in">alias</span> perldebug=<span class="hljs-string">&apos;rlwrap perl -de1&apos;</span>
+</code></pre>
+<h1 id="quiz">Quiz</h1>
+<p>&#xC55E;&#xC11C; &#xC774;&#xC804; &#xBA85;&#xB839;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xB41C; &#xB9C8;&#xC9C0;&#xB9C9; &#xC778;&#xC218;&#xB294; <code>Alt-.</code> &#xD0A4;&#xC870;&#xD569;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xC5EC; &#xC785;&#xB825;&#xD560; &#xC218; &#xC788;&#xB2E4;&#xACE0; &#xD558;&#xC600;&#xB294;&#xB370;&#xC694;<br>&#xADF8;&#xB7FC; &#xB9C8;&#xC9C0;&#xB9C9; &#xC778;&#xC218;&#xAC00; &#xC544;&#xB2CC; &#xACBD;&#xC6B0;&#xB294; &#xC5B4;&#xB5BB;&#xAC8C; &#xC785;&#xB825;&#xD560;&#xAE4C;&#xC694;?</p>
+<blockquote>
+<p>&#xB611;&#xAC19;&#xC774; <code>Alt-.</code> &#xD0A4;&#xC870;&#xD569;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xC9C0;&#xB9CC; &#xADF8;&#xC804;&#xC5D0; &#xC778;&#xC218;&#xC758; &#xC704;&#xCE58;&#xB97C; <code>Alt-&#xC22B;&#xC790;</code> &#xB85C; &#xBA3C;&#xC800; &#xC9C0;&#xC815;&#xC744; &#xD569;&#xB2C8;&#xB2E4;.<br>&#xC608;&#xB97C; &#xB4E4;&#xBA74;  &#xC774;&#xC804; &#xBA85;&#xB839;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xB41C; 2 &#xBC88;&#xC9F8; &#xC778;&#xC218;&#xB97C; &#xC785;&#xB825;&#xD558;&#xACE0; &#xC2F6;&#xB2E4;&#xBA74; <code>Alt-2 Alt-.</code> &#xC744; &#xC785;&#xB825;&#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.  </p>
+</blockquote>
+<video width="582" height="214" controls preload="auto">
+  <source src="images/readline_ex.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<blockquote>
+<p><code>Alt-&#xC22B;&#xC790;</code> &#xB300;&#xC2E0;&#xC5D0; <code>Alt--</code> (minus) &#xB97C; &#xB204;&#xB974;&#xBA74; &#xC5B4;&#xB5BB;&#xAC8C; &#xB420;&#xAE4C;&#xC694;?</p>
+</blockquote>
+<hr>
+<h4 id="cut--paste-copy--paste">cut &amp; paste, copy &amp; paste</h4>
+<p>&#xC774; &#xAE30;&#xB2A5;&#xC740; kill ring &#xACFC; Ctrl-y (yank) &#xD568;&#xC218;&#xB97C; &#xC774;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.
+&#xC774;&#xB984;&#xC774; &#xC880; &#xC0DD;&#xC18C;&#xD55C;&#xB370; &#xC608;&#xC804;&#xC5D0;&#xB294; cut &amp; paste &#xB77C;&#xACE0; &#xD558;&#xC9C0; &#xC54A;&#xACE0; kill, yank &#xB77C;&#xACE0; &#xD588;&#xB2E4;&#xACE0; &#xD569;&#xB2C8;&#xB2E4;.
+Ctrl-u, Ctrl-k, Ctrl-w, Alt-backspace &#xAC19;&#xC740; &#xD0A4;&#xC870;&#xD569;&#xB4E4;&#xC740; &#xC791;&#xC131;&#xD55C; &#xBA85;&#xB839;&#xBB38;&#xC758; &#xC77C;&#xBD80;&#xBD84;&#xC744; &#xC0AD;&#xC81C;&#xD558;&#xB294;&#xB370;
+&#xC774;&#xB54C; &#xC0AD;&#xC81C;&#xB41C; &#xB0B4;&#xC6A9;&#xC774; kill ring &#xC5D0; &#xB4E4;&#xC5B4;&#xAC11;&#xB2C8;&#xB2E4;. &#xC774;&#xD6C4;&#xC5D0; Ctrl-y &#xB97C; &#xC774;&#xC6A9;&#xD558;&#xC5EC; paste &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xC5EC;&#xAE30;&#xC11C; kill ring &#xC774;&#xB77C;&#xACE0; &#xD558;&#xB294; &#xC774;&#xC720;&#xB294; paste &#xD560;&#xB54C; Alt-y &#xB85C; &#xC774;&#xC804; &#xAC12;&#xC744; &#xBD88;&#xB7EC;&#xC62C; &#xC218;&#xAC00; &#xC788;&#xAE30; &#xB54C;&#xBB38;&#xC785;&#xB2C8;&#xB2E4;.</p>
+<p>&#xB2E4;&#xC74C;&#xC740; Ctrl-w (&#xACF5;&#xBC31;&#xC744; &#xAE30;&#xC900;&#xC73C;&#xB85C; &#xC774;&#xC804; &#xC2A4;&#xD2B8;&#xB9C1; &#xC0AD;&#xC81C;) &#xC640;
+Alt-backspace (&#xB2E8;&#xC5B4;&#xB97C; &#xAE30;&#xC900;&#xC73C;&#xB85C; &#xC774;&#xC804; &#xC2A4;&#xD2B8;&#xB9C1; &#xC0AD;&#xC81C;) &#xB97C; &#xC774;&#xC6A9;&#xD574; cut &amp; paste &#xB97C; &#xD558;&#xB294; &#xC608;&#xC785;&#xB2C8;&#xB2E4;.
+cut &#xD55C; &#xB2E4;&#xC74C;&#xC5D0; &#xBC14;&#xB85C; paste &#xD558;&#xBA74; copy &amp; paste &#xB97C; &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<video width="766" height="134" controls preload="auto">
+  <source src="images/copy_paste1.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+
+<p>Ctrl-w &#xC640; Alt-backspace &#xB294; &#xACF5;&#xBC31;&#xACFC; &#xB2E8;&#xC5B4;&#xB97C; &#xAE30;&#xC900;&#xC73C;&#xB85C; &#xC774;&#xC804; &#xC2A4;&#xD2B8;&#xB9C1;&#xC744; &#xC0AD;&#xC81C;&#xD558;&#xAE30; &#xB54C;&#xBB38;&#xC5D0;
+&#xC885;&#xC885; kill &#xD558;&#xACE0;&#xC790; &#xD558;&#xB294; &#xACBD;&#xACC4;&#xAC00; &#xB9DE;&#xC9C0; &#xC54A;&#xB294; &#xACBD;&#xC6B0;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xC774;&#xB54C;&#xB294; mark &#xC640; kill &#xC744; &#xC774;&#xC6A9;&#xD558;&#xC5EC; &#xC9C1;&#xC811; region &#xC744; &#xC9C0;&#xC815;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xC774; &#xAE30;&#xB2A5;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C;&#xB294; &#xBA3C;&#xC800; ~/.inputrc &#xC5D0; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xC124;&#xC815;&#xC744; &#xD569;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># ~/.inputrc &#xC5D0; &#xCD94;&#xAC00;&#xD560; &#xB0B4;&#xC6A9;</span>
+<span class="hljs-comment"># Alt-m : &#xD604;&#xC7AC; &#xCEE4;&#xC11C;&#xC704;&#xCE58;&#xC5D0; mark &#xC124;&#xC815;</span>
+<span class="hljs-string">&quot;\em&quot;</span>: <span class="hljs-built_in">set</span>-mark
+
+<span class="hljs-comment"># Alt-k : mark &#xD55C; &#xC704;&#xCE58;&#xBD80;&#xD130; &#xD604;&#xC7AC; &#xCEE4;&#xC11C;&#xAE4C;&#xC9C0; &#xB0B4;&#xC6A9;&#xC744; kill ring &#xC5D0; copy.</span>
+<span class="hljs-string">&quot;\ek&quot;</span>: copy-region-as-kill
+
+<span class="hljs-comment"># Alt-Shift-k : mark &#xD55C; &#xC704;&#xCE58;&#xBD80;&#xD130; &#xD604;&#xC7AC; &#xCEE4;&#xC11C;&#xAE4C;&#xC9C0; &#xB0B4;&#xC6A9;&#xC744; copy &#xD568;&#xACFC; &#xB3D9;&#xC2DC;&#xC5D0; &#xC0AD;&#xC81C;.</span>
+<span class="hljs-string">&quot;\eK&quot;</span>: <span class="hljs-built_in">kill</span>-region
+</code></pre>
+<video width="766" height="150" controls preload="auto">
+  <source src="images/copy_paste2.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+
+<h4 id="bind-toggling">bind toggling</h4>
+<p>&#xB2E4;&#xC74C;&#xC740; bind &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD55C; toggling &#xC785;&#xB2C8;&#xB2E4;.<br>Ctrl-space &#xC5D0; docker &#xAC00; &#xBC14;&#xC778;&#xB529; &#xB418;&#xC5B4; &#xC788;&#xB294;&#xB370; F1 &#xD0A4;&#xB97C; &#xC774;&#xC6A9;&#xD574;&#xC11C; lxc &#xB85C; &#xD1A0;&#xAE00;&#xD558;&#xB294; &#xAE30;&#xB2A5;&#xC785;&#xB2C8;&#xB2E4;. </p>
+<pre><code class="lang-bash"><span class="hljs-comment"># bind -x &#xBA85;&#xB839;&#xC740; .inputrc &#xC5D0;&#xC11C; &#xC124;&#xC815;&#xD560; &#xC218; &#xC5C6;&#xC73C;&#xBBC0;&#xB85C; &#xB2E4;&#xC74C; &#xB0B4;&#xC6A9;&#xC744; .bashrc &#xC5D0; &#xCD94;&#xAC00;&#xD569;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-comment"># F1 &#xD0A4;&#xB97C; toggle &#xD0A4;&#xB85C; &#xC124;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.</span>
+
+<span class="hljs-built_in">bind</span> -x <span class="hljs-string">&apos;&quot;\eOP&quot;: &quot;source ~/bin/bind_toggle.sh&quot;&apos;</span>
+
+---------------------------------------------------------
+
+<span class="hljs-comment"># ~/bin/bind_toggle.sh &#xD30C;&#xC77C;&#xC758; &#xB0B4;&#xC6A9;</span>
+<span class="hljs-comment"># source &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xC77D;&#xC5B4; &#xB4E4;&#xC774;&#xBBC0;&#xB85C; shebang &#xB77C;&#xC778;&#xACFC; &#xC2E4;&#xD589; &#xAD8C;&#xD55C;&#xC740; &#xD544;&#xC694; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
+
+<span class="hljs-keyword">case</span> $(<span class="hljs-built_in">bind</span> -S | grep -P -m1 -o <span class="hljs-string">&quot;(?&lt;=C-@ outputs )\S+&quot;</span>) <span class="hljs-keyword">in</span>
+git)
+    <span class="hljs-built_in">bind</span> <span class="hljs-string">&apos;&quot;\C-@&quot;: &quot;docker &quot;&apos;</span>
+    <span class="hljs-built_in">echo</span> docker
+    ;;
+
+docker)
+    <span class="hljs-built_in">bind</span> <span class="hljs-string">&apos;&quot;\C-@&quot;: &quot;lxc &quot;&apos;</span>
+    <span class="hljs-built_in">echo</span> lxc
+    ;;
+
+lxc)
+    <span class="hljs-built_in">bind</span> <span class="hljs-string">&apos;&quot;\C-@&quot;: &quot;git &quot;&apos;</span>
+    <span class="hljs-built_in">echo</span> git
+    ;;
+<span class="hljs-keyword">esac</span>
+</code></pre>
+<p>&#xD1A0;&#xAE00; &#xB2E8;&#xC5B4;&#xB97C; &#xC5EC;&#xB7EC;&#xAC1C; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xD604;&#xC7AC; &#xC124;&#xC815;&#xC744; &#xC54C;&#xAE30; &#xC5B4;&#xB824;&#xC6B0;&#xBBC0;&#xB85C; &#xD504;&#xB86C;&#xD504;&#xD2B8;&#xC5D0; &#xD45C;&#xC2DC;&#xD574; &#xC8FC;&#xBA74; &#xC88B;&#xC2B5;&#xB2C8;&#xB2E4;.
+~/.bashrc &#xD30C;&#xC77C;&#xC758; <code>PS1</code> &#xD504;&#xB86C;&#xD504;&#xD2B8; &#xC124;&#xC815;&#xD558;&#xB294; &#xACF3;&#xC744; &#xCC3E;&#xC544;&#xC11C; &#xC801;&#xB2F9;&#xD55C; &#xC704;&#xCE58;&#xB97C; &#xC815;&#xD558;&#xC5EC;
+<code>+=</code> &#xC5F0;&#xC0B0;&#xC790;&#xB97C; &#xC774;&#xC6A9;&#xD574; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xCD94;&#xAC00;&#xD574; &#xC90D;&#xB2C8;&#xB2E4;.
+&#xC124;&#xC815;&#xB41C; &#xAC12;&#xC740; &#xD1A0;&#xAE00;&#xD0A4;&#xB97C; &#xB204;&#xB978; &#xD6C4; &#xB2E4;&#xC74C;&#xBC88; &#xD504;&#xB86C;&#xD504;&#xD2B8;&#xAC00; &#xD45C;&#xC2DC;&#xB420;&#xB54C; &#xBCC0;&#xACBD; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># ~/.bashrc &#xD30C;&#xC77C;&#xC5D0;&#xC11C; PS1 &#xD504;&#xB86C;&#xD504;&#xD2B8; &#xC124;&#xC815;</span>
+
+<span class="hljs-built_in">bind</span> <span class="hljs-string">&apos;&quot;\C-@&quot;: &quot;git &quot;&apos;</span>    <span class="hljs-comment"># &#xCD08;&#xAE30;&#xAC12;</span>
+
+PS1+=<span class="hljs-string">&apos;$(
+    case $(bind -S | grep -P -m1 -o &quot;(?&lt;=C-@ outputs )\S+&quot;) in
+        git) echo G ;;
+        docker) echo D ;;
+        lxc) echo L ;;
+    esac
+)&apos;</span>
+</code></pre>
+<video width="612" height="186" controls preload="auto">
+  <source src="images/bind_toggle.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+
+<h4 id="command-line-history-expansion">Command line history expansion</h4>
+<p>&#xD604;&#xC7AC; &#xC791;&#xC131; &#xC911;&#xC778; &#xBA85;&#xB839; &#xD589;&#xC0C1;&#xC5D0;&#xC11C; &#xC55E;&#xC11C; &#xD0C0;&#xC785;&#xD55C; &#xC778;&#xC218;&#xB97C; &#xB2E4;&#xC2DC; &#xC785;&#xB825;&#xD558;&#xACE0; &#xC2F6;&#xC744; &#xB54C;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+readline &#xD568;&#xC218;&#xC778; history-expand-line &#xACFC; <code>!#:$</code> <code>!#:0</code> <code>!#:1</code> ...  command history &#xAE30;&#xB2A5;&#xC744; &#xC774;&#xC6A9;&#xD574;
+<code>Alt-&#xC22B;&#xC790; Alt-,</code> &#xD0A4;&#xC870;&#xD569;&#xC5D0; &#xBC14;&#xC778;&#xB529; &#xD574;&#xBCF4;&#xACA0;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xD55C;&#xAC00;&#xC9C0; &#xC0AC;&#xC6A9;&#xC2DC; &#xC8FC;&#xC758;&#xD560; &#xC810;&#xC740; &#xC774; &#xD0A4;&#xC870;&#xD569;&#xC740; &#xC55E;&#xC11C; <code>Alt-&#xC22B;&#xC790; Alt-.</code> &#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xB418;&#xB294; <code>Alt-&#xC22B;&#xC790;</code> &#xC640;
+&#xC911;&#xBCF5;&#xB418;&#xBBC0;&#xB85C; &#xC880; &#xBE60;&#xB974;&#xAC8C; &#xB20C;&#xB7EC;&#xC57C; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># ~/.inputrc &#xC5D0; &#xCD94;&#xAC00;&#xD560; &#xB0B4;&#xC6A9;</span>
+<span class="hljs-comment"># &quot;Alt-,&quot; &#xC5D0;&#xB294; !#:$ &#xC744; &#xBC14;&#xC778;&#xB529; &#xD558;&#xACE0;</span>
+<span class="hljs-comment"># &quot;Alt-1 Alt-,&quot; &#xC5D0;&#xB294; !#:1 &#xC744; &quot;Alt-2 Alt-,&quot; &#xC5D0;&#xB294; !#:2 ... &#xC744; &#xAC01;&#xAC01; &#xBC14;&#xC778;&#xB529; &#xD569;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-comment"># &quot;\e^&quot; &#xB294; history-expand-line &#xD568;&#xC218;&#xC785;&#xB2C8;&#xB2E4;. &#xC55E;&#xC11C; &#xC785;&#xB825;&#xD55C; !#:1 &#xBD80;&#xBD84;&#xC774; &#xD655;&#xC7A5;&#xB429;&#xB2C8;&#xB2E4;.</span>
+
+<span class="hljs-string">&quot;\e1\e,&quot;</span>: <span class="hljs-string">&quot;!#:1\e^&quot;</span> 
+<span class="hljs-string">&quot;\e2\e,&quot;</span>: <span class="hljs-string">&quot;!#:2\e^&quot;</span> 
+<span class="hljs-string">&quot;\e3\e,&quot;</span>: <span class="hljs-string">&quot;!#:3\e^&quot;</span> 
+<span class="hljs-string">&quot;\e4\e,&quot;</span>: <span class="hljs-string">&quot;!#:4\e^&quot;</span> 
+<span class="hljs-string">&quot;\e5\e,&quot;</span>: <span class="hljs-string">&quot;!#:5\e^&quot;</span> 
+<span class="hljs-string">&quot;\e6\e,&quot;</span>: <span class="hljs-string">&quot;!#:6\e^&quot;</span> 
+<span class="hljs-string">&quot;\e7\e,&quot;</span>: <span class="hljs-string">&quot;!#:7\e^&quot;</span> 
+<span class="hljs-string">&quot;\e8\e,&quot;</span>: <span class="hljs-string">&quot;!#:8\e^&quot;</span> 
+<span class="hljs-string">&quot;\e9\e,&quot;</span>: <span class="hljs-string">&quot;!#:9\e^&quot;</span> 
+<span class="hljs-string">&quot;\e0\e,&quot;</span>: <span class="hljs-string">&quot;!#:0\e^&quot;</span> 
+<span class="hljs-string">&quot;\e,&quot;</span>: <span class="hljs-string">&quot;!#:$\e^&quot;</span>
+</code></pre>
+<video width="748" height="200" controls preload="auto">
+  <source src="images/readline_ex2.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+
+<h4 id="&#xC774;&#xC804;-&#xBA85;&#xB839;&#xC758;-&#xCD9C;&#xB825;-&#xACB0;&#xACFC;&#xB97C;-&#xC0AC;&#xC6A9;">&#xC774;&#xC804; &#xBA85;&#xB839;&#xC758; &#xCD9C;&#xB825; &#xACB0;&#xACFC;&#xB97C; &#xC0AC;&#xC6A9;</h4>
+<p>&#xBA85;&#xB839;&#xBB38;&#xC744; &#xC791;&#xC131;&#xD560; &#xB54C; &#xC774;&#xC804; &#xBA85;&#xB839;&#xBB38;&#xC774; &#xC544;&#xB2C8;&#xB77C; &#xBA85;&#xB839;&#xC758; &#xCD9C;&#xB825; &#xACB0;&#xACFC;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xACE0; &#xC2F6;&#xC744; &#xB54C;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.<br>.inputrc &#xC5D0; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xC124;&#xC815;&#xC744; &#xD1B5;&#xD574; &#xC774;&#xC804; &#xBA85;&#xB839;&#xC758; &#xCD9C;&#xB825;&#xC744; &#xC785;&#xB825;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<blockquote>
+<p><code>WARNING!!!</code> &#xC774;&#xAC83;&#xC740; history &#xD655;&#xC7A5;&#xC744; &#xC774;&#xC6A9;&#xD574;&#xC11C; &#xC774;&#xC804; &#xBA85;&#xB839;&#xC744; &#xB2E4;&#xC2DC; &#xC2E4;&#xD589;&#xC2DC;&#xD0A4;&#xB294;
+&#xAC83;&#xC785;&#xB2C8;&#xB2E4;. &#xB530;&#xB77C;&#xC11C; &#xC7AC;&#xC2E4;&#xD589;&#xD558;&#xBA74; &#xC548;&#xB418;&#xAC70;&#xB098; &#xC2DC;&#xAC04;&#xC774; &#xC624;&#xB798; &#xAC78;&#xB9AC;&#xB294; &#xBA85;&#xB839;&#xC77C; &#xACBD;&#xC6B0; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xC548;&#xB418;&#xACA0;&#xC8E0;.</p>
+</blockquote>
+<pre><code class="lang-bash"><span class="hljs-comment"># &quot;\e[20~&quot; : F9 &#xD0A4;&#xB85C; &#xC124;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.  &quot;\e[20;2~&quot;  &#xB294; SHIFT-F9 &#xC785;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-comment"># \C-u : &#xD604;&#xC7AC;&#xAE4C;&#xC9C0; &#xD0C0;&#xC785;&#xD55C; &#xBA85;&#xB839;&#xC744; &#xC0AD;&#xC81C;&#xD568;&#xACFC; &#xB3D9;&#xC2DC;&#xC5D0; copy &#xD569;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-comment"># $(...)\e\C-e : \e\C-e &#xB294; shell-expand-line &#xD568;&#xC218;&#xB85C; &#xC55E;&#xC11C; &#xC785;&#xB825;&#xD55C; $(...) &#xBD80;&#xBD84;&#xC774; &#xD655;&#xC7A5;&#xB429;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-comment"># \C-a : &#xCEE4;&#xC11C;&#xB97C; &#xB77C;&#xC778; &#xCC98;&#xC74C;&#xC73C;&#xB85C; &#xC62E;&#xAE41;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-comment"># \C-y : yank &#xD568;&#xC218;&#xB85C; paste &#xC5D0; &#xD574;&#xB2F9;&#xD569;&#xB2C8;&#xB2E4;. &#xC55E;&#xC11C; \C-u &#xB85C; copy &#xD588;&#xB358; &#xBD80;&#xBD84;&#xC744; &#xBD99;&#xC5EC; &#xB123;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-comment"># \b   : &#xCC98;&#xC74C;&#xC5D0; &#xD55C;&#xCE78; &#xB744;&#xC5C8;&#xC73C;&#xBBC0;&#xB85C; &#xC5C6;&#xC560;&#xAE30; &#xC704;&#xD574; backspace</span>
+<span class="hljs-comment"># \C-e : &#xCEE4;&#xC11C;&#xB97C; &#xB77C;&#xC778; &#xB05D;&#xC73C;&#xB85C; &#xC62E;&#xAE41;&#xB2C8;&#xB2E4;.</span>
+
+<span class="hljs-comment"># F9 &#xD0A4; : &#xB9C8;&#xC9C0;&#xB9C9; &#xB2E8;&#xC5B4;</span>
+<span class="hljs-string">&quot;\e[20~&quot;</span>: <span class="hljs-string">&quot; \C-u<span class="hljs-variable">$( { !! ;} |&amp; awk &apos;$NF {W = $NF} END{print W}&apos; )</span>\e\C-e\C-a\C-y\b\C-e&quot;</span>
+<span class="hljs-comment"># Shift-F9 : &#xB9C8;&#xC9C0;&#xB9C9; &#xB77C;&#xC778;</span>
+<span class="hljs-string">&quot;\e[20;2~&quot;</span>: <span class="hljs-string">&quot; \C-u<span class="hljs-variable">$( { !! ;} |&amp; sed -n &apos;/\\S/h; ${g;p}&apos; )</span>\e\C-e\C-a\C-y\b\C-e&quot;</span>
+<span class="hljs-comment"># Ctrl-F9 : &#xC804;&#xCCB4; &#xB0B4;&#xC6A9;</span>
+<span class="hljs-string">&quot;\e[20;5~&quot;</span>: <span class="hljs-string">&quot; \C-u<span class="hljs-variable">$( { !! ;} 2&gt;&amp;1 )</span>\e\C-e\C-a\C-y\b\C-e&quot;</span>
+</code></pre>
+<video controls preload="auto">
+  <source src="images/readline_ex3.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+
+<h4 id="&#xD2B9;&#xC815;-&#xC0AC;&#xC774;&#xC988;&#xC758;-&#xC778;&#xC218;&#xB97C;-&#xAC04;&#xB2E8;&#xD788;-&#xC785;&#xB825;">&#xD2B9;&#xC815; &#xC0AC;&#xC774;&#xC988;&#xC758; &#xC778;&#xC218;&#xB97C; &#xAC04;&#xB2E8;&#xD788; &#xC785;&#xB825;</h4>
+<p>&#xB9CC;&#xC57D;&#xC5D0; 1000, 1024, 4096 bytes &#xD06C;&#xAE30;&#xC758; &#xC778;&#xC218;&#xB97C; &#xC785;&#xB825;&#xD558;&#xB824;&#xBA74; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<video width="770" height="166" controls preload="auto">
+  <source src="images/readline_args.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+
+<h3 id="&#xAC00;&#xC0C1;&#xD654;-&#xAE30;&#xC220;&#xC5D0;-&#xB300;&#xD574;&#xC11C;">&#xAC00;&#xC0C1;&#xD654; &#xAE30;&#xC220;&#xC5D0; &#xB300;&#xD574;&#xC11C;</h3>
+<p>CPU &#xC758; &#xC18D;&#xB3C4; &#xACBD;&#xC7C1;&#xC774; core &#xC218;&#xB97C; &#xB298;&#xB9AC;&#xB294; &#xBC29;&#xD5A5;&#xC73C;&#xB85C; &#xC804;&#xAC1C; &#xB428;&#xC5D0; &#xB530;&#xB77C;&#xC11C;
+&#xC694;&#xC998;&#xC5D0;&#xB294; &#xD558;&#xB098;&#xC758; cpu &#xC5D0; &#xC218;&#xC2ED; &#xAC1C;&#xC758; core &#xAC00; &#xB0B4;&#xC7A5;&#xB418;&#xAE30;&#xB3C4; &#xD569;&#xB2C8;&#xB2E4;.
+&#xC774;&#xAC83;&#xC740; &#xC218;&#xC2ED; &#xB300;&#xC758; &#xCEF4;&#xD4E8;&#xD130;&#xAC00; &#xD558;&#xB098;&#xC758; cpu &#xC5D0; &#xB4E4;&#xC5B4;&#xC788;&#xB294; &#xC148;&#xC778;&#xB370;&#xC694;.
+&#xC774;&#xC640; &#xAC19;&#xC740; &#xACE0;&#xAC00;&#xC758; &#xC7A5;&#xBE44;&#xC5D0; &#xD558;&#xB098;&#xC758; OS &#xB9CC; &#xC6B4;&#xC601;&#xD55C;&#xB2E4;&#xBA74; &#xD2B9;&#xC815; &#xC791;&#xC5C5;&#xC774;&#xB098; &#xB85C;&#xB4DC;&#xAC00; &#xBC1C;&#xC0DD;&#xD560; &#xACBD;&#xC6B0;&#xAC00; &#xC544;&#xB2C8;&#xBA74; 
+&#xC790;&#xC6D0; &#xD65C;&#xC6A9; &#xBA74;&#xC5D0;&#xC11C; &#xB0AD;&#xBE44;&#xB418;&#xAE30; &#xC27D;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>&#xAC00;&#xC0C1;&#xD654;&#xB294; &#xC774;&#xC640; &#xAC19;&#xC740; &#xC720;&#xD734;&#xC790;&#xC6D0;&#xC744; &#xD6A8;&#xC728;&#xC801;&#xC73C;&#xB85C; &#xD65C;&#xC6A9;&#xD558;&#xAE30; &#xC704;&#xD55C; &#xAE30;&#xC220;&#xB85C;
+&#xAC00;&#xC0C1;&#xBA38;&#xC2E0;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; &#xC2DC;&#xC2A4;&#xD15C; &#xB85C;&#xB4DC;&#xC5D0; &#xB530;&#xB77C;&#xC11C; &#xC2E0;&#xCD95;&#xC801;&#xC73C;&#xB85C; &#xD558;&#xB4DC;&#xC6E8;&#xC5B4; &#xC790;&#xC6D0;&#xC744; &#xC774;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.
+&#xAC00;&#xC0C1;&#xBA38;&#xC2E0;&#xC740; &#xD558;&#xB098;&#xC758; OS &#xAC00; &#xC2E4;&#xD589;&#xB418;&#xB294; &#xB3C5;&#xB9BD;&#xC801;&#xC778; &#xBA38;&#xC2E0;&#xACFC; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xADF8; &#xC544;&#xB798; &#xB808;&#xC774;&#xC5B4;&#xC5D0; hypervisor &#xAC00; &#xC704;&#xCE58;&#xD558;&#xC5EC; &#xAC00;&#xC0C1;&#xBA38;&#xC2E0;&#xB4E4;&#xC758;
+&#xB9AC;&#xC18C;&#xC2A4; ( cpu, memory, disk, network ... ) &#xB97C; &#xCEE8;&#xD2B8;&#xB864;&#xD558;&#xACE0; &#xC2A4;&#xCF00;&#xC904; &#xD569;&#xB2C8;&#xB2E4;.
+&#xC774;&#xAC83;&#xC740; &#xB9C8;&#xCE58; OS &#xAC00; &#xAC01; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC758; &#xB9AC;&#xC18C;&#xC2A4;&#xB97C; &#xCEE8;&#xD2B8;&#xB864;&#xD558;&#xACE0; &#xC2A4;&#xCF00;&#xC904; &#xD558;&#xB294; &#xAC83;&#xACFC; &#xBE44;&#xC2B7;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<p>&#xAC00;&#xC0C1;&#xD654; &#xB808;&#xC774;&#xC5B4;&#xC758; &#xCD94;&#xAC00;&#xC5D0; &#xB530;&#xB978; &#xC190;&#xC2E4;&#xC744; &#xC904;&#xC774;&#xAE30; &#xC704;&#xD574; &#xB2E4;&#xC591;&#xD55C; &#xBC29;&#xBC95;&#xB4E4;&#xC774; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.</p>
+<ol>
+
+<p>
+<li><b>&#xC804;&#xAC00;&#xC0C1;&#xD654;</b> ( full virtualization ) </li>
+</p><p>
+   &#xAC00;&#xC0C1;&#xBA38;&#xC2E0; &#xADF8;&#xB7EC;&#xB2C8;&#xAE4C; guest OS &#xC5D0; &#xC544;&#xBB34;&#xB7F0; &#xC218;&#xC815;&#xC744; &#xAC00;&#xD558;&#xC9C0; &#xC54A;&#xB294; &#xAC83;&#xC73C;&#xB85C;
+   guest OS &#xB294; &#xAC00;&#xC0C1;&#xD658;&#xACBD;&#xC5D0;&#xC11C; ( hypervisor &#xC704;&#xC5D0;&#xC11C; ) &#xC2E4;&#xD589;&#xB418;&#xACE0; &#xC788;&#xB294; &#xAC83;&#xC744; &#xBAA8;&#xB974;&#xB294; &#xAC83;&#xACFC; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;.
+   &#xC774;&#xC640; &#xAC19;&#xC774; guest OS &#xB97C; &#xC2E4;&#xD589;&#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C;&#xB294; hypervisor &#xAC00; &#xD544;&#xC694;&#xD55C; &#xBAA8;&#xB4E0; &#xD558;&#xB4DC;&#xC6E8;&#xC5B4; &#xC790;&#xC6D0;&#xC744; &#xC5D0;&#xBBAC;&#xB808;&#xC774;&#xC158; &#xD574;&#xC57C; &#xB429;&#xB2C8;&#xB2E4;.
+
+</p><p>
+<li><b>&#xBD80;&#xBD84;&#xAC00;&#xC0C1;&#xD654;</b> ( paravirtualization : para &#xB294; alongside or partial &#xC744; &#xC758;&#xBBF8; )</li>
+</p><p>
+   &#xC804;&#xAC00;&#xC0C1;&#xD654; &#xBCF4;&#xB2E4; &#xBE60;&#xB974;&#xAC8C; &#xC2E4;&#xD589;&#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C;
+   guest OS &#xC5D0; &#xAC00;&#xC0C1;&#xD654; &#xAD00;&#xB828; &#xD328;&#xCE58;&#xB97C; &#xD558;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.
+   &#xC774;&#xB807;&#xAC8C; &#xD558;&#xBA74; guest OS &#xAC00; &#xC9C1;&#xC811; hypervisor &#xC640; &#xD1B5;&#xC2E0;&#xC744; &#xD558;&#xBBC0;&#xB85C;
+   &#xAE30;&#xC874;&#xC5D0; &#xD558;&#xB4DC;&#xC6E8;&#xC5B4; &#xC5D0;&#xBBAC;&#xB808;&#xC774;&#xC158;&#xC73C;&#xB85C; &#xC778;&#xD55C; &#xBCF5;&#xC7A1;&#xD55C; &#xCC98;&#xB9AC;&#xAC00; &#xAC04;&#xB2E8;&#xD574;&#xC9D1;&#xB2C8;&#xB2E4;.
+
+</p><p>
+<li><b>&#xD558;&#xB4DC;&#xC6E8;&#xC5B4; &#xC11C;&#xD3EC;&#xD2B8;</b></li>
+</p><p>
+   cpu &#xC5D0;&#xC11C; &#xAC00;&#xC0C1;&#xD654;&#xB97C; &#xC9C0;&#xC6D0;&#xD558;&#xBA74; hypervisor &#xCF54;&#xB4DC;&#xAC00; &#xAC04;&#xB2E8;&#xD574;&#xC9C4;&#xB2E4;&#xACE0; &#xD569;&#xB2C8;&#xB2E4;.
+   &#xADF8;&#xB7EC;&#xB2C8;&#xAE4C; &#xC880; &#xB354; &#xBE68;&#xB9AC; &#xC2E4;&#xD589;&#xB420; &#xC218; &#xC788;&#xACA0;&#xC8E0;.
+   cpu &#xC678;&#xC5D0; &#xB124;&#xD06C;&#xC6CC;&#xD2B8; &#xCE74;&#xB4DC; &#xAC19;&#xC740; &#xC8FC;&#xBCC0;&#xC7A5;&#xCE58;&#xC5D0;&#xC11C;&#xB3C4; &#xAC00;&#xC0C1;&#xD654; &#xC9C0;&#xC6D0;&#xC744; &#xD558;&#xAE30;&#xB3C4; &#xD569;&#xB2C8;&#xB2E4;.
+
+</p></ol>
+
+<blockquote>
+<p>qemu &#xB97C; &#xC774;&#xC6A9;&#xD558;&#xBA74; x86 cpu &#xC5D0;&#xC11C; arm cpu &#xC2E4;&#xD589;&#xD30C;&#xC77C;&#xACFC; OS &#xB97C; &#xC2E4;&#xD589;&#xC2DC;&#xD0AC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xC774;&#xAC83;&#xC740; &#xD558;&#xB4DC;&#xC6E8;&#xC5B4;&#xC640; cpu instructions &#xBAA8;&#xB450;&#xB97C; &#xC5D0;&#xBBAC;&#xB808;&#xC774;&#xC158; &#xD574;&#xC57C; &#xB418;&#xAE30; &#xB54C;&#xBB38;&#xC5D0;
+&#xC18D;&#xB3C4;&#xAC00; &#xB9CE;&#xC774; &#xB290;&#xB9BD;&#xB2C8;&#xB2E4;.
+&#xB9CC;&#xC57D;&#xC5D0; guest OS &#xAC00; &#xD638;&#xC2A4;&#xD2B8;&#xC640; &#xAC19;&#xC740; x86 &#xC774;&#xBA74; cpu instructions &#xBCC0;&#xD658; &#xC5C6;&#xC774;
+&#xBC14;&#xB85C; cpu &#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xC2DC;&#xD0AC; &#xC218; &#xC788;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xC880; &#xB354; &#xBE60;&#xB974;&#xAC8C; &#xC2E4;&#xD589;&#xB429;&#xB2C8;&#xB2E4;.</p>
+<p>&#xAD00;&#xC2EC;&#xC774; &#xC788;&#xC73C;&#xC2E0; &#xBD84;&#xC740; <a href="https://drive.google.com/drive/folders/1y6fN8Xiy1ug84c9foTCq_AcpYF8xF_pY?usp=sharing" target="_blank">&#xC5EC;&#xAE30;</a> &#xC5D0;&#xC11C; &#xD30C;&#xC77C;&#xC744; &#xBC1B;&#xC544;&#xC11C; &#xD14C;&#xC2A4;&#xD2B8;&#xD574;&#xBCF4;&#xC138;&#xC694;.</p>
+</blockquote>
+<h4 id="&#xCEE8;&#xD14C;&#xC774;&#xB108;">&#xCEE8;&#xD14C;&#xC774;&#xB108;</h4>
+<p>&#xCEE8;&#xD14C;&#xC774;&#xB108;&#xB294; &#xC6D0;&#xB798; chroot &#xAC19;&#xC740; &#xD504;&#xB85C;&#xC138;&#xC2A4; isolation &#xAE30;&#xC220;&#xC5D0;&#xC11C; &#xBC1C;&#xC804;&#xD55C; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.
+chroot &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; root &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xAC00; &#xBC14;&#xB00C;&#xAC8C; &#xB418;&#xBBC0;&#xB85C; &#xC804;&#xD600; &#xB2E4;&#xB978; &#xC2DC;&#xC2A4;&#xD15C;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xAC83; &#xAC19;&#xC8E0;.
+&#xAC00;&#xC0C1;&#xBA38;&#xC2E0;&#xC774; &#xC2E4;&#xC81C; &#xB3C5;&#xB9BD;&#xC801;&#xC778; &#xBA38;&#xC2E0;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xD6A8;&#xACFC;&#xB97C; &#xC8FC;&#xB294; &#xC7A5;&#xC810;&#xC740; &#xC788;&#xC9C0;&#xB9CC;
+application &#xB808;&#xC774;&#xC5B4;&#xC5D0;&#xC11C; &#xBCF4;&#xBA74; &#xBD88;&#xD544;&#xC694;&#xD558;&#xAC8C; OS &#xAC00; &#xC2E4;&#xD589;&#xB418;&#xB294; &#xB2E8;&#xC810;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>&#xC608;&#xB97C; &#xB4E4;&#xC5B4; &#xB9AC;&#xB205;&#xC2A4; OS &#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xAC1C;&#xBC1C;&#xC790;&#xAC00; &#xB3C5;&#xB9BD;&#xC801;&#xC778; &#xAC1C;&#xBC1C; &#xD658;&#xACBD;&#xC744; &#xC14B;&#xD305;&#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C;
+&#xB9AC;&#xB205;&#xC2A4; &#xAC00;&#xC0C1;&#xBA38;&#xC2E0;&#xC5D0; &#xC6F9;&#xC11C;&#xBC84;, &#xB370;&#xC774;&#xD130;&#xBCA0;&#xC774;&#xC2A4;&#xB97C; &#xC124;&#xCE58;&#xD574; &#xC0AC;&#xC6A9;&#xD55C;&#xB2E4;&#xBA74;
+&#xC774;&#xAC83;&#xC740; &#xD638;&#xC2A4;&#xD2B8; &#xB9AC;&#xB205;&#xC2A4; OS &#xC704;&#xC5D0; &#xB3D9;&#xC77C;&#xD55C; &#xB9AC;&#xB205;&#xC2A4; OS &#xAC00; &#xC911;&#xBCF5; &#xC2E4;&#xD589;&#xB418;&#xC5B4; &#xBD88;&#xD544;&#xC694;&#xD558;&#xAC8C; &#xB9CE;&#xC740; &#xB9AC;&#xC18C;&#xC2A4;&#xAC00; &#xC0AC;&#xC6A9;&#xB418;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;. ( &#xBB3C;&#xB860; &#xB9AC;&#xB205;&#xC2A4;&#xC5D0;&#xC11C; windows OS &#xB97C; &#xC2E4;&#xD589;&#xD558;&#xB824;&#xBA74; &#xAC00;&#xC0C1;&#xBA38;&#xC2E0;&#xC744; &#xC774;&#xC6A9;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.)</p>
+<p>&#xCEE8;&#xD14C;&#xC774;&#xB108;&#xB294; &#xAC00;&#xC0C1;&#xBA38;&#xC2E0; OS &#xC2E4;&#xD589; &#xC5C6;&#xC774; isolation &#xAE30;&#xC220;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xC5EC;
+&#xC2E4;&#xC81C; &#xAC00;&#xC0C1;&#xBA38;&#xC2E0;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xD6A8;&#xACFC;&#xB97C; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;.
+&#xC5EC;&#xAE30;&#xC5D0;&#xB294; cgroup &#xC744; &#xC774;&#xC6A9;&#xD55C; &#xB9AC;&#xC18C;&#xC2A4; &#xAD00;&#xB9AC; ( cpu, memory, disk, network ... ),
+namespace &#xB97C; &#xC774;&#xC6A9;&#xD574;&#xC11C; hostname, process id, user id, network ... &#xB4F1;&#xB3C4;
+&#xB3C5;&#xB9BD;&#xC801;&#xC73C;&#xB85C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC73C;&#xBBC0;&#xB85C; &#xC2E4;&#xC81C; &#xAC00;&#xC0C1;&#xBA38;&#xC2E0;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xAC83;&#xACFC; &#xB3D9;&#xC77C;&#xD55C; &#xD658;&#xACBD;&#xC5D0;&#xC11C;
+application &#xC744; &#xC6B4;&#xC601;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>&#xB2E4;&#xC74C;&#xC740; unshare &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD574;&#xC11C; bash shell &#xC744; &#xB3C5;&#xB9BD;&#xC801;&#xC778; UTS namespace &#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-sh">$ hostname                <span class="hljs-comment"># &#xD604;&#xC7AC; hostname</span>
+EliteBook
+
+$ sudo unshare --uts /bin/bash
+
+$ lsns -t uts
+        NS TYPE NPROCS    PID USER             COMMAND
+<span class="hljs-number">4026531838</span> uts     <span class="hljs-number">315</span>      <span class="hljs-number">1</span> root             /sbin/init splash
+. . .
+<span class="hljs-number">4026533257</span> uts       <span class="hljs-number">2</span> <span class="hljs-number">238698</span> root             /bin/bash   &lt;----
+
+$ hostname HelloHost      <span class="hljs-comment"># UTS namespace &#xB294; &#xB3C5;&#xB9BD;&#xC801;&#xC778; hostname &#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xAC8C; &#xD574;&#xC90D;&#xB2C8;&#xB2E4;.</span>
+
+$ hostname
+HelloHost
+
+$ <span class="hljs-built_in">exit</span>                    <span class="hljs-comment"># bash &#xC744; exit &#xD558;&#xBA74;</span>
+<span class="hljs-built_in">exit</span>
+
+$ hostname                <span class="hljs-comment"># &#xAE30;&#xC874;&#xC758; hostname &#xC774; &#xCD9C;&#xB825;&#xB41C;&#xB2E4;.</span>
+EliteBook
+</code></pre>
+<blockquote>
+<p>&#xB3C4;&#xCEE4; &#xCEE8;&#xD14C;&#xC774;&#xB108;&#xB294; &#xAC00;&#xC0C1;&#xBA38;&#xC2E0;&#xC778;&#xAC00;&#xC694;? &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC778;&#xAC00;&#xC694;?<br><a href="https://www.44bits.io/ko/post/is-docker-container-a-virtual-machine-or-a-process" target="_blank">https://www.44bits.io/ko/post/is-docker-container-a-virtual-machine-or-a-process</a><br>&#xB3C4;&#xCEE4; &#xC5C6;&#xC774; &#xCEE8;&#xD14C;&#xC774;&#xB108; &#xB9CC;&#xB4E4;&#xAE30;:  <a href="https://www.youtube.com/watch?v=JexfNPWyeQA" target="_blank">https://www.youtube.com/watch?v=JexfNPWyeQA</a></p>
+</blockquote>
+<p>&#xD604;&#xC7AC; &#xB9AC;&#xB205;&#xC2A4;&#xC5D0;&#xC11C; &#xB9CE;&#xC774; &#xC0AC;&#xC6A9;&#xB418;&#xB294; &#xCEE8;&#xD14C;&#xC774;&#xB108;&#xB294; docker &#xC640; lxc &#xAE30;&#xBC18;&#xC758; lxd &#xC778;&#xB370;&#xC694;.
+&#xC774;&#xAC83;&#xC740; &#xBAA8;&#xB450; &#xB9AC;&#xB205;&#xC2A4; OS &#xC5D0;&#xC11C; &#xC81C;&#xACF5;&#xD558;&#xB294; &#xCEE8;&#xD14C;&#xC774;&#xB108; &#xAE30;&#xC220;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xBBC0;&#xB85C;
+&#xC0AC;&#xC6A9;&#xBC29;&#xBC95;&#xC774;&#xB098; &#xC81C;&#xACF5;&#xD558;&#xB294; &#xAE30;&#xB2A5;&#xB4E4;&#xC774; &#xBE44;&#xC2B7;&#xD55C; &#xC810;&#xC774; &#xB9CE;&#xC2B5;&#xB2C8;&#xB2E4;.
+docker &#xC758; &#xACBD;&#xC6B0;&#xB294; &#xBCF4;&#xD1B5; application &#xCEE8;&#xD14C;&#xC774;&#xB108;&#xB77C;&#xACE0; &#xD558;&#xACE0; &#xAC00;&#xB2A5;&#xD55C; &#xD55C; &#xC0AC;&#xC774;&#xC988;&#xB97C; &#xC791;&#xAC8C;&#xD574;&#xC11C;
+&#xD558;&#xB098;&#xC758; application &#xC744; &#xC81C;&#xACF5;&#xD558;&#xB294; &#xAC83;&#xC744; &#xBAA9;&#xC801;&#xC73C;&#xB85C; &#xD569;&#xB2C8;&#xB2E4;.
+&#xBC18;&#xBA74;&#xC5D0; lxd &#xC758; &#xACBD;&#xC6B0;&#xB294; machine &#xCEE8;&#xD14C;&#xC774;&#xB108;&#xB77C;&#xACE0; &#xD558;&#xACE0; &#xAC00;&#xC0C1;&#xBA38;&#xC2E0;&#xACFC; &#xB3D9;&#xC77C;&#xD55C; &#xD658;&#xACBD;&#xC744; &#xC81C;&#xACF5;&#xD558;&#xB294; &#xAC83;&#xC744; &#xBAA9;&#xD45C;&#xB85C; &#xD569;&#xB2C8;&#xB2E4;.
+&#xB530;&#xB77C;&#xC11C; lxd &#xC774;&#xBBF8;&#xC9C0;&#xB97C; &#xB2E4;&#xC6B4;&#xBC1B;&#xC544; &#xC124;&#xCE58;&#xD574;&#xBCF4;&#xBA74; &#xC5EC;&#xAE30;&#xC5D0;&#xB294; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; init, systemd, syslog, cron
+&#xAC19;&#xC740; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB4E4;&#xC774;  &#xC2E4;&#xD589;&#xB418;&#xACE0; &#xC788;&#xB294; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC73C;&#xBA70;
+&#xCEE8;&#xD14C;&#xC774;&#xB108; &#xC2DC;&#xC791; &#xC2DC; &#xC790;&#xB3D9;&#xC73C;&#xB85C; &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xD558;&#xACE0; &#xC2F6;&#xC73C;&#xBA74; systemd &#xC11C;&#xBE44;&#xC2A4;&#xB97C; &#xB4F1;&#xB85D;&#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.
+&#xAC00;&#xC0C1;&#xBA38;&#xC2E0;&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xB54C;&#xC640; &#xB9C8;&#xCC2C;&#xAC00;&#xC9C0;&#xB85C; snapshot &#xB3C4; &#xD560; &#xC218; &#xC788;&#xACE0; &#xCEE8;&#xD14C;&#xC774;&#xB108;&#xB97C; &#xB124;&#xD06C;&#xC6CC;&#xD06C;&#xB97C; &#xD1B5;&#xD574; 
+&#xC9C1;&#xC811; &#xC11C;&#xB85C; &#xC8FC;&#xACE0;&#xBC1B;&#xC744; &#xC218;&#xB3C4; &#xC788;&#xC73C;&#xBA70; tar &#xD30C;&#xC77C;&#xB85C; export &#xD558;&#xACE0; import &#xD560; &#xC218;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<blockquote>
+<p>&#xCEE8;&#xD14C;&#xC774;&#xB108;&#xB97C; &#xC774;&#xC6A9;&#xD574; &#xAC00;&#xC0C1; &#xBA38;&#xC2E0;&#xC5D0;&#xC11C; &#xD560; &#xC218; &#xC788;&#xB294; &#xAC83;&#xC744; &#xBAA8;&#xB450; &#xD560; &#xC218; &#xC788;&#xB294; &#xAC83;&#xC740; &#xC544;&#xB2D9;&#xB2C8;&#xB2E4;.
+&#xC608;&#xB97C; &#xB4E4;&#xC5B4; &#xCEE4;&#xB110; &#xBAA8;&#xB4C8;&#xC744; &#xD14C;&#xC2A4;&#xD2B8;&#xD558;&#xB824;&#xACE0; &#xD55C;&#xB2E4;&#xBA74; &#xCEE8;&#xD14C;&#xC774;&#xB108;&#xB85C;&#xB294; &#xC548;&#xB418;&#xACE0; &#xAC00;&#xC0C1;&#xBA38;&#xC2E0;&#xC744; &#xC774;&#xC6A9;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.
+&#xC77C;&#xC885;&#xC5D0; &#xC720;&#xC800;&#xBAA8;&#xB4DC; &#xAC00;&#xC0C1;&#xBA38;&#xC2E0;&#xC774; &#xCEE8;&#xD14C;&#xC774;&#xB108;&#xB77C;&#xACE0; &#xBCF4;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.</p>
+</blockquote>
+<h4 id="lxd-&#xCEE8;&#xD14C;&#xC774;&#xB108;&#xC5D0;-docker-&#xC124;&#xCE58;&#xD574;-&#xC0AC;&#xC6A9;&#xD558;&#xAE30;">lxd &#xCEE8;&#xD14C;&#xC774;&#xB108;&#xC5D0; docker &#xC124;&#xCE58;&#xD574; &#xC0AC;&#xC6A9;&#xD558;&#xAE30;</h4>
+<p>lxd &#xCEE8;&#xD14C;&#xC774;&#xB108;&#xB294; system &#xCEE8;&#xD14C;&#xC774;&#xB108;&#xB97C; &#xC9C0;&#xD5A5;&#xD558;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; docker &#xCEE8;&#xD14C;&#xC774;&#xB108;&#xB97C; &#xC124;&#xCE58;&#xD574; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xC608;&#xB97C; &#xB4E4;&#xC5B4; docker swarm &#xC744; &#xD14C;&#xC2A4;&#xD2B8;&#xD560; &#xB54C; &#xAC00;&#xC0C1;&#xBA38;&#xC2E0;&#xC744; &#xC2E4;&#xD589;&#xD560; &#xD544;&#xC694; &#xC5C6;&#xC774; lxd &#xCEE8;&#xD14C;&#xC774;&#xB108;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<blockquote>
+<p>subicura &#xB2D8;&#xC758; docker swarm &#xC2E4;&#xC2B5; &#xD398;&#xC774;&#xC9C0; &#xC785;&#xB2C8;&#xB2E4;.<br><a href="https://subicura.com/2017/02/25/container-orchestration-with-docker-swarm.html" target="_blank">https://subicura.com/2017/02/25/container-orchestration-with-docker-swarm.html</a></p>
+</blockquote>
+<pre><code class="lang-bash"><span class="hljs-comment"># lxd &#xC124;&#xCE58; &#xD6C4; &#xC124;&#xC815;&#xD574;&#xC57C; &#xB420; &#xC0AC;&#xD56D; (default &#xB294; default profile &#xC744; &#xB9D0;&#xD568;)</span>
+$ lxc profile <span class="hljs-built_in">set</span> default security.nesting <span class="hljs-string">&quot;true&quot;</span>
+$ lxc profile <span class="hljs-built_in">set</span> default security.privileged <span class="hljs-string">&quot;true&quot;</span>
+$ lxc profile <span class="hljs-built_in">set</span> default environment.TZ Asia/Seoul
+$ lxc network <span class="hljs-built_in">set</span> lxdbr0 ipv6.address none
+$ lxc profile <span class="hljs-built_in">set</span> default linux.kernel_modules overlay,nf_nat,ip_tables,ip6_tables,netlink_diag,br_netfilter,xt_conntrack,nf_conntrack,ip_vs,vxlan
+
+<span class="hljs-comment"># &#xC0DD;&#xC131;&#xB41C; &#xCEE8;&#xD14C;&#xC774;&#xB108;&#xC5D0; static ip &#xB97C; &#xD560;&#xB2F9;&#xD558;&#xB824;&#xBA74;</span>
+$ lxc stop mycontainer
+$ lxc network attach lxdbr0 mycontainer eth0 eth0
+$ lxc config device <span class="hljs-built_in">set</span> mycontainer eth0 ipv4.address <span class="hljs-number">10.215</span>.<span class="hljs-number">19.10</span>
+$ lxc start mycontainer
+
+<span class="hljs-comment"># &#xD604;&#xC7AC; &#xCEE8;&#xD14C;&#xC774;&#xB108;&#xB97C; &#xC774;&#xBBF8;&#xC9C0;&#xB85C; &#xB9CC;&#xB4E4; &#xB54C;&#xB294; publish &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.</span>
+$ lxc snapshot mycontainer snap1
+$ lxc publish mycontainer/snap1 --alias ubuntu-snap1
+</code></pre>
+<p>docker swarm &#xC744; &#xC2E4;&#xC2B5;&#xD560; &#xB54C; overlay &#xB124;&#xD2B8;&#xC6CC;&#xD06C; &#xC6A9;&#xC5B4;&#xAC00; &#xB098;&#xC624;&#xB294;&#xB370; &#xC774;&#xAC83;&#xC740; &#xAC00;&#xC0C1; &#xB124;&#xD2B8;&#xC6CC;&#xD06C;&#xB97C; &#xB9D0;&#xD569;&#xB2C8;&#xB2E4;.
+&#xD558;&#xB098;&#xC758; &#xBB3C;&#xB9AC; &#xC11C;&#xBC84;&#xC5D0; &#xC5EC;&#xB7EC; &#xAC1C;&#xC758; &#xAC00;&#xC0C1;&#xBA38;&#xC2E0;&#xC744; &#xC0DD;&#xC131;&#xD574; &#xC0AC;&#xC6A9;&#xD558;&#xB4EF;&#xC774;
+&#xD558;&#xB098;&#xC758; &#xBB3C;&#xB9AC; &#xB124;&#xD2B8;&#xC6CC;&#xD06C;&#xC5D0;( underlay ) &#xC5EC;&#xB7EC; &#xAC1C;&#xC758; &#xAC00;&#xC0C1;&#xC758; &#xB124;&#xD2B8;&#xC6CC;&#xD06C;&#xB97C;( overlay ) &#xC0DD;&#xC131;&#xD574;&#xC11C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.
+docker swarm &#xC744; &#xB9CC;&#xB4E4;&#xBA74; &#xC0DD;&#xC131;&#xB418;&#xB294; ingress &#xB124;&#xD2B8;&#xC6CC;&#xD06C;&#xB294; &#xD2B9;&#xC218;&#xD55C; overlay &#xB124;&#xD2B8;&#xC6CC;&#xD06C;&#xC778;&#xB370;
+load balancing &#xAE30;&#xB2A5;&#xC744; &#xAC00;&#xC9C0;&#xACE0; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xAC00;&#xB839; server1 &#xC5D0;&#xC11C; 8080 &#xD3EC;&#xD2B8;&#xB85C; &#xC11C;&#xBE44;&#xC2A4;&#xB97C; &#xC624;&#xD508;&#xD558;&#xBA74; &#xAC19;&#xC740; ingress &#xB124;&#xD2B8;&#xC6CC;&#xD06C;&#xC5D0; &#xC18D;&#xD55C; 
+server2 &#xC5D0;&#xC11C;&#xB294; <code>localhost:8080</code> &#xB85C; &#xD574;&#xB3C4; server1 &#xC5D0; &#xC811;&#xC18D;&#xC774; &#xB429;&#xB2C8;&#xB2E4;.
+&#xB610;&#xB294; server1 &#xC5D0;&#xC11C; <code>server2:8080</code> &#xB85C; &#xD574;&#xB3C4; &#xC811;&#xC18D;&#xC774; &#xB429;&#xB2C8;&#xB2E4;.
+&#xC774;&#xAC83;&#xC740; &#xC624;&#xD508;&#xD55C; 8080 &#xD3EC;&#xD2B8;&#xB85C; request &#xAC00; &#xBC1C;&#xC0DD;&#xD558;&#xBA74; IPVS &#xB77C;&#xB294; &#xB124;&#xD2B8;&#xC6CC;&#xD06C; &#xBAA8;&#xB4C8;&#xC774; ingress &#xB124;&#xD2B8;&#xC6CC;&#xD06C;&#xC5D0;
+&#xC18D;&#xD55C; &#xD638;&#xC2A4;&#xD2B8; &#xC911; &#xD558;&#xB098;&#xB85C; &#xC5F0;&#xACB0;&#xD558;&#xAE30; &#xB54C;&#xBB38;&#xC785;&#xB2C8;&#xB2E4;.</p>
+<blockquote>
+<p>&#xB2E4;&#xC74C;&#xC740; Joinc, JunYoung Park &#xB2D8;&#xACFC; &#xD074;&#xC3ED;&#xB2D8;&#xC758; &#xB3C4;&#xCEE4; &#xB124;&#xD2B8;&#xC6CC;&#xD06C;&#xC5D0; &#xB300;&#xD55C; &#xC124;&#xBA85;&#xC785;&#xB2C8;&#xB2E4;.</p>
+<ul>
+<li><a href="https://www.joinc.co.kr/w/man/12/docker/InfrastructureForDocker/network" target="_blank">&#xB3C4;&#xCEE4; &#xB124;&#xD2B8;&#xC6CC;&#xD06C;</a></li>
+<li><a href="https://joont92.github.io/docker/network-%EA%B5%AC%EC%A1%B0/" target="_blank">docker network &#xAD6C;&#xC870;</a></li>
+<li><a href="https://bluese05.tistory.com/15" target="_blank">docker0&#xC640; container network &#xAD6C;&#xC870;</a></li>
+<li><a href="https://bluese05.tistory.com/38" target="_blank">container network &#xBC29;&#xC2DD; 4 &#xAC00;&#xC9C0;</a></li>
+<li><a href="https://bluese05.tistory.com/53" target="_blank">container &#xC678;&#xBD80; &#xD1B5;&#xC2E0; &#xAD6C;&#xC870;</a></li>
+<li><a href="https://medium.com/@ahakimx/user-defined-bridge-on-docker-network-32611ed63acf" target="_blank">&#xB3C4;&#xCEE4; bridge &#xB124;&#xD2B8;&#xC6CC;&#xD06C; &#xC2E4;&#xC2B5;</a><br>( <code>--link</code> &#xC635;&#xC158;&#xC740; <a href="https://docs.docker.com/network/links/" target="_blank">deprecated</a> &#xC785;&#xB2C8;&#xB2E4;.
+&#xC0AC;&#xC6A9;&#xC790; &#xC815;&#xC758; bridge &#xB97C; &#xC0AC;&#xC6A9;&#xD574;&#xC57C; <code>--name</code> &#xB85C; &#xC124;&#xC815;&#xD55C; &#xC774;&#xB984;&#xC73C;&#xB85C; &#xC811;&#xC18D;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. )</li>
+</ul>
+</blockquote>
+<hr>
+<p>&#xAC00;&#xC0C1;&#xD654;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xB610; &#xB2E4;&#xB978; &#xBAA9;&#xC801;&#xC740; &#xC18C;&#xD504;&#xD2B8;&#xC6E8;&#xC5B4;&#xC640; &#xD558;&#xB4DC;&#xC6E8;&#xC5B4;&#xC758; &#xBD84;&#xB9AC;&#xC785;&#xB2C8;&#xB2E4;.
+&#xAC00;&#xB839; &#xBB3C;&#xB9AC; &#xC11C;&#xBC84;&#xAC00; &#xACE0;&#xC7A5;&#xB0A0;&#xACBD;&#xC6B0; &#xAE30;&#xC874;&#xC5D0;&#xB294; &#xC11C;&#xBC84;&#xB97C; &#xAD50;&#xCCB4;&#xD55C; &#xD6C4;&#xC5D0; &#xB2E4;&#xC2DC; 
+&#xC18C;&#xD504;&#xD2B8;&#xC6E8;&#xC5B4;&#xB97C; &#xC124;&#xCE58;&#xD558;&#xACE0; &#xD658;&#xACBD; &#xC124;&#xC815;&#xC744; &#xD574;&#xC8FC;&#xC5B4;&#xC57C; &#xD558;&#xC9C0;&#xB9CC;
+&#xAC00;&#xC0C1;&#xD654;&#xB97C; &#xD574;&#xB450;&#xBA74; &#xADF8;&#xB7F4; &#xD544;&#xC694;&#xAC00; &#xC5C6;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.
+&#xC65C;&#xB0D0;&#xD558;&#xBA74; &#xC774;&#xBBF8; &#xAC00;&#xC0C1;&#xBA38;&#xC2E0; &#xC774;&#xB77C;&#xB294; &#xAC00;&#xC0C1;&#xD654; &#xB808;&#xC774;&#xC5B4; &#xC704;&#xC5D0; &#xC18C;&#xD504;&#xD2B8;&#xC6E8;&#xC5B4; &#xC124;&#xCE58;&#xC640; &#xD658;&#xACBD;&#xC124;&#xC815;&#xC774; 
+&#xB418;&#xC5B4; &#xC788;&#xAE30; &#xB54C;&#xBB38;&#xC785;&#xB2C8;&#xB2E4;.
+&#xC774;&#xAC83;&#xC740; &#xB610;&#xD55C; &#xD574;&#xB2F9; &#xC11C;&#xBE44;&#xC2A4;&#xC758; &#xB2E4;&#xB978; &#xC11C;&#xBC84;&#xB85C;&#xC758; &#xC774;&#xB3D9;&#xB3C4; &#xC27D;&#xAC8C; &#xC774;&#xB8E8;&#xC5B4;&#xC9D1;&#xB2C8;&#xB2E4;.
+&#xADF8;&#xB9AC;&#xACE0; &#xB124;&#xD2B8;&#xC6CC;&#xD06C; &#xC124;&#xC815;&#xC744; overlay &#xB124;&#xD2B8;&#xC6CC;&#xD06C;&#xB97C; &#xC774;&#xC6A9;&#xD574; &#xC124;&#xC815;&#xD574;&#xB450;&#xBA74;
+&#xB098;&#xC911;&#xC5D0; &#xBB3C;&#xB9AC; &#xB124;&#xD2B8;&#xC6CC;&#xD06C;&#xAC00; &#xC5B4;&#xB5BB;&#xAC8C; &#xBCC0;&#xACBD;&#xB418;&#xB358; &#xC0C1;&#xAD00;&#xC774; &#xC5C6;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<blockquote>
+<p>overlay &#xB124;&#xD06C;&#xC6CC;&#xD06C;&#xB294; &#xB808;&#xC774;&#xC5B4;&#xB97C; &#xD55C; &#xB2E8;&#xACC4; &#xCD94;&#xAC00;&#xD558;&#xB294; &#xAC83;&#xC774;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xADF8;&#xB9CC;&#xD07C; &#xC18C;&#xD504;&#xD2B8;&#xC6E8;&#xC5B4; &#xCC98;&#xB9AC; &#xBE44;&#xC6A9;&#xC774; &#xC99D;&#xAC00;&#xD569;&#xB2C8;&#xB2E4;.
+( &#xB124;&#xD2B8;&#xC6CC;&#xD06C; &#xCE74;&#xB4DC;&#xC5D0; FPGA &#xB098; CPU &#xB97C; &#xC7A5;&#xCC29;&#xD574;&#xC11C; &#xB2E8;&#xC21C;&#xD788; &#xD328;&#xD0B7;&#xB9CC; &#xC804;&#xB2EC;&#xD558;&#xB294; &#xAC83;&#xC774; &#xC544;&#xB2C8;&#xB77C; &#xD2B9;&#xC815; &#xAE30;&#xB2A5;&#xC744; &#xC218;&#xD589;&#xD560; &#xC218; &#xC788;&#xAC8C; &#xB9CC;&#xB4E0; SmartNIC &#xC774; &#xAC1C;&#xBC1C;&#xB418;&#xACE0; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.)</p>
+</blockquote>
+<p>&#xC774;&#xC640; &#xAC19;&#xC740; &#xAC00;&#xC0C1;&#xD654;&#xB97C; &#xD65C;&#xC6A9;&#xD558;&#xB294; &#xCD94;&#xC138;&#xB294; &#xB124;&#xD2B8;&#xC6CC;&#xD06C; &#xC7A5;&#xBE44;&#xC5D0;&#xC11C; &#xC18C;&#xD504;&#xD2B8;&#xC6E8;&#xC5B4;&#xC640; &#xD558;&#xB4DC;&#xC6E8;&#xC5B4;&#xB97C;
+&#xBD84;&#xB9AC;&#xD574; &#xC0AC;&#xC6A9;&#xD558;&#xB294; <a href="https://youtu.be/tjlYuKexCo4" target="_blank">SDN</a> ( Software-Defined Networking ) 
+&#xC5D0;&#xC11C; &#xBD80;&#xD130; &#xAC01; &#xB124;&#xD2B8;&#xC6CC;&#xD06C; &#xAE30;&#xB2A5;&#xC744; &#xAC00;&#xC0C1;&#xD654;&#xD574; &#xC0AC;&#xC6A9;&#xD558;&#xB294; <a href="https://youtu.be/HFQdbOY8Ams" target="_blank">NFV</a>
+( Network Functions Virtualization ) &#xC5D0; &#xC774;&#xB974;&#xAE30;&#xAE4C;&#xC9C0; &#xB2E4;&#xC591;&#xD558;&#xAC8C; &#xC9C4;&#xD589;&#xB418;&#xACE0; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p><a name="quiz-sparse"></a></p>
+<h1 id="quiz">Quiz</h1>
+<p>&#xD604;&#xC7AC; &#xB0A8;&#xC740; &#xB514;&#xC2A4;&#xD06C; &#xACF5;&#xAC04;&#xBCF4;&#xB2E4; &#xC0AC;&#xC774;&#xC988;&#xAC00; &#xD070; &#xD30C;&#xC77C;&#xC744; &#xB9CC;&#xB4E4;&#xC5B4;&#xC11C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC744;&#xAE4C;&#xC694;?</p>
+<p>&#xAC00;&#xB839; &#xB514;&#xC2A4;&#xD06C; &#xACF5;&#xAC04;&#xC774; 10G &#xBFD0;&#xC774; &#xB0A8;&#xC9C0; &#xC54A;&#xC558;&#xC5B4;&#xB3C4; 100G &#xD06C;&#xAE30;&#xC758; &#xD30C;&#xC77C;&#xC744; &#xC0DD;&#xC131;&#xD574;&#xC11C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xAC83;&#xC774; &#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;.
+disk image &#xD30C;&#xC77C;&#xC774;&#xB098; database snapshot &#xAC19;&#xC740; &#xD30C;&#xC77C;&#xB4E4;&#xC740; &#xCC98;&#xC74C;&#xC5D0; 10G, 20G &#xCC98;&#xB7FC; &#xD2B9;&#xC815; &#xD06C;&#xAE30;&#xC758; &#xD30C;&#xC77C;&#xC744; &#xC0DD;&#xC131;&#xD55C; &#xD6C4;&#xC5D0; &#xB370;&#xC774;&#xD130;&#xAC00; &#xC4F0;&#xC5EC;&#xC9C0;&#xAC8C; &#xB418;&#xB294;&#xB370;&#xC694;.
+&#xC774;&#xC640; &#xAC19;&#xC740; &#xACBD;&#xC6B0; &#xB370;&#xC774;&#xD130;&#xAC00; &#xC874;&#xC7AC;&#xD558;&#xB294; &#xBD80;&#xBD84;&#xC744; &#xC81C;&#xC678;&#xD558;&#xBA74; &#xB098;&#xBA38;&#xC9C0; &#xB300;&#xBD80;&#xBD84;&#xC758; &#xC601;&#xC5ED;&#xC740; &#xBE48; &#xC601;&#xC5ED;&#xC774; &#xB418;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.
+&#xB530;&#xB77C;&#xC11C; filesystem &#xB808;&#xBCA8;&#xC5D0;&#xC11C; &#xD30C;&#xC77C; &#xC0AC;&#xC774;&#xC988;&#xB294; 100G &#xB85C; &#xBCF4;&#xC5EC;&#xC8FC;&#xB418; &#xC2E4;&#xC81C; &#xB370;&#xC774;&#xD130;&#xAC00; &#xC874;&#xC7AC;&#xD558;&#xB294; &#xC601;&#xC5ED;&#xB9CC; &#xBE14;&#xB85D;&#xC744; &#xD560;&#xB2F9;&#xD558;&#xACE0; &#xB098;&#xBA38;&#xC9C0;&#xB294; &#xBA54;&#xD0C0;&#xB370;&#xC774;&#xD130; &#xC601;&#xC5ED;&#xC5D0; &#xD45C;&#xC2DC;&#xB97C; &#xD574;&#xC11C; read &#xAC00; &#xBC1C;&#xC0DD;&#xD560;&#xC2DC; zero bytes &#xB97C; &#xBC18;&#xD658;&#xD558;&#xB3C4;&#xB85D; &#xD558;&#xB294; &#xAC83;&#xC774; sparse file &#xC785;&#xB2C8;&#xB2E4;.</p>
+<p><img src="images/sparse_file.png" alt=""></p>
+<p>&#xB2E4;&#xC74C;&#xC740; &#xC2E4;&#xC81C; &#xB514;&#xC2A4;&#xD06C; &#xC5EC;&#xC720; &#xACF5;&#xAC04;&#xC774; 121G &#xC778;&#xB370; 1000G &#xD30C;&#xC77C;&#xC744; &#xC0DD;&#xC131;&#xD558;&#xB294; &#xC608;&#xC785;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ df -h | sed -n <span class="hljs-string">&apos;1p; /sda1/p&apos;</span>    <span class="hljs-comment"># &#xD604;&#xC7AC; &#xB514;&#xC2A4;&#xD06C; &#xC5EC;&#xC720; &#xACF5;&#xAC04;&#xC740; 121G</span>
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda1       <span class="hljs-number">234</span>G  <span class="hljs-number">102</span>G  <span class="hljs-number">121</span>G  <span class="hljs-number">46</span>% /
+
+<span class="hljs-comment"># 1000G &#xD06C;&#xAE30;&#xC758; &#xD30C;&#xC77C; &#xC0DD;&#xC131;</span>
+$ truncate <span class="hljs-operator">-s</span> <span class="hljs-number">1000</span>G disk.img      <span class="hljs-comment"># &#xB610;&#xB294; dd of=disk.img bs=1 seek=1000G count=0     </span>
+
+<span class="hljs-comment"># -s &#xC635;&#xC158;&#xC73C;&#xB85C; &#xC81C;&#xC77C; &#xC67C;&#xCABD;&#xC5D0; &#xBCF4;&#xC774;&#xB294; 0 &#xC774; &#xC2E4;&#xC81C; &#xC0AC;&#xC6A9;&#xB41C; &#xC6A9;&#xB7C9;&#xC774;&#xACE0;, 1000G &#xC740; logical size &#xC5D0; &#xD574;&#xB2F9;</span>
+$ ls -lsh disk.img
+<span class="hljs-number">0</span> -rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">1000</span>G <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">06</span> <span class="hljs-number">01</span>:<span class="hljs-number">38</span> disk.img
+
+$ <span class="hljs-built_in">stat</span> disk.img     <span class="hljs-comment"># Size: &#xB294; 1000G &#xB85C; &#xB098;&#xC624;&#xC9C0;&#xB9CC; &#xC2E4;&#xC81C; &#xD560;&#xB2F9;&#xB41C; Blocks: &#xC740; 0 &#xC774;&#xB2E4;</span>
+  File: disk.img
+  Size: <span class="hljs-number">1073741824000</span>   Blocks: <span class="hljs-number">0</span>          IO Block: <span class="hljs-number">4096</span>   regular file
+Device: <span class="hljs-number">801</span>h/<span class="hljs-number">2049</span>d      Inode: <span class="hljs-number">11046327</span>    Links: <span class="hljs-number">1</span>
+Access: (<span class="hljs-number">0664</span>/-rw-rw-r--)  Uid: ( <span class="hljs-number">1000</span>/  mug896)   Gid: ( <span class="hljs-number">1000</span>/  mug896)
+. . . .
+
+$ df -h | sed -n <span class="hljs-string">&apos;1p; /sda1/p&apos;</span>     <span class="hljs-comment"># &#xB530;&#xB77C;&#xC11C; &#xB514;&#xC2A4;&#xD06C; &#xC5EC;&#xC720; &#xACF5;&#xAC04;&#xB3C4; &#xADF8;&#xB300;&#xB85C; 121G &#xB85C; &#xB0A8;&#xC544;&#xC788;&#xB2E4;.</span>
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda1       <span class="hljs-number">234</span>G  <span class="hljs-number">102</span>G  <span class="hljs-number">121</span>G  <span class="hljs-number">46</span>% /
+</code></pre>
+<p>&#xC774;&#xBC88;&#xC5D0;&#xB294; 100M &#xD06C;&#xAE30;&#xC758; disk.img &#xD30C;&#xC77C;&#xC744; &#xC0DD;&#xC131;&#xD574;&#xC11C; mount &#xD55C; &#xD6C4;&#xC5D0; &#xD30C;&#xC77C;&#xC744; &#xC0DD;&#xC131;&#xD574; &#xBCF4;&#xACA0;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ truncate <span class="hljs-operator">-s</span> <span class="hljs-number">100</span>M disk.img                     
+
+$ ls -lsh disk.img
+<span class="hljs-number">0</span> -rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">100</span>M <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">06</span> <span class="hljs-number">09</span>:<span class="hljs-number">24</span> disk.img
+
+$ mkfs.ext4 -q disk.img   <span class="hljs-comment"># disk.img &#xC5D0; ext4 &#xD30C;&#xC77C; &#xC2DC;&#xC2A4;&#xD15C;&#xC744; &#xB9CC;&#xB4ED;&#xB2C8;&#xB2E4;. </span>
+
+$ ls -lsh disk.img        <span class="hljs-comment"># &#xD30C;&#xC77C; &#xC2DC;&#xC2A4;&#xD15C;&#xC774; &#xC0DD;&#xC131;&#xB418;&#xC5B4; &#xC2E4;&#xC81C; &#xB514;&#xC2A4;&#xD06C; &#xC0AC;&#xC6A9;&#xB7C9;&#xC774; 4.2M &#xAC00;&#xB428;</span>
+<span class="hljs-number">4.2</span>M -rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">100</span>M <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">06</span> <span class="hljs-number">09</span>:<span class="hljs-number">25</span> disk.img
+
+$ <span class="hljs-built_in">stat</span> disk.img 
+  File: disk.img          <span class="hljs-comment"># 8512 &#xAC1C;&#xC758; &#xBE14;&#xB85D;&#xC774; &#xD560;&#xB2F9;&#xB41C; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
+  Size: <span class="hljs-number">104857600</span>       Blocks: <span class="hljs-number">8512</span>       IO Block: <span class="hljs-number">4096</span>   regular file
+Device: <span class="hljs-number">801</span>h/<span class="hljs-number">2049</span>d      Inode: <span class="hljs-number">11028268</span>    Links: <span class="hljs-number">1</span>
+. . . .
+
+<span class="hljs-comment"># mnt &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB97C; &#xC0DD;&#xC131;&#xD558;&#xACE0; -o loop &#xC635;&#xC158;&#xC744; &#xC774;&#xC6A9;&#xD574; disk.img &#xD30C;&#xC77C;&#xC744; &#xB9C8;&#xC6B4;&#xD2B8; &#xD569;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-comment"># &#xADF8;&#xB7EC;&#xBA74; /dev/loop? &#xC7A5;&#xCE58;&#xAC00; disk.img &#xD30C;&#xC77C;&#xACFC; &#xC5F0;&#xACB0;&#xB418;&#xACE0; mnt &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0; &#xB9C8;&#xC6B4;&#xD2B8; &#xB429;&#xB2C8;&#xB2E4;.</span>
+$ mkdir mnt &amp;&amp; sudo mount -o loop disk.img mnt &amp;&amp; sudo chmod <span class="hljs-number">777</span> mnt
+
+$ mount | grep disk.img
+/home/mug896/disk.img on /home/mug896/mnt <span class="hljs-built_in">type</span> ext4 (rw,relatime)
+
+$ df -h | sed -n <span class="hljs-string">&apos;1p; /mnt/p&apos;</span>      <span class="hljs-comment"># /dev/loop7 &#xC7A5;&#xCE58;&#xAC00; &#xC0AC;&#xC6A9;&#xB428;</span>
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/loop7       <span class="hljs-number">93</span>M   <span class="hljs-number">72</span>K   <span class="hljs-number">86</span>M   <span class="hljs-number">1</span>% /home/mug896/mnt
+
+$ ls <span class="hljs-operator">-l</span> mnt
+total <span class="hljs-number">16</span>
+drwx------ <span class="hljs-number">2</span> root root <span class="hljs-number">16384</span> <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">06</span> <span class="hljs-number">09</span>:<span class="hljs-number">25</span> lost+found/
+
+<span class="hljs-comment"># &#xB2E4;&#xC74C;&#xC740; &#xB9C8;&#xC6B4;&#xD2B8;&#xD55C; &#xD30C;&#xD2F0;&#xC158;&#xC774; No space left &#xAC00; &#xB420;&#xB54C;&#xAE4C;&#xC9C0; hello &#xD30C;&#xC77C;&#xC5D0; random &#xBB38;&#xC790;&#xB97C; &#xC4F0;&#xB294;&#xAC83; &#xC785;&#xB2C8;&#xB2E4;.</span>
+$ dd <span class="hljs-keyword">if</span>=/dev/urandom of=mnt/hello bs=<span class="hljs-number">1</span>M
+dd: error writing <span class="hljs-string">&apos;mnt/hello&apos;</span>: No space left on device
+<span class="hljs-number">86</span>+<span class="hljs-number">0</span> records <span class="hljs-keyword">in</span>
+<span class="hljs-number">85</span>+<span class="hljs-number">0</span> records out
+<span class="hljs-number">89956352</span> bytes (<span class="hljs-number">90</span> MB, <span class="hljs-number">86</span> MiB) copied, <span class="hljs-number">0.461591</span> s, <span class="hljs-number">195</span> MB/s
+
+$ ls <span class="hljs-operator">-l</span> mnt             <span class="hljs-comment"># &#xC57D; 90M &#xD06C;&#xAE30;&#xC758; &#xD30C;&#xC77C;&#xC774; &#xC0DD;&#xC131;&#xB418;&#xB294; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
+total <span class="hljs-number">87864</span>
+drwx------ <span class="hljs-number">2</span> root   root      <span class="hljs-number">16384</span> <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">06</span> <span class="hljs-number">09</span>:<span class="hljs-number">25</span> lost+found/
+-rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">89956352</span> <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">06</span> <span class="hljs-number">09</span>:<span class="hljs-number">26</span> hello
+
+$ ls -lsh disk.img      <span class="hljs-comment"># &#xC2E4;&#xC81C; &#xB514;&#xC2A4;&#xD06C; &#xC0AC;&#xC6A9;&#xB7C9;&#xB3C4; 86M &#xB85C; &#xBCC0;&#xACBD;&#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;.               </span>
+<span class="hljs-number">86</span>M -rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">100</span>M <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">06</span> <span class="hljs-number">09</span>:<span class="hljs-number">26</span> disk.img
+
+<span class="hljs-comment"># &#xC774;&#xBC88;&#xC5D0;&#xB294; random &#xBB38;&#xC790; &#xB300;&#xC2E0;&#xC5D0; zero bytes &#xB97C; &#xC4F0;&#xAE30;&#xD569;&#xB2C8;&#xB2E4;. </span>
+<span class="hljs-comment"># &#xB530;&#xB77C;&#xC11C; disk.img &#xD30C;&#xC77C;&#xC758; &#xB300;&#xBD80;&#xBD84;&#xC758; &#xC601;&#xC5ED;&#xC774; zero bytes &#xAC00; &#xB420;&#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</span>
+$ dd <span class="hljs-keyword">if</span>=/dev/zero of=mnt/hello bs=<span class="hljs-number">1</span>M
+dd: error writing <span class="hljs-string">&apos;mnt/hello&apos;</span>: No space left on device
+<span class="hljs-number">86</span>+<span class="hljs-number">0</span> records <span class="hljs-keyword">in</span>
+<span class="hljs-number">85</span>+<span class="hljs-number">0</span> records out
+<span class="hljs-number">89956352</span> bytes (<span class="hljs-number">90</span> MB, <span class="hljs-number">86</span> MiB) copied, <span class="hljs-number">0.163433</span> s, <span class="hljs-number">550</span> MB/s
+
+$ ls -lsh disk.img 
+<span class="hljs-number">86</span>M -rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">100</span>M <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">06</span> <span class="hljs-number">10</span>:<span class="hljs-number">09</span> disk.img
+
+<span class="hljs-comment"># sparse file &#xC5D0;&#xC11C; &#xB514;&#xC2A4;&#xD06C; &#xC0AC;&#xC6A9;&#xB7C9;&#xC5D0; &#xC7A1;&#xD788;&#xC9C0; &#xC54A;&#xB294; zero bytes &#xC601;&#xC5ED;&#xC744; holes &#xC774;&#xB77C;&#xACE0; &#xD558;&#xB294;&#xB370;</span>
+<span class="hljs-comment"># &#xC774; &#xBA85;&#xB839;&#xC740; &#xD30C;&#xC77C;&#xC5D0;&#xC11C; zero bytes &#xC601;&#xC5ED;&#xC744; &#xCC3E;&#xC544;&#xC11C; holes &#xC744; &#xB9CC;&#xB4E4;&#xC5B4; &#xC8FC;&#xB294; &#xC5ED;&#xD560;&#xC744; &#xD569;&#xB2C8;&#xB2E4;.</span>
+$ sudo umount mnt &amp;&amp; fallocate <span class="hljs-operator">-d</span> disk.img 
+
+<span class="hljs-comment"># &#xC544;&#xC9C1; disk.img &#xC5D0;&#xB294; 90M &#xD06C;&#xAE30;&#xC758; hello &#xD30C;&#xC77C;&#xC774; &#xC788;&#xC9C0;&#xB9CC;</span>
+<span class="hljs-comment"># &#xC2E4;&#xC81C; disk.img &#xD30C;&#xC77C;&#xC774; &#xCC28;&#xC9C0;&#xD558;&#xB294; &#xC6A9;&#xB7C9;&#xC740; 12M &#xAC00; &#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
+$ ls -lsh disk.img
+<span class="hljs-number">12</span>M -rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">100</span>M <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">06</span> <span class="hljs-number">09</span>:<span class="hljs-number">29</span> disk.img
+</code></pre>
+<p>&#xC704;&#xC5D0;&#xC11C;&#xB294; fallocate &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xAE30; &#xC804;&#xC5D0; &#xBA3C;&#xC800; <code>dd if=/dev/zero ...</code> &#xBA85;&#xB839;&#xC73C;&#xB85C;
+disk.img &#xD30C;&#xC77C;&#xC5D0; zero bytes &#xC601;&#xC5ED;&#xC744; &#xB9CC;&#xB4E4;&#xC5B4; &#xC8FC;&#xC5C8;&#xB294;&#xB370; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; hello &#xD30C;&#xC77C;&#xC744; &#xC0AD;&#xC81C;&#xD55C; &#xD6C4;&#xC5D0;
+zerofree &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># random &#xBB38;&#xC790;&#xB85C; &#xC4F0;&#xAE30;&#xB97C;&#xD55C; hello &#xD30C;&#xC77C;&#xC740; &#xC0AD;&#xC81C;&#xAC00; &#xB418;&#xC5B4;&#xB3C4; &#xD574;&#xB2F9; &#xBE14;&#xB85D;&#xC5D0;&#xB294; &#xB370;&#xC774;&#xD130;&#xAC00; </span>
+<span class="hljs-comment"># &#xB0A8;&#xC544; &#xC788;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; fallocate -d &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD574;&#xB3C4; &#xC6A9;&#xB7C9;&#xC774; &#xBC18;&#xD658;&#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-comment"># &#xC774;&#xB54C;&#xB294; &#xBA3C;&#xC800; zerofree &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD574; &#xC0AD;&#xC81C;&#xB41C; &#xD30C;&#xC77C;&#xC758; &#xAE30;&#xC874; &#xBE14;&#xB85D;&#xC5D0; &#xB0A8;&#xC544; &#xC788;&#xB294; &#xB370;&#xC774;&#xD130;&#xB97C;</span>
+<span class="hljs-comment"># zero bytes &#xB85C; &#xB9CC;&#xB4E4;&#xC5B4; &#xC900;&#xD6C4;&#xC5D0; fallocate &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xC6A9;&#xB7C9;&#xC774; &#xBC18;&#xD658;&#xB429;&#xB2C8;&#xB2E4;.</span>
+
+$ rm <span class="hljs-operator">-f</span> /mnt/hello &amp;&amp; sudo umount mnt &amp;&amp; zerofree disk.img &amp;&amp; fallocate <span class="hljs-operator">-d</span> disk.img
+</code></pre>
+<p>&#xC774;&#xBC88;&#xC5D0;&#xB294; hole punching &#xC744; &#xD574;&#xBCF4;&#xACA0;&#xC2B5;&#xB2C8;&#xB2E4;.
+hole punching &#xC740; &#xD30C;&#xC77C;&#xC758; &#xD2B9;&#xC815; &#xC601;&#xC5ED;&#xC5D0; hole &#xC744; &#xB9CC;&#xB4E4;&#xC5B4;&#xC11C; &#xB514;&#xC2A4;&#xD06C;&#xB97C; &#xBC18;&#xD658;&#xD569;&#xB2C8;&#xB2E4;.
+hole &#xC744; &#xB9CC;&#xB4E4;&#xC218; &#xC788;&#xB294; &#xCD5C;&#xC18C; &#xD06C;&#xAE30;&#xB294; filesystem &#xBE14;&#xB85D; &#xD06C;&#xAE30;&#xC778; 4096 &#xC785;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ dd <span class="hljs-keyword">if</span>=/dev/urandom of=file1 bs=<span class="hljs-number">1</span>M count=<span class="hljs-number">10</span> status=none   <span class="hljs-comment"># 10M &#xD06C;&#xAE30;&#xC758; &#xD30C;&#xC77C; &#xC0DD;&#xC131;</span>
+
+$ ls -lsh file1
+<span class="hljs-number">10</span>M -rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">10</span>M <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">07</span> <span class="hljs-number">18</span>:<span class="hljs-number">25</span> file1
+
+<span class="hljs-comment"># offset 2M &#xD55C; &#xC704;&#xCE58;&#xC5D0;&#xC11C; length 3M &#xC758; hole &#xC744; &#xB9CC;&#xB4ED;&#xB2C8;&#xB2E4;.</span>
+$ fallocate -p -o <span class="hljs-number">2</span>M <span class="hljs-operator">-l</span> <span class="hljs-number">3</span>M file1
+
+$ ls -lsh file1     <span class="hljs-comment"># &#xC2E4;&#xC81C; &#xB514;&#xC2A4;&#xD06C; &#xC0AC;&#xC6A9;&#xB7C9;&#xC774; 7M &#xAC00; &#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-number">7.0</span>M -rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">10</span>M <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">07</span> <span class="hljs-number">18</span>:<span class="hljs-number">25</span> file1
+
+<span class="hljs-comment"># offset 2M &#xC5D0;&#xC11C; -40 &#xD55C; &#xC704;&#xCE58;&#xC5D0;&#xC11C;&#xBD80;&#xD130; 80 &#xBC14;&#xC774;&#xD2B8;&#xB97C; &#xCD94;&#xCD9C;&#xD574;&#xBCF4;&#xBA74; </span>
+<span class="hljs-comment"># hole &#xC774; &#xB9CC;&#xB4E4;&#xC5B4;&#xC9C4; &#xACF3;&#xC740; zero bytes &#xB85C; &#xCD9C;&#xB825;&#xB418;&#xB294; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
+$ dd <span class="hljs-keyword">if</span>=file1 skip=$(( <span class="hljs-number">1024</span>**<span class="hljs-number">2</span> * <span class="hljs-number">2</span> - <span class="hljs-number">40</span> )) bs=<span class="hljs-number">1</span> count=<span class="hljs-number">80</span> status=none | od -va
+<span class="hljs-number">0000000</span>   @   F   s dc3   - del  fs   _   <span class="hljs-number">7</span>   !   v   n   y   }   c   ]
+<span class="hljs-number">0000020</span> bel   ]   M   <span class="hljs-number">1</span>   g   <span class="hljs-number">1</span>   =   y  em dc4   p   <span class="hljs-number">7</span>  gs   )   $   e
+<span class="hljs-number">0000040</span>   (   g   <span class="hljs-number">6</span>   +   <span class="hljs-number">2</span>   m   j   j nul nul nul nul nul nul nul nul
+<span class="hljs-number">0000060</span> nul nul nul nul nul nul nul nul nul nul nul nul nul nul nul nul
+<span class="hljs-number">0000100</span> nul nul nul nul nul nul nul nul nul nul nul nul nul nul nul nul
+<span class="hljs-number">0000120</span>
+</code></pre>
+<p>&#xC774;&#xBC88;&#xC5D0;&#xB294; 100M &#xC6A9;&#xB7C9;&#xC758; disk.img &#xD30C;&#xC77C;&#xC744; 200M &#xB85C; &#xB298;&#xB9AC;&#xB294; &#xAC83;&#xC744; &#xD574;&#xBCF4;&#xACA0;&#xC2B5;&#xB2C8;&#xB2E4;.<br>( disk.img &#xC5D0; &#xB4E4;&#xC5B4; &#xC788;&#xB294; &#xD30C;&#xC77C;&#xB4E4;&#xB3C4; &#xC720;&#xC9C0;&#xAC00; &#xB429;&#xB2C8;&#xB2E4;. )</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#xAE30;&#xC874; 100M &#xD30C;&#xC77C;&#xC744; 200M &#xB85C; &#xB298;&#xB824;&#xC900;&#xB2E4;.</span>
+$ truncate <span class="hljs-operator">-s</span> <span class="hljs-number">200</span>M disk.img     <span class="hljs-comment"># &#xB610;&#xB294; dd of=disk.img bs=1 seek=200M count=0</span>
+
+<span class="hljs-comment"># &#xAE30;&#xC874; ext4 &#xD30C;&#xC77C; &#xC2DC;&#xC2A4;&#xD15C;&#xC744; resize &#xD569;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-comment"># truncate &#xB2E8;&#xACC4;&#xC5C6;&#xC774; &#xC9C1;&#xC811; e2fsck -f disk.img &amp;&amp; resize2fs disk.img 200M &#xD574;&#xB3C4;&#xB428;</span>
+$ e2fsck <span class="hljs-operator">-f</span> disk.img &amp;&amp; resize2fs disk.img 
+e2fsck <span class="hljs-number">1.45</span>.<span class="hljs-number">3</span> (<span class="hljs-number">14</span>-Jul-<span class="hljs-number">2019</span>)
+Pass <span class="hljs-number">1</span>: Checking inodes, blocks, and sizes
+Pass <span class="hljs-number">2</span>: Checking directory structure
+. . .
+
+$ sudo mount disk.img mnt &amp;&amp; sudo chmod <span class="hljs-number">777</span> mnt
+
+<span class="hljs-comment"># &#xB2E4;&#xC2DC; No space left &#xAC00; &#xB420;&#xB54C;&#xAE4C;&#xC9C0; &#xC4F0;&#xAE30;&#xB97C; &#xD574;&#xBCF4;&#xBA74; 200M &#xAC00;&#xAE4C;&#xC774; &#xC4F0;&#xAE30;&#xAC00; &#xB418;&#xB294; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
+$ dd <span class="hljs-keyword">if</span>=/dev/urandom of=mnt/hello bs=<span class="hljs-number">1</span>M
+dd: error writing <span class="hljs-string">&apos;mnt/hello&apos;</span>: No space left on device
+<span class="hljs-number">176</span>+<span class="hljs-number">0</span> records <span class="hljs-keyword">in</span>
+<span class="hljs-number">175</span>+<span class="hljs-number">0</span> records out
+<span class="hljs-number">184131584</span> bytes (<span class="hljs-number">184</span> MB, <span class="hljs-number">176</span> MiB) copied, <span class="hljs-number">0.888858</span> s, <span class="hljs-number">207</span> MB/s
+
+$ ls -lh mnt/hello 
+-rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">176</span>M <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">06</span> <span class="hljs-number">10</span>:<span class="hljs-number">51</span> mnt/hello
+</code></pre>
+<p>resize2fs &#xBA85;&#xB839;&#xC5D0; <code>-M</code> &#xC635;&#xC158;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; disk.img &#xD30C;&#xC77C;&#xC758; logical size &#xC790;&#xCCB4;&#xB97C; &#xAC00;&#xB2A5;&#xD55C; &#xCD5C;&#xC18C;&#xD55C;&#xC758; &#xC0AC;&#xC774;&#xC988;&#xB85C; &#xB9CC;&#xB4E4;&#xC5B4; &#xC90D;&#xB2C8;&#xB2E4;.
+&#xC774;&#xAC83;&#xC740; sparse file &#xACFC;&#xB294; &#xAD00;&#xACC4;&#xC5C6;&#xB294; &#xAC83;&#xC73C;&#xB85C; &#xAC00;&#xB839; disk.img &#xC5D0; &#xD30C;&#xC77C;&#xC774; 50M &#xAC00; &#xC788;&#xC73C;&#xBA74; 50M &#xB85C; &#xC904;&#xC5B4;&#xB4ED;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ ls -lsh disk.img       <span class="hljs-comment"># &#xD604;&#xC7AC; disk.img &#xD30C;&#xC77C;&#xC758; logical size &#xB294; 100M</span>
+<span class="hljs-number">90</span>M -rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">100</span>M <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">07</span> <span class="hljs-number">08</span>:<span class="hljs-number">47</span> disk.img
+
+$ sudo mount disk.img mnt &amp;&amp; sudo chmod <span class="hljs-number">777</span> mnt
+
+$ ls <span class="hljs-operator">-l</span> mnt
+total <span class="hljs-number">87864</span>
+drwx------ <span class="hljs-number">2</span> root   root      <span class="hljs-number">16384</span> <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">07</span> <span class="hljs-number">08</span>:<span class="hljs-number">46</span> lost+found/
+-rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">89956352</span> <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">07</span> <span class="hljs-number">08</span>:<span class="hljs-number">46</span> hello
+
+$ rm <span class="hljs-operator">-f</span> mnt/hello &amp;&amp; sudo umount mnt     <span class="hljs-comment"># 90M &#xAC00;&#xB7C9;&#xC758; hello &#xD30C;&#xC77C;&#xC744; &#xC0AD;&#xC81C;</span>
+
+$ ls -lsh disk.img       <span class="hljs-comment"># disk.img &#xD30C;&#xC77C;&#xC740; &#xADF8;&#xB300;&#xB85C; 100M</span>
+<span class="hljs-number">90</span>M -rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">100</span>M <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">07</span> <span class="hljs-number">08</span>:<span class="hljs-number">48</span> disk.img
+
+$ e2fsck <span class="hljs-operator">-f</span> disk.img &amp;&amp; resize2fs -M disk.img      <span class="hljs-comment"># -M &#xC635;&#xC158;&#xC744; &#xC0AC;&#xC6A9;</span>
+e2fsck <span class="hljs-number">1.45</span>.<span class="hljs-number">3</span> (<span class="hljs-number">14</span>-Jul-<span class="hljs-number">2019</span>)
+Pass <span class="hljs-number">1</span>: Checking inodes, blocks, and sizes
+Pass <span class="hljs-number">2</span>: Checking directory structure
+. . .
+
+$ ls -lsh disk.img       <span class="hljs-comment"># disk.img &#xD30C;&#xC77C;&#xC758; logical size &#xAC00; &#xCD5C;&#xC18C;&#xD55C;&#xC758; &#xD06C;&#xAE30;&#xC778; 7.3M &#xB85C; &#xC904;&#xC5B4;&#xB4E6;</span>
+<span class="hljs-number">4.2</span>M -rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">7.3</span>M <span class="hljs-number">2020</span>-<span class="hljs-number">03</span>-<span class="hljs-number">07</span> <span class="hljs-number">08</span>:<span class="hljs-number">48</span> disk.img
+</code></pre>
+<blockquote>
+<p>sparse file &#xAE30;&#xB2A5;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xB824;&#xBA74; filesystem &#xC5D0;&#xC11C; &#xD574;&#xB2F9; &#xAE30;&#xB2A5;&#xC744; &#xC81C;&#xACF5;&#xD574;&#xC57C; &#xD558;&#xACE0; ( &#xC694;&#xC998;&#xC740; &#xB300;&#xBD80;&#xBD84; &#xC9C0;&#xC6D0; )
+&#xB610;&#xD55C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xBA85;&#xB839;&#xB4E4;&#xC5D0;&#xC11C;&#xB3C4; &#xC9C0;&#xC6D0;&#xC744; &#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;. 
+linux &#xC5D0;&#xC11C;&#xB294; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; cp, tar, cpio, rsync &#xAC19;&#xC740; &#xBA85;&#xB839;&#xB4E4;&#xC5D0;&#xC11C; <code>-S</code>, <code>--sparse</code> &#xC635;&#xC158;&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+</blockquote>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./command_completion.html" class="navigation navigation-prev " aria-label="Previous page: Command Completion"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./colors_and_prompt.html" class="navigation navigation-next " aria-label="Next page: Colors and Prompt"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

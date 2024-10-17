@@ -1,0 +1,1978 @@
+<!DOCTYPE HTML>
+<html lang="ko" >
+    
+    <head>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-161001174-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-161001174-1');
+</script>
+
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Shell Metacharacters | Introduction</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+        <link rel="stylesheet" href="./styles/website.css">
+    
+
+        
+    
+    
+    <link rel="next" href="./precedence.html" />
+    
+    
+    <link rel="prev" href="./arrays.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="7"
+        data-chapter-title="Shell Metacharacters"
+        data-filepath="metacharacters.md"
+        data-basepath="."
+
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="bug_reports.html">
+            
+                
+                    <a href="./bug_reports.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Bug reports
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="basics.html">
+            
+                
+                    <a href="./basics.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Basics
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="quotes.html">
+            
+                
+                    <a href="./quotes.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        Quotes
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="escape_sequences.html">
+            
+                
+                    <a href="./escape_sequences.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.1.</b>
+                        
+                        Escape Sequences
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="variables.html">
+            
+                
+                    <a href="./variables.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        Variables
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="functions.html">
+            
+                
+                    <a href="./functions.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        Functions
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="exit_status.html">
+            
+                
+                    <a href="./exit_status.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        Exit Status
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="pattern_matching.html">
+            
+                
+                    <a href="./pattern_matching.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        Pattern Matching
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="shebang.html">
+            
+                
+                    <a href="./shebang.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                        #!
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="interactive_non-interactive.html">
+            
+                
+                    <a href="./interactive_non-interactive.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.7.</b>
+                        
+                        Interactive vs Non-Interactive Shell
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="login_non-login.html">
+            
+                
+                    <a href="./login_non-login.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.8.</b>
+                        
+                        Login vs Non-Login Shell
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="etc.html">
+            
+                
+                    <a href="./etc.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.9.</b>
+                        
+                        etc
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="test.html">
+            
+                
+                    <a href="./test.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Test
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="test_operators.html">
+            
+                
+                    <a href="./test_operators.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        Operators
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="subshells.html">
+            
+                
+                    <a href="./subshells.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        Subshells
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="process_creation.html">
+            
+                
+                    <a href="./process_creation.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        Process Creation
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="commands.html">
+            
+                
+                    <a href="./commands.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Commands
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="builtin_commands.html">
+            
+                
+                    <a href="./builtin_commands.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        Builtin Commands
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="read.html">
+            
+                
+                    <a href="./read.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.1.</b>
+                        
+                        read
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2" data-path="printf.html">
+            
+                
+                    <a href="./printf.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.2.</b>
+                        
+                        printf
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3" data-path="eval.html">
+            
+                
+                    <a href="./eval.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.3.</b>
+                        
+                        eval
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.4" data-path="getopts.html">
+            
+                
+                    <a href="./getopts.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.4.</b>
+                        
+                        getopts
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="keyword_commands.html">
+            
+                
+                    <a href="./keyword_commands.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        Keyword Commands
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.2.1" data-path="compound_commands.html">
+            
+                
+                    <a href="./compound_commands.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.1.</b>
+                        
+                        Compound Commands
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="special_commands.html">
+            
+                
+                    <a href="./special_commands.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                        Special Commands
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="expr.html">
+            
+                
+                    <a href="./expr.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.4.</b>
+                        
+                        expr
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="grep.html">
+            
+                
+                    <a href="./grep.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.5.</b>
+                        
+                        grep
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="find.html">
+            
+                
+                    <a href="./find.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.6.</b>
+                        
+                        find
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7" data-path="xargs.html">
+            
+                
+                    <a href="./xargs.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.7.</b>
+                        
+                        xargs
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="arrays.html">
+            
+                
+                    <a href="./arrays.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        Arrays
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="7" data-path="metacharacters.html">
+            
+                
+                    <a href="./metacharacters.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        Shell Metacharacters
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1" data-path="precedence.html">
+            
+                
+                    <a href="./precedence.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.1.</b>
+                        
+                        Precedence
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="expansions_and_substitutions.html">
+            
+                
+                    <a href="./expansions_and_substitutions.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        Expansions and Substitutions
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1" data-path="exp_and_sub/brace_expansion.html">
+            
+                
+                    <a href="./exp_and_sub/brace_expansion.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.1.</b>
+                        
+                        Brace Expansion
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="exp_and_sub/tilde_expansion.html">
+            
+                
+                    <a href="./exp_and_sub/tilde_expansion.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.2.</b>
+                        
+                        Tilde Expansion
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3" data-path="exp_and_sub/parameter_expansion.html">
+            
+                
+                    <a href="./exp_and_sub/parameter_expansion.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.3.</b>
+                        
+                        Parameter Expansion
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.4" data-path="exp_and_sub/arithmetic_expansion.html">
+            
+                
+                    <a href="./exp_and_sub/arithmetic_expansion.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.4.</b>
+                        
+                        Arithmetic Expansion
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.5" data-path="exp_and_sub/command_substitution.html">
+            
+                
+                    <a href="./exp_and_sub/command_substitution.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.5.</b>
+                        
+                        Command Substitution
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.6" data-path="exp_and_sub/process_substitution.html">
+            
+                
+                    <a href="./exp_and_sub/process_substitution.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.6.</b>
+                        
+                        Process Substitution
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.7" data-path="exp_and_sub/word_splitting.html">
+            
+                
+                    <a href="./exp_and_sub/word_splitting.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.7.</b>
+                        
+                        Word Splitting
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.8" data-path="exp_and_sub/filename_expansion.html">
+            
+                
+                    <a href="./exp_and_sub/filename_expansion.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.8.</b>
+                        
+                        Filename Expansion
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="job_control.html">
+            
+                
+                    <a href="./job_control.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        Job Control
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="9.1" data-path="session_and_process-group.html">
+            
+                
+                    <a href="./session_and_process-group.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.1.</b>
+                        
+                        Session and Process Group
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.2" data-path="process_state_codes.html">
+            
+                
+                    <a href="./process_state_codes.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.2.</b>
+                        
+                        Process State Codes
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.3" data-path="tty.html">
+            
+                
+                    <a href="./tty.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.3.</b>
+                        
+                        TTY
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.4" data-path="mutual_exclusion.html">
+            
+                
+                    <a href="./mutual_exclusion.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.4.</b>
+                        
+                        Mutual Exclusion
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="redirections.html">
+            
+                
+                    <a href="./redirections.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                        Redirections
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="10.1" data-path="file_descriptors.html">
+            
+                
+                    <a href="./file_descriptors.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.1.</b>
+                        
+                        File Descriptors
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.2" data-path="here_document.html">
+            
+                
+                    <a href="./here_document.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.2.</b>
+                        
+                        &lt;&lt; , &lt;&lt;&lt;
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.3" data-path="pipe.html">
+            
+                
+                    <a href="./pipe.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.3.</b>
+                        
+                        Pipe
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.4" data-path="named_pipe.html">
+            
+                
+                    <a href="./named_pipe.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.4.</b>
+                        
+                        Named Pipe
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.5" data-path="buffering.html">
+            
+                
+                    <a href="./buffering.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.5.</b>
+                        
+                        Buffering
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="11" data-path="signals_and_traps.html">
+            
+                
+                    <a href="./signals_and_traps.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.</b>
+                        
+                        Signals and Traps
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="11.1" data-path="kill.html">
+            
+                
+                    <a href="./kill.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.1.</b>
+                        
+                        kill
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11.2" data-path="trap.html">
+            
+                
+                    <a href="./trap.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.2.</b>
+                        
+                        trap
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11.3" data-path="signals_table.html">
+            
+                
+                    <a href="./signals_table.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.3.</b>
+                        
+                        Signals Table
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="12" data-path="command_aliases.html">
+            
+                
+                    <a href="./command_aliases.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.</b>
+                        
+                        Command Aliases
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="13" data-path="command_history.html">
+            
+                
+                    <a href="./command_history.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.</b>
+                        
+                        Command History
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="14" data-path="command_completion.html">
+            
+                
+                    <a href="./command_completion.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.</b>
+                        
+                        Command Completion
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="15" data-path="readline.html">
+            
+                
+                    <a href="./readline.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.</b>
+                        
+                        Readline
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="16" data-path="colors_and_prompt.html">
+            
+                
+                    <a href="./colors_and_prompt.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.</b>
+                        
+                        Colors and Prompt
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="17" data-path="shell_variables.html">
+            
+                
+                    <a href="./shell_variables.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>17.</b>
+                        
+                        Shell Variables
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="17.1" data-path="positional_parameters.html">
+            
+                
+                    <a href="./positional_parameters.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>17.1.</b>
+                        
+                        Positional Parameters
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="17.2" data-path="special_parameters.html">
+            
+                
+                    <a href="./special_parameters.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>17.2.</b>
+                        
+                        Special Parameters
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="18" data-path="shell_options.html">
+            
+                
+                    <a href="./shell_options.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>18.</b>
+                        
+                        Shell Options
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="18.1" data-path="command_line_options.html">
+            
+                
+                    <a href="./command_line_options.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>18.1.</b>
+                        
+                        Command-line options
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="19" data-path="debugging.html">
+            
+                
+                    <a href="./debugging.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>19.</b>
+                        
+                        Debugging
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="20" data-path="locale.html">
+            
+                
+                    <a href="./locale.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>20.</b>
+                        
+                        Locale
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="21" data-path="sh.html">
+            
+                
+                    <a href="./sh.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>21.</b>
+                        
+                        sh
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="22" data-path="tips.html">
+            
+                
+                    <a href="./tips.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>22.</b>
+                        
+                        Tips
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="23" data-path="closing.html">
+            
+                
+                    <a href="./closing.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>23.</b>
+                        
+                        맺음말
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="24" data-path="supplement.html">
+            
+                
+                    <a href="./supplement.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>24.</b>
+                        
+                        별책부록
+                    </a>
+            
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" >Introduction</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="shell-metacharacters">Shell Metacharacters</h1>
+<p>Shell script &#xC5D0;&#xC11C;&#xB294; &#xD504;&#xB85C;&#xADF8;&#xB798;&#xBC0D; &#xC5B8;&#xC5B4;&#xC5D0;&#xC11C;&#xCC98;&#xB7FC; &#xC5EC;&#xB7EC;&#xAC00;&#xC9C0; &#xC5F0;&#xC0B0;&#xC790;&#xB97C; &#xC81C;&#xACF5;&#xD558;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;. 
+&#xAC00;&#xB839; &#xC0B0;&#xC220;&#xC5F0;&#xC0B0;&#xC744; &#xC704;&#xD574;&#xC11C;&#xB294; &#xBCC4;&#xB3C4;&#xB85C; &#xC81C;&#xACF5;&#xB418;&#xB294; <a href="exp_and_sub/arithmetic_expansion.html">&#xC0B0;&#xC220;&#xD655;&#xC7A5;</a> &#xC774;&#xB098; <a href="special_commands.html">&#xBA85;&#xB839;</a> &#xC744; &#xC774;&#xC6A9;&#xD558;&#xAC70;&#xB098; &#xC678;&#xBD80; &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.
+&#xD558;&#xC9C0;&#xB9CC; &#xBA85;&#xB839;&#xBB38;&#xC744; &#xC791;&#xC131;&#xD560; &#xB54C; &#xC0AC;&#xC6A9;&#xB418;&#xB294; &#xBA54;&#xD0C0;&#xBB38;&#xC790;&#xB4E4;&#xC774; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC774; &#xBA54;&#xD0C0;&#xBB38;&#xC790;&#xB4E4;&#xC740; &#xBA85;&#xB839;&#xBB38; &#xC0C1;&#xC5D0;&#xC11C; &#xD2B9;&#xBCC4;&#xD55C; &#xAE30;&#xB2A5;&#xC744; &#xD558;&#xBBC0;&#xB85C; &#xB3D9;&#xC77C;&#xD55C; &#xBB38;&#xC790;&#xAC00; &#xBA85;&#xB839;&#xBB38;&#xC758; &#xC2A4;&#xD2B8;&#xB9C1;&#xC5D0; &#xD3EC;&#xD568;&#xB420; &#xACBD;&#xC6B0; &#xBC18;&#xB4DC;&#xC2DC; escape &#xD558;&#xAC70;&#xB098; quote &#xD574;&#xC57C; &#xC624;&#xB958;&#xAC00; &#xBC1C;&#xC0DD;&#xD558;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<blockquote>
+<p>C++ &#xC18C;&#xC2A4;&#xCF54;&#xB4DC;&#xB97C; &#xC0DD;&#xC131;&#xD574;&#xC8FC;&#xB294; &#xD15C;&#xD50C;&#xB9BF; &#xD504;&#xB85C;&#xADF8;&#xB798;&#xBC0D;&#xC744; &#xBA54;&#xD0C0;&#xD504;&#xB85C;&#xADF8;&#xB798;&#xBC0D; &#xC774;&#xB77C;&#xACE0; &#xD558;&#xC8E0;,
+&#xB610;&#xD55C; Makefile &#xC744; &#xD574;&#xB2F9; &#xD50C;&#xB7AB;&#xD3FC;&#xC5D0; &#xB9DE;&#xAC8C; &#xC0DD;&#xC131;&#xD574;&#xC8FC;&#xB294; cmake &#xAC19;&#xC740; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC744; &#xBA54;&#xD0C0; make &#xC774;&#xB77C;&#xACE0; &#xD569;&#xB2C8;&#xB2E4;.
+regex &#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xB418;&#xB294; <code>*</code>, <code>?</code>, <code>[ ]</code> &#xC640; &#xAC19;&#xC740; &#xBA54;&#xD0C0;&#xBB38;&#xC790;&#xB098; shell &#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xB418;&#xB294; &#xBA54;&#xD0C0;&#xBB38;&#xC790;&#xB4E4;&#xC740;
+&#xC2E4;&#xC81C; &#xC2E4;&#xD589;&#xB418;&#xB294; &#xBA85;&#xB839;&#xBB38;&#xC744; &#xC0DD;&#xC131;&#xD558;&#xB294; &#xACFC;&#xC815;&#xC5D0;&#xC11C; &#xD2B9;&#xBCC4;&#xD55C; &#xAE30;&#xB2A5;&#xC744; &#xC218;&#xD589;&#xD569;&#xB2C8;&#xB2E4;.</p>
+</blockquote>
+<pre><code class="lang-bash"> ( )   `   |   &amp;   ;
+ &amp;&amp;  ||                            <span class="hljs-comment"># AND, OR &#xBB38;&#xC790;</span>
+ &lt;   &gt;   &gt;&gt;                        <span class="hljs-comment"># redirection &#xBB38;&#xC790;</span>
+ *   ?   [ ]                       <span class="hljs-comment"># glob &#xBB38;&#xC790;</span>
+ <span class="hljs-string">&quot;   &apos;                             # quotes &#xBB38;&#xC790;
+ \   $      
+ =   +=                            # &#xB300;&#xC785;&#xC5F0;&#xC0B0;
+</span></code></pre>
+<h2 id="&#xA0;&#xA0;&#xA0;">(&#xA0;&#xA0;&#xA0;)</h2>
+<ul>
+<li>&#xD568;&#xC218;&#xB97C; &#xC791;&#xC131;&#xD560; &#xB54C;</li>
+<li>subshell &#xC744; &#xC0DD;&#xC131;&#xD560; &#xB54C;</li>
+<li>&#xBA85;&#xB839; grouping &#xC5D0; &#xC0AC;&#xC6A9; </li>
+</ul>
+<p>&#xD504;&#xB85C;&#xADF8;&#xB798;&#xBC0D; &#xC5B8;&#xC5B4;&#xC5D0;&#xC11C;&#xCC98;&#xB7FC; &#xACF5;&#xBC31;&#xC774;&#xB098; <code>;</code> &#xC5D0; &#xB300;&#xD55C; &#xC81C;&#xC57D; &#xC5C6;&#xC774; &#xC790;&#xC720;&#xB86D;&#xAC8C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xB294; &#xBA54;&#xD0C0;&#xBB38;&#xC790;&#xC785;&#xB2C8;&#xB2E4;.</p>
+<h2 id="">`</h2>
+<p>backtick &#xBB38;&#xC790;&#xB294; <code>$(  )</code> &#xC640; &#xD568;&#xAED8; &#xBA85;&#xB839; &#xCE58;&#xD658;&#xC5D0; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.</p>
+<h2 id="&#xA0;&#xA0;&#xA0;">&amp;&amp;&#xA0;&#xA0;&#xA0;||</h2>
+<p>AND, OR &#xB17C;&#xB9AC; &#xBA54;&#xD0C0;&#xBB38;&#xC790;.<br>&#xC774;&#xAC83;&#xC740; shell &#xBA54;&#xD0C0;&#xBB38;&#xC790;&#xB85C; <code>[[ ]]</code> &#xD2B9;&#xC218; &#xBA85;&#xB839;&#xC5D0;&#xC11C; &#xC81C;&#xACF5;&#xD558;&#xB294; &#xC5F0;&#xC0B0;&#xC790;&#xC640;&#xB294; &#xB2E4;&#xB978; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.<br>shell &#xC5D0;&#xC11C; <code>&amp;&amp;</code>  <code>||</code> &#xBA54;&#xD0C0;&#xBB38;&#xC790;&#xB294; &#xC6B0;&#xC120;&#xC21C;&#xC704;&#xB97C; &#xAC19;&#xAC8C; &#xCDE8;&#xAE09;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<h2 id="">&amp;</h2>
+<p>&#xBA85;&#xB839;&#xC744; background &#xB85C; &#xC2E4;&#xD589;&#xD560; &#xB54C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.<br>&#xB610;&#xD55C; <code>;</code> &#xC640; &#xB3D9;&#xC77C;&#xD558;&#xAC8C; &#xBA85;&#xB839;&#xBB38;&#xC758; &#xC885;&#xB8CC;&#xB97C; &#xB098;&#xD0C0;&#xB0B4;&#xBBC0;&#xB85C; &#xBA85;&#xB839;&#xC744; &#xD55C;&#xC904;&#xC5D0; &#xC5F0;&#xC774;&#xC5B4; &#xC4F8;&#xACBD;&#xC6B0; <code>;</code> &#xB97C; &#xBD99;&#xC5EC;&#xC11C;&#xB294; &#xC548;&#xB429;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">command</span>1 &amp;; <span class="hljs-built_in">command</span>2 &amp;  <span class="hljs-comment"># error</span>
+<span class="hljs-built_in">command</span>1 &amp; <span class="hljs-built_in">command</span>2 &amp;   <span class="hljs-comment"># OK</span>
+
+{ ... <span class="hljs-built_in">command</span> &amp; ;}      <span class="hljs-comment"># error</span>
+{ ... <span class="hljs-built_in">command</span> &amp; }       <span class="hljs-comment"># OK</span>
+</code></pre>
+<h2 id="">|</h2>
+<p>&#xBA85;&#xB839;&#xB4E4;&#xC744; &#xD30C;&#xC774;&#xD504;&#xB85C; &#xC5F0;&#xACB0;&#xD560; &#xB54C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.<br><code>|&amp;</code> &#xB294; stdout, stderr &#xB458; &#xB2E4; &#xD30C;&#xC774;&#xD504;&#xB85C; &#xC804;&#xB2EC;&#xD558;&#xBA70; <code>2&gt;&amp;1 |</code> &#xC640; &#xB3D9;&#xC77C;&#xD55C; &#xC758;&#xBBF8;&#xC785;&#xB2C8;&#xB2E4;.</p>
+<h2 id="&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;">&lt;&#xA0;&#xA0;&#xA0;&gt;&#xA0;&#xA0;&#xA0;&gt;&gt;</h2>
+<p>&#xC774;&#xC678;&#xC5D0;&#xB3C4; redirection &#xC5D0; &#xAD00;&#xB828;&#xB41C; &#xC5EC;&#xB7EC; &#xBA54;&#xD0C0;&#xBB38;&#xC790;&#xB4E4;</p>
+<p><code>&gt;&gt;</code> (append) , <code>&gt;&amp;</code> , <code>&lt;&gt;</code> , <code>&amp;&gt;</code> ( &gt;word 2&gt;&amp;1 ) , <code>&amp;&gt;&gt;</code> ( &gt;&gt;word 2&gt;&amp;1 ) , <code>&gt;|</code> (override noclobber), <code>&lt;&lt;</code> (here document) , <code>&lt;&lt;-</code> (no leading tab) , <code>&lt;&lt;&lt;</code> (here string) </p>
+<h2 id="">;</h2>
+<p>&#xD55C; &#xC904;&#xC5D0; &#xC5EC;&#xB7EC; &#xAC1C;&#xC758; &#xBA85;&#xB839;&#xC744; &#xC5F0;&#xC774;&#xC5B4; &#xC791;&#xC131;&#xD560; &#xB54C; &#xBD84;&#xB9AC;&#xB97C; &#xC704;&#xD574; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.<br><code>;;</code>, <code>;&amp;</code>, <code>;;&amp;</code> &#xB294; case &#xBB38;&#xC5D0;&#xC11C; &#xAC01; <code>pattern)</code> &#xC758; &#xC885;&#xB8CC;&#xB97C; &#xB098;&#xD0C0;&#xB0B4;&#xB294;&#xB370; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.</p>
+<h2 id="&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;-">*&#xA0;&#xA0;&#xA0;?&#xA0;&#xA0;&#xA0;[ ]</h2>
+<p>&#xD328;&#xD134;&#xB9E4;&#xCE6D;&#xC5D0; &#xC0AC;&#xC6A9;&#xB418;&#xB294; glob &#xBB38;&#xC790;&#xB3C4; &#xBA54;&#xD0C0;&#xBB38;&#xC790;&#xC5D0; &#xC18D;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<h2 id="&#xA0;&#xA0;&#xA0;">&quot;&#xA0;&#xA0;&#xA0;&apos;</h2>
+<p>&#xBB38;&#xC7A5;&#xC744; quote &#xD560; &#xB54C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.<br>space &#xB85C; &#xBD84;&#xB9AC;&#xB41C; &#xBB38;&#xC7A5;&#xC744; quote &#xD558;&#xBA74; &#xD558;&#xB098;&#xC758; &#xC778;&#xC218;&#xAC00; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<h2 id="">\</h2>
+<p>escape &#xD560; &#xB54C; &#xC0AC;&#xC6A9;&#xB418;&#xB294; &#xBB38;&#xC790;&#xC785;&#xB2C8;&#xB2E4;.</p>
+<h2 id="">$</h2>
+<p><a href="exp_and_sub/parameter_expansion.html">&#xB9E4;&#xAC1C;&#xBCC0;&#xC218; &#xD655;&#xC7A5;</a>,
+<a href="exp_and_sub/arithmetic_expansion.html">&#xC0B0;&#xC220; &#xD655;&#xC7A5;</a>,
+<a href="exp_and_sub/command_substitution.html">&#xBA85;&#xB839; &#xCE58;&#xD658;</a>
+&#xC5D0; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.</p>
+<h2 id="&#xA0;&#xA0;&#xA0;">=&#xA0;&#xA0;&#xA0;+=</h2>
+<p>&#xB300;&#xC785;&#xC5F0;&#xC0B0;&#xC5D0; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;. <code>+=</code> &#xB294; bash 3.1 &#xC5D0;&#xC11C; &#xCD94;&#xAC00;&#xB41C; &#xAE30;&#xB2A5;&#xC73C;&#xB85C; sh &#xC5D0;&#xC11C;&#xB294; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<h3 id="&#xBA54;&#xD0C0;&#xBB38;&#xC790;&#xAC00;-&#xBA85;&#xB839;&#xBB38;&#xC5D0;-&#xD3EC;&#xD568;&#xB418;&#xBA74;-escape-&#xD574;&#xC57C;&#xD55C;&#xB2E4;">&#xBA54;&#xD0C0;&#xBB38;&#xC790;&#xAC00; &#xBA85;&#xB839;&#xBB38;&#xC5D0; &#xD3EC;&#xD568;&#xB418;&#xBA74; escape &#xD574;&#xC57C;&#xD55C;&#xB2E4;.</h3>
+<p><code>&amp;</code> &#xBA54;&#xD0C0;&#xBB38;&#xC790;&#xAC00; &#xB4E4;&#xC5B4;&#xAC04; &#xD30C;&#xC77C; &#xC774;&#xB984;&#xC744; &#xC778;&#xC218;&#xB85C; &#xC0AC;&#xC6A9;&#xD574; &#xC624;&#xB958; &#xBC1C;&#xC0DD;</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># background process &#xAC00; &#xC2E4;&#xD589;&#xB418;&#xBA74;&#xC11C; &#xC624;&#xB958;&#xBC1C;&#xC0DD;</span>
+
+$ find * -name foo&amp;bar.txt
+[<span class="hljs-number">1</span>] <span class="hljs-number">16962</span>
+bar.txt: <span class="hljs-built_in">command</span> not found
+[<span class="hljs-number">1</span>]+  Done  
+
+<span class="hljs-comment"># &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xC218;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.</span>
+
+$ find * -name foo\&amp;bar.txt
+
+$ find * -name foo<span class="hljs-string">&quot;&amp;&quot;</span>bar.txt
+
+$ find * -name foo<span class="hljs-string">&apos;&amp;&apos;</span>bar.txt
+
+$ find * -name <span class="hljs-string">&quot;foo&amp;bar.txt&quot;</span>
+
+$ find * -name <span class="hljs-string">&apos;foo&amp;bar.txt&apos;</span>
+</code></pre>
+<p>find &#xBA85;&#xB839;&#xC740; &#xC778;&#xC218;&#xB85C; shell &#xBA54;&#xD0C0;&#xBB38;&#xC790;&#xC778; <code>( )</code> , <code>;</code> &#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xB294;&#xB370; quote &#xD558;&#xAC70;&#xB098; escape &#xD558;&#xC9C0; &#xC54A;&#xC73C;&#xBA74;
+&#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C; &#xC2E4;&#xD589;&#xC774; &#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># &apos;( )&apos; &#xB294; shell &#xBA54;&#xD0C0;&#xBB38;&#xC790; &#xC774;&#xBBC0;&#xB85C; &#xBA85;&#xB839;&#xBB38;&#xC5D0; &#xBC14;&#xB85C; &#xC0AC;&#xC6A9;&#xD560;&#xC2DC; &#xC624;&#xB958;&#xBC1C;&#xC0DD;</span>
+$ find * -type f ( -name <span class="hljs-string">&quot;*.log&quot;</span>  -or  -name <span class="hljs-string">&quot;*.bak&quot;</span> ) -exec rm <span class="hljs-operator">-f</span> {} ;
+bash: syntax error near unexpected token <span class="hljs-string">&apos;(&apos;</span>
+
+<span class="hljs-comment"># &apos;( )&apos; &#xB294; quote &#xD588;&#xC73C;&#xB098; &apos;;&apos; &#xBA54;&#xD0C0;&#xBB38;&#xC790;&#xB85C; &#xC778;&#xD574; &#xC624;&#xB958;&#xBC1C;&#xC0DD;</span>
+$ find * -type f <span class="hljs-string">&apos;(&apos;</span> -name <span class="hljs-string">&quot;*.log&quot;</span>  -or  -name <span class="hljs-string">&quot;*.bak&quot;</span> <span class="hljs-string">&apos;)&apos;</span> -exec rm <span class="hljs-operator">-f</span> {} ;
+find: missing argument to <span class="hljs-string">&apos;-exec&apos;</span>
+
+<span class="hljs-comment"># &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; shell &#xBA54;&#xD0C0;&#xBB38;&#xC790; &#xB4E4;&#xC744; &#xBAA8;&#xB450; escape &#xD569;&#xB2C8;&#xB2E4;.</span>
+$ find * -type f <span class="hljs-string">&apos;(&apos;</span> -name <span class="hljs-string">&quot;*.log&quot;</span>  -or  -name <span class="hljs-string">&quot;*.bak&quot;</span> <span class="hljs-string">&apos;)&apos;</span> -exec rm <span class="hljs-operator">-f</span> {} <span class="hljs-string">&apos;;&apos;</span>
+OK
+
+$ find * -type f \( -name <span class="hljs-string">&quot;*.log&quot;</span>  -or  -name <span class="hljs-string">&quot;*.bak&quot;</span> \) -exec rm <span class="hljs-operator">-f</span> {} \;
+OK
+</code></pre>
+<h3 id="&#xBA54;&#xD0C0;&#xBB38;&#xC790;&#xB294;-shell-&#xC5D0;&#xC11C;-&#xD2B9;&#xBCC4;&#xD788;-&#xCDE8;&#xAE09;&#xD558;&#xB294;-&#xBB38;&#xC790;&#xB2E4;">&#xBA54;&#xD0C0;&#xBB38;&#xC790;&#xB294; shell &#xC5D0;&#xC11C; &#xD2B9;&#xBCC4;&#xD788; &#xCDE8;&#xAE09;&#xD558;&#xB294; &#xBB38;&#xC790;&#xB2E4;.</h3>
+<p>&#xADF8;&#xB7EC;&#xBBC0;&#xB85C; &#xB2E4;&#xB978; &#xB2E8;&#xC5B4;&#xC640; &#xACF5;&#xBC31; &#xC5C6;&#xC774; &#xBD99;&#xC5EC;&#xC11C; &#xC0AC;&#xC6A9;&#xD560; &#xC218;&#xB3C4; &#xC788;&#xB2E4;.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#xBA54;&#xD0C0;&#xBB38;&#xC790; &#xC77C;&#xACBD;&#xC6B0; &apos;( )&apos;</span>
+$ (<span class="hljs-literal">true</span>)&amp;&amp;(<span class="hljs-literal">true</span>;<span class="hljs-literal">false</span>);<span class="hljs-built_in">echo</span> $?
+$ <span class="hljs-number">1</span>
+
+<span class="hljs-comment"># &#xBA54;&#xD0C0;&#xBB38;&#xC790;&#xAC00; &#xC544;&#xB2D0;&#xACBD;&#xC6B0; &apos;{ }&apos;</span>
+$ {<span class="hljs-literal">true</span>;}&amp;&amp;{<span class="hljs-literal">true</span>;<span class="hljs-literal">false</span>;};<span class="hljs-built_in">echo</span> $?
+bash: syntax error near unexpected token `}<span class="hljs-string">&apos;
+</span></code></pre>
+<p>&#xBA54;&#xD0C0;&#xBB38;&#xC790;&#xB294; escape &#xC5C6;&#xC774; &#xBA85;&#xB839;&#xB77C;&#xC778; &#xC911;&#xAC04;&#xC5D0; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xB2E4;.</p>
+<pre><code class="lang-sh">$ <span class="hljs-built_in">echo</span> () foo ( ) bar ( zoo )           <span class="hljs-comment"># &#xCCAB; &#xBC88;&#xC9F8; () &#xB294; &#xD568;&#xC218; &#xC815;&#xC758;&#xC5D0; &#xD574;&#xB2F9;&#xB41C;&#xB2E4;.</span>
+bash: syntax error near unexpected token <span class="hljs-string">&apos;foo&apos;</span>
+
+$ <span class="hljs-built_in">echo</span> \(\) foo \( \) bar \( zoo \)     <span class="hljs-comment"># escape &#xD574;&#xC57C;&#xD55C;&#xB2E4;.</span>
+() foo ( ) bar ( zoo )
+
+$ <span class="hljs-built_in">echo</span> {} foo { } bar { zoo }           <span class="hljs-comment"># shell &#xD0A4;&#xC6CC;&#xB4DC;&#xB294; OK</span>
+{} foo { } bar { zoo }
+</code></pre>
+<h3 id="&#xB85C;-&#xBA85;&#xB839;&#xB4E4;&#xC744;-&#xC5F0;&#xACB0;&#xD560;-&#xACBD;&#xC6B0;"><code>&amp;&amp;</code> &#xB85C; &#xBA85;&#xB839;&#xB4E4;&#xC744; &#xC5F0;&#xACB0;&#xD560; &#xACBD;&#xC6B0;</h3>
+<p>&#xBA85;&#xB839;&#xB4E4;&#xC744; <code>&amp;&amp;</code> &#xC5F0;&#xC0B0;&#xC790;&#xB85C; &#xC5F0;&#xACB0;&#xD558;&#xBA74; &#xC774;&#xC804; &#xBA85;&#xB839;&#xC774; &#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C; &#xC644;&#xB8CC;&#xB41C; &#xAC83;&#xC744; &#xBCF4;&#xC7A5;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xB610;&#xD55C; &#xC911;&#xAC04;&#xC5D0; &#xD558;&#xB098;&#xB77C;&#xB3C4; &#xC624;&#xB958;&#xB85C; &#xC885;&#xB8CC;&#xB420; &#xACBD;&#xC6B0; &#xB098;&#xBA38;&#xC9C0; &#xBA85;&#xB839;&#xB4E4;&#xC740; &#xC2E4;&#xD589;&#xB418;&#xC9C0; &#xC54A;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<p>&#xB2E4;&#xC74C; &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xD558;&#xBA74; &#xD604;&#xC7AC; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0; bash 5.1 &#xBC84;&#xC804; &#xC2E4;&#xD589;&#xD30C;&#xC77C;&#xC774; &#xC0DD;&#xC131;&#xB429;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#xBA85;&#xB839; &#xC2E4;&#xD589;&#xC774; &#xC644;&#xB8CC;&#xB418;&#xB824;&#xBA74; gcc, make &#xBA85;&#xB839;&#xACFC; libtinfo-dev &#xD328;&#xD0A4;&#xC9C0;&#xAC00; &#xC124;&#xCE58;&#xB418;&#xC5B4; &#xC788;&#xC5B4;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</span>
+$ <span class="hljs-built_in">cd</span> `mktemp <span class="hljs-operator">-d</span> -p /dev/shm <span class="hljs-number">2</span>&gt;&amp;<span class="hljs-number">1</span>` &amp;&amp; 
+    ( curl -L https://ftp.gnu.org/gnu/bash/bash-<span class="hljs-number">5.1</span>.tar.gz | tar -xvz &amp;&amp; 
+    <span class="hljs-built_in">cd</span> bash-<span class="hljs-number">5.1</span> &amp;&amp; ./configure &amp;&amp; make -j `nproc` &amp;&amp; strip bash ) &amp;&amp; 
+    mv bash-<span class="hljs-number">5.1</span>/bash <span class="hljs-string">&quot;<span class="hljs-variable">$OLDPWD</span>&quot;</span> &amp;&amp; rm -rf <span class="hljs-string">&quot;<span class="hljs-variable">$PWD</span>&quot;</span> &amp;&amp; <span class="hljs-built_in">cd</span> -
+</code></pre>
+<h3 id="-&#xB294;-shell-keyword">{ } &#xB294; shell keyword</h3>
+<p><code>{ }</code> &#xB294; &#xBA54;&#xD0C0;&#xBB38;&#xC790;&#xAC00; &#xC544;&#xB2C8;&#xACE0; &#xD0A4;&#xC6CC;&#xB4DC;&#xB85C; &#xBA85;&#xB839; &#xADF8;&#xB8F9;&#xC5D0; &#xC0AC;&#xC6A9;&#xB418;&#xBA70;,
+&#xC774;&#xC678;&#xC5D0;&#xB3C4; &#xD568;&#xC218; &#xC815;&#xC758;, &#xB9E4;&#xAC1C;&#xBCC0;&#xC218; &#xD655;&#xC7A5;, brace &#xD655;&#xC7A5;&#xC5D0; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#xBA85;&#xB839; &#xADF8;&#xB8F9;</span>
+{ <span class="hljs-built_in">echo</span> <span class="hljs-number">1</span>; <span class="hljs-built_in">echo</span> <span class="hljs-number">2</span>; <span class="hljs-built_in">echo</span> <span class="hljs-number">3</span> ;}    <span class="hljs-comment"># &#xBA85;&#xB839; &#xC704;&#xCE58;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xB418;&#xBBC0;&#xB85C; shell keyword </span>
+
+<span class="hljs-comment"># &#xD568;&#xC218; &#xC815;&#xC758;</span>
+<span class="hljs-function"><span class="hljs-title">f1</span></span>() { <span class="hljs-built_in">echo</span> <span class="hljs-number">1</span> ;}
+
+<span class="hljs-comment"># &#xB9E4;&#xAC1C;&#xBCC0;&#xC218; &#xD655;&#xC7A5;</span>
+<span class="hljs-variable">$AA</span>, <span class="hljs-variable">${AA}</span>, <span class="hljs-variable">${AA:-0}</span>, <span class="hljs-variable">${AA//Linux/Unix}</span> 
+
+<span class="hljs-comment"># brace &#xD655;&#xC7A5;</span>
+<span class="hljs-built_in">echo</span> file{<span class="hljs-number">1</span>..<span class="hljs-number">5</span>}
+---------------------------
+
+<span class="hljs-comment"># &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xACBD;&#xC6B0;&#xB294; find &#xBA85;&#xB839;&#xC758; &#xC778;&#xC218;&#xC5D0; &#xD574;&#xB2F9;&#xD558;&#xB294; &#xBB38;&#xC790;</span>
+$ find * -name <span class="hljs-string">&apos;*.o&apos;</span> -exec rm <span class="hljs-operator">-f</span> {} \;
+</code></pre>
+<h3 id="--shell-keyword">&apos; ! &apos; shell keyword</h3>
+<p><code>!</code> &#xB3C4; &#xD0A4;&#xC6CC;&#xB4DC;&#xB85C;  &#xC258;&#xC5D0;&#xC11C; &#xB450; &#xAC00;&#xC9C0; &#xAE30;&#xB2A5;&#xC744; &#xAC00;&#xC9C0;&#xACE0; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xD558;&#xB098;&#xB294; &#xBA85;&#xB839;&#xC758; &#xC704;&#xCE58;&#xC5D0;&#xC11C; &#xACF5;&#xBC31;&#xACFC; &#xD568;&#xAED8; &#xC0AC;&#xC6A9;&#xB418;&#xBA74; logical NOT &#xC73C;&#xB85C; &#xC0AC;&#xC6A9;&#xB418;&#xACE0;,
+&#xB2E4;&#xB978; &#xD558;&#xB098;&#xB294; &#xD504;&#xB86C;&#xD504;&#xD2B8; &#xC0C1;&#xC5D0;&#xC11C; <code>!</code> &#xC640; &#xACF5;&#xBC31; &#xC5C6;&#xC774; &#xBD99;&#xC5EC;&#xC11C; command history &#xD655;&#xC7A5;&#xC5D0; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.</p>
+<ul>
+<li><strong>logical NOT</strong></li>
+</ul>
+<pre><code class="lang-bash">$ [ <span class="hljs-number">1</span> = <span class="hljs-number">1</span> ]; <span class="hljs-built_in">echo</span> $?
+<span class="hljs-number">0</span>
+$ ! [ <span class="hljs-number">1</span> = <span class="hljs-number">1</span> ]; <span class="hljs-built_in">echo</span> $?    <span class="hljs-comment"># &#xBA85;&#xB839; &#xC704;&#xCE58;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xB418;&#xBA74; logical NOT &#xD0A4;&#xC6CC;&#xB4DC;</span>
+<span class="hljs-number">1</span>
+
+$ <span class="hljs-keyword">if</span> [ <span class="hljs-number">1</span> = <span class="hljs-number">1</span> ]; <span class="hljs-keyword">then</span> <span class="hljs-built_in">echo</span> <span class="hljs-number">111</span>; <span class="hljs-keyword">else</span> <span class="hljs-built_in">echo</span> <span class="hljs-number">222</span>; <span class="hljs-keyword">fi</span>
+<span class="hljs-number">111</span>
+$ <span class="hljs-keyword">if</span> ! [ <span class="hljs-number">1</span> = <span class="hljs-number">1</span> ]; <span class="hljs-keyword">then</span> <span class="hljs-built_in">echo</span> <span class="hljs-number">111</span>; <span class="hljs-keyword">else</span> <span class="hljs-built_in">echo</span> <span class="hljs-number">222</span>; <span class="hljs-keyword">fi</span>
+<span class="hljs-number">222</span>
+---------------------------------------------
+
+<span class="hljs-comment"># &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xACBD;&#xC6B0;&#xB294; &#xBA85;&#xB839; &#xC704;&#xCE58;&#xAC00; &#xC544;&#xB2C8;&#xBBC0;&#xB85C; logical NOT &#xD0A4;&#xC6CC;&#xB4DC;&#xB85C; &#xC0AC;&#xC6A9;&#xB41C; &#xAC83;&#xC774; &#xC544;&#xB2C8;&#xACE0;</span>
+<span class="hljs-comment"># [, test, find, iptables &#xBA85;&#xB839;&#xC758; &#xC778;&#xC218;&#xC5D0; &#xD574;&#xB2F9;&#xD558;&#xB294; &#xBB38;&#xC790;&#xAC00; &#xB429;&#xB2C8;&#xB2E4;.</span>
+
+$ [ ! <span class="hljs-number">1</span> <span class="hljs-operator">-eq</span> <span class="hljs-number">2</span> ]
+
+$ <span class="hljs-built_in">test</span> ! <span class="hljs-operator">-e</span> dir1/foo -o ! <span class="hljs-operator">-e</span> dir1/bar
+
+$ find dir1 ! -name <span class="hljs-string">&quot;*.o&quot;</span>
+
+$ iptables -A WEB_SSH -p tcp ! <span class="hljs-operator">-s</span> <span class="hljs-number">10.10</span>.<span class="hljs-number">10.10</span> --dport <span class="hljs-number">22</span> -j DROP
+</code></pre>
+<ul>
+<li><p><strong>command history &#xD655;&#xC7A5;</strong></p>
+<p>  <code>!</code> &#xB294; &#xD504;&#xB86C;&#xD504;&#xD2B8; &#xC0C1;&#xC5D0;&#xC11C; history &#xD655;&#xC7A5;&#xC5D0; &#xC0AC;&#xC6A9;&#xB418;&#xBBC0;&#xB85C; &#xC8FC;&#xC758;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.<br>  ( non-interactive shell &#xC778; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xD30C;&#xC77C; &#xC2E4;&#xD589;&#xC2DC;&#xC5D0;&#xB294; history &#xAE30;&#xB2A5;&#xC774; disable &#xB429;&#xB2C8;&#xB2E4; ) </p>
+</li>
+</ul>
+<pre><code class="lang-bash">$ lsb_release <span class="hljs-operator">-d</span>
+Description:    Ubuntu <span class="hljs-number">15.04</span>
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-built_in">command</span> <span class="hljs-built_in">history</span> : !lsb       <span class="hljs-comment"># &#xC774;&#xC804; &#xBA85;&#xB839; history &#xD655;&#xC7A5;</span>
+<span class="hljs-built_in">command</span> <span class="hljs-built_in">history</span> : lsb_release <span class="hljs-operator">-d</span>
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;hello!lsb world&quot;</span>            <span class="hljs-comment"># double quotes &#xC5D0;&#xC11C;&#xB3C4; history &#xD655;&#xC7A5;&#xC774; &#xB41C;&#xB2E4;!</span>
+hellolsb_release <span class="hljs-operator">-d</span> world   
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;hello!lsb world&apos;</span>
+hello!lsb world
+</code></pre>
+<h3 id="&#xB300;&#xC785;-&#xBA54;&#xD0C0;&#xBB38;&#xC790;&#xB85C;--&#xB97C;-&#xC0AC;&#xC6A9;&#xD560;-&#xC218;-&#xC788;&#xB2E4;">&#xB300;&#xC785; &#xBA54;&#xD0C0;&#xBB38;&#xC790;&#xB85C; += &#xB97C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xB2E4;.</h3>
+<p><code>+=</code> &#xB300;&#xC785; &#xBA54;&#xD0C0;&#xBB38;&#xC790;&#xB294; &#xBCC0;&#xC218; &#xC640; array &#xC5D0;&#xC11C; &#xBAA8;&#xB450; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+( sh &#xC5D0;&#xC11C;&#xB294; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;. )</p>
+<pre><code class="lang-bash"><span class="hljs-comment">### variable ###         ### indexed array ###       ### associative array ###           </span>
+                                                     $ <span class="hljs-built_in">declare</span> -A CC
+$ AA=hello               $ BB=(<span class="hljs-number">11</span> <span class="hljs-number">22</span> <span class="hljs-number">33</span>)             $ CC=([aa]=<span class="hljs-number">111</span> [bb]=<span class="hljs-number">222</span>) 
+
+$ AA+=<span class="hljs-string">&quot; world&quot;</span>           $ BB+=(<span class="hljs-number">44</span>)                  $ CC+=([cc]=<span class="hljs-number">333</span>)
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$AA</span>&quot;</span>             $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${BB[@]}</span>             $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${CC[@]}</span>
+hello world              <span class="hljs-number">11</span> <span class="hljs-number">22</span> <span class="hljs-number">33</span> <span class="hljs-number">44</span>                 <span class="hljs-number">222</span> <span class="hljs-number">111</span> <span class="hljs-number">333</span>
+</code></pre>
+<p><code>sh</code> &#xC5D0;&#xC11C;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ AA=hello                $ <span class="hljs-built_in">set</span> <span class="hljs-number">11</span> <span class="hljs-number">22</span> <span class="hljs-number">33</span>
+
+$ AA=<span class="hljs-string">&quot;<span class="hljs-variable">$AA</span> world&quot;</span>          $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>
+                          <span class="hljs-number">11</span> <span class="hljs-number">22</span> <span class="hljs-number">33</span>
+$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$AA</span>&quot;</span>              
+hello world               $ <span class="hljs-built_in">set</span> <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span> <span class="hljs-number">44</span>
+
+                          $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>
+                          <span class="hljs-number">11</span> <span class="hljs-number">22</span> <span class="hljs-number">33</span> <span class="hljs-number">44</span>
+</code></pre>
+<h3 id="shell-&#xC5D0;&#xB294;----&#xC5F0;&#xC0B0;&#xC790;&#xAC00;-&#xC5C6;&#xB2E4;">Shell &#xC5D0;&#xB294;  <code>,</code>  &#xC5F0;&#xC0B0;&#xC790;&#xAC00; &#xC5C6;&#xB2E4;</h3>
+<p>&#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; &#xBA85;&#xB839;&#xC758; &#xC778;&#xC218;&#xB098; array  &#xC6D0;&#xC18C;&#xB97C; &#xAD6C;&#xBD84;&#xD558;&#xAE30; &#xC704;&#xD574; &#xACF5;&#xBC31;&#xC744; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash"><span class="hljs-function"><span class="hljs-title">f1</span></span>() {                                           $ ARR=(<span class="hljs-number">11</span> , <span class="hljs-number">22</span> , <span class="hljs-number">33</span>)
+    <span class="hljs-built_in">echo</span> arg1 : <span class="hljs-variable">$1</span>                               
+    <span class="hljs-built_in">echo</span> arg2 : <span class="hljs-variable">$2</span>                               $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${AA[0]}</span> 
+    <span class="hljs-built_in">echo</span> arg3 : <span class="hljs-variable">$3</span>                               <span class="hljs-number">11</span>
+}                                                $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${AA[1]}</span>   <span class="hljs-comment"># &apos;,&apos; &#xAC00; &#xB450;&#xBC88;&#xC9F8; </span>
+                                                 ,                 <span class="hljs-comment"># &#xC6D0;&#xC18C;&#xAC00; &#xB41C;&#xB2E4;.</span>
+$ f1 <span class="hljs-number">11</span>,<span class="hljs-number">22</span>,<span class="hljs-number">33</span>                                    $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${AA[2]}</span> 
+arg1 : <span class="hljs-number">11</span>,<span class="hljs-number">22</span>,<span class="hljs-number">33</span>                                  <span class="hljs-number">22</span>
+arg2 :             <span class="hljs-comment"># &#xD558;&#xB098;&#xC758; &#xC778;&#xC218;&#xB85C; &#xC804;&#xB2EC;&#xB41C;&#xB2E4;.</span>
+arg3 :
+
+$ f1 <span class="hljs-number">11</span>, <span class="hljs-number">22</span>, <span class="hljs-number">33</span>
+arg1 : <span class="hljs-number">11</span>,         <span class="hljs-comment"># &apos;11,&apos; &#xAC00; &#xCCAB;&#xBC88;&#xC9F8; &#xC778;&#xC218;&#xAC00; &#xB41C;&#xB2E4;.</span>
+arg2 : <span class="hljs-number">22</span>,
+arg3 : <span class="hljs-number">33</span>
+</code></pre>
+<p>&#xB530;&#xB77C;&#xC11C; &#xBA85;&#xB839;&#xBB38;&#xC5D0;&#xC11C; <code>,</code> &#xB97C; &#xC774;&#xC6A9;&#xD574; &#xC635;&#xC158; &#xC778;&#xC218;&#xB97C; &#xBC1B;&#xC744; &#xACBD;&#xC6B0; &#xD558;&#xB098;&#xC758; &#xC778;&#xC218;&#xB85C; 
+&#xC804;&#xB2EC;&#xB418;&#xAE30; &#xC704;&#xD574;&#xC11C; &#xACF5;&#xBC31;&#xC744; &#xB450;&#xC5B4;&#xC11C;&#xB294; &#xC548;&#xB429;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># &apos;,&apos; &#xB97C; &#xACF5;&#xBC31;&#xC5C6;&#xC774; &#xBD99;&#xC5EC;&#xC57C; trace= &#xC640;&#xD568;&#xAED8; &#xD558;&#xB098;&#xC758; &#xC778;&#xC218;&#xB85C; &#xC804;&#xB2EC;&#xB41C;&#xB2E4;.</span>
+$ strace <span class="hljs-operator">-e</span> trace=open,close,<span class="hljs-built_in">read</span>,write <span class="hljs-built_in">command</span> ...    <span class="hljs-comment"># OK</span>
+
+<span class="hljs-comment"># &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xACF5;&#xBC31;&#xC744; &#xB450;&#xBA74; &#xC548;&#xB429;&#xB2C8;&#xB2E4;.</span>
+$ strace <span class="hljs-operator">-e</span> trace=open, close, <span class="hljs-built_in">read</span>, write <span class="hljs-built_in">command</span> ...    <span class="hljs-comment"># ERROR</span>
+
+$ gcc -shared -Wl,-soname,libmean.so.<span class="hljs-number">1</span> -o libmean.so.<span class="hljs-number">1.0</span>.<span class="hljs-number">1</span>  ...   <span class="hljs-comment"># OK</span>
+
+$ iptables -p tcp --tcp-flags ACK,FIN,SYN  ...    <span class="hljs-comment"># OK</span>
+</code></pre>
+<h1 id="quiz">Quiz</h1>
+<p>C++ &#xC5B8;&#xC5B4;&#xC5D0;&#xC11C; &#xB9E4;&#xD06C;&#xB85C; &#xC640; &#xD15C;&#xD50C;&#xB9BF;&#xC758; &#xD655;&#xC7A5; &#xACB0;&#xACFC;&#xB97C; &#xBCFC; &#xC218; &#xC788;&#xB294; &#xD568;&#xC218;&#xB97C; &#xC791;&#xC131;&#xD558;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.
+&#xC778;&#xC218;&#xB294; &#xB2E8;&#xC21C;&#xD788; &#xD5E4;&#xB354;&#xC774;&#xB984;&#xB9CC; &#xC904;&#xC218;&#xB3C4; &#xC788;&#xACE0; &#xC18C;&#xC2A4; &#xD30C;&#xC77C;&#xC774;&#xB984;&#xC744; &#xC904;&#xC218;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<blockquote>
+<p>&#xD568;&#xC218; &#xC2E4;&#xD589;&#xC744; &#xC704;&#xD574;&#xC120; clang++, g++, clang-format &#xBA85;&#xB839;&#xC774; &#xC788;&#xC5B4;&#xC57C; &#xB429;&#xB2C8;&#xB2E4;.</p>
+</blockquote>
+<pre><code class="lang-bash"><span class="hljs-comment"># 1. &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; &#xB9E4;&#xD06C;&#xB85C;&#xC640; &#xD15C;&#xD50C;&#xB9BF;&#xC758; &#xD655;&#xC7A5; &#xACB0;&#xACFC;&#xAC00; &#xCD9C;&#xB825;&#xB429;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-comment"># 2. &quot;-m&quot; &#xC635;&#xC158;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xB9E4;&#xD06C;&#xB85C; &#xD655;&#xC7A5; &#xACB0;&#xACFC;&#xB9CC; &#xCD9C;&#xB825;&#xB429;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-comment"># 3. &quot;-l&quot; &#xC635;&#xC158;&#xC740; &#xD5E4;&#xB354; &#xD30C;&#xC77C;&#xC774; &#xCC38;&#xC870;&#xD558;&#xB294; &#xD30C;&#xC77C; &#xB9AC;&#xC2A4;&#xD2B8;&#xB97C; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-comment"># 4. &#xAE30;&#xD0C0; &#xCEF4;&#xD30C;&#xC77C;&#xB7EC;&#xC5D0; &#xC804;&#xB2EC;&#xD560; &#xC635;&#xC158;&#xC774; &#xC788;&#xC744; &#xACBD;&#xC6B0;&#xC5D0;&#xB294; &quot;--&quot; &#xC774;&#xD6C4;&#xC5D0; &#xC791;&#xC131;&#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.</span>
+
+$ header-cpp test.cpp                             $ header-cpp &lt;&lt;\@
+                                                  template &lt;typename T&gt;
+$ cat test.cpp | header-cpp                       T add(T a, T b) { <span class="hljs-built_in">return</span> a + b; }
+                                                  int <span class="hljs-function"><span class="hljs-title">main</span></span>() {
+$ header-cpp -m iostream                              add(<span class="hljs-number">100</span>, <span class="hljs-number">200</span>);
+                                                      add(<span class="hljs-number">1.23</span>, <span class="hljs-number">1.23</span>);
+$ header-cpp -m <span class="hljs-string">&apos;#include &lt;iostream&gt;&apos;</span>             }
+                                                  @
+$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;#include &lt;vector&gt;&apos;</span> | header-cpp -m
+</code></pre>
+<pre><code class="lang-bash"><span class="hljs-keyword">function</span> header-<span class="hljs-function"><span class="hljs-title">cpp</span></span> () {
+    <span class="hljs-built_in">local</span> opt D=<span class="hljs-string">&apos;class __________;&apos;</span>
+    <span class="hljs-built_in">local</span> <span class="hljs-built_in">command</span>=<span class="hljs-string">&apos;clang++ -xc++ - -Xclang -ast-print -fsyntax-only -std=c++20&apos;</span>
+    <span class="hljs-keyword">for</span> opt; <span class="hljs-keyword">do</span>
+        <span class="hljs-keyword">case</span> <span class="hljs-variable">$opt</span> <span class="hljs-keyword">in</span>
+            -m) <span class="hljs-built_in">command</span>=<span class="hljs-string">&apos;g++ -xc++ - -E -P -dD -std=c++20&apos;</span>; <span class="hljs-built_in">break</span> ;;
+            <span class="hljs-operator">-l</span>) <span class="hljs-built_in">command</span>=<span class="hljs-string">&apos;g++ -xc++ - -M -std=c++20&apos;</span>; <span class="hljs-built_in">break</span> ;;
+        <span class="hljs-keyword">esac</span>
+    <span class="hljs-keyword">done</span>
+    ( <span class="hljs-built_in">set</span> -o pipefail        <span class="hljs-comment"># &#xC774;&#xD6C4; &#xB85C;&#xB294; ( ) &#xBA85;&#xB839; &#xADF8;&#xB8F9;&#xB4E4;&#xC774; &#xD30C;&#xC774;&#xD504;&#xC5D0; &#xC5F0;&#xACB0;&#xB418;&#xBBC0;&#xB85C;</span>
+        (                    <span class="hljs-comment"># &#xAC01;&#xAC01;&#xC758; subshell &#xC5D0;&#xC11C; &#xC0C1;&#xC18D;&#xBC1B;&#xC740; $@ &#xAC12;&#xC744; &#xAC16;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</span>
+            <span class="hljs-keyword">for</span> arg; <span class="hljs-keyword">do</span> 
+                <span class="hljs-keyword">case</span> <span class="hljs-variable">$arg</span> <span class="hljs-keyword">in</span>
+                    -m|<span class="hljs-operator">-l</span>) <span class="hljs-built_in">continue</span> ;;
+                    --) <span class="hljs-built_in">break</span> ;;
+                <span class="hljs-keyword">esac</span>
+                <span class="hljs-keyword">if</span> <span class="hljs-built_in">test</span> <span class="hljs-operator">-f</span> <span class="hljs-string">&quot;<span class="hljs-variable">$arg</span>&quot;</span>; <span class="hljs-keyword">then</span>
+                    cat <span class="hljs-string">&quot;<span class="hljs-variable">$arg</span>&quot;</span>
+                <span class="hljs-keyword">else</span>
+                    ! [[ <span class="hljs-variable">$arg</span> =~ ^\<span class="hljs-comment">#include ]] &amp;&amp; echo &quot;#include &lt;$arg&gt;&quot; || echo &quot;$arg&quot;</span>
+                <span class="hljs-keyword">fi</span>
+            <span class="hljs-keyword">done</span>
+            <span class="hljs-keyword">if</span> ! <span class="hljs-built_in">test</span> -t <span class="hljs-number">0</span>; <span class="hljs-keyword">then</span> cat; <span class="hljs-keyword">fi</span>
+        ) |
+        sed -En <span class="hljs-operator">-e</span> <span class="hljs-string">&apos;/^[ \t]*#[ \t]*include/! s/^/\a/; H;&apos;</span> <span class="hljs-operator">-e</span> <span class="hljs-string">&apos;${ g; tR :R s/\a//g; TX;&apos;</span> \
+                <span class="hljs-operator">-e</span> <span class="hljs-string">&apos;s/^[ \t]*#[ \t]*include.*$/\n&apos;</span><span class="hljs-string">&quot;<span class="hljs-variable">$D</span>&quot;</span><span class="hljs-string">&apos;\n&amp;\n&apos;</span><span class="hljs-string">&quot;<span class="hljs-variable">$D</span>&quot;</span><span class="hljs-string">&apos;\n/Mg; :X p }&apos;</span> |
+        ( <span class="hljs-keyword">while</span> [ <span class="hljs-variable">$#</span> <span class="hljs-operator">-gt</span> <span class="hljs-number">0</span> ]; <span class="hljs-keyword">do</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span> = <span class="hljs-string">&quot;--&quot;</span> ] &amp;&amp; { <span class="hljs-built_in">shift</span>; <span class="hljs-built_in">break</span>; } || <span class="hljs-built_in">shift</span>; <span class="hljs-keyword">done</span>; \
+          <span class="hljs-variable">$command</span> <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span> ) |
+        ( [ <span class="hljs-string">&quot;<span class="hljs-variable">$opt</span>&quot;</span> = <span class="hljs-string">&quot;-m&quot;</span> ] &amp;&amp; clang-format -style=<span class="hljs-string">&quot;{IndentWidth: 4}&quot;</span> | sed /^<span class="hljs-string">&quot;<span class="hljs-variable">$D</span>&quot;</span>$/d ||
+          sed /^<span class="hljs-string">&quot;<span class="hljs-variable">$D</span>&quot;</span>$/,/^<span class="hljs-string">&quot;<span class="hljs-variable">$D</span>&quot;</span>$/d )
+    )
+}
+
+-----------------------------------------------------------------------
+
+$ cat test.cpp        // &#xD15C;&#xD50C;&#xB9BF; &#xD655;&#xC7A5;&#xC744; &#xD1B5;&#xD574; &#xC22B;&#xC790; sequence &#xB97C; &#xB9CC;&#xB4DC;&#xB294; &#xC608;&#xC81C;
+<span class="hljs-comment">#include &lt;iostream&gt;</span>
+<span class="hljs-comment">#include &lt;utility&gt;</span>
+
+template&lt;typename T, T... ints&gt;
+void <span class="hljs-built_in">print</span>_sequence(std::<span class="hljs-built_in">integer</span>_sequence&lt;T, ints...&gt; seq)
+{
+    std::cout &lt;&lt; <span class="hljs-string">&quot;The sequence of size &quot;</span> &lt;&lt; seq.size() &lt;&lt; <span class="hljs-string">&quot; : &quot;</span>;
+    ((std::cout &lt;&lt; ints &lt;&lt; <span class="hljs-string">&apos; &apos;</span>), ...);     // fold expression &#xD655;&#xC7A5; &#xACB0;&#xACFC;&#xB3C4; &#xBCFC;&#xC218;&#xC788;&#xB2E4;.
+    std::cout &lt;&lt; <span class="hljs-string">&apos;\n&apos;</span>;
+}
+
+template &lt;typename T, T START, T END, T STEP, T... Indices&gt;
+constexpr auto fn_make_sequence(std::<span class="hljs-built_in">integer</span>_sequence&lt;T, Indices...&gt; seq)
+{
+    <span class="hljs-keyword">if</span> constexpr (STEP &gt; <span class="hljs-number">0</span> &amp;&amp; START &lt; END)   // STEP &#xC774; &#xC591;&#xC218;&#xBA74; &#xC624;&#xB984;&#xCC28;&#xC21C; &#xC0DD;&#xC131;
+    {
+        <span class="hljs-built_in">return</span> fn_make_sequence&lt;T, START + STEP, END, STEP&gt;
+            (std::<span class="hljs-built_in">integer</span>_sequence&lt;T, Indices..., START&gt;{});
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> constexpr (STEP &lt; <span class="hljs-number">0</span> &amp;&amp; START &gt; END)   // STEP &#xC774; &#xC74C;&#xC218;&#xBA74; &#xB0B4;&#xB9BC;&#xCC28;&#xC21C; &#xC0DD;&#xC131;
+    {
+        <span class="hljs-built_in">return</span> fn_make_sequence&lt;T, START + STEP, END, STEP&gt;
+            (std::<span class="hljs-built_in">integer</span>_sequence&lt;T, Indices..., START&gt;{});
+    }
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-built_in">return</span> seq;
+}
+
+// decltype &#xC73C;&#xB85C; &#xAC10;&#xC2F8;&#xBA74; &#xC2E4;&#xC81C; &#xD568;&#xC218;&#xAC00; &#xC2E4;&#xD589;&#xB418;&#xC9C0;&#xB294; &#xC54A;&#xACE0; &#xD568;&#xC218; &#xBC18;&#xD658; &#xD0C0;&#xC785; &#xC815;&#xBCF4;&#xB9CC; &#xCDE8;&#xD558;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.
+template &lt;typename T, T START, T END, T STEP&gt;
+using make_sequence = decltype(
+        fn_make_sequence&lt;T, START, END, STEP&gt;(std::<span class="hljs-built_in">integer</span>_sequence&lt;T&gt;{}));
+
+int <span class="hljs-function"><span class="hljs-title">main</span></span>()
+{
+    // seq &#xC758; &#xD0C0;&#xC785;&#xC740; std::<span class="hljs-built_in">integer</span>_sequence&lt;int, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>, <span class="hljs-number">8</span>&gt; &#xAC00; &#xB41C;&#xB2E4;.
+    auto seq = make_sequence&lt;int, <span class="hljs-number">0</span>, <span class="hljs-number">10</span>, <span class="hljs-number">2</span>&gt;{};
+    <span class="hljs-built_in">print</span>_sequence(seq);
+}
+
+-------------------------------------------------------------
+
+<span class="hljs-comment"># &#xB2E4;&#xC74C; &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xD558;&#xBA74; test.cpp &#xD30C;&#xC77C;&#xC758; &#xD15C;&#xD50C;&#xB9BF; &#xD655;&#xC7A5; &#xACB0;&#xACFC;&#xB97C; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
+
+$ header-cpp test.cpp
+</code></pre>
+<p><code>SFINAE</code> (Substitution Failure Is Not An Error) &#xC5D0; &#xC0AC;&#xC6A9;&#xB418;&#xB294; <code>enable_if</code></p>
+<pre><code class="lang-cpp">$ header-cpp &lt;&lt;\@
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">bool</span>, <span class="hljs-keyword">typename</span> T = <span class="hljs-keyword">void</span>&gt; <span class="hljs-keyword">struct</span> enable_if {};
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt; <span class="hljs-keyword">struct</span> enable_if&lt;<span class="hljs-literal">true</span>, T&gt; { <span class="hljs-keyword">typedef</span> T type; };
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    enable_if&lt;<span class="hljs-literal">true</span>&gt;();
+    enable_if&lt;<span class="hljs-literal">true</span>, <span class="hljs-keyword">int</span>&gt;();
+    enable_if&lt;<span class="hljs-literal">false</span>&gt;();
+    enable_if&lt;<span class="hljs-literal">false</span>, <span class="hljs-keyword">int</span>&gt;();
+}
+@
+
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">bool</span>, <span class="hljs-keyword">typename</span> T = <span class="hljs-keyword">void</span>&gt; <span class="hljs-keyword">struct</span> enable_if {
+};
+<span class="hljs-keyword">template</span>&lt;&gt; <span class="hljs-keyword">struct</span> enable_if&lt;<span class="hljs-literal">true</span>, <span class="hljs-keyword">void</span>&gt; {              <span class="hljs-comment">// &#xC778;&#xC790;&#xB85C; &#xC804;&#xB2EC;&#xB41C;&#xAC12;&#xC774; true &#xBA74;</span>
+    <span class="hljs-keyword">typedef</span> <span class="hljs-keyword">void</span> type;                                 <span class="hljs-comment">// type &#xC774; &#xC874;&#xC7AC;&#xD558;&#xAC8C; &#xB418;&#xC5B4;</span>
+};                                                     <span class="hljs-comment">// &#xD15C;&#xD50C;&#xB9BF; &#xD655;&#xC7A5;&#xC774; &#xC131;&#xACF5;&#xD558;&#xC9C0;&#xB9CC;</span>
+<span class="hljs-keyword">template</span>&lt;&gt; <span class="hljs-keyword">struct</span> enable_if&lt;<span class="hljs-literal">true</span>, <span class="hljs-keyword">int</span>&gt; {
+    <span class="hljs-keyword">typedef</span> <span class="hljs-keyword">int</span> type;
+};
+<span class="hljs-keyword">template</span>&lt;&gt; <span class="hljs-keyword">struct</span> enable_if&lt;<span class="hljs-literal">false</span>, <span class="hljs-keyword">void</span>&gt; {             <span class="hljs-comment">// &#xC778;&#xC790;&#xB85C; &#xC804;&#xB2EC;&#xB41C;&#xAC12;&#xC774; false &#xBA74;</span>
+};                                                     <span class="hljs-comment">// type &#xC774; &#xC874;&#xC7AC;&#xD558;&#xC9C0; &#xC54A;&#xAC8C;&#xB418;&#xC5B4;</span>
+<span class="hljs-keyword">template</span>&lt;&gt; <span class="hljs-keyword">struct</span> enable_if&lt;<span class="hljs-literal">false</span>, <span class="hljs-keyword">int</span>&gt; {              <span class="hljs-comment">// &#xD15C;&#xD50C;&#xB9BF; &#xD655;&#xC7A5;&#xC774; &#xC2E4;&#xD328;&#xD558;&#xAC8C; &#xB41C;&#xB2E4;.</span>
+};                                                     <span class="hljs-comment">// &#xC774;&#xB54C; &#xCEF4;&#xD30C;&#xC77C;&#xC774; &#xC911;&#xB2E8;&#xB418;&#xB294;&#xAC83;&#xC740; &#xC544;&#xB2C8;&#xACE0;</span>
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt; <span class="hljs-keyword">struct</span> enable_if&lt;<span class="hljs-literal">true</span>, T&gt; {      <span class="hljs-comment">// (Is Not An Error) &#xB2E8;&#xC9C0; &#xD15C;&#xD50C;&#xB9BF;</span>
+    <span class="hljs-keyword">typedef</span> T type;                                    <span class="hljs-comment">// &#xD655;&#xC7A5; set &#xC5D0; &#xD3EC;&#xD568;&#xB418;&#xC9C0; &#xC54A;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</span>
+};
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    enable_if&lt;<span class="hljs-literal">true</span>&gt;();
+    enable_if&lt;<span class="hljs-literal">true</span>, <span class="hljs-keyword">int</span>&gt;();
+    enable_if&lt;<span class="hljs-literal">false</span>&gt;();
+    enable_if&lt;<span class="hljs-literal">false</span>, <span class="hljs-keyword">int</span>&gt;();
+}
+</code></pre>
+<p>&#xC624;&#xB958;&#xB294; <code>stderr</code> &#xB85C; &#xCD9C;&#xB825;&#xB418;&#xBBC0;&#xB85C; &#xC624;&#xB958;&#xB9CC; &#xBCF4;&#xACE0; &#xC2F6;&#xC744; &#xACBD;&#xC6B0;&#xC5D0;&#xB294; <code>&gt; /dev/null</code> &#xC640;&#xAC19;&#xC774; redirect &#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.
+C++20 &#xC5D0; &#xB3C4;&#xC785;&#xB41C; concept &#xC740; Bjarne Stroustrup &#xAC00; &#xC624;&#xB798;&#xC804;&#xBD80;&#xD130; &#xC8FC;&#xC7A5;&#xD574;&#xC654;&#xB358; &#xAE30;&#xB2A5;&#xC774;&#xB77C;&#xACE0; &#xD558;&#xB294;&#xB370;&#xC694;.
+concept &#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; &#xCEF4;&#xD30C;&#xC77C; &#xD0C0;&#xC784;&#xC5D0; &#xD15C;&#xD50C;&#xB9BF; &#xD655;&#xC7A5;&#xC744; &#xD1B5;&#xD574; static polymorphism &#xC744; &#xC27D;&#xAC8C; &#xAD6C;&#xD604;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-cpp">$ header-cpp &lt;&lt;\@ &gt; /dev/null
+#include &lt;iostream&gt;
+
+template &lt;typename T&gt;
+concept has_foo = requires(T t) {      // concept has_foo &#xB294; &#xD0C0;&#xC785; T &#xC5D0;
+    t.foo();                           // foo() &#xD568;&#xC218;&#xAC00; &#xC874;&#xC7AC;&#xD574;&#xC57C; &#xD55C;&#xB2E4;.
+};
+
+template &lt;has_foo T, has_foo U&gt;        // has_foo &#xB97C; &#xD0C0;&#xC785; T, U &#xB97C; constrain &#xD558;&#xB294;&#xB370; &#xC0AC;&#xC6A9;.
+void foobar(T f1, U f2) {
+    f1.foo();
+    f2.foo();
+}
+
+struct Bar { void foo() { std::cout &lt;&lt; &quot;Bar&quot; &lt;&lt; &apos;\n&apos;; } };
+struct Zoo { void xxx() { std::cout &lt;&lt; &quot;Zoo&quot; &lt;&lt; &apos;\n&apos;; } };    // xxx() --&gt; foo() &#xB85C; &#xBCC0;&#xACBD;
+
+int main() {
+    foobar( Bar{}, Zoo{} );
+    return 0;
+}
+@
+&lt;stdin&gt;:18:5: error: no matching function for call to &apos;foobar&apos;
+    foobar( Bar{}, Zoo{} );
+    ^~~~~~
+&lt;stdin&gt;:9:6: note: candidate template ignored: constraints not satisfied [with T = Bar, U = Zoo]
+void foobar(T f1, U f2) {
+     ^
+&lt;stdin&gt;:8:22: note: because &apos;Zoo&apos; does not satisfy &apos;has_foo&apos;     &lt;---- has_foo &#xC704;&#xBC18; &#xC624;&#xB958;
+template &lt;has_foo T, has_foo U&gt;
+                     ^
+&lt;stdin&gt;:5:7: note: because &apos;t.foo()&apos; would be invalid: no member named &apos;foo&apos; in &apos;Zoo&apos;
+    t.foo();
+      ^
+1 error generated.
+</code></pre>
+<p>&#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; concept &#xB97C; &#xC774;&#xC6A9;&#xD574; <code>operator &lt;&lt;</code> &#xB97C; &#xC624;&#xBC84;&#xB85C;&#xB529; &#xD558;&#xBA74;
+<code>std::array</code>, <code>std::vector</code>, <code>std::tuple</code>, <code>std::span</code>,
+<code>std::pair</code>, <code>std::map</code>, <code>std::set</code> &#xAC12;&#xB4E4;&#xC744; &#xBAA8;&#xB450; &#xCD9C;&#xB825;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
+#include &lt;array&gt;
+#include &lt;vector&gt;
+#include &lt;deque&gt;
+#include &lt;list&gt;
+#include &lt;forward_list&gt;
+#include &lt;span&gt;
+#include &lt;tuple&gt;
+#include &lt;map&gt;
+#include &lt;unordered_map&gt;
+#include &lt;set&gt;
+#include &lt;unordered_set&gt;
+#include &lt;variant&gt;
+#include &lt;optional&gt;
+#include &lt;memory&gt;
+
+template &lt;template &lt;typename...&gt; class T, typename&gt;
+struct is_same_template : std::false_type { };
+template &lt;template &lt;typename...&gt; class T, typename... Args&gt;
+struct is_same_template&lt;T, T&lt;Args...&gt;&gt; : std::true_type { };
+// for std::array, std::span
+template &lt;template &lt;typename, auto&gt; class T, typename&gt;
+struct is_same_template2 : std::false_type { };
+template &lt;template &lt;typename, auto&gt; class T, typename Arg, auto N&gt;
+struct is_same_template2&lt;T, T&lt;Arg, N&gt;&gt; : std::true_type { };
+
+template &lt;typename T&gt;
+concept array_c = is_same_template2&lt;std::array, std::remove_cvref_t&lt;T&gt;&gt;::value; 
+template &lt;typename T&gt;
+concept span_c = is_same_template2&lt;std::span, std::remove_cvref_t&lt;T&gt;&gt;::value; 
+template &lt;typename T&gt;
+concept vector_c = is_same_template&lt;std::vector, std::remove_cvref_t&lt;T&gt;&gt;::value; 
+template &lt;typename T&gt;
+concept deque_c = is_same_template&lt;std::deque, std::remove_cvref_t&lt;T&gt;&gt;::value; 
+template &lt;typename T&gt;
+concept list_c = is_same_template&lt;std::list, std::remove_cvref_t&lt;T&gt;&gt;::value; 
+template &lt;typename T&gt;
+concept forward_list_c = is_same_template&lt;std::forward_list, std::remove_cvref_t&lt;T&gt;&gt;::value; 
+template &lt;typename T&gt;
+concept pair_c = is_same_template&lt;std::pair, std::remove_cvref_t&lt;T&gt;&gt;::value; 
+template &lt;typename T&gt;
+concept map_c = is_same_template&lt;std::map, std::remove_cvref_t&lt;T&gt;&gt;::value; 
+template &lt;typename T&gt;
+concept unordered_map_c = is_same_template&lt;std::unordered_map, std::remove_cvref_t&lt;T&gt;&gt;::value; 
+template &lt;typename T&gt;
+concept unordered_multimap_c = is_same_template&lt;std::unordered_multimap, std::remove_cvref_t&lt;T&gt;&gt;::value; 
+template &lt;typename T&gt;
+concept multimap_c = is_same_template&lt;std::multimap, std::remove_cvref_t&lt;T&gt;&gt;::value; 
+template &lt;typename T&gt;
+concept set_c = is_same_template&lt;std::set, std::remove_cvref_t&lt;T&gt;&gt;::value; 
+template &lt;typename T&gt;
+concept unordered_set_c = is_same_template&lt;std::unordered_set, std::remove_cvref_t&lt;T&gt;&gt;::value; 
+template &lt;typename T&gt;
+concept unordered_multiset_c = is_same_template&lt;std::unordered_multiset, std::remove_cvref_t&lt;T&gt;&gt;::value; 
+template &lt;typename T&gt;
+concept multiset_c = is_same_template&lt;std::multiset, std::remove_cvref_t&lt;T&gt;&gt;::value; 
+template &lt;typename T&gt;
+concept optional_c = is_same_template&lt;std::optional, std::remove_cvref_t&lt;T&gt;&gt;::value; 
+template &lt;typename T&gt;
+concept unique_ptr_c = is_same_template&lt;std::unique_ptr, std::remove_cvref_t&lt;T&gt;&gt;::value; 
+template &lt;typename T&gt;
+concept shared_ptr_c = is_same_template&lt;std::shared_ptr, std::remove_cvref_t&lt;T&gt;&gt;::value; 
+template &lt;typename T&gt;
+concept weak_ptr_c = is_same_template&lt;std::weak_ptr, std::remove_cvref_t&lt;T&gt;&gt;::value; 
+template &lt;typename T&gt;
+concept tuple_c = is_same_template&lt;std::tuple, std::remove_cvref_t&lt;T&gt;&gt;::value; 
+template &lt;typename T&gt;
+concept variant_c = is_same_template&lt;std::variant, std::remove_cvref_t&lt;T&gt;&gt;::value; 
+
+template&lt;typename T&gt;         // &#xC804;&#xBC29;&#xC120;&#xC5B8;
+requires pair_c&lt;T&gt; || map_c&lt;T&gt; || unordered_map_c&lt;T&gt; || unordered_multimap_c&lt;T&gt; || multimap_c&lt;T&gt;
+std::ostream&amp; operator &lt;&lt; (std::ostream&amp; os, T&amp;&amp; container);
+template&lt;typename T&gt; requires tuple_c&lt;T&gt;
+std::ostream&amp; operator &lt;&lt; (std::ostream&amp; os, T&amp;&amp; container);
+template&lt;typename T&gt; requires variant_c&lt;T&gt; || optional_c&lt;T&gt;
+std::ostream&amp; operator &lt;&lt; (std::ostream&amp; os, T&amp;&amp; container);
+template&lt;typename T&gt;
+requires unique_ptr_c&lt;T&gt; || shared_ptr_c&lt;T&gt; || weak_ptr_c&lt;T&gt;
+std::ostream&amp; operator &lt;&lt; (std::ostream&amp; os, T&amp;&amp; container);
+template&lt;typename T, auto N&gt;
+requires (! std::same_as&lt;char, std::remove_extent_t&lt;std::remove_cv_t&lt;T&gt;&gt;&gt;)
+std::ostream&amp; operator &lt;&lt; (std::ostream&amp; os, const T(&amp;array)[N]);
+
+template&lt;typename T&gt;
+requires array_c&lt;T&gt; || vector_c&lt;T&gt; || deque_c&lt;T&gt; || list_c&lt;T&gt; || forward_list_c&lt;T&gt; ||
+         span_c&lt;T&gt; || set_c&lt;T&gt; || unordered_set_c&lt;T&gt; || unordered_multiset_c&lt;T&gt;  || multiset_c&lt;T&gt;
+std::ostream&amp; operator &lt;&lt; (std::ostream&amp; os, T&amp;&amp; container) 
+{
+    if (container.empty())                 // array_c, vector_c, deque_c, list_c ...
+        os &lt;&lt; &quot;[ ]&quot;;                       // &#xCEE8;&#xC149;&#xD2B8;&#xB97C; &#xB9CC;&#xC871;&#xD560; &#xACBD;&#xC6B0; &#xB2E4;&#xC74C; &#xCF54;&#xB4DC;&#xB97C;
+    else {                                 // &#xC774;&#xC6A9;&#xD574; &#xAC12;&#xC744; &#xCD9C;&#xB825;&#xD569;&#xB2C8;&#xB2E4;.
+        auto begin = container.begin();
+        auto end = container.end();
+        os &lt;&lt; &apos;[&apos;;
+        for (auto it = begin; it != end; )
+            os &lt;&lt; *it &lt;&lt; ( ++it != end ? &quot;, &quot; : &quot;]&quot; );
+    }
+    return os;
+}
+
+template&lt;typename T&gt;
+requires pair_c&lt;T&gt; || map_c&lt;T&gt; || unordered_map_c&lt;T&gt; || unordered_multimap_c&lt;T&gt; || multimap_c&lt;T&gt;
+std::ostream&amp; operator &lt;&lt; (std::ostream&amp; os, T&amp;&amp; container) 
+{
+    if constexpr (pair_c&lt;T&gt;)
+        os &lt;&lt; &apos;{&apos; &lt;&lt; container.first &lt;&lt; &quot; : &quot; &lt;&lt; container.second &lt;&lt; &apos;}&apos;;
+    else {
+        if (container.empty())                  // pair_c, map_c, unordered_map_c ...
+            os &lt;&lt; &quot;{ }&quot;;                        // &#xCEE8;&#xC149;&#xD2B8;&#xB97C; &#xB9CC;&#xC871;&#xD560; &#xACBD;&#xC6B0; &#xB2E4;&#xC74C; &#xCF54;&#xB4DC;&#xB97C;
+        else {                                  // &#xC774;&#xC6A9;&#xD574; &#xAC12;&#xC744; &#xCD9C;&#xB825;&#xD569;&#xB2C8;&#xB2E4;.
+            auto begin = container.cbegin();
+            auto end = container.cend();
+            os &lt;&lt; &apos;{&apos;;
+            for (auto it = begin; it != end; )
+                os &lt;&lt; &apos;{&apos; &lt;&lt; it-&gt;first &lt;&lt; &quot; : &quot; &lt;&lt; it-&gt;second &lt;&lt; &apos;}&apos;
+                   &lt;&lt; ( ++it != end ? &quot;, &quot; : &quot;}&quot; );
+        }
+    }
+    return os;
+}
+
+template&lt;typename T&gt; requires tuple_c&lt;T&gt;      // tuple &#xAC12;&#xC744; &#xCD9C;&#xB825;
+std::ostream&amp; operator &lt;&lt; (std::ostream&amp; os, T&amp;&amp; container)
+{
+    std::apply(
+        [&amp;os](auto&amp;&amp;... elements) {
+            std::size_t n{}, size = std::tuple_size_v&lt;std::remove_cvref_t&lt;T&gt;&gt;;
+            os &lt;&lt; &apos;[&apos;;
+            ((os &lt;&lt; elements &lt;&lt; (++n != size ? &quot;, &quot; : &quot;&quot;)), ...);   // fold expression
+            os &lt;&lt; &apos;]&apos;;
+        },
+        std::forward&lt;T&gt;(container));
+    return os;
+}
+
+template&lt;typename T&gt;          // variant, optional &#xAC12;&#xC744; &#xCD9C;&#xB825;
+requires variant_c&lt;T&gt; || optional_c&lt;T&gt;
+std::ostream&amp; operator &lt;&lt; (std::ostream&amp; os, T&amp;&amp; container) 
+{
+    if constexpr (variant_c&lt;T&gt;)
+        std::visit( [&amp;os](auto&amp;&amp; v){ os &lt;&lt; v; }, std::forward&lt;T&gt;(container));
+    else if constexpr (optional_c&lt;T&gt;) {
+        if (container.has_value())
+            os &lt;&lt; container.value();
+    }
+    return os;
+}
+
+template&lt;typename T&gt;          // smart pointer &#xAC12;&#xC744; &#xCD9C;&#xB825;
+requires unique_ptr_c&lt;T&gt; || shared_ptr_c&lt;T&gt; || weak_ptr_c&lt;T&gt;
+std::ostream&amp; operator &lt;&lt; (std::ostream&amp; os, T&amp;&amp; container)
+{
+    if constexpr(weak_ptr_c&lt;T&gt;) {
+        if (container.expired())
+            return os;
+        else
+            return os &lt;&lt; *container.lock();
+    } else
+        return os &lt;&lt; *container;
+}
+
+template&lt;typename T, auto N&gt;   // C array &#xAC12;&#xC744; &#xCD9C;&#xB825;. char &#xBC30;&#xC5F4;&#xC740; &#xC81C;&#xC678; (&#xAE30;&#xC874; &#xBC29;&#xBC95;&#xC73C;&#xB85C; &#xCD9C;&#xB825;)
+requires (! std::same_as&lt;char, std::remove_extent_t&lt;std::remove_cv_t&lt;T&gt;&gt;&gt;)
+std::ostream&amp; operator &lt;&lt; (std::ostream&amp; os, const T(&amp;array)[N])
+{
+    os &lt;&lt; &apos;[&apos;;
+    for (std::size_t i = 0; i &lt; N; )
+        os &lt;&lt; array[i] &lt;&lt; (++i == N ? &quot;&quot; : &quot;, &quot;);
+    return os &lt;&lt; &apos;]&apos;;
+}
+
+int main()
+{
+    using namespace std::string_literals;
+    std::array array = { 11, 22, 33 };
+    std::vector vector = { 44, 55, 66 };
+    std::deque deque = { 77, 88, 99 };
+    std::list list = { 77, 88, 99 };
+    std::span span = { array };
+    std::tuple tuple = { &quot;hello&quot;s, 3.14, array, vector, list };
+    std::pair pair = { &quot;foo&quot;s, 100 };
+    auto map = std::map { pair, {&quot;bar&quot;s, 200}, {&quot;zoo&quot;s, 300} };
+    std::set set = { &quot;foo&quot;s, &quot;bar&quot;s, &quot;zoo&quot;s };    // std::string &#xC774;&#xC5B4;&#xC57C; &#xC815;&#xB82C;&#xC774; &#xB41C;&#xB2E4;.
+
+    std::cout &lt;&lt; &quot;std::array\t&quot; &lt;&lt; array &lt;&lt; &apos;\n&apos;;      // &lt;&lt; &#xC5F0;&#xC0B0;&#xC790;&#xB85C; array, vector, span 
+    std::cout &lt;&lt; &quot;std::vector\t&quot; &lt;&lt; vector &lt;&lt; &apos;\n&apos;;    // tuple, pair, map, set &#xAC12;&#xC744; &#xBAA8;&#xB450;
+    std::cout &lt;&lt; &quot;std::deque\t&quot; &lt;&lt; deque &lt;&lt; &apos;\n&apos;;      // &#xCD9C;&#xB825;&#xD560; &#xC218; &#xC788;&#xB2E4;.
+    std::cout &lt;&lt; &quot;std::list\t&quot; &lt;&lt; list &lt;&lt; &apos;\n&apos;;
+    std::cout &lt;&lt; &quot;std::span\t&quot; &lt;&lt; span &lt;&lt; &apos;\n&apos;;
+    std::cout &lt;&lt; &quot;std::tuple\t&quot; &lt;&lt; tuple &lt;&lt; &apos;\n&apos;;
+    std::cout &lt;&lt; &quot;std::pair\t&quot; &lt;&lt; pair &lt;&lt; &apos;\n&apos;;
+    std::cout &lt;&lt; &quot;std::map\t&quot; &lt;&lt; map &lt;&lt; &apos;\n&apos;;
+    std::cout &lt;&lt; &quot;std::set\t&quot; &lt;&lt; set &lt;&lt; &apos;\n&apos;;
+}
+
+-----------------------------------------------
+
+$ g++ -std=c++20 test.cpp 
+
+$ ./a.out 
+std::array      [11, 22, 33]
+std::vector     [44, 55, 66]
+std::deque      [77, 88, 99]
+std::list       [77, 88, 99]
+std::span       [11, 22, 33]
+std::tuple      [hello, 3.14, [11, 22, 33], [44, 55, 66], [77, 88, 99]]
+std::pair       {foo : 100}
+std::map        {{bar : 200}, {foo : 100}, {zoo : 300}}
+std::set        [bar, foo, zoo]
+</code></pre>
+<blockquote>
+<p>C++ &#xD15C;&#xD50C;&#xB9BF; &#xBA54;&#xD0C0;&#xD504;&#xB85C;&#xADF8;&#xB798;&#xBC0D; &#xAC15;&#xC88C;<br><a href="https://youtu.be/tiAVWcjIF6o" target="_blank">https://youtu.be/tiAVWcjIF6o</a><br><a href="https://www.youtube.com/user/siliners/videos" target="_blank">https://www.youtube.com/user/siliners/videos</a><br><a href="https://www.youtube.com/channel/UCgSmRttyuBvl_ng9QxjX0wQ/videos" target="_blank">https://www.youtube.com/channel/UCgSmRttyuBvl_ng9QxjX0wQ/videos</a>  </p>
+</blockquote>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./arrays.html" class="navigation navigation-prev " aria-label="Previous page: Arrays"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./precedence.html" class="navigation navigation-next " aria-label="Next page: Precedence"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
