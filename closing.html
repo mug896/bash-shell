@@ -1457,7 +1457,7 @@ cnt=`get_cnt` len=<span class="hljs-variable">${#toks[@]}</span>
     <span class="hljs-built_in">set</span>_err
 <span class="hljs-keyword">fi</span> &gt;&amp;<span class="hljs-number">2</span>
 
-[[ `get_err` == <span class="hljs-number">1</span> ]] &amp;&amp; <span class="hljs-built_in">exit</span> <span class="hljs-number">1</span>
+(( `get_err` )) &amp;&amp; <span class="hljs-built_in">exit</span> <span class="hljs-number">1</span>
 
 <span class="hljs-built_in">echo</span> <span class="hljs-variable">$result</span>
 </code></pre>
