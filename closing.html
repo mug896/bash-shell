@@ -1310,16 +1310,20 @@ $ python3 -c <span class="hljs-string">&apos;print( 1 + (((((2 * 3) + 1) / 2) + 
 
 <span class="hljs-shebang">#!/bin/bash
 </span>
-<span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;rm -f &quot;$cnt_file&quot;&apos;</span> EXIT
+<span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;rm -f &quot;$cnt_file&quot; &quot;$err_file&quot;&apos;</span> EXIT
 
 str=<span class="hljs-variable">$1</span> toks=()
 cnt_file=`mktemp -p /dev/shm`
 <span class="hljs-built_in">echo</span> <span class="hljs-number">0</span> &gt; <span class="hljs-variable">$cnt_file</span>
+err_file=`mktemp -p /dev/shm`
+<span class="hljs-built_in">echo</span> <span class="hljs-number">0</span> &gt; <span class="hljs-variable">$err_file</span>
 
 <span class="hljs-function"><span class="hljs-title">get_cnt</span></span>() { <span class="hljs-built_in">echo</span> `&lt; <span class="hljs-variable">$cnt_file</span>` ;}
 <span class="hljs-function"><span class="hljs-title">inc_cnt</span></span>() { <span class="hljs-built_in">echo</span> $(( `&lt; <span class="hljs-variable">$cnt_file</span>` + <span class="hljs-number">1</span> )) &gt; <span class="hljs-variable">$cnt_file</span> ;}
+<span class="hljs-function"><span class="hljs-title">get_err</span></span>() { <span class="hljs-built_in">echo</span> `&lt; <span class="hljs-variable">$err_file</span>` ;}
+<span class="hljs-function"><span class="hljs-title">set_err</span></span>() { <span class="hljs-built_in">echo</span> <span class="hljs-number">1</span> &gt; <span class="hljs-variable">$err_file</span> ;}
 
-<span class="hljs-function"><span class="hljs-title">print_error</span></span>() { <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span> &gt;&amp;<span class="hljs-number">2</span>; <span class="hljs-built_in">kill</span> -TERM -$$ ;}
+<span class="hljs-function"><span class="hljs-title">print_error</span></span>() { <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span> &gt;&amp;<span class="hljs-number">2</span> ;}
 
 <span class="hljs-comment">############  tokenizer  ###########</span>
 
@@ -1342,6 +1346,7 @@ cnt_file=`mktemp -p /dev/shm`
             ;;
         *)
             <span class="hljs-built_in">print</span>_error <span class="hljs-string">&quot;Error: tokenizer: \&quot;<span class="hljs-variable">$tok</span>\&quot;&quot;</span>
+            <span class="hljs-built_in">set</span>_err
     <span class="hljs-keyword">esac</span>
 <span class="hljs-keyword">done</span>
 
@@ -1358,6 +1363,7 @@ cnt_file=`mktemp -p /dev/shm`
         tmp=`parse_expr`
         <span class="hljs-keyword">if</span> ! match <span class="hljs-string">&apos;)&apos;</span>; <span class="hljs-keyword">then</span>
             <span class="hljs-built_in">print</span>_error <span class="hljs-string">&quot;Error: missing &apos;)&apos;&quot;</span>
+            <span class="hljs-built_in">set</span>_err
         <span class="hljs-keyword">fi</span>
         <span class="hljs-built_in">echo</span> <span class="hljs-variable">$tmp</span>
         <span class="hljs-built_in">return</span>
@@ -1368,6 +1374,7 @@ cnt_file=`mktemp -p /dev/shm`
         <span class="hljs-built_in">return</span>
     <span class="hljs-keyword">fi</span>
     <span class="hljs-built_in">print</span>_error <span class="hljs-string">&quot;Error: unexpected character \&quot;<span class="hljs-variable">${toks[`get_cnt`]}</span>\&quot;&quot;</span>
+    <span class="hljs-built_in">set</span>_err
 }
 <span class="hljs-function"><span class="hljs-title">parse_power</span></span>() { 
     <span class="hljs-built_in">local</span> lhs rhs
@@ -1396,13 +1403,15 @@ cnt_file=`mktemp -p /dev/shm`
 <span class="hljs-function"><span class="hljs-title">parse_term</span></span>() { 
     <span class="hljs-built_in">local</span> lhs rhs
     lhs=`parse_unary`
-    <span class="hljs-keyword">while</span> (( <span class="hljs-number">1</span> )); <span class="hljs-keyword">do</span>
+    <span class="hljs-keyword">while</span> (( ! `get_err` )); <span class="hljs-keyword">do</span>
         <span class="hljs-keyword">if</span> match <span class="hljs-string">&apos;*&apos;</span>; <span class="hljs-keyword">then</span>
             lhs=$(( lhs * `parse_unary` ))
         <span class="hljs-keyword">elif</span> match <span class="hljs-string">&apos;/&apos;</span>; <span class="hljs-keyword">then</span>
             rhs=`parse_unary`
             <span class="hljs-keyword">if</span> (( rhs == <span class="hljs-number">0</span> )); <span class="hljs-keyword">then</span> 
                 <span class="hljs-built_in">print</span>_error <span class="hljs-string">&quot;Error: division by zero&quot;</span>
+                <span class="hljs-built_in">set</span>_err
+                <span class="hljs-built_in">echo</span> <span class="hljs-number">0</span>
                 <span class="hljs-built_in">return</span>
             <span class="hljs-keyword">fi</span>
             lhs=$(( lhs / rhs ))
@@ -1410,6 +1419,8 @@ cnt_file=`mktemp -p /dev/shm`
             rhs=`parse_unary`
             <span class="hljs-keyword">if</span> ((rhs == <span class="hljs-number">0</span>)); <span class="hljs-keyword">then</span>
                 <span class="hljs-built_in">print</span>_error <span class="hljs-string">&quot;Error: modulo by zero&quot;</span>
+                <span class="hljs-built_in">set</span>_err
+                <span class="hljs-built_in">echo</span> <span class="hljs-number">0</span>
                 <span class="hljs-built_in">return</span>
             <span class="hljs-keyword">fi</span>
             lhs=$(( lhs % rhs ))
@@ -1422,7 +1433,7 @@ cnt_file=`mktemp -p /dev/shm`
 <span class="hljs-function"><span class="hljs-title">parse_expr</span></span>() {
     <span class="hljs-built_in">local</span> lhs
     lhs=`parse_term`
-    <span class="hljs-keyword">while</span> (( <span class="hljs-number">1</span> )); <span class="hljs-keyword">do</span>
+    <span class="hljs-keyword">while</span> (( ! `get_err` )); <span class="hljs-keyword">do</span>
         <span class="hljs-keyword">if</span> match <span class="hljs-string">&apos;+&apos;</span>; <span class="hljs-keyword">then</span>
             lhs=$(( lhs + `parse_term` ))
         <span class="hljs-keyword">elif</span> match <span class="hljs-string">&apos;-&apos;</span>; <span class="hljs-keyword">then</span>
@@ -1435,7 +1446,7 @@ cnt_file=`mktemp -p /dev/shm`
 }
 
 <span class="hljs-keyword">if</span> [ <span class="hljs-variable">$#</span> = <span class="hljs-number">0</span> ]; <span class="hljs-keyword">then</span>
-    <span class="hljs-built_in">echo</span> <span class="hljs-operator">-e</span> <span class="hljs-string">&quot;\nUsage: <span class="hljs-variable">${0##*/}</span> \&quot;expression\&quot;\n&quot;</span> &gt;&amp;<span class="hljs-number">2</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-operator">-e</span> <span class="hljs-string">&quot;\nUsage: <span class="hljs-variable">${0##*/}</span> \&quot;expression\&quot;&quot;</span> &gt;&amp;<span class="hljs-number">2</span>
     <span class="hljs-built_in">exit</span> <span class="hljs-number">1</span>
 <span class="hljs-keyword">fi</span>
 
@@ -1448,8 +1459,9 @@ cnt=`get_cnt` len=<span class="hljs-variable">${#toks[@]}</span>
         <span class="hljs-built_in">echo</span> -n <span class="hljs-string">&quot;<span class="hljs-variable">${toks[i]}</span> &quot;</span>
     <span class="hljs-keyword">done</span>
     <span class="hljs-built_in">echo</span>
-    <span class="hljs-built_in">exit</span> <span class="hljs-number">1</span>
 <span class="hljs-keyword">fi</span> &gt;&amp;<span class="hljs-number">2</span>
+
+[[ `get_err` == <span class="hljs-number">1</span> ]] &amp;&amp; <span class="hljs-built_in">exit</span> <span class="hljs-number">1</span>
 
 <span class="hljs-built_in">echo</span> <span class="hljs-variable">$result</span>
 </code></pre>
