@@ -2,16 +2,6 @@
 <html lang="ko" >
     
     <head>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-161001174-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-161001174-1');
-</script>
-
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -1647,19 +1637,22 @@ $ ls <span class="hljs-operator">-a</span>
 ./  ../  .aaa/  .bbb/  .ccc/  bar/  foo/  zoo/  .hidden.txt  file1.txt  file2.txt
 
 $ <span class="hljs-keyword">for</span> file <span class="hljs-keyword">in</span> *; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$file</span>&quot;</span>; <span class="hljs-keyword">done</span>             <span class="hljs-comment"># hidden &#xC774; &#xC544;&#xB2CC; &#xBAA8;&#xB4E0; &#xD30C;&#xC77C; &#xC120;&#xD0DD;</span>
+$ ls <span class="hljs-operator">-d</span> *
 bar
 file1.txt
 file2.txt
 foo
 zoo
 
-$ <span class="hljs-keyword">for</span> file <span class="hljs-keyword">in</span> .*[^.]*; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$file</span>&quot;</span>; <span class="hljs-keyword">done</span>       <span class="hljs-comment"># &#xBAA8;&#xB4E0; hidden &#xD30C;&#xC77C; &#xC120;&#xD0DD;</span>
-.aaa                                               <span class="hljs-comment"># &apos;...&apos; &apos;....&apos; &#xAC19;&#xC740; &#xD30C;&#xC77C;&#xB3C4; &#xD3EC;&#xD568;&#xD558;&#xB824;&#xBA74;</span>
-.bbb                                               <span class="hljs-comment"># .*[^.]* ...*</span>
+$ <span class="hljs-keyword">for</span> file <span class="hljs-keyword">in</span> .*; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$file</span>&quot;</span>; <span class="hljs-keyword">done</span>       <span class="hljs-comment"># &#xBAA8;&#xB4E0; hidden &#xD30C;&#xC77C; &#xC120;&#xD0DD;</span>
+$ ls <span class="hljs-operator">-d</span> .*
+.aaa
+.bbb
 .ccc
 .hidden.txt
 
-$ <span class="hljs-keyword">for</span> file <span class="hljs-keyword">in</span> * .*[^.]*; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$file</span>&quot;</span>; <span class="hljs-keyword">done</span>     <span class="hljs-comment"># hidden &#xD30C;&#xC77C; &#xD3EC;&#xD568;, &#xBAA8;&#xB4E0; &#xD30C;&#xC77C; &#xC120;&#xD0DD;</span>
+$ <span class="hljs-keyword">for</span> file <span class="hljs-keyword">in</span> * .*; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$file</span>&quot;</span>; <span class="hljs-keyword">done</span>     <span class="hljs-comment"># hidden &#xD30C;&#xC77C; &#xD3EC;&#xD568;, &#xBAA8;&#xB4E0; &#xD30C;&#xC77C; &#xC120;&#xD0DD;</span>
+$ ls <span class="hljs-operator">-d</span> * .*
 bar
 file1.txt
 file2.txt

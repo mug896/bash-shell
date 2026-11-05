@@ -2,16 +2,6 @@
 <html lang="ko" >
     
     <head>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-161001174-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-161001174-1');
-</script>
-
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -1308,25 +1298,32 @@
 <hr>
 <p>&#xB2E4;&#xC74C;&#xC740; shell &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB97C; &#xD65C;&#xC6A9;&#xD55C; &#xC0B0;&#xC220;&#xC5F0;&#xC0B0; &#xD30C;&#xC11C; &#xC785;&#xB2C8;&#xB2E4;.
 &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; &#xC5F0;&#xC0B0;&#xC5D0; <code>$(( ))</code> &#xD45C;&#xD604;&#xC2DD;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xBBC0;&#xB85C; &#xC18C;&#xC218; &#xC0AC;&#xC6A9;&#xC774;&#xB098;
-&#xC9C0;&#xC218;&#xB97C; &#xC74C;&#xC218;&#xB85C;&#xD558;&#xB294; &#xAC70;&#xB4ED;&#xC81C;&#xACF1; &#xC5F0;&#xC0B0;&#xC740; &#xC548;&#xB429;&#xB2C8;&#xB2E4;.
-&#xADF8;&#xB9AC;&#xACE0; &#xAC70;&#xB4ED;&#xC81C;&#xACF1; &#xC5F0;&#xC0B0;&#xC740; shell &#xBC29;&#xC2DD;&#xC744; &#xB530;&#xB985;&#xB2C8;&#xB2E4;.</p>
+&#xC9C0;&#xC218;&#xB97C; &#xC74C;&#xC218;&#xB85C;&#xD558;&#xB294; &#xAC70;&#xB4ED;&#xC81C;&#xACF1; &#xC5F0;&#xC0B0;&#xC740; &#xC548;&#xB429;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-sh">$ ./parse.sh <span class="hljs-string">&apos;1 + (((((2 * 3) + 1) / 2) + 1) ** 2 * 2)&apos;</span>
 <span class="hljs-number">33</span>
 $ <span class="hljs-built_in">echo</span> $(( <span class="hljs-number">1</span> + (((((<span class="hljs-number">2</span> * <span class="hljs-number">3</span>) + <span class="hljs-number">1</span>) / <span class="hljs-number">2</span>) + <span class="hljs-number">1</span>) ** <span class="hljs-number">2</span> * <span class="hljs-number">2</span>) ))    <span class="hljs-comment"># &#xB9DE;&#xB294;&#xC9C0; &#xD14C;&#xC2A4;&#xD2B8;</span>
 <span class="hljs-number">33</span>
 $ python3 -c <span class="hljs-string">&apos;print( 1 + (((((2 * 3) + 1) / 2) + 1) ** 2 * 2) )&apos;</span>
 <span class="hljs-number">41.5</span>
-
-$ ./parse.sh <span class="hljs-string">&apos;-5 ** 2&apos;</span>              $ ./parse.sh <span class="hljs-string">&apos;1 + 2 * 3 ** (2 % 5) / 2&apos;</span>
-<span class="hljs-number">25</span>                                  <span class="hljs-number">10</span>
-$ python3 -c <span class="hljs-string">&apos;print(-5 ** 2)&apos;</span>       $ python3 -c <span class="hljs-string">&apos;print(1 + 2 * 3 ** (2 % 5) / 2)&apos;</span>
--<span class="hljs-number">25</span>                                 <span class="hljs-number">10.0</span>
 </code></pre>
 <pre><code class="lang-sh">$ cat parse.sh
+
 <span class="hljs-shebang">#!/bin/bash
 </span>
-str=<span class="hljs-variable">$1</span> toks=() stack=()
-len=<span class="hljs-number">0</span> cnt=<span class="hljs-number">0</span> paren=<span class="hljs-number">0</span>
+<span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;rm -f &quot;$cnt&quot; &quot;$err&quot;&apos;</span> EXIT
+
+str=<span class="hljs-variable">$1</span> toks=()
+cnt=`mktemp -p /dev/shm`
+<span class="hljs-built_in">echo</span> <span class="hljs-number">0</span> &gt; <span class="hljs-variable">$cnt</span>
+err=`mktemp -p /dev/shm`
+<span class="hljs-built_in">echo</span> <span class="hljs-number">0</span> &gt; <span class="hljs-variable">$err</span>
+
+<span class="hljs-function"><span class="hljs-title">get_cnt</span></span>() { <span class="hljs-built_in">echo</span> `&lt; <span class="hljs-variable">$cnt</span>` ;}
+<span class="hljs-function"><span class="hljs-title">inc_cnt</span></span>() { <span class="hljs-built_in">echo</span> $(( `&lt; <span class="hljs-variable">$cnt</span>` + <span class="hljs-number">1</span> )) &gt; <span class="hljs-variable">$cnt</span> ;}
+<span class="hljs-function"><span class="hljs-title">get_err</span></span>() { <span class="hljs-built_in">echo</span> `&lt; <span class="hljs-variable">$err</span>` ;}
+<span class="hljs-function"><span class="hljs-title">set_err</span></span>() { <span class="hljs-built_in">echo</span> <span class="hljs-number">1</span> &gt; <span class="hljs-variable">$err</span> ;}
+
+<span class="hljs-function"><span class="hljs-title">print_error</span></span>() { <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span> &gt;&amp;<span class="hljs-number">2</span>; <span class="hljs-built_in">kill</span> -TERM -$$ ;}
 
 <span class="hljs-comment">############  tokenizer  ###########</span>
 
@@ -1348,139 +1345,104 @@ len=<span class="hljs-number">0</span> cnt=<span class="hljs-number">0</span> pa
         [[:blank:]])
             ;;
         *)
-            <span class="hljs-built_in">echo</span> <span class="hljs-operator">-e</span> <span class="hljs-string">&quot;\nError: tokenizer: \&quot;<span class="hljs-variable">$tok</span>\&quot;\n&quot;</span> &gt;&amp;<span class="hljs-number">2</span>
-            <span class="hljs-built_in">exit</span> <span class="hljs-number">1</span>
+            <span class="hljs-built_in">print</span>_error <span class="hljs-string">&quot;Error: tokenizer: \&quot;<span class="hljs-variable">$tok</span>\&quot;&quot;</span>
     <span class="hljs-keyword">esac</span>
 <span class="hljs-keyword">done</span>
 
-len=<span class="hljs-variable">${#toks[@]}</span>
-
-<span class="hljs-comment">##############  stack  #############</span>
-
-<span class="hljs-function"><span class="hljs-title">push</span></span>() 
-{ 
-    <span class="hljs-built_in">eval</span> <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>[\${#<span class="hljs-variable">$1</span>[@]}]=<span class="hljs-variable">$2</span>&quot;</span>
-}
-<span class="hljs-function"><span class="hljs-title">pop</span></span>()
-{
-    <span class="hljs-built_in">eval</span> <span class="hljs-built_in">local</span> len=<span class="hljs-string">&quot;\${#<span class="hljs-variable">$1</span>[@]}&quot;</span>
-    <span class="hljs-keyword">if</span> (( len &gt; <span class="hljs-number">0</span> )); <span class="hljs-keyword">then</span>
-        <span class="hljs-built_in">eval</span> <span class="hljs-string">&quot;<span class="hljs-variable">$2</span>=\${<span class="hljs-variable">$1</span>[len - 1]}&quot;</span>
-        <span class="hljs-built_in">unset</span> -v <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>[len - 1]&quot;</span>
-        <span class="hljs-built_in">eval</span> <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>=( \&quot;\${<span class="hljs-variable">$1</span>[@]}\&quot; )&quot;</span>
-    <span class="hljs-keyword">else</span>
-        error <span class="hljs-number">0</span>
+<span class="hljs-function"><span class="hljs-title">match</span></span>() {
+    <span class="hljs-keyword">if</span> [[ <span class="hljs-variable">${toks[`get_cnt`]}</span> == <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span> ]]; <span class="hljs-keyword">then</span> 
+        inc_cnt
+        <span class="hljs-built_in">return</span> <span class="hljs-number">0</span>
     <span class="hljs-keyword">fi</span>
+    <span class="hljs-built_in">return</span> <span class="hljs-number">1</span>
+}
+<span class="hljs-function"><span class="hljs-title">parse_primary</span></span>() { 
+    <span class="hljs-built_in">local</span> tmp
+    <span class="hljs-keyword">if</span> match <span class="hljs-string">&apos;(&apos;</span>; <span class="hljs-keyword">then</span>
+        tmp=`parse_expr`
+        <span class="hljs-keyword">if</span> ! match <span class="hljs-string">&apos;)&apos;</span>; <span class="hljs-keyword">then</span>
+            <span class="hljs-built_in">print</span>_error <span class="hljs-string">&quot;Error: missing &apos;)&apos;&quot;</span>
+            <span class="hljs-built_in">set</span>_err
+        <span class="hljs-keyword">fi</span>
+        <span class="hljs-built_in">echo</span> <span class="hljs-variable">$tmp</span>
+        <span class="hljs-built_in">return</span>
+    <span class="hljs-keyword">fi</span>
+    <span class="hljs-keyword">if</span> [[ <span class="hljs-variable">${toks[`get_cnt`]}</span> == +([<span class="hljs-number">0</span>-<span class="hljs-number">9</span>]) ]]; <span class="hljs-keyword">then</span>
+        <span class="hljs-built_in">echo</span> <span class="hljs-variable">${toks[`get_cnt`]}</span>
+        inc_cnt
+        <span class="hljs-built_in">return</span>
+    <span class="hljs-keyword">fi</span>
+    <span class="hljs-built_in">print</span>_error <span class="hljs-string">&quot;Error: unexpected character \&quot;<span class="hljs-variable">${toks[`get_cnt`]}</span>\&quot;&quot;</span>
+    <span class="hljs-built_in">set</span>_err
+}
+<span class="hljs-function"><span class="hljs-title">parse_power</span></span>() { 
+    <span class="hljs-built_in">local</span> lhs rhs
+    lhs=`parse_primary`
+    <span class="hljs-keyword">if</span> match <span class="hljs-string">&apos;**&apos;</span>; <span class="hljs-keyword">then</span>
+        rhs=`parse_unary`
+        <span class="hljs-built_in">echo</span> $((lhs ** rhs))
+        <span class="hljs-built_in">return</span>
+    <span class="hljs-keyword">fi</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-variable">$lhs</span>
+}
+<span class="hljs-function"><span class="hljs-title">parse_unary</span></span>() { 
+    <span class="hljs-built_in">local</span> tmp 
+    <span class="hljs-keyword">if</span> match <span class="hljs-string">&apos;+&apos;</span>; <span class="hljs-keyword">then</span>
+        <span class="hljs-built_in">let</span> tmp=+`parse_unary`
+        <span class="hljs-built_in">echo</span> <span class="hljs-variable">$tmp</span>
+        <span class="hljs-built_in">return</span>
+    <span class="hljs-keyword">fi</span>
+    <span class="hljs-keyword">if</span> match <span class="hljs-string">&apos;-&apos;</span>; <span class="hljs-keyword">then</span>
+        <span class="hljs-built_in">let</span> tmp=-`parse_unary`
+        <span class="hljs-built_in">echo</span> <span class="hljs-variable">$tmp</span>
+        <span class="hljs-built_in">return</span>
+    <span class="hljs-keyword">fi</span>
+    <span class="hljs-built_in">echo</span> `parse_power`
+}
+<span class="hljs-function"><span class="hljs-title">parse_term</span></span>() { 
+    <span class="hljs-built_in">local</span> lhs rhs
+    lhs=`parse_unary`
+    <span class="hljs-keyword">while</span> (( ! `get_err` )); <span class="hljs-keyword">do</span>
+        <span class="hljs-keyword">if</span> match <span class="hljs-string">&apos;*&apos;</span>; <span class="hljs-keyword">then</span>
+            lhs=$(( lhs * `parse_unary` ))
+        <span class="hljs-keyword">elif</span> match <span class="hljs-string">&apos;/&apos;</span>; <span class="hljs-keyword">then</span>
+            rhs=`parse_unary`
+            <span class="hljs-keyword">if</span> (( rhs == <span class="hljs-number">0</span> )); <span class="hljs-keyword">then</span> 
+                <span class="hljs-built_in">print</span>_error <span class="hljs-string">&quot;Error: division by zero&quot;</span>
+                <span class="hljs-built_in">set</span>_err
+                <span class="hljs-built_in">return</span>
+            <span class="hljs-keyword">fi</span>
+            lhs=$(( lhs / rhs ))
+        <span class="hljs-keyword">elif</span> match <span class="hljs-string">&apos;%&apos;</span>; <span class="hljs-keyword">then</span>
+            rhs=`parse_unary`
+            <span class="hljs-keyword">if</span> ((rhs == <span class="hljs-number">0</span>)); <span class="hljs-keyword">then</span>
+                <span class="hljs-built_in">print</span>_error <span class="hljs-string">&quot;Error: modulo by zero&quot;</span>
+                <span class="hljs-built_in">set</span>_err
+                <span class="hljs-built_in">return</span>
+            <span class="hljs-keyword">fi</span>
+            lhs=$(( lhs % rhs ))
+        <span class="hljs-keyword">else</span> 
+            <span class="hljs-built_in">break</span>
+        <span class="hljs-keyword">fi</span>
+    <span class="hljs-keyword">done</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-variable">$lhs</span>
+}
+<span class="hljs-function"><span class="hljs-title">parse_expr</span></span>() {
+    <span class="hljs-built_in">local</span> lhs
+    lhs=`parse_term`
+    <span class="hljs-keyword">while</span> (( ! `get_err` )); <span class="hljs-keyword">do</span>
+        <span class="hljs-keyword">if</span> match <span class="hljs-string">&apos;+&apos;</span>; <span class="hljs-keyword">then</span>
+            lhs=$(( lhs + `parse_term` ))
+        <span class="hljs-keyword">elif</span> match <span class="hljs-string">&apos;-&apos;</span>; <span class="hljs-keyword">then</span>
+            lhs=$(( lhs - `parse_term` ))
+        <span class="hljs-keyword">else</span>
+            <span class="hljs-built_in">break</span>
+        <span class="hljs-keyword">fi</span>
+    <span class="hljs-keyword">done</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-variable">$lhs</span>
 }
 
-<span class="hljs-comment">#####################################</span>
-
-<span class="hljs-function"><span class="hljs-title">error</span></span>()
-{
-    <span class="hljs-built_in">echo</span> -en <span class="hljs-string">&quot;\nError: &quot;</span>
-    <span class="hljs-keyword">for</span> (( i = <span class="hljs-number">0</span>; i &lt;= cnt + <span class="hljs-variable">$1</span>; i++ )); <span class="hljs-keyword">do</span>
-        <span class="hljs-built_in">echo</span> -n <span class="hljs-string">&quot;<span class="hljs-variable">${toks[i]}</span> &quot;</span>
-    <span class="hljs-keyword">done</span>
-    <span class="hljs-built_in">echo</span> -n <span class="hljs-string">&quot;  &lt;---&quot;</span>
-    [[ paren <span class="hljs-operator">-gt</span> <span class="hljs-number">0</span> &amp;&amp; <span class="hljs-variable">${FUNCNAME[1]}</span> == main ]] &amp;&amp; <span class="hljs-built_in">echo</span> -n <span class="hljs-string">&apos; &quot;)&quot;&apos;</span>
-    <span class="hljs-built_in">echo</span>
-    <span class="hljs-built_in">exit</span> <span class="hljs-number">1</span>
-} &gt;&amp;<span class="hljs-number">2</span>
-<span class="hljs-function"><span class="hljs-title">add</span></span>()
-{
-    <span class="hljs-built_in">local</span> num1 num2 op next
-    pop stack num1
-    <span class="hljs-keyword">while</span> [[ <span class="hljs-variable">${toks[cnt + 1]}</span> == @(+|-) ]]; <span class="hljs-keyword">do</span>
-        op=<span class="hljs-variable">${toks[++cnt]}</span>
-        <span class="hljs-built_in">let</span> cnt++; pexp
-        pop stack num2
-        <span class="hljs-keyword">case</span> <span class="hljs-variable">${toks[cnt + 1]}</span> <span class="hljs-keyword">in</span>
-            <span class="hljs-string">&apos;*&apos;</span> | / | %) next=<span class="hljs-string">&quot;mul&quot;</span> ;;
-            <span class="hljs-string">&apos;**&apos;</span>) next=<span class="hljs-string">&quot;pow&quot;</span> ;;
-        <span class="hljs-keyword">esac</span>
-        <span class="hljs-keyword">if</span> [[ -n <span class="hljs-variable">$next</span> ]]; <span class="hljs-keyword">then</span>
-            push stack <span class="hljs-variable">$num2</span>
-            <span class="hljs-variable">$next</span>
-            pop stack num2
-        <span class="hljs-keyword">fi</span>
-        num1=$(( num1 <span class="hljs-variable">$op</span> num2 ))       <span class="hljs-comment"># &#xB367;&#xC148;, &#xBE84;&#xC148; &#xC5F0;&#xC0B0;</span>
-    <span class="hljs-keyword">done</span>
-    push stack <span class="hljs-variable">$num1</span>
-}
-<span class="hljs-function"><span class="hljs-title">mul</span></span>()
-{
-    <span class="hljs-built_in">local</span> num1 num2 op
-    pop stack num1
-    <span class="hljs-keyword">while</span> [[ <span class="hljs-variable">${toks[cnt + 1]}</span> == @(<span class="hljs-string">&apos;*&apos;</span>|/|%) ]]; <span class="hljs-keyword">do</span>
-        op=<span class="hljs-variable">${toks[++cnt]}</span>
-        <span class="hljs-built_in">let</span> cnt++; pexp 
-        pop stack num2
-        <span class="hljs-keyword">if</span> [[ <span class="hljs-variable">${toks[cnt + 1]}</span> == <span class="hljs-string">&apos;**&apos;</span> ]]; <span class="hljs-keyword">then</span>
-            push stack <span class="hljs-variable">$num2</span>
-            pow
-            pop stack num2
-        <span class="hljs-keyword">fi</span>
-        num1=$(( num1 <span class="hljs-variable">$op</span> num2 ))       <span class="hljs-comment"># &#xACF1;&#xC148;, &#xB098;&#xB217;&#xC148;, &#xB098;&#xBA38;&#xC9C0; &#xC5F0;&#xC0B0;</span>
-    <span class="hljs-keyword">done</span>
-    push stack <span class="hljs-variable">$num1</span>
-}
-<span class="hljs-function"><span class="hljs-title">pow</span></span>()
-{
-    <span class="hljs-built_in">local</span> num1 num2 op
-    pop stack num1
-    op=<span class="hljs-variable">${toks[++cnt]}</span>
-    <span class="hljs-built_in">let</span> cnt++; pexp 
-    [[ <span class="hljs-variable">${toks[cnt + 1]}</span> == <span class="hljs-string">&apos;**&apos;</span> ]] &amp;&amp; pow
-    pop stack num2
-    num1=$(( num1 <span class="hljs-variable">$op</span> num2 ))           <span class="hljs-comment"># &#xAC70;&#xB4ED;&#xC81C;&#xACF1; &#xC5F0;&#xC0B0;</span>
-    push stack <span class="hljs-variable">$num1</span>
-}
-<span class="hljs-function"><span class="hljs-title">pexp</span></span>() 
-{
-    <span class="hljs-built_in">local</span> minus num1
-    <span class="hljs-keyword">for</span> (( ; cnt &lt; len; cnt++ )); <span class="hljs-keyword">do</span>
-        <span class="hljs-keyword">case</span> <span class="hljs-variable">${toks[cnt]}</span> <span class="hljs-keyword">in</span>
-            *[<span class="hljs-number">0</span>-<span class="hljs-number">9</span>]*)
-                push stack <span class="hljs-string">&quot;<span class="hljs-variable">$minus</span><span class="hljs-variable">${toks[cnt]}</span>&quot;</span>
-                <span class="hljs-built_in">return</span> ;;
-            + | -)
-                <span class="hljs-keyword">if</span> [[ -z <span class="hljs-variable">$minus</span> &amp;&amp; <span class="hljs-variable">${toks[cnt]}</span> == <span class="hljs-string">&apos;-&apos;</span> ]] ||
-                    [[ <span class="hljs-variable">$minus</span> == <span class="hljs-string">&apos;-&apos;</span> &amp;&amp; <span class="hljs-variable">${toks[cnt]}</span> == <span class="hljs-string">&apos;+&apos;</span> ]]; <span class="hljs-keyword">then</span>
-                    minus=<span class="hljs-string">&quot;-&quot;</span>
-                <span class="hljs-keyword">else</span>
-                    minus=<span class="hljs-string">&quot;&quot;</span>
-                <span class="hljs-keyword">fi</span> ;;
-            <span class="hljs-string">&apos;(&apos;</span>)
-                <span class="hljs-built_in">let</span> cnt++ paren++
-                parse 
-                pop stack num1
-                push stack $(( <span class="hljs-variable">$minus</span> num1 ))
-                <span class="hljs-built_in">return</span> ;;
-            *)
-                error <span class="hljs-number">0</span>
-        <span class="hljs-keyword">esac</span>
-    <span class="hljs-keyword">done</span>
-}
-<span class="hljs-function"><span class="hljs-title">parse</span></span>()
-{
-    pexp
-    <span class="hljs-keyword">while</span> (( cnt + <span class="hljs-number">1</span> &lt; len )); <span class="hljs-keyword">do</span>
-        <span class="hljs-keyword">case</span> <span class="hljs-variable">${toks[cnt + 1]}</span> <span class="hljs-keyword">in</span>
-            + | -) add ;;
-            <span class="hljs-string">&apos;*&apos;</span> | / | %) mul ;;
-            <span class="hljs-string">&apos;**&apos;</span>) pow ;;
-            <span class="hljs-string">&apos;)&apos;</span>) 
-                <span class="hljs-built_in">let</span> cnt++ paren--
-                (( paren &lt; <span class="hljs-number">0</span> )) &amp;&amp; error <span class="hljs-number">0</span>
-                <span class="hljs-built_in">return</span> ;;
-            *) error <span class="hljs-number">1</span>
-        <span class="hljs-keyword">esac</span>
-    <span class="hljs-keyword">done</span>
-}
-parse
-(( paren &gt; <span class="hljs-number">0</span> )) &amp;&amp; error <span class="hljs-number">0</span>
-pop stack res
-<span class="hljs-built_in">echo</span> <span class="hljs-variable">$res</span>
+<span class="hljs-built_in">echo</span> `parse_expr`
 </code></pre>
 <blockquote>
 <p>awk &#xB85C; &#xC791;&#xC131;&#xD55C; &#xC5ED;&#xD3F4;&#xB780;&#xB4DC; &#xD45C;&#xAE30;&#xBC95; (RPN, Reverse Polish Notation) &#xD30C;&#xC11C;<br><a href="https://mug896.github.io/awk-script/operators.html#quiz" target="_blank">https://mug896.github.io/awk-script/operators.html#quiz</a><br>C &#xC5B8;&#xC5B4;&#xB97C; &#xC774;&#xC6A9;&#xD55C; recursive descent parser &#xC640; LR parser<br><a href="https://github.com/mug896/arithmetic-parser" target="_blank">https://github.com/mug896/arithmetic-parser</a></p>
