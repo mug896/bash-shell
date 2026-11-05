@@ -1449,9 +1449,9 @@ result=`parse_expr`
 
 cnt=`get_cnt` len=<span class="hljs-variable">${#toks[@]}</span>
 <span class="hljs-keyword">if</span> (( cnt != len )); <span class="hljs-keyword">then</span>
-    <span class="hljs-built_in">echo</span> -n <span class="hljs-string">&quot;Error: unexpected input: &quot;</span>
+    <span class="hljs-built_in">echo</span> -n <span class="hljs-string">&quot;Error: unexpected input:&quot;</span>
     <span class="hljs-keyword">for</span> (( i = cnt; i &lt; len; i++ )); <span class="hljs-keyword">do</span>
-        <span class="hljs-built_in">echo</span> -n <span class="hljs-string">&quot;<span class="hljs-variable">${toks[i]}</span> &quot;</span>
+        <span class="hljs-built_in">echo</span> -n <span class="hljs-string">&quot; <span class="hljs-variable">${toks[i]}</span>&quot;</span>
     <span class="hljs-keyword">done</span>
     <span class="hljs-built_in">echo</span>
     <span class="hljs-built_in">set</span>_err
