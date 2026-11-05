@@ -1310,6 +1310,11 @@ $ python3 -c <span class="hljs-string">&apos;print( 1 + (((((2 * 3) + 1) / 2) + 
 
 <span class="hljs-shebang">#!/bin/bash
 </span>
+<span class="hljs-keyword">if</span> [ <span class="hljs-variable">$#</span> = <span class="hljs-number">0</span> ]; <span class="hljs-keyword">then</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-operator">-e</span> <span class="hljs-string">&quot;\nUsage: <span class="hljs-variable">${0##*/}</span> \&quot;expression\&quot;\n&quot;</span> &gt;&amp;<span class="hljs-number">2</span>
+    <span class="hljs-built_in">exit</span> <span class="hljs-number">1</span>
+<span class="hljs-keyword">fi</span>
+
 <span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;rm -f &quot;$cnt_file&quot; &quot;$err_file&quot;&apos;</span> EXIT
 
 str=<span class="hljs-variable">$1</span> toks=()
@@ -1439,11 +1444,6 @@ err_file=`mktemp -p /dev/shm`
     <span class="hljs-keyword">done</span>
     <span class="hljs-built_in">echo</span> <span class="hljs-variable">$lhs</span>
 }
-
-<span class="hljs-keyword">if</span> [ <span class="hljs-variable">$#</span> = <span class="hljs-number">0</span> ]; <span class="hljs-keyword">then</span>
-    <span class="hljs-built_in">echo</span> <span class="hljs-operator">-e</span> <span class="hljs-string">&quot;\nUsage: <span class="hljs-variable">${0##*/}</span> \&quot;expression\&quot;&quot;</span> &gt;&amp;<span class="hljs-number">2</span>
-    <span class="hljs-built_in">exit</span> <span class="hljs-number">1</span>
-<span class="hljs-keyword">fi</span>
 
 result=`parse_expr`
 
