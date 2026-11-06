@@ -1304,7 +1304,7 @@ mysql&gt; LOAD DATA INFILE <span class="hljs-string">&apos;/tmp/mypipe&apos;</sp
 <pre><code class="lang-bash">$ mkfifo mypipe
 $ nc <span class="hljs-operator">-l</span> localhost <span class="hljs-number">8080</span> &lt; mypipe | nc korea.gnu.org <span class="hljs-number">80</span> &gt; mypipe
 
-$ nc <span class="hljs-operator">-l</span> localhost <span class="hljs-number">8080</span> &lt; mypipe | nc ftp.debian.com <span class="hljs-number">80</span> &gt; mypipe
+$ nc <span class="hljs-operator">-l</span> localhost <span class="hljs-number">8080</span> &lt; mypipe | curl -is https://www.google.com &gt; mypipe
 </code></pre>
 <p>&#xC774;&#xB807;&#xAC8C; named pipe &#xB97C; &#xC774;&#xC6A9;&#xD558;&#xBA74; &#xAE30;&#xC874;&#xC758; <code>|</code> &#xD30C;&#xC774;&#xD504;&#xB97C; &#xD1B5;&#xD574;&#xC11C; &#xD558;&#xC9C0; &#xBABB;&#xD558;&#xB294; &#xC791;&#xC5C5;&#xB4E4;&#xC744; &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <h2 id="pipe-&#xB294;-fifo">Pipe &#xB294; FIFO</h2>
