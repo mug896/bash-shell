@@ -1326,13 +1326,11 @@ value=
             input=<span class="hljs-variable">${input#&quot;$token&quot;}</span>
             continue
         fi
-        # Power operator
         if [[ <span class="hljs-variable">$input</span> == &quot;</span>**<span class="hljs-string">&quot;* ]]; then
             tokens+=( &quot;</span>**<span class="hljs-string">&quot; )
             input=<span class="hljs-variable">${input:2}</span>
             continue
         fi
-        # Single-character operators and parentheses
         token=<span class="hljs-variable">${input:0:1}</span>
         case <span class="hljs-variable">$token</span> in
             &apos;+&apos; | &apos;-&apos; | &apos;*&apos; | &apos;/&apos; | &apos;%&apos; | &apos;(&apos; | &apos;)&apos;)
