@@ -1351,33 +1351,32 @@ consume() {
 }
 calc() {
     local a=<span class="hljs-variable">$1</span> op=<span class="hljs-variable">$2</span> b=<span class="hljs-variable">$3</span>
-    awk -v a=&quot;</span><span class="hljs-variable">$a</span><span class="hljs-string">&quot; -v b=&quot;</span><span class="hljs-variable">$b</span><span class="hljs-string">&quot; -v op=&quot;</span><span class="hljs-variable">$op</span><span class="hljs-string">&quot; -f - &lt;&lt;\EOF
-BEGIN {
-    if (op == &quot;</span>+<span class="hljs-string">&quot;)      r = a + b
-    else if (op == &quot;</span>-<span class="hljs-string">&quot;) r = a - b
-    else if (op == &quot;</span>*<span class="hljs-string">&quot;) r = a * b
-    else if (op == &quot;</span>/<span class="hljs-string">&quot;) {
-        if (b == 0) {
-            print &quot;</span>Error: division by zero<span class="hljs-string">&quot; &gt; &quot;</span>/dev/stderr<span class="hljs-string">&quot;
+    awk -v a=&quot;</span><span class="hljs-variable">$a</span><span class="hljs-string">&quot; -v b=&quot;</span><span class="hljs-variable">$b</span><span class="hljs-string">&quot; -v op=&quot;</span><span class="hljs-variable">$op</span><span class="hljs-string">&quot; &apos;
+    BEGIN {
+        if (op == &quot;</span>+<span class="hljs-string">&quot;)      r = a + b
+        else if (op == &quot;</span>-<span class="hljs-string">&quot;) r = a - b
+        else if (op == &quot;</span>*<span class="hljs-string">&quot;) r = a * b
+        else if (op == &quot;</span>/<span class="hljs-string">&quot;) {
+            if (b == 0) {
+                print &quot;</span>Error: division by zero<span class="hljs-string">&quot; &gt; &quot;</span>/dev/stderr<span class="hljs-string">&quot;
+                exit 1
+            }
+            r = a / b
+        }
+        else if (op == &quot;</span>%<span class="hljs-string">&quot;) {
+            if (b == 0) {
+                print &quot;</span>Error: modulo by zero<span class="hljs-string">&quot; &gt; &quot;</span>/dev/stderr<span class="hljs-string">&quot;
+                exit 1
+            }
+            r = a % b
+        }
+        else if (op == &quot;</span>**<span class="hljs-string">&quot;) r = a ^ b
+        else {
+            print &quot;</span>Unknown operator<span class="hljs-string">&quot; &gt; &quot;</span>/dev/stderr<span class="hljs-string">&quot;
             exit 1
         }
-        r = a / b
-    }
-    else if (op == &quot;</span>%<span class="hljs-string">&quot;) {
-        if (b == 0) {
-            print &quot;</span>Error: modulo by zero<span class="hljs-string">&quot; &gt; &quot;</span>/dev/stderr<span class="hljs-string">&quot;
-            exit 1
-        }
-        r = a % b
-    }
-    else if (op == &quot;</span>**<span class="hljs-string">&quot;) r = a ^ b
-    else {
-        print &quot;</span>Unknown operator<span class="hljs-string">&quot; &gt; &quot;</span>/dev/stderr<span class="hljs-string">&quot;
-        exit 1
-    }
-    printf &quot;</span>%.<span class="hljs-number">17</span>g\n<span class="hljs-string">&quot;, r
-}
-EOF
+        printf &quot;</span>%.<span class="hljs-number">17</span>g\n<span class="hljs-string">&quot;, r
+    }&apos;
 }
 # ------------------------------------------
 # Grammar:
