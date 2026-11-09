@@ -1660,20 +1660,20 @@ options=( <span class="hljs-variable">$string</span> )
 <span class="hljs-keyword">for</span> ((i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-variable">${#options[*]}</span>; i++)); <span class="hljs-keyword">do</span>
     option=<span class="hljs-variable">${options[i]}</span>
     <span class="hljs-keyword">if</span> [[ <span class="hljs-variable">$option</span> =~ (\[(no-|dont-)]) ]]; <span class="hljs-keyword">then</span>
-        option1=<span class="hljs-variable">${option/${BASH_REMATCH[1]/[/\\[}</span>/}    <span class="hljs-comment"># --foo</span>
-        option2=<span class="hljs-variable">${option//[][]/}</span>                       <span class="hljs-comment"># --no-foo</span>
-        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$option1</span> <span class="hljs-variable">$option2</span>&quot;</span>
-    <span class="hljs-keyword">else</span>
-        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$option</span>&quot;</span>
-    <span class="hljs-keyword">fi</span>
-<span class="hljs-keyword">done</span>
+        option1=<span class="hljs-variable">${option/&quot;${BASH_REMATCH[1]}</span><span class="hljs-string">&quot;/}        # --foo
+        option2=<span class="hljs-variable">${option//[][]/}</span>                       # --no-foo
+        echo &quot;</span><span class="hljs-variable">$option1</span> <span class="hljs-variable">$option2</span><span class="hljs-string">&quot;
+    else
+        echo &quot;</span><span class="hljs-variable">$option</span><span class="hljs-string">&quot;
+    fi
+done
 
-<span class="hljs-comment">########  &#xC2E4;&#xD589; &#xACB0;&#xACFC;  ########</span>
+########  &#xC2E4;&#xD589; &#xACB0;&#xACFC;  ########
 
 --foo --no-foo
 --bar --dont-bar
 --zoo
-</code></pre>
+</span></code></pre>
 <h4 id="&#xD655;&#xC7A5;-&#xD328;&#xD134;">&#xD655;&#xC7A5; &#xD328;&#xD134;</h4>
 <p><code>[ ]</code> &#xC77C;&#xBC18; &#xBA85;&#xB839;&#xACFC; &#xB2EC;&#xB9AC; <code>[[ ]]</code> &#xC5D0;&#xC11C;&#xB294; <a href="pattern_matching.html#extended_pattern">&#xD655;&#xC7A5;&#xD328;&#xD134;</a> &#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ COLOR=<span class="hljs-string">&quot;RED&quot;</span>
