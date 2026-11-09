@@ -1304,9 +1304,8 @@ $ python3 -c <span class="hljs-string">&apos;print( 1 + (((((2 * 3) + 1) / 2) + 
 <span class="hljs-number">41.5</span>
 </code></pre>
 <pre><code class="lang-sh"><span class="hljs-shebang">#!/usr/bin/bash</span>
-tokens=()
-pos=<span class="hljs-number">0</span>
-value=
+tokens=() pos=<span class="hljs-number">0</span> value=
+
 <span class="hljs-function"><span class="hljs-title">error</span></span>() {
     <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Error: $*&quot;</span> &gt;&amp;<span class="hljs-number">2</span>
     <span class="hljs-built_in">exit</span> <span class="hljs-number">1</span>
