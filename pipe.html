@@ -1355,6 +1355,20 @@ $ ps f -t pts/<span class="hljs-number">14</span>
 <span class="hljs-number">27251</span> pts/<span class="hljs-number">14</span>   S+     <span class="hljs-number">0</span>:<span class="hljs-number">00</span>  \_ sleep <span class="hljs-number">27251</span>   <span class="hljs-comment"># PID &#xC640; $BASHPID &#xAC12;&#xC774; &#xAC19;&#xB2E4;</span>
 <span class="hljs-number">27252</span> pts/<span class="hljs-number">14</span>   S+     <span class="hljs-number">0</span>:<span class="hljs-number">00</span>  \_ sleep <span class="hljs-number">27252</span>
 <span class="hljs-number">27253</span> pts/<span class="hljs-number">14</span>   S+     <span class="hljs-number">0</span>:<span class="hljs-number">00</span>  \_ sleep <span class="hljs-number">27253</span>
+
+<span class="hljs-comment"># Terminal 1</span>
+$ { <span class="hljs-built_in">echo</span>; sleep <span class="hljs-variable">$BASHPID</span> ;} | { <span class="hljs-built_in">echo</span>; sleep <span class="hljs-variable">$BASHPID</span>;} | { <span class="hljs-built_in">echo</span>; sleep <span class="hljs-variable">$BASHPID</span>; }
+
+<span class="hljs-comment"># Terminal 2</span>
+$ ps f -t pts/<span class="hljs-number">3</span>
+    PID TTY      STAT   TIME COMMAND
+<span class="hljs-number">2322034</span> pts/<span class="hljs-number">3</span>    Ss     <span class="hljs-number">0</span>:<span class="hljs-number">00</span> /bin/bash
+<span class="hljs-number">3833501</span> pts/<span class="hljs-number">3</span>    S+     <span class="hljs-number">0</span>:<span class="hljs-number">00</span>  \_ /bin/bash
+<span class="hljs-number">3833506</span> pts/<span class="hljs-number">3</span>    S+     <span class="hljs-number">0</span>:<span class="hljs-number">00</span>  |   \_ sleep <span class="hljs-number">3833501</span>
+<span class="hljs-number">3833502</span> pts/<span class="hljs-number">3</span>    S+     <span class="hljs-number">0</span>:<span class="hljs-number">00</span>  \_ /bin/bash
+<span class="hljs-number">3833504</span> pts/<span class="hljs-number">3</span>    S+     <span class="hljs-number">0</span>:<span class="hljs-number">00</span>  |   \_ sleep <span class="hljs-number">3833502</span>
+<span class="hljs-number">3833503</span> pts/<span class="hljs-number">3</span>    S+     <span class="hljs-number">0</span>:<span class="hljs-number">00</span>  \_ /bin/bash
+<span class="hljs-number">3833505</span> pts/<span class="hljs-number">3</span>    S+     <span class="hljs-number">0</span>:<span class="hljs-number">00</span>      \_ sleep <span class="hljs-number">3833503</span>
 </code></pre>
 <h3 id="&#xD30C;&#xC774;&#xD504;&#xB85C;-&#xC5F0;&#xACB0;&#xB41C;-shell-&#xC758;-fd">&#xD30C;&#xC774;&#xD504;&#xB85C; &#xC5F0;&#xACB0;&#xB41C; shell &#xC758; FD</h3>
 <p>&#xB2E4;&#xC74C;&#xC740; &#xD30C;&#xC774;&#xD504;&#xB85C; &#xC5F0;&#xACB0;&#xB41C; shell &#xC758; FD (File Descriptor) &#xC0C1;&#xD0DC;&#xC785;&#xB2C8;&#xB2E4;.
