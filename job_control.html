@@ -1482,16 +1482,16 @@ main end ...
 tmpfile=`mktemp`
 number_of_<span class="hljs-built_in">jobs</span>=<span class="hljs-number">10</span>
 
-<span class="hljs-keyword">do</span>_job() (
+<span class="hljs-function"><span class="hljs-title">do_job</span></span>() {
     <span class="hljs-built_in">echo</span> start job <span class="hljs-variable">$i</span>...
     sleep $((RANDOM % <span class="hljs-number">5</span>)) 
     <span class="hljs-built_in">echo</span> ...done job <span class="hljs-variable">$i</span>
     <span class="hljs-built_in">exit</span> $((RANDOM % number_of_<span class="hljs-built_in">jobs</span>))
-)
+}
 
 <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> $( seq <span class="hljs-variable">$number_of_jobs</span> ); <span class="hljs-keyword">do</span>
 (
-    <span class="hljs-keyword">do</span>_job
+    (<span class="hljs-keyword">do</span>_job)
     <span class="hljs-built_in">echo</span> job<span class="hljs-variable">$i</span> : <span class="hljs-built_in">exit</span> status : $? &gt;&gt; <span class="hljs-variable">$tmpfile</span>
 ) &amp;
 <span class="hljs-keyword">done</span>
